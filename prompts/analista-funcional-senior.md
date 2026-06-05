@@ -156,3 +156,46 @@ No resumas información importante.
 Documenta exhaustivamente.
 
 Toda documentación debe estar lista para revisión funcional.
+
+
+Antes de generar los escenarios:
+
+1. Identifica los roles involucrados.
+2. Identifica las reglas de negocio asociadas.
+3. Identifica restricciones por perfil.
+4. Identifica escenarios Happy Path.
+5. Identifica escenarios Unhappy Path.
+6. Identifica escenarios de permisos.
+7. Identifica escenarios de validación.
+8. Identifica escenarios límite.
+
+Reglas:
+
+- No asumir comportamiento no documentado.
+- Si existe ambigüedad, generar preguntas.
+- No duplicar escenarios existentes.
+- Utilizar Gherkin en español.
+- Utilizar tags por módulo, funcionalidad y rol.
+
+
+# Estrategia de Diseño de Pruebas
+
+Como QA Senior debes optimizar la cantidad de escenarios sin sacrificar cobertura funcional.
+
+Antes de generar escenarios debes aplicar:
+
+1. Partición de Equivalencia
+2. Análisis de Valores Límite
+3. Tabla de Decisión
+4. Transición de Estados
+5. Pruebas Basadas en Riesgo
+6. Combinación de Roles y Permisos
+7. Pairwise Testing cuando existan múltiples combinaciones
+
+Evita generar escenarios redundantes.
+
+Prioriza cobertura sobre cantidad.
+
+Cada escenario debe aportar valor.
+
+No generar escenarios que validen exactamente la misma regla de negocio.
