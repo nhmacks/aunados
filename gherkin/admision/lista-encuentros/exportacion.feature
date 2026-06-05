@@ -139,19 +139,21 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y todos deben ser de mi usuario y mi sede
 
   # ========================================================================
-  # FORMATO Y ESTRUCTURA: CALIDAD DE DATOS
+  # FORMATO Y ESTRUCTURA: CALIDAD DE DATOS POR ROL
   # Cobertura: RN-EXP-09, Sección 12 y 13 de docs
+  # NOTA: Validar con equipo si RN-EXP-09 (estructura estándar) significa
+  # mismas columnas para todos o columnas según visibilidad de grilla
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: EXP-07 - Validar formato y estructura estándar del archivo Excel
-    Dado que descargo un archivo de exportación con múltiples registros
+  Esquema del escenario: EXP-07 - Validar formato y estructura del archivo Excel según rol
+    Dado que soy un usuario con rol "<rol>"
+    Y descargo un archivo de exportación con múltiples registros
     Cuando abro el archivo Excel
-    Entonces debe cumplir con:
+    Entonces debe cumplir con el formato estándar:
       | Aspecto            | Especificación                                        |
       | Extensión          | .xlsx                                                 |
       | Nombre             | Lista de Encuentros de Admisión.xlsx                  |
-      | Columnas           | 14 columnas en el orden especificado                  |
       | Encabezados        | Fila 1 con nombres de columnas                        |
       | Datos              | Desde fila 2 en adelante                              |
       | Formato Fecha      | AAAA-MM-DD (ej: 2026-06-03)                          |
@@ -160,22 +162,18 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | Sustentos múltiples| Separados por punto y coma (;)                       |
       | Formato Monto      | Decimal con separadores correctos                     |
     Y debe poder abrirse en Microsoft Excel, Google Sheets y LibreOffice
-    Y las 14 columnas deben ser:
-      | Orden | Columna                     |
-      | 1     | Sede                        |
-      | 2     | Encuentro                   |
-      | 3     | Estado                      |
-      | 4     | NHC                         |
-      | 5     | Apellidos                   |
-      | 6     | Nombres                     |
-      | 7     | Fecha de Apertura           |
-      | 8     | Usuario                     |
-      | 9     | Garante                     |
-      | 10    | Prioridad                   |
-      | 11    | Sustentos Administrativos   |
-      | 12    | Sustentos Médicos           |
-      | 13    | Sustentos de Proceso        |
-      | 14    | Monto                       |
+    Y el archivo debe contener exactamente <cantidad_columnas> columnas
+    Y las columnas deben ser: <columnas_esperadas>
+
+    Ejemplos:
+      | rol                      | cantidad_columnas | columnas_esperadas                                                                                                                                                                              |
+      | Superusuario de Admisión | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
+      | Gestor de A              | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
+      | Ejecutivo de Admisión    | 9                 | Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Prioridad, Garante, Tipo de Encuentro                                                                                           |
+
+  # NOTA IMPORTANTE: Si RN-EXP-09 se interpreta como "todos los roles exportan las mismas 14 columnas",
+  # entonces el Ejecutivo exportaría columnas que NO puede ver en la grilla (Sede, Usuario, Sustentos, Monto).
+  # Esto debe validarse desde perspectiva de seguridad y UX antes de implementación.
 
   # ========================================================================
   # CASOS EDGE: VALORES ESPECIALES
