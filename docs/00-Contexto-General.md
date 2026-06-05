@@ -127,21 +127,57 @@ La bandeja es determinada exclusivamente por el Job de Admisión.
 
 ## 11. Roles del Sistema
 
-### Superusuario de Admisión
+### 11.1 Roles de Admisión
+
+#### Superusuario de Admisión
 
 Visualiza todos los encuentros y puede gestionar estados.
 
-### Gestor de A
+Acceso a:
+- Cuadro de Control
+- Encuentros Devueltos
+- Lista de Encuentros
+
+#### Gestor de A
 
 Posee los mismos permisos que el Superusuario de Admisión.
 
-### Ejecutivo de Admisión
+#### Ejecutivo de Admisión
 
 Visualiza únicamente:
 
 - Encuentros creados por él.
 - Encuentros de su sede.
 - Encuentros clasificados para Admisión.
+
+Acceso a:
+- Encuentros Devueltos
+- Lista de Encuentros
+- Cambio de Beneficio
+
+### 11.2 Roles de Facturación
+
+#### Responsable de Facturación
+
+Perfil con acceso operativo sobre la bandeja de Facturación.
+
+Responsable de asignar encuentros a los Ejecutivos de Facturación.
+
+Acceso a:
+- Asignaciones Masivas
+- Lista de Encuentros (Bandeja de Facturación)
+- Cuadro de Control
+
+#### Ejecutivo de Facturación
+
+Perfil operativo que procesa la facturación de encuentros asignados.
+
+Visualiza únicamente:
+- Encuentros asignados a su usuario.
+- Encuentros clasificados para Facturación.
+
+Acceso a:
+- Pendientes por Facturar
 
 ## 12. Principios Funcionales
 

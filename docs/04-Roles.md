@@ -12,9 +12,16 @@ Definir los perfiles autorizados para interactuar con las bandejas operativas de
 
 Actualmente el sistema contempla los siguientes perfiles:
 
+## 2.1 Roles de Admisión
+
 - Superusuario de Admisión
 - Gestor de A
 - Ejecutivo de Admisión
+
+## 2.2 Roles de Facturación
+
+- Responsable de Facturación
+- Ejecutivo de Facturación
 
 ---
 
@@ -48,7 +55,17 @@ Puede gestionar encuentros clasificados en Admisión independientemente de la se
 
 ---
 
-## 4.2 Visibilidad
+## 4.2 Funcionalidades Disponibles
+
+El Superusuario de Admisión tiene acceso a las siguientes funcionalidades:
+
+- Cuadro de Control
+- Encuentros Devueltos
+- Lista de Encuentros
+
+---
+
+## 4.3 Visibilidad
 
 Puede visualizar:
 
@@ -61,7 +78,7 @@ Puede visualizar:
 
 ---
 
-## 4.3 Lista de Encuentros
+## 4.4 Lista de Encuentros
 
 Visualiza las columnas:
 
@@ -83,7 +100,7 @@ Visualiza las columnas:
 
 ---
 
-## 4.4 Filtros Disponibles
+## 4.5 Filtros Disponibles
 
 Puede utilizar:
 
@@ -99,7 +116,7 @@ Puede utilizar:
 
 ---
 
-## 4.5 Ordenamiento
+## 4.6 Ordenamiento
 
 Puede ordenar por:
 
@@ -115,7 +132,7 @@ Puede ordenar por:
 
 ---
 
-## 4.6 Exportación
+## 4.7 Exportación
 
 Puede descargar:
 
@@ -127,7 +144,7 @@ La descarga es inmediata.
 
 ---
 
-## 4.7 Detalle del Encuentro
+## 4.8 Detalle del Encuentro
 
 Puede visualizar:
 
@@ -160,7 +177,7 @@ Puede visualizar:
 
 ---
 
-## 4.8 Cambio de Estado
+## 4.9 Cambio de Estado
 
 Puede asignar:
 
@@ -216,7 +233,17 @@ Perfil operativo encargado de gestionar encuentros creados por él mismo dentro 
 
 ---
 
-## 6.2 Restricciones de Visibilidad
+## 6.2 Funcionalidades Disponibles
+
+El Ejecutivo de Admisión tiene acceso a las siguientes funcionalidades:
+
+- Encuentros Devueltos
+- Lista de Encuentros
+- Cambio de Beneficio
+
+---
+
+## 6.3 Restricciones de Visibilidad
 
 Solo podrá visualizar encuentros que cumplan simultáneamente:
 
@@ -226,7 +253,7 @@ Solo podrá visualizar encuentros que cumplan simultáneamente:
 
 ---
 
-## 6.3 Lista de Encuentros
+## 6.4 Lista de Encuentros
 
 Visualiza únicamente:
 
@@ -242,7 +269,7 @@ Visualiza únicamente:
 
 ---
 
-## 6.4 Filtros Disponibles
+## 6.5 Filtros Disponibles
 
 Puede utilizar:
 
@@ -260,13 +287,13 @@ Además:
 
 ---
 
-## 6.5 Ordenamiento
+## 6.6 Ordenamiento
 
 No posee permisos de ordenamiento.
 
 ---
 
-## 6.6 Exportación
+## 6.7 Exportación
 
 La exportación es asíncrona.
 
@@ -279,7 +306,7 @@ Flujo:
 
 ---
 
-## 6.7 Detalle del Encuentro
+## 6.8 Detalle del Encuentro
 
 Puede visualizar:
 
@@ -306,7 +333,7 @@ Puede visualizar:
 
 ---
 
-## 6.8 Cambio de Estado
+## 6.9 Cambio de Estado
 
 Puede asignar:
 
@@ -320,10 +347,89 @@ Puede asignar:
 
 ---
 
-# 7. Comparativo de Roles
+# 7. Responsable de Facturación
+
+## 7.1 Descripción
+
+Perfil con acceso operativo sobre la bandeja de Facturación.
+
+Responsable de asignar encuentros a los Ejecutivos de Facturación y supervisar el proceso de facturación.
+
+---
+
+## 7.2 Funcionalidades Disponibles
+
+El Responsable de Facturación tiene acceso a las siguientes funcionalidades:
+
+- Asignaciones Masivas
+- Lista de Encuentros (Bandeja de Facturación)
+- Cuadro de Control
+
+---
+
+## 7.3 Asignaciones Masivas
+
+Permite asignar múltiples encuentros de facturación a los Ejecutivos de Facturación de forma masiva.
+
+---
+
+## 7.4 Lista de Encuentros
+
+Visualiza los encuentros clasificados en la bandeja de Facturación para poder realizar las asignaciones correspondientes.
+
+---
+
+## 7.5 Cuadro de Control
+
+Permite visualizar los encuentros que han sido asignados a cada Ejecutivo de Facturación.
+
+Facilita el seguimiento y monitoreo de la carga de trabajo distribuida.
+
+---
+
+# 8. Ejecutivo de Facturación
+
+## 8.1 Descripción
+
+Perfil operativo encargado de procesar la facturación de encuentros asignados a su usuario.
+
+---
+
+## 8.2 Funcionalidades Disponibles
+
+El Ejecutivo de Facturación tiene acceso únicamente a:
+
+- Pendientes por Facturar
+
+---
+
+## 8.3 Restricciones de Visibilidad
+
+Solo podrá visualizar:
+
+- Encuentros asignados específicamente a su usuario.
+- Encuentros clasificados para Facturación.
+
+---
+
+## 8.4 Pendientes por Facturar
+
+Visualiza únicamente los encuentros de facturación que han sido asignados a su usuario por el Responsable de Facturación.
+
+No puede visualizar encuentros de otros ejecutivos ni encuentros sin asignar.
+
+---
+
+# 9. Comparativo de Roles
+
+## 9.1 Comparativo de Roles de Admisión
 
 | Funcionalidad | Superusuario | Gestor A | Ejecutivo |
 |--------------|-------------|-----------|-----------|
+| Cuadro de Control | Sí | Sí | No |
+| Encuentros Devueltos | Sí | Sí | Sí |
+| Lista de Encuentros | Sí | Sí | Sí |
+| Cambio de Beneficio | No | No | Sí |
 | Ver todos los encuentros | Sí | Sí | No |
 | Ver encuentros propios | Sí | Sí | Sí |
 | Ver todas las sedes | Sí | Sí | No |
@@ -338,7 +444,36 @@ Puede asignar:
 
 ---
 
-# 8. Reglas de Negocio Asociadas
+## 9.2 Comparativo de Roles de Facturación
+
+| Funcionalidad | Responsable Facturación | Ejecutivo Facturación |
+|--------------|------------------------|----------------------|
+| Asignaciones Masivas | Sí | No |
+| Lista de Encuentros (Facturación) | Sí | No |
+| Cuadro de Control | Sí | No |
+| Pendientes por Facturar | No | Sí |
+| Ver encuentros asignados propios | No | Sí |
+| Ver todos los encuentros de facturación | Sí | No |
+| Asignar encuentros a ejecutivos | Sí | No |
+
+---
+
+## 9.3 Comparativo General de Funcionalidades
+
+| Funcionalidad | Área | Roles con Acceso |
+|--------------|------|------------------|
+| Cuadro de Control | Admisión | Superusuario, Gestor A |
+| Cuadro de Control | Facturación | Responsable Facturación |
+| Encuentros Devueltos | Admisión | Superusuario, Gestor A, Ejecutivo |
+| Lista de Encuentros | Admisión | Superusuario, Gestor A, Ejecutivo |
+| Lista de Encuentros | Facturación | Responsable Facturación |
+| Cambio de Beneficio | Admisión | Ejecutivo |
+| Asignaciones Masivas | Facturación | Responsable Facturación |
+| Pendientes por Facturar | Facturación | Ejecutivo Facturación |
+
+---
+
+# 10. Reglas de Negocio Asociadas
 
 - RN06
 - RN07
@@ -362,7 +497,7 @@ Puede asignar:
 
 ---
 
-# 9. Consideraciones Importantes
+# 11. Consideraciones Importantes
 
 ## CI01
 
@@ -384,9 +519,29 @@ La exportación debe respetar la visibilidad permitida para cada rol.
 
 Toda acción de cambio de estado debe quedar registrada para auditoría.
 
+## CI06
+
+El Responsable de Facturación es el único autorizado para realizar asignaciones masivas de encuentros.
+
+## CI07
+
+El Ejecutivo de Facturación solo visualiza encuentros que le han sido asignados explícitamente.
+
+## CI08
+
+El Cuadro de Control permite supervisar la distribución de carga de trabajo entre ejecutivos.
+
+## CI09
+
+La funcionalidad de Cambio de Beneficio está restringida exclusivamente al Ejecutivo de Admisión.
+
+## CI10
+
+Las asignaciones de encuentros a ejecutivos de facturación deben ser rastreables para auditoría.
+
 ---
 
-# 10. Fuente de Verdad
+# 12. Fuente de Verdad
 
 Este documento constituye la referencia oficial para:
 
