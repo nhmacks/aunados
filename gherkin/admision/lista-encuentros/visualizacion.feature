@@ -65,7 +65,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-03 - Cargar registros adicionales mediante scroll infinito
-    Dado que existen más de 50 encuentros clasificados para Admisión
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y existen más de 50 encuentros clasificados para Admisión
     Y he visualizado los primeros 50 registros
     Cuando me desplazo hasta el final de la grilla
     Entonces el sistema debe cargar automáticamente los siguientes 50 registros
@@ -74,7 +75,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: VIS-04 - Scroll infinito sin más registros disponibles
-    Dado que existen exactamente 50 encuentros clasificados para Admisión
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen exactamente 50 encuentros clasificados para Admisión
     Y he visualizado todos los 50 registros
     Cuando me desplazo hasta el final de la grilla
     Entonces el sistema no debe cargar registros adicionales
@@ -82,7 +84,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-05 - Scroll infinito con filtros activos
-    Dado que he aplicado un filtro que retorna 120 registros
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he aplicado un filtro que retorna 120 registros
     Y he visualizado los primeros 50 registros filtrados
     Cuando me desplazo hasta el final de la grilla
     Entonces el sistema debe cargar los siguientes 50 registros que cumplan el filtro
@@ -153,19 +156,22 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-10 - Visualizar contador con 1 registro
-    Dado que existe exactamente 1 encuentro clasificado para Admisión visible para mi rol
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y existe exactamente 1 encuentro clasificado para Admisión visible para mi rol
     Cuando accedo a la Lista de Encuentros
     Entonces el contador debe mostrar "1 registro encontrado"
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-11 - Visualizar contador con múltiples registros
-    Dado que existen 150 encuentros clasificados para Admisión visibles para mi rol
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen 150 encuentros clasificados para Admisión visibles para mi rol
     Cuando accedo a la Lista de Encuentros
     Entonces el contador debe mostrar "150 registros encontrados"
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-12 - Contador se actualiza al aplicar filtro
-    Dado que existen 200 encuentros clasificados para Admisión
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y existen 200 encuentros clasificados para Admisión
     Y he accedido a la Lista de Encuentros
     Y el contador muestra "200 registros encontrados"
     Cuando aplico un filtro que retorna 15 registros
@@ -174,7 +180,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-13 - Contador se actualiza al realizar búsqueda
-    Dado que existen 200 encuentros clasificados para Admisión
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y existen 200 encuentros clasificados para Admisión
     Y he accedido a la Lista de Encuentros
     Cuando realizo una búsqueda que retorna 8 registros
     Entonces el contador debe actualizarse automáticamente
@@ -182,7 +189,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-14 - Contador se actualiza al restablecer vista
-    Dado que he aplicado filtros que muestran 25 registros
+    Dado que soy un usuario con rol "Gestor de A"
+    Y he aplicado filtros que muestran 25 registros
     Y el contador muestra "25 registros encontrados"
     Cuando selecciono el botón "Restablecer Vista"
     Entonces el contador debe actualizarse
@@ -194,7 +202,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-15 - Lista vacía cuando no existen encuentros para mostrar
-    Dado que no existen encuentros clasificados para Admisión visibles para mi rol
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y no existen encuentros clasificados para Admisión visibles para mi rol
     Cuando accedo a la Lista de Encuentros
     Entonces debe mostrarse el mensaje de error funcional
     Y el mensaje debe mostrar el título "Hubo un inconveniente"
@@ -211,7 +220,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-17 - Error general al cargar la lista de encuentros
-    Dado que ocurre un error en el sistema al obtener los encuentros
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y ocurre un error en el sistema al obtener los encuentros
     Cuando accedo a la Lista de Encuentros
     Entonces debe mostrarse el mensaje de error
     Y el mensaje debe mostrar el título "Hubo un inconveniente"
@@ -223,7 +233,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-18 - Información proviene de XHIS y Job de Admisión
-    Dado que el Job de Admisión obtiene información desde XHIS
+    Dado que soy un usuario con rol "Gestor de A"
+    Y el Job de Admisión obtiene información desde XHIS
     Y el Job clasifica encuentros para Admisión
     Cuando accedo a la Lista de Encuentros
     Entonces la información mostrada debe corresponder a:
@@ -238,7 +249,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-19 - Acceder al detalle del encuentro desde la grilla
-    Dado que visualizo encuentros en la Lista de Encuentros
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y visualizo encuentros en la Lista de Encuentros
     Cuando selecciono cualquier encuentro de la grilla
     Entonces el sistema debe abrir la pantalla "Detalle del Encuentro"
     Y debe mostrar la información completa del encuentro seleccionado
@@ -249,7 +261,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-20 - Soportar miles de registros mediante paginación por scroll
-    Dado que existen 5000 encuentros clasificados para Admisión
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y existen 5000 encuentros clasificados para Admisión
     Cuando accedo a la Lista de Encuentros
     Entonces el sistema debe cargar únicamente los primeros 50 registros
     Y debe utilizar scroll infinito para cargar los siguientes registros
@@ -258,7 +271,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-21 - Evitar cargas completas innecesarias al hacer scroll
-    Dado que he cargado los primeros 50 registros
+    Dado que soy un usuario con rol "Gestor de A"
+    Y he cargado los primeros 50 registros
     Cuando realizo scroll infinito para cargar más registros
     Entonces el sistema debe cargar únicamente los siguientes 50 registros
     Y no debe volver a cargar los registros previamente mostrados
@@ -270,7 +284,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-22 - Validar RN-LE-02: Solo mostrar encuentros clasificados para Admisión
-    Dado que el Job de Admisión ha clasificado encuentros en diferentes bandejas:
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y el Job de Admisión ha clasificado encuentros en diferentes bandejas:
       | Encuentro | Bandeja     |
       | 11111111  | Admisión    |
       | 22222222  | Admisión    |
@@ -287,7 +302,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-23 - Validar RN-LE-03: Información visible depende del rol autenticado
-    Dado que existen encuentros clasificados para Admisión
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y existen encuentros clasificados para Admisión
     Cuando accedo a la Lista de Encuentros
     Entonces la información visible debe depender de mi rol:
       | Rol                        | Visibilidad                                          |
@@ -297,7 +313,8 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-24 - Validar RN-LE-09: Contador debe coincidir con cantidad real de registros
-    Dado que he aplicado filtros que retornan 47 registros
+    Dado que soy un usuario con rol "Gestor de A"
+    Y he aplicado filtros que retornan 47 registros
     Cuando visualizo el contador de resultados
     Entonces el contador debe mostrar exactamente "47 registros encontrados"
     Y la cantidad mostrada debe coincidir con la cantidad real de registros en la grilla
