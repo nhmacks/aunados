@@ -75,7 +75,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: VIS-04 - Scroll infinito sin más registros disponibles
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen exactamente 50 encuentros clasificados para Admisión
     Y he visualizado todos los 50 registros
     Cuando me desplazo hasta el final de la grilla
@@ -163,7 +163,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-11 - Visualizar contador con múltiples registros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen 150 encuentros clasificados para Admisión visibles para mi rol
     Cuando accedo a la Lista de Encuentros
     Entonces el contador debe mostrar "150 registros encontrados"
@@ -189,7 +189,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-14 - Contador se actualiza al restablecer vista
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado filtros que muestran 25 registros
     Y el contador muestra "25 registros encontrados"
     Cuando selecciono el botón "Restablecer Vista"
@@ -233,7 +233,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-18 - Información proviene de XHIS y Job de Admisión
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y el Job de Admisión obtiene información desde XHIS
     Y el Job clasifica encuentros para Admisión
     Cuando accedo a la Lista de Encuentros
@@ -271,7 +271,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-21 - Evitar cargas completas innecesarias al hacer scroll
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he cargado los primeros 50 registros
     Cuando realizo scroll infinito para cargar más registros
     Entonces el sistema debe cargar únicamente los siguientes 50 registros
@@ -308,12 +308,12 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Entonces la información visible debe depender de mi rol:
       | Rol                        | Visibilidad                                          |
       | Superusuario de Admisión   | Todos los encuentros, todas las columnas             |
-      | Gestor de A                | Todos los encuentros, todas las columnas             |
+      | Gestor TA                | Todos los encuentros, todas las columnas             |
       | Ejecutivo de Admisión      | Solo encuentros propios de su sede, columnas limitadas |
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-24 - Validar RN-LE-09: Contador debe coincidir con cantidad real de registros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado filtros que retornan 47 registros
     Cuando visualizo el contador de resultados
     Entonces el contador debe mostrar exactamente "47 registros encontrados"

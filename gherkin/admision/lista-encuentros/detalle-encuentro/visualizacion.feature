@@ -39,7 +39,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @gestorTA
   Escenario: DV-02 - Gestor TA accede al detalle desde lista de encuentros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y visualizo encuentros en la Lista de Encuentros
     Y existen datos completos del paciente "Ana María López Torres" con NHC "11223344"
     Y el encuentro "87654321" tiene estado "Tramitado"
@@ -128,7 +128,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-06 - NO visualizar sustentos administrativos cuando NO existen pendientes
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Y el encuentro NO tiene sustentos administrativos pendientes
     Cuando visualizo la cabecera de la pantalla
@@ -153,7 +153,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-09 - Visualizar sustentos de proceso cuando existen pendientes
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Y el encuentro tiene el sustento de proceso pendiente "Laboratorios no imputados"
     Cuando visualizo la cabecera de la pantalla
@@ -191,7 +191,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-12 - Validar formato de fecha de apertura en detalle
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Y la fecha de apertura es "03/06/2026"
     Cuando expando el agrupador "Datos del Encuentro"
@@ -274,7 +274,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-18 - Validar que datos del encuentro son de solo lectura
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Cuando expando el agrupador "Datos del Encuentro"
     Entonces el número de encuentro debe ser de solo lectura
@@ -334,8 +334,8 @@ Característica: Visualización de Detalle del Encuentro
     Y debo poder visualizar estados especiales
 
   @gestorTA
-  Escenario: DV-23 - Gestor de A visualiza toda la información disponible
-    Dado que soy un usuario con rol "Gestor de A"
+  Escenario: DV-23 - Gestor TA visualiza toda la información disponible
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Cuando visualizo la pantalla de detalle
     Entonces debo poder visualizar toda la información disponible para Ejecutivo
@@ -381,7 +381,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-26 - Validar RN-DE-02: La información es de solo lectura
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Cuando intento modificar cualquier dato del paciente, encuentro o seguro
     Entonces el sistema NO debe permitir la modificación
@@ -415,7 +415,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-29 - Visualizar detalle con máximo número de sustentos administrativos
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
     Y el encuentro tiene los siguientes sustentos administrativos pendientes:
       | Sustento              |
@@ -467,7 +467,7 @@ Característica: Visualización de Detalle del Encuentro
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-32 - Verificar que no se pierde contexto al acceder al detalle
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
     Y he aplicado filtros que muestran 50 encuentros
     Y he ordenado por "Fecha de Apertura"

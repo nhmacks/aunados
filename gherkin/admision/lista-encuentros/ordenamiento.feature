@@ -53,7 +53,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-04 - Ordenar por Encuentro descendente (segundo clic)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Encuentro" ascendente
     Cuando hago clic en el encabezado "Encuentro" por segunda vez
     Entonces la grilla debe ordenarse por número de encuentro descendente
@@ -76,7 +76,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-06 - Ordenar por NHC descendente
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "NHC" ascendente
     Cuando hago clic en el encabezado "NHC" por segunda vez
     Entonces la grilla debe ordenarse por NHC descendente
@@ -98,7 +98,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-08 - Ordenar por Apellidos descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Apellidos" ascendente
     Cuando hago clic en el encabezado "Apellidos" por segunda vez
     Entonces la grilla debe ordenarse por apellidos descendente alfabéticamente
@@ -120,7 +120,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-10 - Ordenar por Nombres descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Nombres" ascendente
     Cuando hago clic en el encabezado "Nombres" por segunda vez
     Entonces la grilla debe ordenarse por nombres descendente alfabéticamente
@@ -142,7 +142,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-12 - Ordenar por Fecha de Apertura descendente (más reciente primero)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Fecha de Apertura" ascendente
     Cuando hago clic en el encabezado "Fecha de Apertura" por segunda vez
     Entonces la grilla debe ordenarse por fecha de apertura descendente
@@ -164,7 +164,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-14 - Ordenar por Usuario descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Usuario" ascendente
     Cuando hago clic en el encabezado "Usuario" por segunda vez
     Entonces la grilla debe ordenarse por usuario descendente alfabéticamente
@@ -186,7 +186,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-16 - Ordenar por Garante descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Garante" ascendente
     Cuando hago clic en el encabezado "Garante" por segunda vez
     Entonces la grilla debe ordenarse por garante descendente alfabéticamente
@@ -208,7 +208,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-18 - Ordenar por Tipo de Encuentro descendente
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Tipo de Encuentro" ascendente
     Cuando hago clic en el encabezado "Tipo de Encuentro" por segunda vez
     Entonces la grilla debe ordenarse por tipo de encuentro descendente alfabéticamente
@@ -230,7 +230,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-20 - Ordenar por Monto descendente (mayor a menor)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Monto" ascendente
     Cuando hago clic en el encabezado "Monto" por segunda vez
     Entonces la grilla debe ordenarse por monto descendente
@@ -254,7 +254,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-22 - Tercer clic elimina el ordenamiento
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he ordenado la grilla por "Encuentro" descendente (segundo clic)
     Cuando hago clic en el encabezado "Encuentro" por tercera vez
     Entonces el ordenamiento debe eliminarse
@@ -273,7 +273,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-24 - Ordenamiento se aplica sobre resultados filtrados
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Estado" con valor "Pendiente"
     Y la grilla muestra 100 encuentros filtrados
     Cuando hago clic en el encabezado "Monto" para ordenar ascendente
@@ -293,7 +293,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-26 - Ordenamiento con filtros y búsqueda combinados
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Prioridad" con valor "Prioridad 1"
     Y he realizado una búsqueda por nombre "Juan"
     Y la grilla muestra 10 resultados que cumplen ambos criterios
@@ -317,7 +317,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-28 - Visualizar indicador de ordenamiento descendente
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he hecho clic en el encabezado "Encuentro" por segunda vez
     Cuando la grilla se ordena descendente
     Entonces debe mostrarse un indicador visual de orden descendente (flecha hacia abajo)
@@ -341,7 +341,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-30 - Limpiar filtro NO elimina el ordenamiento
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he ordenado la grilla por "Apellidos" ascendente
     Y he aplicado el filtro "Estado" con valor "Pendiente"
     Cuando presiono el botón "Limpiar" del filtro "Estado"
@@ -366,7 +366,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-32 - Volver al orden por defecto después de eliminar ordenamiento
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he ordenado la grilla por "NHC" ascendente
     Cuando hago clic en el encabezado "NHC" dos veces más para eliminar el ordenamiento
     Entonces la grilla debe volver al orden por defecto
@@ -387,7 +387,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-34 - Ordenar con valores idénticos mantiene suborden por fecha
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen 10 encuentros con el mismo "Garante" = "MAPFRE"
     Cuando hago clic en el encabezado "Garante" para ordenar ascendente
     Entonces todos los encuentros "MAPFRE" deben agruparse juntos
@@ -461,7 +461,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-39 - Ordenamiento con grandes volúmenes de datos
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y la grilla muestra 5000 encuentros disponibles mediante scroll infinito
     Cuando hago clic en el encabezado "Monto" para ordenar descendente
     Entonces el ordenamiento debe aplicarse sobre todos los 5000 registros

@@ -29,9 +29,9 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Ejemplos:
       | rol                        | total | filtros                                  | visibles |
       | Superusuario de Admisión   | 500   | sin filtros                              | 500      |
-      | Gestor de A                | 500   | filtro Estado = Pendiente                | 150      |
+      | Gestor TA                | 500   | filtro Estado = Pendiente                | 150      |
       | Superusuario de Admisión   | 500   | búsqueda apellido = García               | 25       |
-      | Gestor de A                | 500   | filtro Prioridad 1 + búsqueda nombre Juan| 8        |
+      | Gestor TA                | 500   | filtro Prioridad 1 + búsqueda nombre Juan| 8        |
 
   @ejecutivoAdmision
   Esquema del escenario: EXP-02 - Exportación asíncrona respeta filtros y restricciones de rol (Ejecutivo)
@@ -168,7 +168,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Ejemplos:
       | rol                      | cantidad_columnas | columnas_esperadas                                                                                                                                                                              |
       | Superusuario de Admisión | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
-      | Gestor de A              | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
+      | Gestor TA              | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
       | Ejecutivo de Admisión    | 9                 | Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Prioridad, Garante, Tipo de Encuentro                                                                                           |
 
   # NOTA IMPORTANTE: Si RN-EXP-09 se interpreta como "todos los roles exportan las mismas 14 columnas",
@@ -210,7 +210,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Ejemplos: # Pairwise: Cubre todas las combinaciones de 2 factores
       | rol                      | volumen | tipo_filtro      | tipo_descarga | volumen_exportado |
       | Superusuario de Admisión | 50      | sin filtros      | inmediata     | 50                |
-      | Gestor de A              | 500     | con filtros      | inmediata     | 150               |
+      | Gestor TA              | 500     | con filtros      | inmediata     | 150               |
       | Ejecutivo de Admisión    | 5000    | con búsqueda     | asíncrona     | 200               |
       | Superusuario de Admisión | 5000    | con búsqueda     | inmediata     | 800               |
       | Ejecutivo de Admisión    | 50      | sin filtros      | asíncrona     | 50                |
@@ -257,7 +257,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | rol                      | tipo_error                      | mensaje_error                              | accion_recuperacion          |
       | Superusuario de Admisión | error técnico en generación     | no se pudo generar el reporte             | intentar nuevamente          |
       | Ejecutivo de Admisión    | timeout en generación asíncrona | el reporte no pudo completarse            | solicitar nueva exportación  |
-      | Gestor de A              | sesión expirada                 | debe autenticarse nuevamente              | redirigir al login           |
+      | Gestor TA              | sesión expirada                 | debe autenticarse nuevamente              | redirigir al login           |
 
   # ========================================================================
   # AUDITORÍA Y TRAZABILIDAD
@@ -299,7 +299,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Ejemplos: # Tabla de decisión consolidada
       | rol                      | filtros_activos | busqueda_activa | tiempo_minutos | tipo_descarga | respeta_filtros | respeta_busqueda | respeta_rol | disponibilidad |
       | Superusuario de Admisión | Sí              | No              | N/A            | inmediata     | Sí              | N/A              | Sí          | inmediata      |
-      | Gestor de A              | No              | Sí              | N/A            | inmediata     | N/A             | Sí               | Sí          | inmediata      |
+      | Gestor TA              | No              | Sí              | N/A            | inmediata     | N/A             | Sí               | Sí          | inmediata      |
       | Ejecutivo de Admisión    | Sí              | Sí              | 30             | asíncrona     | Sí              | Sí               | Sí          | disponible     |
       | Ejecutivo de Admisión    | No              | No              | 65             | asíncrona     | N/A             | N/A              | Sí          | expirado       |
       | Superusuario de Admisión | Sí              | Sí              | N/A            | inmediata     | Sí              | Sí               | Sí          | inmediata      |

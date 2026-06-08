@@ -24,7 +24,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el usuario
     Y se registra el correo
     Y se registra la fecha y hora del evento
-    Y se registra el rol del usuario "Gestor de A"
+    Y se registra el rol del usuario "Gestor TA"
     Y se registra el nombre de la columna "<columna_filtro>"
     Y se registra el orden del filtro "<ordenamiento>"
 
@@ -79,7 +79,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el usuario
     Y se registra el correo
     Y se registra la fecha y hora del evento
-    Y se registra el rol del usuario "Gestor de A"
+    Y se registra el rol del usuario "Gestor TA"
     Y se registra el nombre de la columna "<campo>"
     Y se registra las opciones seleccionadas en el filtro
 
@@ -128,7 +128,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el usuario
     Y se registra el correo
     Y se registra la fecha y hora del evento
-    Y se registra el rol del usuario "Gestor de A"
+    Y se registra el rol del usuario "Gestor TA"
     Y se registra el nombre de la columna "Fecha apert."
     Y se registra el rango de fechas seleccionado en el filtro
 
@@ -176,7 +176,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el usuario
     Y se registra el correo
     Y se registra la fecha y hora del evento
-    Y se registra el rol del usuario "Gestor de A"
+    Y se registra el rol del usuario "Gestor TA"
     Y se registra el nombre de la columna "<columna_filtro>"
     Y se registra el valor del operador seleccionado "<operador>"
     Y se registra el valor del texto ingresado en el filtro "<texto_ingresado>"
@@ -230,7 +230,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Ejemplos:
       | rol                      | criterio_busqueda |
       | Superusuario de Admisión | Juan              |
-      | Gestor de A              | 12345678          |
+      | Gestor TA              | 12345678          |
       | Ejecutivo de Admisión    | García            |
 
   # ========================================================================
@@ -311,7 +311,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Ejemplos:
       | rol                      |
       | Superusuario de Admisión |
-      | Gestor de A              |
+      | Gestor TA              |
       | Ejecutivo de Admisión    |
 
   # ========================================================================
@@ -337,7 +337,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Ejemplos:
       | rol                      | filtro     | valor     |
       | Superusuario de Admisión | Estado     | Pendiente |
-      | Gestor de A              | Mecanismo  | CAPITA    |
+      | Gestor TA              | Mecanismo  | CAPITA    |
       | Ejecutivo de Admisión    | Prioridad  | Prioridad 1|
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
@@ -359,7 +359,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Ejemplos:
       | rol                      |
       | Superusuario de Admisión |
-      | Gestor de A              |
+      | Gestor TA              |
       | Ejecutivo de Admisión    |
 
   # ========================================================================
@@ -368,7 +368,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: ANLT-17 - Validar que todos los eventos incluyen metadata completa
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y me encuentro en la sección de Lista de encuentros
     Cuando realizo cualquier acción que genera un evento
     Entonces el evento debe incluir obligatoriamente:
@@ -415,7 +415,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Ejemplos:
       | rol                      |
       | Superusuario de Admisión |
-      | Gestor de A              |
+      | Gestor TA              |
       | Ejecutivo de Admisión    |
 
   # ========================================================================
@@ -424,7 +424,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: ANLT-20 - Registrar evento cuando filtro no retorna resultados
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y me encuentro en la sección de Lista de encuentros
     Cuando aplico un filtro que no tiene coincidencias
     Y se muestra el mensaje "No encontramos resultados para atender"

@@ -24,8 +24,8 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
     Y debo poder acceder a "Cuadro de Control"
 
   @gestorTA
-  Escenario: PERM-02 - Gestor de A tiene acceso a Cuadro de Control
-    Dado que soy un usuario con rol "Gestor de A"
+  Escenario: PERM-02 - Gestor TA tiene acceso a Cuadro de Control
+    Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
     Cuando accedo al menú principal
     Entonces debo visualizar la opción "Cuadro de Control"
@@ -65,7 +65,7 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: PERM-07 - Todos los roles tienen acceso a Lista de Encuentros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
     Cuando inicio sesión correctamente
     Entonces el sistema debe mostrar la pantalla "Lista de Encuentros" automáticamente
@@ -102,8 +102,8 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
       | Monto                       |
 
   @gestorTA
-  Escenario: PERM-09 - Gestor de A visualiza todas las 15 columnas en la grilla
-    Dado que soy un usuario con rol "Gestor de A"
+  Escenario: PERM-09 - Gestor TA visualiza todas las 15 columnas en la grilla
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido a la Lista de Encuentros
     Cuando visualizo la grilla de encuentros
     Entonces debo visualizar exactamente 15 columnas
@@ -158,8 +158,8 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
       | Superusuario de Admisión   | Tipo de Encuentro           |
       | Superusuario de Admisión   | Sustentos Administrativos   |
       | Superusuario de Admisión   | Sustentos Médicos           |
-      | Gestor de A                | Sede                        |
-      | Gestor de A                | Usuario                     |
+      | Gestor TA                | Sede                        |
+      | Gestor TA                | Usuario                     |
 
   @ejecutivoAdmision
   Esquema del escenario: PERM-12 - Ejecutivo tiene acceso solo a filtros limitados
@@ -218,8 +218,8 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
       | Superusuario de Admisión | Garante           |
       | Superusuario de Admisión | Tipo de Encuentro |
       | Superusuario de Admisión | Monto             |
-      | Gestor de A              | Encuentro         |
-      | Gestor de A              | Monto             |
+      | Gestor TA              | Encuentro         |
+      | Gestor TA              | Monto             |
 
   @ejecutivoAdmision
   Esquema del escenario: PERM-15 - Ejecutivo NO puede ordenar ninguna columna
@@ -258,8 +258,8 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
     Y el archivo debe contener todos los registros visibles
 
   @gestorTA
-  Escenario: PERM-17 - Gestor de A tiene exportación inmediata
-    Dado que soy un usuario con rol "Gestor de A"
+  Escenario: PERM-17 - Gestor TA tiene exportación inmediata
+    Dado que soy un usuario con rol "Gestor TA"
     Y he accedido a la Lista de Encuentros
     Y existen 150 encuentros visibles
     Cuando selecciono la opción "Exportar"
@@ -307,9 +307,9 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
       | Superusuario de Admisión | En Proceso                    |
       | Superusuario de Admisión | Error de Facturación          |
       | Superusuario de Admisión | Tramitado                     |
-      | Gestor de A              | Pago por Adelantado           |
-      | Gestor de A              | No Facturable                 |
-      | Gestor de A              | Error de Facturación          |
+      | Gestor TA              | Pago por Adelantado           |
+      | Gestor TA              | No Facturable                 |
+      | Gestor TA              | Error de Facturación          |
 
   @ejecutivoAdmision
   Esquema del escenario: PERM-20 - Ejecutivo puede asignar solo estados permitidos
@@ -461,7 +461,7 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
     Ejemplos:
       | rol                      | cantidad_columnas |
       | Superusuario de Admisión | 15                |
-      | Gestor de A              | 15                |
+      | Gestor TA              | 15                |
       | Ejecutivo de Admisión    | 9                 |
 
   @ejecutivoAdmision
@@ -519,10 +519,10 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
       | Superusuario de Admisión | Cambio de Beneficio     | No               |
       | Superusuario de Admisión | Ordenamiento            | Sí               |
       | Superusuario de Admisión | Ver todas las sedes     | Sí               |
-      | Gestor de A              | Cuadro de Control       | Sí               |
-      | Gestor de A              | Cambio de Beneficio     | No               |
-      | Gestor de A              | Ordenamiento            | Sí               |
-      | Gestor de A              | Ver todas las sedes     | Sí               |
+      | Gestor TA              | Cuadro de Control       | Sí               |
+      | Gestor TA              | Cambio de Beneficio     | No               |
+      | Gestor TA              | Ordenamiento            | Sí               |
+      | Gestor TA              | Ver todas las sedes     | Sí               |
       | Ejecutivo de Admisión    | Cuadro de Control       | No               |
       | Ejecutivo de Admisión    | Cambio de Beneficio     | Sí               |
       | Ejecutivo de Admisión    | Ordenamiento            | No               |

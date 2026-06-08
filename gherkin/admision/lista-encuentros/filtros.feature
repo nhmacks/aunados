@@ -32,7 +32,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-01B - Gestor TA visualiza filtros disponibles incluyendo Mecanismo
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Cuando accedo a la sección de filtros
     Entonces debo visualizar los siguientes filtros disponibles:
       | Filtro                    |
@@ -82,7 +82,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-04 - Filtrar por múltiples sedes simultáneamente
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros de múltiples sedes
     Cuando selecciono el filtro "Sede"
     Y selecciono las sedes:
@@ -103,7 +103,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-06 - Limpiar filtro de Sede sin afectar otros filtros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Sede" con valor "Auna Guardia Civil"
     Y he aplicado el filtro "Estado" con valor "Pendiente"
     Cuando presiono el botón "Limpiar" del filtro "Sede"
@@ -127,7 +127,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-08 - Filtrar por múltiples estados simultáneamente
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros en diferentes estados
     Cuando selecciono el filtro "Estado"
     Y selecciono los estados:
@@ -178,7 +178,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-12 - Filtrar por fechas anteriores usando operador "Antes de"
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes fechas de apertura
     Cuando selecciono el filtro "Fecha Apertura"
     Y selecciono el operador "Antes de"
@@ -200,7 +200,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-14 - Seleccionar fecha mediante calendario visual
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he abierto el filtro "Fecha Apertura"
     Y he seleccionado el operador "Igual a"
     Cuando abro el calendario visual
@@ -234,7 +234,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-17 - Buscar prioridad dentro del filtro (búsqueda desde segundo carácter)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he abierto el filtro "Prioridad"
     Cuando ingreso "ca" en el campo de búsqueda del filtro
     Entonces el sistema debe iniciar la búsqueda
@@ -264,7 +264,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-20 - Limpiar filtro de Usuario
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Usuario" con valor "Lucía"
     Cuando presiono el botón "Limpiar" del filtro "Usuario"
     Entonces el filtro "Usuario" debe eliminarse
@@ -287,7 +287,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-22 - Filtrar garante con búsqueda parcial
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con garante "Oncosalud" y "La Positiva"
     Cuando selecciono el filtro "Garante"
     Y ingreso "Onco" en el campo de filtro
@@ -319,7 +319,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-25 - Seleccionar todos los tipos de encuentro
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he abierto el filtro "Tipo de Encuentro"
     Cuando selecciono el checkbox "Seleccionar Todos"
     Entonces deben seleccionarse automáticamente:
@@ -351,7 +351,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-28 - Filtrar por múltiples sustentos administrativos
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes sustentos administrativos
     Cuando selecciono el filtro "Sustento Administrativo"
     Y selecciono los sustentos:
@@ -373,7 +373,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-30 - Buscar sustento administrativo dentro del filtro
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he abierto el filtro "Sustento Administrativo"
     Cuando ingreso "Carta" en el campo de búsqueda del filtro
     Entonces el sistema debe mostrar "Carta de Garantía"
@@ -395,7 +395,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-32 - Filtrar por Sustento Médico "-" (sin pendientes)
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con y sin sustentos médicos pendientes
     Cuando selecciono el filtro "Sustento Médico"
     Y selecciono "-"
@@ -420,7 +420,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-54 - Gestor TA visualiza filtro por mecanismo
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Cuando accedo a la sección de filtros
     Entonces debo visualizar el filtro "Mecanismo"
     Y el filtro debe tener las siguientes opciones:
@@ -438,7 +438,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-56 - Filtrar encuentros por mecanismo CAPITA
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes mecanismos de pago
     Cuando selecciono el filtro "Mecanismo"
     Y selecciono la opción "CAPITA"
@@ -448,7 +448,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-57 - Filtrar encuentros por mecanismo CPM
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes mecanismos de pago
     Cuando selecciono el filtro "Mecanismo"
     Y selecciono la opción "CPM"
@@ -458,7 +458,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-58 - Filtrar encuentros por mecanismo Pago por servicio
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes mecanismos de pago
     Cuando selecciono el filtro "Mecanismo"
     Y selecciono la opción "Pago por servicio"
@@ -468,7 +468,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-59 - Seleccionar "Todos" en filtro de mecanismo muestra todos los encuentros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes mecanismos de pago
     Y he aplicado el filtro "Mecanismo" con valor "CAPITA"
     Cuando selecciono la opción "Todos" en el filtro "Mecanismo"
@@ -477,7 +477,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-60 - Combinar filtro de mecanismo con otros filtros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros con diferentes mecanismos y estados
     Cuando selecciono el filtro "Mecanismo" con valor "CAPITA"
     Y selecciono el filtro "Estado" con valor "Pendiente"
@@ -489,7 +489,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-61 - Limpiar filtro de mecanismo sin afectar otros filtros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Mecanismo" con valor "CPM"
     Y he aplicado el filtro "Prioridad" con valor "Prioridad 1"
     Cuando presiono el botón "Limpiar" del filtro "Mecanismo"
@@ -499,7 +499,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-62 - Restablecer vista elimina filtro de mecanismo
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Mecanismo" con valor "Pago por servicio"
     Y he aplicado el filtro "Estado" con valor "Tramitado"
     Cuando presiono el botón "Restablecer Vista"
@@ -509,7 +509,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @gestorTA
   Escenario: FIL-63 - Contador se actualiza al filtrar por mecanismo
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen 200 encuentros en total
     Y 80 encuentros son del mecanismo "CAPITA"
     Cuando selecciono el filtro "Mecanismo" con valor "CAPITA"
@@ -522,7 +522,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-34 - Combinar múltiples filtros simultáneamente
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen 1000 encuentros clasificados para Admisión
     Cuando aplico el filtro "Sede" con valor "Auna Guardia Civil"
     Y aplico el filtro "Estado" con valor "Pendiente"
@@ -572,7 +572,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-38 - Restablecer vista elimina todos los filtros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado los siguientes filtros:
       | Filtro         | Valor       |
       | Estado         | Pendiente   |
@@ -612,7 +612,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-41 - Contador se actualiza automáticamente al aplicar filtro
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y existen 500 encuentros en la lista
     Y el contador muestra "500 registros encontrados"
     Cuando aplico el filtro "Estado" con valor "Pendiente"
@@ -646,7 +646,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-44 - Validar RN-FIL-02: Contador refleja resultados filtrados
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado filtros que retornan 42 registros
     Cuando visualizo el contador de resultados
     Entonces el contador debe mostrar exactamente "42 registros encontrados"
@@ -673,7 +673,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-47 - Validar RN-FIL-05: Restablecer Vista elimina todos los filtros
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he aplicado múltiples filtros
     Cuando presiono el botón "Restablecer Vista"
     Entonces todos los filtros activos deben eliminarse
@@ -704,7 +704,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-50 - Validar RN-FIL-08: Estado permite múltiples selecciones
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he abierto el filtro "Estado"
     Cuando selecciono los estados:
       | Estado     |
@@ -724,7 +724,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: FIL-52 - Validar RN-FIL-10: Sustentos Administrativos permite múltiples selecciones
-    Dado que soy un usuario con rol "Gestor de A"
+    Dado que soy un usuario con rol "Gestor TA"
     Y he abierto el filtro "Sustento Administrativo"
     Cuando selecciono los sustentos:
       | Sustento            |
