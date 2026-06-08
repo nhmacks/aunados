@@ -28,6 +28,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Tipo de Encuentro         |
       | Sustento Administrativo   |
       | Sustento Médico           |
+      | Sustento de proceso       |
     Y NO debo visualizar el filtro "Mecanismo"
 
   @gestorTA
@@ -45,7 +46,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Tipo de Encuentro         |
       | Sustento Administrativo   |
       | Sustento Médico           |
-      | Mecanismo                 |
+      | Sustento de proceso       |
 
   @ejecutivoAdmision
   Escenario: FIL-02 - Ejecutivo visualiza solo filtros permitidos para su rol
