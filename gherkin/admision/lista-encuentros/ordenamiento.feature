@@ -5,17 +5,16 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   Quiero ordenar las columnas de la lista de encuentros
   Para visualizar la información según mis necesidades operativas
 
-  Antecedentes:
-    Dado que he iniciado sesión en el sistema
-    Y estoy en la pantalla "Lista de Encuentros"
-
   # ========================================================================
   # DISPONIBILIDAD DE ORDENAMIENTO POR ROL
   # ========================================================================
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-01 - Superusuario y Gestor pueden ordenar columnas
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Cuando visualizo la grilla de encuentros
     Entonces las siguientes columnas deben ser ordenables:
       | Columna           |
@@ -31,7 +30,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @ejecutivoAdmision
   Escenario: ORD-02 - Ejecutivo NO puede ordenar columnas
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Ejecutivo de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Ejecutivo de Admisión"
     Cuando visualizo la grilla de encuentros
     Entonces ninguna columna debe ser ordenable
     Y NO debo visualizar indicadores de ordenamiento en los encabezados
@@ -43,7 +45,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-03 - Ordenar por Encuentro ascendente (primer clic)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros con diferentes números
     Cuando hago clic en el encabezado "Encuentro" por primera vez
     Entonces la grilla debe ordenarse por número de encuentro ascendente
@@ -53,7 +58,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-04 - Ordenar por Encuentro descendente (segundo clic)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Encuentro" ascendente
     Cuando hago clic en el encabezado "Encuentro" por segunda vez
     Entonces la grilla debe ordenarse por número de encuentro descendente
@@ -67,7 +75,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-05 - Ordenar por NHC ascendente
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros con diferentes NHC
     Cuando hago clic en el encabezado "NHC" por primera vez
     Entonces la grilla debe ordenarse por NHC ascendente
@@ -76,7 +87,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-06 - Ordenar por NHC descendente
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "NHC" ascendente
     Cuando hago clic en el encabezado "NHC" por segunda vez
     Entonces la grilla debe ordenarse por NHC descendente
@@ -89,7 +103,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-07 - Ordenar por Apellidos ascendente (alfabético A-Z)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros de pacientes con diferentes apellidos
     Cuando hago clic en el encabezado "Apellidos" por primera vez
     Entonces la grilla debe ordenarse por apellidos ascendente alfabéticamente
@@ -98,7 +115,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-08 - Ordenar por Apellidos descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Apellidos" ascendente
     Cuando hago clic en el encabezado "Apellidos" por segunda vez
     Entonces la grilla debe ordenarse por apellidos descendente alfabéticamente
@@ -111,7 +131,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-09 - Ordenar por Nombres ascendente (alfabético A-Z)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros de pacientes con diferentes nombres
     Cuando hago clic en el encabezado "Nombres" por primera vez
     Entonces la grilla debe ordenarse por nombres ascendente alfabéticamente
@@ -120,7 +143,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-10 - Ordenar por Nombres descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Nombres" ascendente
     Cuando hago clic en el encabezado "Nombres" por segunda vez
     Entonces la grilla debe ordenarse por nombres descendente alfabéticamente
@@ -133,7 +159,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-11 - Ordenar por Fecha de Apertura ascendente (más antiguo primero)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros con diferentes fechas de apertura
     Cuando hago clic en el encabezado "Fecha de Apertura" por primera vez
     Entonces la grilla debe ordenarse por fecha de apertura ascendente
@@ -142,7 +171,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-12 - Ordenar por Fecha de Apertura descendente (más reciente primero)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Fecha de Apertura" ascendente
     Cuando hago clic en el encabezado "Fecha de Apertura" por segunda vez
     Entonces la grilla debe ordenarse por fecha de apertura descendente
@@ -155,7 +187,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-13 - Ordenar por Usuario ascendente (alfabético A-Z)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros creados por diferentes usuarios
     Cuando hago clic en el encabezado "Usuario" por primera vez
     Entonces la grilla debe ordenarse por usuario ascendente alfabéticamente
@@ -164,7 +199,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-14 - Ordenar por Usuario descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Usuario" ascendente
     Cuando hago clic en el encabezado "Usuario" por segunda vez
     Entonces la grilla debe ordenarse por usuario descendente alfabéticamente
@@ -177,7 +215,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-15 - Ordenar por Garante ascendente (alfabético A-Z)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros con diferentes garantes
     Cuando hago clic en el encabezado "Garante" por primera vez
     Entonces la grilla debe ordenarse por garante ascendente alfabéticamente
@@ -186,7 +227,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-16 - Ordenar por Garante descendente (alfabético Z-A)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Garante" ascendente
     Cuando hago clic en el encabezado "Garante" por segunda vez
     Entonces la grilla debe ordenarse por garante descendente alfabéticamente
@@ -199,7 +243,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-17 - Ordenar por Tipo de Encuentro ascendente
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros ambulatorios y de emergencia
     Cuando hago clic en el encabezado "Tipo de Encuentro" por primera vez
     Entonces la grilla debe ordenarse por tipo de encuentro ascendente alfabéticamente
@@ -208,7 +255,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-18 - Ordenar por Tipo de Encuentro descendente
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Tipo de Encuentro" ascendente
     Cuando hago clic en el encabezado "Tipo de Encuentro" por segunda vez
     Entonces la grilla debe ordenarse por tipo de encuentro descendente alfabéticamente
@@ -221,7 +271,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-19 - Ordenar por Monto ascendente (menor a mayor)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros con diferentes montos
     Cuando hago clic en el encabezado "Monto" por primera vez
     Entonces la grilla debe ordenarse por monto ascendente
@@ -230,7 +283,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-20 - Ordenar por Monto descendente (mayor a menor)
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla está ordenada por "Monto" ascendente
     Cuando hago clic en el encabezado "Monto" por segunda vez
     Entonces la grilla debe ordenarse por monto descendente
@@ -243,7 +299,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-21 - Solo una columna ordenada a la vez
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y he ordenado la grilla por "Apellidos" ascendente
     Y el indicador de ordenamiento está visible en la columna "Apellidos"
     Cuando hago clic en el encabezado "Fecha de Apertura"
@@ -254,7 +313,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-22 - Tercer clic elimina el ordenamiento
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y he ordenado la grilla por "Encuentro" descendente (segundo clic)
     Cuando hago clic en el encabezado "Encuentro" por tercera vez
     Entonces el ordenamiento debe eliminarse
@@ -263,7 +325,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-23 - Ordenamiento persiste al hacer scroll infinito
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y he ordenado la grilla por "Apellidos" ascendente
     Y visualizo los primeros 50 registros ordenados
     Cuando realizo scroll infinito para cargar los siguientes 50 registros
@@ -273,7 +338,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-24 - Ordenamiento se aplica sobre resultados filtrados
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Estado" con valor "Pendiente"
     Y la grilla muestra 100 encuentros filtrados
     Cuando hago clic en el encabezado "Monto" para ordenar ascendente
@@ -283,7 +351,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-25 - Ordenamiento se aplica sobre resultados de búsqueda
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y he realizado una búsqueda por apellido "García"
     Y la grilla muestra 25 resultados
     Cuando hago clic en el encabezado "Nombres" para ordenar ascendente
@@ -293,7 +364,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-26 - Ordenamiento con filtros y búsqueda combinados
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y he aplicado el filtro "Prioridad" con valor "Prioridad 1"
     Y he realizado una búsqueda por nombre "Juan"
     Y la grilla muestra 10 resultados que cumplen ambos criterios
@@ -308,7 +382,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-27 - Visualizar indicador de ordenamiento ascendente
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y he hecho clic en el encabezado "Encuentro" por primera vez
     Cuando la grilla se ordena ascendente
     Entonces debe mostrarse un indicador visual de orden ascendente (flecha hacia arriba)
@@ -317,7 +394,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-28 - Visualizar indicador de ordenamiento descendente
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y he hecho clic en el encabezado "Encuentro" por segunda vez
     Cuando la grilla se ordena descendente
     Entonces debe mostrarse un indicador visual de orden descendente (flecha hacia abajo)
@@ -330,7 +410,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-29 - Restablecer Vista elimina el ordenamiento
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y he ordenado la grilla por "Monto" descendente
     Y he aplicado el filtro "Estado" con valor "Tramitado"
     Cuando presiono el botón "Restablecer Vista"
@@ -341,7 +424,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-30 - Limpiar filtro NO elimina el ordenamiento
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y he ordenado la grilla por "Apellidos" ascendente
     Y he aplicado el filtro "Estado" con valor "Pendiente"
     Cuando presiono el botón "Limpiar" del filtro "Estado"
@@ -356,7 +442,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-31 - Orden por defecto al cargar la lista (sin ordenamiento aplicado)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y accedo a la Lista de Encuentros sin ordenamiento previo
     Cuando la grilla se carga por primera vez
     Entonces los encuentros deben mostrarse ordenados por fecha de apertura descendente por defecto
@@ -366,7 +455,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-32 - Volver al orden por defecto después de eliminar ordenamiento
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y he ordenado la grilla por "NHC" ascendente
     Cuando hago clic en el encabezado "NHC" dos veces más para eliminar el ordenamiento
     Entonces la grilla debe volver al orden por defecto
@@ -379,7 +471,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-33 - Ordenar columna con valores nulos o vacíos
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros donde algunos tienen "Usuario" asignado y otros no
     Cuando hago clic en el encabezado "Usuario" para ordenar ascendente
     Entonces los encuentros con "Usuario" vacío o nulo deben aparecer al final
@@ -387,7 +482,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-34 - Ordenar con valores idénticos mantiene suborden por fecha
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y existen 10 encuentros con el mismo "Garante" = "MAPFRE"
     Cuando hago clic en el encabezado "Garante" para ordenar ascendente
     Entonces todos los encuentros "MAPFRE" deben agruparse juntos
@@ -400,7 +498,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-35 - Contador no cambia al aplicar ordenamiento
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y la grilla muestra 150 encuentros
     Y el contador muestra "150 registros encontrados"
     Cuando hago clic en el encabezado "Apellidos" para ordenar ascendente
@@ -414,7 +515,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @ejecutivoAdmision
   Escenario: ORD-36 - Ejecutivo no visualiza funcionalidad de ordenamiento
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Ejecutivo de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Ejecutivo de Admisión"
     Y visualizo la grilla con las columnas permitidas para mi rol
     Cuando intento hacer clic en cualquier encabezado de columna
     Entonces NO debe ejecutarse ningún ordenamiento
@@ -423,7 +527,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-37 - Solo Superusuario y Gestor pueden ordenar columnas visibles para Ejecutivo
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Cuando visualizo las columnas que también visualiza el Ejecutivo:
       | Columna           |
       | Encuentro         |
@@ -442,7 +549,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-38 - Columnas que NO son ordenables (incluso para Superusuario/Gestor)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Cuando visualizo la grilla de encuentros
     Entonces las siguientes columnas NO deben ser ordenables:
       | Columna                   |
@@ -461,7 +571,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-39 - Ordenamiento con grandes volúmenes de datos
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Gestor TA"
     Y la grilla muestra 5000 encuentros disponibles mediante scroll infinito
     Cuando hago clic en el encabezado "Monto" para ordenar descendente
     Entonces el ordenamiento debe aplicarse sobre todos los 5000 registros
@@ -470,7 +583,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA
   Escenario: ORD-40 - Cambio rápido entre ordenamientos múltiples
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Superusuario de Admisión"
     Y visualizo la grilla de encuentros
     Cuando hago clic en el encabezado "Apellidos" para ordenar ascendente
     Y luego hago clic en el encabezado "Fecha de Apertura" para ordenar ascendente
