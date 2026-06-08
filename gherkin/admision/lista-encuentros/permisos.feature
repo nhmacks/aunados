@@ -351,24 +351,6 @@ Característica: Permisos y Control de Acceso en Lista de Encuentros
   # ========================================================================
 
   @ejecutivoAdmision
-  Escenario: PERM-22 - Ejecutivo solo visualiza encuentros creados por él mismo en su sede
-    Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01" asignado a la sede "Auna Guardia Civil"
-    Y existen los siguientes encuentros clasificados para Admisión:
-      | Encuentro | Usuario      | Sede               | Bandeja    |
-      | 11111111  | ejecutivo01  | Auna Guardia Civil | Admisión   |
-      | 22222222  | ejecutivo01  | Auna Guardia Civil | Admisión   |
-      | 33333333  | ejecutivo02  | Auna Guardia Civil | Admisión   |
-      | 44444444  | ejecutivo01  | Auna Cañete        | Admisión   |
-      | 55555555  | ejecutivo01  | Auna Guardia Civil | Protocolo  |
-    Cuando accedo a la Lista de Encuentros
-    Entonces debo visualizar exactamente 2 encuentros
-    Y debo visualizar el encuentro "11111111"
-    Y debo visualizar el encuentro "22222222"
-    Y NO debo visualizar el encuentro "33333333"
-    Y NO debo visualizar el encuentro "44444444"
-    Y NO debo visualizar el encuentro "55555555"
-
-  @ejecutivoAdmision
   Escenario: PERM-23 - Ejecutivo visualiza lista vacía cuando no tiene encuentros propios
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01" asignado a la sede "Auna Guardia Civil"
     Y existen 100 encuentros clasificados para Admisión

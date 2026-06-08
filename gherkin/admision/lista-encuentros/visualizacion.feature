@@ -20,6 +20,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Y debe mostrar los primeros 50 registros
     Y debe mostrar los encuentros más recientes primero basándose en la fecha de apertura
     Y debe mostrar el contador de resultados
+    # ##### registros encontrados
     Y debe visualizar la grilla con las siguientes columnas:
       | Columna                     |
       | Sede                        |
@@ -32,14 +33,14 @@ Característica: Visualización de Lista de Encuentros en Admisión
       | Prioridad                   |
       | Usuario                     |
       | Garante                     |
-      | Tipo de Encuentro           |
-      | Sustentos Administrativos   |
-      | Sustentos Médicos           |
-      | Sustentos de Proceso        |
+      | Tipo de encuentro           |
+      | Sustentos administrativos   |
+      | Sustentos médicos           |
+      | Sustentos de proceso        |
       | Monto                       |
 
   @ejecutivoAdmision
-  Escenario: VIS-02 - Visualizar lista de encuentros como pantalla inicial después del login (Ejecutivo)
+  Escenario: VIS-02 - Visualizar lista de encuentros como pantalla inicial después del login (Ejecutivo de admision)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Cuando inicio sesión correctamente en el sistema
     Entonces el sistema debe mostrar la pantalla "Lista de Encuentros" automáticamente
@@ -105,16 +106,6 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Cuando accedo a la Lista de Encuentros
     Entonces debo visualizar únicamente 30 encuentros
     Y todos los encuentros mostrados deben haber sido creados por "ejecutivo01"
-
-  @ejecutivoAdmision
-  Escenario: VIS-07 - Ejecutivo solo visualiza encuentros de su sede
-    Dado que soy un usuario con rol "Ejecutivo de Admisión" asignado a la sede "Auna Guardia Civil"
-    Y existen 100 encuentros clasificados para Admisión
-    Y 40 encuentros pertenecen a la sede "Auna Guardia Civil"
-    Y 60 encuentros pertenecen a otras sedes
-    Cuando accedo a la Lista de Encuentros
-    Entonces debo visualizar únicamente 40 encuentros
-    Y todos los encuentros mostrados deben pertenecer a la sede "Auna Guardia Civil"
 
   @ejecutivoAdmision
   Escenario: VIS-08 - Ejecutivo solo visualiza encuentros clasificados para Admisión creados por él en su sede
