@@ -14,7 +14,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de acciones de ordenamiento de columnas
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Esquema del escenario: ANLT-01 - Registrar evento al ordenar tabla como Gestor TA
     Dado que el usuario Gestor TA se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de ordenamiento en la columna "<columna_filtro>"
@@ -40,7 +40,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
       | Tipo de encuentro | asc          |
       | Monto             | asc          |
 
-  @superusuarioAdmision
+  @superusuarioAdmision @happyPath
   Esquema del escenario: ANLT-02 - Registrar evento al ordenar tabla como Superusuario
     Dado que el usuario Superusuario de Admisión se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de ordenamiento en la columna "<columna_filtro>"
@@ -69,7 +69,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de filtros con múltiples opciones seleccionadas
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Esquema del escenario: ANLT-03 - Registrar evento al aplicar filtro multiselección como Gestor TA
     Dado que el usuario Gestor TA se encuentra en la sección de Lista de encuentros
     Cuando aplica filtro por selección múltiple en "<campo>"
@@ -93,7 +93,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
       | Sustentos médicos         | todas las opciones |
       | Mecanismo                 | una opción         |
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-04 - Registrar evento al aplicar filtro multiselección como Ejecutivo
     Dado que el usuario Ejecutivo de Admisión se encuentra en la sección de Lista de encuentros
     Cuando aplica filtro por selección múltiple en "<campo>"
@@ -118,7 +118,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de filtros de rango de fechas
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: ANLT-05 - Registrar evento al aplicar filtro de fecha como Gestor TA
     Dado que el usuario Gestor TA se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de fecha en la columna "Fecha apert."
@@ -132,7 +132,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el nombre de la columna "Fecha apert."
     Y se registra el rango de fechas seleccionado en el filtro
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Escenario: ANLT-06 - Registrar evento al aplicar filtro de fecha como Ejecutivo
     Dado que el usuario Ejecutivo de Admisión se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de fecha en la columna "Fecha apert."
@@ -146,7 +146,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el nombre de la columna "Fecha apert."
     Y se registra el rango de fechas seleccionado en el filtro
 
-  @superusuarioAdmision
+  @superusuarioAdmision @happyPath
   Escenario: ANLT-07 - Registrar evento al aplicar filtro de fecha como Superusuario
     Dado que el usuario Superusuario de Admisión se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de fecha en la columna "Fecha apert."
@@ -165,7 +165,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de filtros de texto con operadores (Contiene, Igual, etc.)
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Esquema del escenario: ANLT-08 - Registrar evento al aplicar filtro de texto como Gestor TA
     Dado que el usuario Gestor TA se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de texto en la columna "<columna_filtro>"
@@ -187,7 +187,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
       | Garante        | MAPFRE          | Contiene  |
       | Usuario        | jperez          | Igual a   |
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-09 - Registrar evento al aplicar filtro de texto como Ejecutivo
     Dado que el usuario Ejecutivo de Admisión se encuentra en la sección de Lista de encuentros
     Cuando se aplica un filtro de texto en la columna "<columna_filtro>"
@@ -212,7 +212,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de búsquedas en el campo general
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-10 - Registrar evento al realizar búsqueda general
     Dado que soy un usuario con rol "<rol>"
     Y me encuentro en la sección de Lista de encuentros
@@ -238,7 +238,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de descargas de reportes
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ANLT-11 - Registrar evento al exportar como Superusuario o Gestor TA (descarga inmediata)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y me encuentro en la sección de Lista de encuentros
@@ -255,7 +255,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra si había filtros activos
     Y se registra los filtros aplicados al momento de la exportación
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Escenario: ANLT-12 - Registrar evento al solicitar exportación como Ejecutivo (descarga asíncrona)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y me encuentro en la sección de Lista de encuentros
@@ -272,7 +272,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra si había filtros activos
     Y se registra los filtros aplicados al momento de la solicitud
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Escenario: ANLT-13 - Registrar evento al descargar archivo generado desde la campana (Ejecutivo)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he solicitado una exportación asíncrona previamente
@@ -292,7 +292,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de accesos a detalle de encuentros
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-14 - Registrar evento al acceder al detalle de un encuentro
     Dado que soy un usuario con rol "<rol>"
     Y me encuentro en la sección de Lista de encuentros
@@ -319,7 +319,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # Cobertura: Registro de acciones de limpieza de filtros
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-15 - Registrar evento al limpiar un filtro individual
     Dado que soy un usuario con rol "<rol>"
     Y me encuentro en la sección de Lista de encuentros
@@ -340,7 +340,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
       | Gestor TA              | Mecanismo  | CAPITA    |
       | Ejecutivo de Admisión    | Prioridad  | Prioridad 1|
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-16 - Registrar evento al restablecer vista completa
     Dado que soy un usuario con rol "<rol>"
     Y me encuentro en la sección de Lista de encuentros
@@ -366,7 +366,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # TÉCNICA: VALIDACIÓN DE METADATA - CAMPOS COMUNES EN TODOS LOS EVENTOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: ANLT-17 - Validar que todos los eventos incluyen metadata completa
     Dado que soy un usuario con rol "Gestor TA"
     Y me encuentro en la sección de Lista de encuentros
@@ -383,7 +383,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y todos los campos deben tener valores no nulos
     Y la fecha y hora deben ser exactas al momento del evento
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: ANLT-18 - Validar formato de timestamps en eventos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y me encuentro en la sección de Lista de encuentros
@@ -397,7 +397,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # TÉCNICA: EVENTOS DE SCROLL Y CARGA DE DATOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: ANLT-19 - Registrar evento al hacer scroll infinito
     Dado que soy un usuario con rol "<rol>"
     Y me encuentro en la sección de Lista de encuentros
@@ -422,7 +422,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # TÉCNICA: EVENTOS DE ERROR Y MENSAJES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: ANLT-20 - Registrar evento cuando filtro no retorna resultados
     Dado que soy un usuario con rol "Gestor TA"
     Y me encuentro en la sección de Lista de encuentros
@@ -435,7 +435,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Y se registra el filtro aplicado que no retornó resultados
     Y se registra la fecha y hora del evento
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: ANLT-21 - Registrar evento cuando ocurre error general al cargar lista
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y me encuentro en la sección de Lista de encuentros
@@ -453,7 +453,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
   # TÉCNICA: VALIDACIÓN DE PRIVACIDAD - DATOS SENSIBLES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: ANLT-22 - Validar que NO se registran datos sensibles de pacientes
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y me encuentro en la sección de Lista de encuentros

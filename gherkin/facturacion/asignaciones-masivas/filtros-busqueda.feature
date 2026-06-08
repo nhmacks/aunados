@@ -14,7 +14,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: VALIDACIÓN DE FILTROS - FILTRO POR FECHAS Y GARANTE
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: FIL-01 - Aplicar filtros de fecha y tipo de garante exitosamente
     Dado que existen encuentros en el rango de los últimos 6 meses
     Y existen encuentros de diferentes tipos de garante
@@ -27,7 +27,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el contador debe mostrar la cantidad total de registros encontrados
     Y el botón "Asignar" debe estar deshabilitado hasta seleccionar registros
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: FIL-02 - Filtrar por diferentes cantidades de tipos de garante
     Dado que existen encuentros de múltiples tipos de garante
     Y he seleccionado una fecha de inicio dentro de los últimos 6 meses
@@ -43,7 +43,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
       | 5 tipos de garante       | 5 registros         |
       | todos los tipos de garante | Todos los registros |
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: FIL-03 - Validar que fecha de inicio no puede ser mayor a 6 meses
     Dado que estoy en la bandeja "Asignaciones masivas"
     Cuando selecciono una fecha de inicio mayor a 6 meses atrás
@@ -51,7 +51,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el botón "Buscar" debe permanecer deshabilitado
     Y NO debe realizarse ninguna búsqueda
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: FIL-04 - Validar que fecha fin no puede ser menor a fecha inicio
     Dado que he seleccionado una fecha de inicio válida
     Cuando selecciono una fecha fin anterior a la fecha de inicio
@@ -63,7 +63,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: LIMPIAR FILTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: FIL-05 - Limpiar filtros realizados
     Dado que he seleccionado una fecha de inicio dentro de los últimos 6 meses
     Y he seleccionado como fecha fin la fecha actual
@@ -79,7 +79,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y la grilla debe limpiarse
     Y debe mostrarse el mensaje "Filtra para ver los resultados"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: FIL-06 - Limpiar con diferentes cantidades de garantes seleccionados
     Dado que he aplicado filtros con "<cantidad_garantes>"
     Y he seleccionado el botón "Buscar"
@@ -100,7 +100,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: ORDENAMIENTO DE RESULTADOS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: FIL-07 - Ordenar resultados por diferentes criterios
     Dado que he aplicado filtros válidos
     Y he seleccionado el botón "Buscar"
@@ -115,7 +115,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
       | Cantidad de encuentros   |
       | Monto por facturar       |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: FIL-08 - Ordenar ascendente y descendente alternadamente
     Dado que he aplicado filtros válidos
     Y he seleccionado el botón "Buscar"
@@ -124,7 +124,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Entonces el sistema debe cambiar el orden a descendente
     Y los resultados deben mostrarse de Z a A
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: FIL-09 - Mantener ordenamiento después de realizar nueva búsqueda
     Dado que he aplicado filtros y realizado una búsqueda
     Y he ordenado los resultados por "Monto por facturar"
@@ -137,7 +137,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: VALIDACIÓN DE ESTADO INICIAL
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: FIL-10 - Validar estado inicial de la pantalla de asignaciones masivas
     Cuando accedo a la bandeja "Asignaciones masivas"
     Entonces el campo "fecha de inicio" debe estar vacío
@@ -149,7 +149,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y debe mostrarse el mensaje "Filtra para ver los resultados"
     Y la grilla debe estar vacía
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: FIL-11 - Habilitar botón Buscar al completar filtros mínimos requeridos
     Dado que el botón "Buscar" está deshabilitado
     Cuando selecciono una fecha de inicio válida
@@ -158,7 +158,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Entonces el botón "Buscar" debe habilitarse
     Y debo poder realizar la búsqueda
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: FIL-12 - Validar mensaje cuando búsqueda no arroja resultados
     Dado que he seleccionado filtros válidos
     Y NO existen encuentros que cumplan los criterios de búsqueda

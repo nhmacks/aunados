@@ -14,7 +14,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: EXPORTACIÓN SIN FILTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-01 - Exportar lista completa de encuentros sin filtros
     Dado que existen 100 encuentros para asignar
     Y NO he aplicado ningún filtro
@@ -25,7 +25,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el nombre del archivo debe tener el formato "encuentros_para_asignar_YYYYMMDD_HHMMSS.xlsx"
     Y debe mostrarse un mensaje "Archivo descargado exitosamente"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-02 - Validar columnas en archivo exportado sin filtros
     Dado que existen encuentros para asignar
     Y NO he aplicado filtros
@@ -52,7 +52,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: EXPORTACIÓN CON FILTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-03 - Exportar lista de encuentros después de aplicar filtros
     Dado que existen 100 encuentros para asignar
     Y he aplicado el filtro "Estado" con valor "Por asignar"
@@ -63,7 +63,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el archivo NO debe incluir los 70 encuentros que no cumplen el filtro
     Y debe mostrarse un mensaje "Archivo con filtros aplicados descargado exitosamente"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-04 - Exportar después de aplicar múltiples filtros
     Dado que existen encuentros para asignar
     Y he aplicado el filtro "Estado" con valor "Por asignar"
@@ -76,7 +76,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y todos los encuentros deben tener sede "Auna Guardia Civil"
     Y todos los encuentros deben tener garante "Pacífico EPS"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-05 - Exportar después de realizar búsqueda
     Dado que existen encuentros para asignar
     Y he realizado una búsqueda por apellido "García"
@@ -85,7 +85,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Entonces el archivo debe contener únicamente los 8 encuentros encontrados
     Y todos los encuentros deben tener "García" en el apellido
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-06 - Exportar después de aplicar filtros y búsqueda combinados
     Dado que existen encuentros para asignar
     Y he aplicado el filtro "Estado" con valor "Error de facturación"
@@ -100,7 +100,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE CONTENIDO EXPORTADO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-07 - Validar consistencia entre UI y archivo exportado
     Dado que estoy visualizando 25 encuentros en la grilla
     Y el primer encuentro visible tiene número "12345678"
@@ -111,7 +111,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el encuentro "12345678" debe tener garante "Pacífico EPS" en el Excel
     Y todos los datos deben coincidir exactamente con lo mostrado en la UI
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-08 - Validar formato de fechas en archivo exportado
     Dado que existen encuentros con fecha de apertura "05/06/2026"
     Cuando descargo el archivo Excel
@@ -120,7 +120,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y las fechas deben ser editables en Excel
     Y NO deben mostrarse como texto
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: EXP-09 - Validar valores vacíos en archivo exportado
     Dado que existen encuentros sin clasificación
     Y existen encuentros sin garante
@@ -133,14 +133,14 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ESTADO DEL BOTÓN
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-10 - Validar que botón Descargar siempre está habilitado
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Cuando visualizo el botón "Descargar"
     Entonces el botón debe estar habilitado
     Y debe ser posible hacer clic en él
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: EXP-11 - Descargar cuando no hay encuentros para asignar
     Dado que NO existen encuentros para asignar
     Y el contador muestra "0 Registros encontrados"
@@ -149,7 +149,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el archivo debe contener únicamente los encabezados de columnas
     Y debe mostrarse un mensaje "No hay datos para exportar"
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: EXP-12 - Descargar cuando búsqueda no arroja resultados
     Dado que existen encuentros para asignar
     Y he realizado una búsqueda por "XXXXXX"
@@ -163,7 +163,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: CASOS EDGE - GRANDES VOLÚMENES
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-13 - Exportar lista con gran volumen de encuentros
     Dado que existen 5000 encuentros para asignar
     Cuando selecciono el botón "Descargar"
@@ -172,7 +172,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el archivo debe contener los 5000 encuentros
     Y el proceso NO debe exceder 30 segundos
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: EXP-14 - Validar límite de exportación
     Dado que existen 15000 encuentros para asignar
     Cuando selecciono el botón "Descargar"
@@ -184,7 +184,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ORDEN
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-15 - Exportar respetando orden de columnas de la UI
     Dado que he ordenado la tabla por "Fecha apert." descendente
     Y los encuentros se muestran ordenados del más reciente al más antiguo
@@ -193,7 +193,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el primer registro debe ser el encuentro más reciente
     Y el último registro debe ser el encuentro más antiguo
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-16 - Exportar después de aplicar múltiples ordenamientos
     Dado que he ordenado la tabla por "Sede" ascendente
     Y luego he ordenado por "Fecha apert." descendente
@@ -205,7 +205,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE FORMATO DE ARCHIVO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-17 - Validar que el archivo descargado es un Excel válido
     Dado que existen encuentros para asignar
     Cuando descargo el archivo
@@ -214,7 +214,7 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y el archivo debe poder abrirse en Google Sheets
     Y el archivo debe tener formato de tabla con filtros habilitados
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: EXP-18 - Validar encabezados con formato destacado
     Dado que existen encuentros para asignar
     Cuando descargo el archivo Excel

@@ -13,14 +13,14 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE ACCESO Y ELEMENTOS DE UI
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-01 - Acceder a la pantalla Encuentros en Protocolo como Gestor TA
     Cuando accedo al módulo de Admisión
     Entonces debo visualizar la opción "Encuentros en Protocolo" en el menú
     Y debo poder acceder a la pantalla "Encuentros en Protocolo"
     Y la pantalla debe cargarse correctamente
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-02 - Visualizar elementos principales de la pantalla
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Entonces debe mostrarse la caja de búsqueda general
@@ -34,7 +34,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE COLUMNAS DE LA GRILLA
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-03 - Visualizar columnas de la grilla de Encuentros en Protocolo
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Cuando visualizo la grilla de encuentros
@@ -53,7 +53,7 @@ Característica: Visualización de Encuentros en Protocolo
       | Mecanismo          |
       | Monto              |
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-04 - Validar que todas las columnas son visibles sin scroll horizontal
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros en protocolo
@@ -66,7 +66,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: CONTADOR DE REGISTROS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Esquema del escenario: VIS-05 - Visualizar contador de registros encontrados
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen "<cantidad>" encuentros en protocolo
@@ -81,7 +81,7 @@ Característica: Visualización de Encuentros en Protocolo
       | 33       |
       | 500      |
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-06 - Actualizar contador dinámicamente al aplicar filtros
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen 100 encuentros en protocolo
@@ -94,7 +94,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: VISUALIZACIÓN DE DATOS EN LA GRILLA
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-07 - Visualizar datos completos de un encuentro en la grilla
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existe un encuentro "12345678" en protocolo con los siguientes datos:
@@ -115,7 +115,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y el formato de fecha debe ser "DD/MM/YYYY"
     Y el formato de monto debe incluir símbolo de moneda y decimales
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: VIS-08 - Visualizar valores vacíos en la grilla
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existe un encuentro sin "Producto" asignado
@@ -127,7 +127,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: RESTRICCIONES DE INTERACCIÓN
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: VIS-09 - Validar que la pantalla es de solo lectura
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros en la grilla
@@ -136,7 +136,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y NO debe navegarse a otra pantalla
     Y el encuentro NO debe ser editable
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: VIS-10 - Validar que NO se puede acceder al detalle del encuentro
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y visualizo encuentros en la grilla
@@ -145,7 +145,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y NO debe mostrarse el detalle del encuentro
     Y la pantalla debe permanecer en modo solo lectura
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: VIS-11 - Validar que NO existen botones de edición o cambio de estado
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Cuando visualizo la interfaz completa
@@ -158,7 +158,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE ESTADO INICIAL
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-12 - Validar estado inicial de la pantalla al cargar
     Cuando accedo por primera vez a la pantalla "Encuentros en Protocolo"
     Entonces el selector "Solo Positivos" debe estar desactivado
@@ -167,7 +167,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y la grilla debe mostrar todos los encuentros en protocolo (positivos y negativos)
     Y el contador debe mostrar el total de encuentros disponibles
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: VIS-13 - Visualizar grilla vacía cuando no existen encuentros
     Dado que NO existen encuentros en protocolo
     Cuando accedo a la pantalla "Encuentros en Protocolo"
@@ -180,7 +180,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE TIPO DE PROTOCOLO
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-14 - Visualizar encuentros positivos y negativos en la grilla
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen 20 encuentros con "Tipo de Protocolo" = "Positivo"
@@ -190,7 +190,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y la grilla debe mostrar los 35 encuentros (positivos y negativos)
     Y la columna "Tipo de Protocolo" debe mostrar claramente cada valor
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-15 - Validar formato visual de Tipo de Protocolo
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros positivos y negativos
@@ -203,7 +203,7 @@ Característica: Visualización de Encuentros en Protocolo
   # TÉCNICA: VISUALIZACIÓN DE TIPOS DE ENCUENTRO ESPECÍFICOS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-16 - Visualizar encuentros tipo Consulta Externa No Oncosalud
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros tipo "Consulta Externa No Oncosalud"
@@ -213,7 +213,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y deben tener documentación administrativa completa
     Y deben tener laboratorios completos e imputados
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-17 - Visualizar encuentros tipo Consulta Externa Oncosalud
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros tipo "Consulta Externa Oncosalud"
@@ -223,7 +223,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y deben tener documentación administrativa completa
     Y deben tener laboratorios completos e imputados
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-18 - Visualizar encuentros tipo Emergencia
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros tipo "Emergencia"
@@ -233,7 +233,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y deben tener documentación administrativa completa
     Y deben tener laboratorios completos e imputados
 
-  @gestorTA
+  @gestorTA @happyPath
   Esquema del escenario: VIS-19 - Visualizar mezcla de tipos de encuentro en la grilla
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen "<cantidad_ce_no_onco>" encuentros tipo "Consulta Externa No Oncosalud"
@@ -250,7 +250,7 @@ Característica: Visualización de Encuentros en Protocolo
       | 30                  | 0                | 5                   | 35    |
       | 0                   | 25               | 8                   | 33    |
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: VIS-20 - Validar que NO se muestran encuentros fuera de reglas de antigüedad
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Cuando visualizo la grilla
@@ -259,7 +259,7 @@ Característica: Visualización de Encuentros en Protocolo
     Y NO deben mostrarse encuentros "Emergencia" con más de 2 días
     Y todos los encuentros visibles deben estar dentro de sus rangos de antigüedad permitidos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: VIS-21 - Validar que todos los encuentros visibles superaron validaciones de Admisión
     Dado que he accedido a la pantalla "Encuentros en Protocolo"
     Y existen encuentros de diferentes tipos en la grilla

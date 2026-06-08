@@ -14,7 +14,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE ESTADOS PERMITIDOS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: RN-01 - Solo se contabilizan encuentros en estado "Por asignar" por garante y sede
     Dado que existen encuentros para el garante "<garante>" en la sede "<sede>" con los siguientes estados:
       | Estado               | Cantidad |
@@ -36,7 +36,7 @@ Característica: Reglas de Negocio en Asignación Masiva
       | RIMAC SEGUROS  | San Isidro   |
       | PACIFICO EPS   | Guardia Civil|
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: RN-02 - Asignar solo encuentros en estado "Por asignar"
     Dado que he seleccionado "<cantidad_garantes>" garantes con encuentros en múltiples estados
     Y cada garante tiene encuentros "Por asignar" y encuentros en otros estados
@@ -58,7 +58,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE SEDE SIN ENCUENTROS VÁLIDOS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Esquema del escenario: RN-03 - Sede sin encuentros en estado "Por asignar" bloquea el flujo
     Dado que existen encuentros para el garante "<garante>" en la sede "<sede>" con los siguientes estados:
       | Estado               | Cantidad |
@@ -80,7 +80,7 @@ Característica: Reglas de Negocio en Asignación Masiva
       | MAPFRE SEGUROS | Delgado    |
       | RIMAC SEGUROS  | San Isidro |
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: RN-04 - Garante con al menos una sede sin encuentros "Por asignar" bloquea asignación
     Dado que el garante "MAPFRE SEGUROS" tiene:
       | Sede          | Por asignar | Otros estados |
@@ -98,7 +98,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE DISTRIBUCIÓN POR SEDE
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: RN-05 - Solo se pueden asignar encuentros de sedes con estado "Por asignar"
     Dado que el garante "PACIFICO EPS" tiene encuentros "Por asignar" en 3 sedes:
       | Sede          | Cantidad Por asignar |
@@ -112,7 +112,7 @@ Característica: Reglas de Negocio en Asignación Masiva
     Y NO deben aparecer sedes sin encuentros en este estado
     Y la cantidad máxima por sede debe coincidir con los encuentros "Por asignar"
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: RN-06 - Validar que cantidad asignada no excede "Por asignar" de la sede
     Dado que la sede "Delgado" del garante "MAPFRE" tiene:
       | Estado               | Cantidad |
@@ -130,7 +130,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE PERMISOS POR ROL
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: RN-07 - Solo Responsable de Facturación puede acceder a asignaciones masivas
     Dado que soy un usuario con rol "Responsable de Facturación"
     Cuando accedo al módulo de Facturación
@@ -138,7 +138,7 @@ Característica: Reglas de Negocio en Asignación Masiva
     Y debo poder acceder a la bandeja
     Y debo poder realizar asignaciones masivas
 
-  @ejecutivoFacturacion
+  @ejecutivoFacturacion @unhappyPath
   Escenario: RN-08 - Ejecutivo de Facturación NO puede acceder a asignaciones masivas
     Dado que soy un usuario con rol "Ejecutivo de Facturación"
     Cuando accedo al módulo de Facturación
@@ -150,7 +150,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE INTEGRIDAD DE DATOS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: RN-09 - Validar que la suma de cantidades por sede no excede el total del garante
     Dado que el garante "MAPFRE" tiene 50 encuentros "Por asignar" distribuidos en 3 sedes:
       | Sede          | Cantidad |
@@ -168,7 +168,7 @@ Característica: Reglas de Negocio en Asignación Masiva
     Y el sistema debe marcar el campo con error
     Y el botón "Asignar" debe permanecer deshabilitado
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: RN-10 - Permitir asignación parcial de encuentros del garante
     Dado que el garante "RIMAC" tiene 100 encuentros "Por asignar"
     Y he abierto el modal de asignación
@@ -182,7 +182,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE ACTUALIZACIÓN DE ESTADO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: RN-11 - Encuentros asignados cambian de estado correctamente
     Dado que he asignado 30 encuentros en estado "Por asignar" a un ejecutivo
     Cuando la asignación se completa exitosamente
@@ -191,7 +191,7 @@ Característica: Reglas de Negocio en Asignación Masiva
     Y el contador de encuentros "Por asignar" del garante debe decrementar en 30
     Y el historial de asignación debe registrar el cambio
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: RN-12 - Validar que asignación fallida no modifica estados
     Dado que he configurado una asignación de 50 encuentros
     Y ocurre un error en el servidor durante el proceso
@@ -205,7 +205,7 @@ Característica: Reglas de Negocio en Asignación Masiva
   # TÉCNICA: VALIDACIÓN DE CONCURRENCIA
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: RN-13 - Bloquear asignación si otro usuario asignó los mismos encuentros
     Dado que he seleccionado un garante con 30 encuentros "Por asignar"
     Y he abierto el modal y configurado la asignación
@@ -215,7 +215,7 @@ Característica: Reglas de Negocio en Asignación Masiva
     Y mi asignación debe cancelarse
     Y debo poder actualizar la bandeja para ver el estado actual
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: RN-14 - Permitir asignación si hay encuentros suficientes después de asignación concurrente
     Dado que un garante tiene 100 encuentros "Por asignar"
     Y he configurado asignar 50 encuentros

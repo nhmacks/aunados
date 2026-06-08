@@ -14,7 +14,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: BÚSQUEDA GENERAL
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-01 - Buscar encuentro por número de encuentro
     Dado que existen encuentros en protocolo
     Y existe el encuentro con número "12345678"
@@ -23,7 +23,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar únicamente el encuentro "12345678"
     Y el contador debe mostrar "1 registros encontrados"
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-02 - Buscar encuentro por nombres del paciente
     Dado que existen encuentros en protocolo
     Y existen encuentros del paciente con nombres "Juan Carlos"
@@ -32,7 +32,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar únicamente los encuentros con nombres que coincidan con "Juan Carlos"
     Y el contador debe actualizarse con la cantidad de resultados encontrados
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-03 - Buscar encuentro por apellidos del paciente
     Dado que existen encuentros en protocolo
     Y existen encuentros del paciente con apellidos "García Pérez"
@@ -41,7 +41,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar únicamente los encuentros con apellidos que coincidan con "García"
     Y el contador debe actualizarse con la cantidad de resultados encontrados
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: FIL-04 - Búsqueda sin resultados
     Dado que existen encuentros en protocolo
     Cuando ingreso "XXXXXXX" en la caja de búsqueda
@@ -50,7 +50,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y el contador debe mostrar "0 registros encontrados"
     Y debe mostrarse un mensaje "No se encontraron coincidencias"
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-05 - Limpiar búsqueda manualmente
     Dado que he realizado una búsqueda por "García"
     Y la grilla muestra resultados filtrados
@@ -63,13 +63,13 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: FILTRO SOLO POSITIVOS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-06 - Validar estado inicial del filtro Solo Positivos
     Cuando accedo a la pantalla "Encuentros en Protocolo"
     Entonces el selector "Solo Positivos" debe estar desactivado
     Y la grilla debe mostrar encuentros positivos y negativos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-07 - Activar filtro Solo Positivos
     Dado que existen 20 encuentros con "Tipo de Protocolo" = "Positivo"
     Y existen 15 encuentros con "Tipo de Protocolo" = "Negativo"
@@ -79,7 +79,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y el contador debe actualizarse a "20 registros encontrados"
     Y NO deben mostrarse encuentros negativos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-08 - Desactivar filtro Solo Positivos
     Dado que he activado el filtro "Solo Positivos"
     Y la grilla muestra únicamente 20 encuentros positivos
@@ -87,7 +87,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar nuevamente los 35 encuentros (positivos y negativos)
     Y el contador debe actualizarse a "35 registros encontrados"
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: FIL-09 - Filtro Solo Positivos sin encuentros positivos disponibles
     Dado que existen únicamente encuentros con "Tipo de Protocolo" = "Negativo"
     Cuando activo el selector "Solo Positivos"
@@ -99,7 +99,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: FILTROS POR ENCABEZADO DE COLUMNA
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Esquema del escenario: FIL-10 - Filtrar por columnas específicas
     Dado que existen encuentros con diferentes valores en "<columna>"
     Cuando aplico un filtro en la columna "<columna>" con valor "<valor>"
@@ -122,7 +122,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
       | Producto           | Salud EPS Pacífico                 |
       | Beneficio          | Consulta Ambulatoria               |
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-11 - Filtrar por rango de fechas en Fecha de Apertura
     Dado que existen encuentros con diferentes fechas de apertura
     Cuando aplico un filtro de rango en la columna "Fecha de Apertura"
@@ -131,7 +131,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar únicamente los encuentros con fecha de apertura entre "01/05/2026" y "31/05/2026"
     Y el contador debe actualizarse correctamente
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: FIL-12 - Validar que columnas sin filtro no permiten filtrado
     Dado que estoy visualizando la grilla
     Cuando intento aplicar un filtro en la columna "Encuentro"
@@ -143,7 +143,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: COMBINACIÓN DE FILTROS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-13 - Combinar múltiples filtros por columna
     Dado que existen encuentros en protocolo
     Cuando aplico un filtro en "Tipo de Encuentro" con valor "Ambulatorio"
@@ -152,7 +152,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar únicamente los encuentros que cumplan los 3 filtros simultáneamente
     Y el contador debe mostrar la cantidad de encuentros que cumplen todos los criterios
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-14 - Combinar búsqueda general con filtro Solo Positivos
     Dado que existen encuentros del paciente "García"
     Y algunos son positivos y otros negativos
@@ -162,7 +162,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces la grilla debe mostrar únicamente los encuentros de "García" que sean positivos
     Y el contador debe reflejar solo los encuentros que cumplan ambos criterios
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-15 - Combinar búsqueda general con filtros por columna
     Dado que existen encuentros en protocolo
     Cuando ingreso "Juan" en la búsqueda
@@ -173,7 +173,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
       - Y tengan sede "Auna San Isidro"
     Y el contador debe reflejar solo los que cumplan ambos criterios
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-16 - Combinar filtro Solo Positivos con filtros por columna
     Dado que existen encuentros en protocolo
     Cuando activo el selector "Solo Positivos"
@@ -189,7 +189,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: RESTABLECER VISTA
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-17 - Restablecer vista limpia todos los filtros aplicados
     Dado que he aplicado una búsqueda por "García"
     Y he activado el filtro "Solo Positivos"
@@ -202,7 +202,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y la grilla debe mostrar todos los encuentros disponibles
     Y el contador debe mostrar el total de encuentros en protocolo
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-18 - Restablecer vista cuando no hay filtros aplicados
     Dado que NO he aplicado ningún filtro
     Y visualizo todos los encuentros en protocolo
@@ -211,7 +211,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y NO debe haber cambios visuales
     Y el contador debe mantenerse igual
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-19 - Validar que Restablecer Vista está siempre habilitado
     Cuando accedo a la pantalla "Encuentros en Protocolo"
     Entonces el botón "Restablecer Vista" debe estar habilitado
@@ -222,7 +222,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: ACTUALIZACIÓN DINÁMICA DEL CONTADOR
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-20 - Validar actualización dinámica del contador al aplicar filtros
     Dado que existen 100 encuentros en protocolo
     Y el contador muestra "100 registros encontrados"
@@ -231,7 +231,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Entonces el contador debe actualizarse inmediatamente a "60 registros encontrados"
     Y NO debe requerirse recargar la página
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-21 - Validar actualización del contador al combinar filtros progresivamente
     Dado que existen 100 encuentros en protocolo
     Cuando aplico un filtro en "Sede" que reduce a 50 encuentros
@@ -245,7 +245,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: PERSISTENCIA DE FILTROS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: FIL-22 - Validar que filtros NO persisten al recargar la página
     Dado que he aplicado múltiples filtros
     Y la grilla muestra resultados filtrados
@@ -255,7 +255,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y la caja de búsqueda debe estar vacía
     Y la grilla debe mostrar todos los encuentros disponibles
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: FIL-23 - Validar que filtros NO persisten al salir y volver a entrar
     Dado que he aplicado filtros en la pantalla
     Cuando salgo de la pantalla "Encuentros en Protocolo"
@@ -268,7 +268,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
   # TÉCNICA: FILTROS ESPECÍFICOS POR TIPO DE ENCUENTRO
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-24 - Filtrar únicamente Consulta Externa No Oncosalud
     Dado que existen 30 encuentros tipo "Consulta Externa No Oncosalud"
     Y existen 20 encuentros tipo "Consulta Externa Oncosalud"
@@ -278,7 +278,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y el contador debe mostrar "30 registros encontrados"
     Y NO deben mostrarse encuentros de otros tipos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-25 - Filtrar únicamente Consulta Externa Oncosalud
     Dado que existen 30 encuentros tipo "Consulta Externa No Oncosalud"
     Y existen 20 encuentros tipo "Consulta Externa Oncosalud"
@@ -288,7 +288,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y el contador debe mostrar "20 registros encontrados"
     Y NO deben mostrarse encuentros de otros tipos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-26 - Filtrar únicamente Emergencia
     Dado que existen 30 encuentros tipo "Consulta Externa No Oncosalud"
     Y existen 20 encuentros tipo "Consulta Externa Oncosalud"
@@ -298,7 +298,7 @@ Característica: Búsqueda y Filtros en Encuentros en Protocolo
     Y el contador debe mostrar "15 registros encontrados"
     Y NO deben mostrarse encuentros de otros tipos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: FIL-27 - Combinar filtro de tipo de encuentro con Solo Positivos
     Dado que existen encuentros tipo "Consulta Externa No Oncosalud" positivos y negativos
     Y he aplicado filtro en "Tipo de Encuentro" = "Consulta Externa No Oncosalud"

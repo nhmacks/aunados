@@ -13,7 +13,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ESTRUCTURA - ELEMENTOS DE UI
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-01 - Visualizar elementos principales de la pantalla Lista de Encuentros para Asignar
     Dado que estoy en el sistema AUNADOS
     Cuando accedo a la bandeja "Lista de encuentros para asignar"
@@ -25,7 +25,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y debe mostrarse el botón "Restablecer vista" habilitado
     Y debe mostrarse el label con formato "###### Registros encontrados"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-02 - Visualizar columnas de la tabla de encuentros para asignar
     Dado que estoy en el sistema AUNADOS
     Y he accedido a la bandeja "Lista de encuentros para asignar"
@@ -52,7 +52,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ESTADOS INICIALES - BOTONES
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-03 - Validar estado inicial de botones sin selección de encuentros
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y NO he seleccionado ningún encuentro
@@ -62,7 +62,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Descargar" debe estar habilitado
     Y el botón "Restablecer vista" debe estar habilitado
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-04 - Validar habilitación de botones al seleccionar un encuentro
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros en estado "Por asignar"
@@ -76,7 +76,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE CONTADOR DE REGISTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: VIS-05 - Visualizar contador de registros encontrados
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen "<cantidad>" encuentros para asignar
@@ -94,7 +94,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE BÚSQUEDA
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-06 - Buscar encuentro por nombre del paciente
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros del paciente "Juan Carlos García"
@@ -102,7 +102,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debe mostrarse únicamente los encuentros que coincidan con "Juan Carlos" en nombres
     Y el contador debe actualizarse con la cantidad de resultados encontrados
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-07 - Buscar encuentro por apellido del paciente
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros del paciente con apellido "García Pérez"
@@ -110,7 +110,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debe mostrarse únicamente los encuentros que coincidan con "García" en apellidos
     Y el contador debe actualizarse con la cantidad de resultados encontrados
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-08 - Buscar encuentro por número de encuentro
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existe el encuentro con número "12345678"
@@ -118,7 +118,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debe mostrarse únicamente el encuentro "12345678"
     Y el contador debe mostrar "1 Registros encontrados"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-09 - Limpiar búsqueda con botón Restablecer vista
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y he realizado una búsqueda por "García"

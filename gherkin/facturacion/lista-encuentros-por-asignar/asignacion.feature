@@ -14,7 +14,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
   # TÉCNICA: PARTICIÓN DE EQUIVALENCIA - ASIGNACIÓN POR ESTADO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: ASIG-01 - Asignar encuentro a ejecutivo sin encuentros en su bandeja
     Dado que existe un ejecutivo de facturación sin encuentros asignados
     Y existen encuentros en estado "<estado>"
@@ -34,7 +34,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
       | No facturable        |
       | Regularizado         |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: ASIG-02 - Asignar encuentro a ejecutivo que ya tiene encuentros en su bandeja
     Dado que existe un ejecutivo de facturación con encuentros asignados
     Y existen encuentros en estado "<estado>"
@@ -55,7 +55,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
       | No facturable        |
       | Regularizado         |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: ASIG-03 - Asignar encuentro a ejecutivo que devolvió encuentros a admisión
     Dado que existe un ejecutivo de facturación que devolvió encuentros a admisión
     Y el ejecutivo NO tiene encuentros en su bandeja actual
@@ -80,7 +80,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
   # TÉCNICA: ASIGNACIÓN MASIVA
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-04 - Asignar múltiples encuentros a un ejecutivo
     Dado que existe un ejecutivo de facturación sin encuentros asignados
     Y existen 5 encuentros en estado "Por asignar"
@@ -93,7 +93,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
     Y debe mostrarse un mensaje de confirmación "5 encuentros asignados exitosamente"
     Y el contador de registros debe decrementar en 5
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-05 - Asignar encuentros de diferentes estados a un ejecutivo
     Dado que existe un ejecutivo de facturación
     Y existen encuentros en diferentes estados
@@ -111,7 +111,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
   # TÉCNICA: PRUEBAS NEGATIVAS - ESTADOS NO PERMITIDOS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Esquema del escenario: ASIG-06 - Validar que NO se puede asignar encuentro con estado no permitido
     Dado que existen encuentros en estado "<estado_no_permitido>"
     Cuando selecciono un encuentro en estado "<estado_no_permitido>"
@@ -129,7 +129,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
       | No facturar farmacia     |
       | No facturar admisión     |
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: ASIG-07 - Validar mensaje de error al intentar asignar estado no permitido
     Dado que existen encuentros en estado "Imp. Fact. Fin"
     Y he seleccionado un encuentro en estado "Imp. Fact. Fin"
@@ -142,7 +142,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
   # TÉCNICA: VALIDACIÓN DE FLUJO COMPLETO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-08 - Cancelar asignación de encuentro
     Dado que existen encuentros en estado "Por asignar"
     Y he seleccionado un encuentro en estado "Por asignar"
@@ -154,7 +154,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
     Y NO debe asignarse a ningún ejecutivo
     Y el botón "Asignar" debe permanecer habilitado
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-09 - Validar lista de ejecutivos disponibles para asignación
     Dado que existen 5 ejecutivos de facturación activos en el sistema
     Y he seleccionado un encuentro en estado "Por asignar"
@@ -164,7 +164,7 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
     Y cada ejecutivo debe mostrar su nombre completo
     Y cada ejecutivo debe mostrar la cantidad de encuentros asignados actualmente
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-10 - Deseleccionar encuentro después de abrir modal de asignación
     Dado que he seleccionado un encuentro en estado "Por asignar"
     Y he seleccionado el botón "Asignar"
@@ -179,14 +179,14 @@ Característica: Asignación de Encuentros a Ejecutivos de Facturación
   # TÉCNICA: VALIDACIÓN DE REGLAS DE NEGOCIO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-11 - Validar que solo Responsable de Facturación puede asignar encuentros
     Dado que soy un usuario con rol "Responsable de Facturación"
     Cuando accedo a la bandeja "Lista de encuentros para asignar"
     Entonces debo visualizar el botón "Asignar"
     Y debo poder asignar encuentros a ejecutivos
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: ASIG-12 - Reasignar encuentro previamente asignado
     Dado que existe un encuentro asignado al "Ejecutivo A"
     Y el encuentro fue devuelto a la bandeja "Lista de encuentros para asignar"

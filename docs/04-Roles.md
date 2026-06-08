@@ -353,7 +353,15 @@ Además:
 
 ## 6.6 Ordenamiento
 
-No posee permisos de ordenamiento.
+Puede ordenar por:
+
+- Encuentro
+- NHC
+- Apellidos
+- Nombres
+- Fecha de Apertura
+- Garante
+- Tipo de Encuentro
 
 ---
 
@@ -511,7 +519,7 @@ No puede visualizar encuentros de otros ejecutivos ni encuentros sin asignar.
 | Filtro por Sede | Sí | Sí | No |
 | Filtro por Usuario | Sí | Sí | No |
 | Filtro por Estado | Sí | Sí | Sí |
-| Ordenamiento | Sí | Sí | No |
+| Ordenamiento | Sí | Sí | Sí |
 | Exportación | Sí | Sí | Sí |
 | Cambio de Estado | Sí | Sí | Sí |
 | No Facturable | Sí | Sí | No |

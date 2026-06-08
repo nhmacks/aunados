@@ -14,7 +14,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: RN-DE-01, Sección 2, 3
   # ========================================================================
 
-  @superusuarioAdmision
+  @superusuarioAdmision @happyPath
   Escenario: DV-01 - Superusuario accede al detalle desde lista de encuentros
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y visualizo encuentros en la Lista de Encuentros
@@ -37,7 +37,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe mostrarse el agrupador "Datos del Seguro"
     Y el agrupador "Datos del Seguro" debe ser expandible
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: DV-02 - Gestor TA accede al detalle desde lista de encuentros
     Dado que soy un usuario con rol "Gestor TA"
     Y visualizo encuentros en la Lista de Encuentros
@@ -60,7 +60,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe mostrarse el agrupador "Datos del Seguro"
     Y el agrupador "Datos del Seguro" debe ser expandible
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Escenario: DV-03 - Ejecutivo accede al detalle desde lista de encuentros
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y visualizo encuentros en la Lista de Encuentros
@@ -88,7 +88,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 5
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: DV-04 - Visualizar diferentes estados en cabecera
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -109,7 +109,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 5.3, RN-DE-07
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-05 - Visualizar sustentos administrativos cuando existen pendientes
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -126,7 +126,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe mostrar "Denuncia Policial"
     Y cada sustento administrativo debe mostrar el label "Pendiente"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: DV-06 - NO visualizar sustentos administrativos cuando NO existen pendientes
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -134,7 +134,7 @@ Característica: Visualización de Detalle del Encuentro
     Cuando visualizo la cabecera de la pantalla
     Entonces NO debe mostrarse la sección "Sustentos Administrativos Pendientes"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-07 - Visualizar sustentos médicos cuando existen pendientes
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -143,7 +143,7 @@ Característica: Visualización de Detalle del Encuentro
     Entonces debe mostrarse la sección "Sustentos Médicos Pendientes"
     Y debe mostrar "Laboratorio"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: DV-08 - NO visualizar sustentos médicos cuando NO existen pendientes
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -151,7 +151,7 @@ Característica: Visualización de Detalle del Encuentro
     Cuando visualizo la cabecera de la pantalla
     Entonces NO debe mostrarse la sección "Sustentos Médicos Pendientes"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-09 - Visualizar sustentos de proceso cuando existen pendientes
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -160,7 +160,7 @@ Característica: Visualización de Detalle del Encuentro
     Entonces debe mostrarse la sección "Sustentos de Proceso Pendientes"
     Y debe mostrar "Laboratorios no imputados"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: DV-10 - NO visualizar sustentos de proceso cuando NO existen pendientes
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -173,7 +173,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 7
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-11 - Visualizar campos completos en agrupador "Datos del Encuentro"
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -189,7 +189,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe mostrarse "Tipo de Encuentro: Ambulatorio"
     Y debe mostrarse "Prestación: ADM00050"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-12 - Validar formato de fecha de apertura en detalle
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -198,7 +198,7 @@ Característica: Visualización de Detalle del Encuentro
     Entonces la fecha debe mostrarse en formato "DD/MM/YYYY"
     Y debe mostrarse como "03/06/2026"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-13 - Validar formato de número de encuentro (8 dígitos)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -207,7 +207,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe tener exactamente 8 dígitos
     Y debe ser numérico
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: DV-14 - Visualizar diferentes tipos de encuentro
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -225,7 +225,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 8
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-15 - Visualizar campos completos en agrupador "Datos del Seguro"
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -243,7 +243,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe mostrarse "Beneficio: Consulta Ambulatoria"
     Y debe mostrarse "Código de Autorización: AUT-987654"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: DV-16 - Visualizar diferentes garantes en detalle
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -262,7 +262,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 4, RN-DE-02
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-17 - Validar que datos del paciente son de solo lectura
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -272,7 +272,7 @@ Característica: Visualización de Detalle del Encuentro
     Y los campos de NHC deben ser de solo lectura
     Y NO debo poder modificar ningún dato del paciente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-18 - Validar que datos del encuentro son de solo lectura
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -283,7 +283,7 @@ Característica: Visualización de Detalle del Encuentro
     Y la prestación debe ser de solo lectura
     Y NO debo poder modificar ningún dato del encuentro
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-19 - Validar que datos del seguro son de solo lectura
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -295,7 +295,7 @@ Característica: Visualización de Detalle del Encuentro
     Y el código de autorización debe ser de solo lectura
     Y NO debo poder modificar ningún dato del seguro
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-20 - Validar que sustentos son de solo lectura
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -311,7 +311,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 9, 10
   # ========================================================================
 
-  @ejecutivoAdmision
+  @ejecutivoAdmision @happyPath
   Escenario: DV-21 - Ejecutivo visualiza información permitida para su rol
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -323,7 +323,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debo poder visualizar los datos del seguro
     Y debo poder visualizar los sustentos pendientes
 
-  @superusuarioAdmision
+  @superusuarioAdmision @happyPath
   Escenario: DV-22 - Superusuario visualiza toda la información disponible
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -333,7 +333,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debo poder visualizar sustentos agrupados
     Y debo poder visualizar estados especiales
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: DV-23 - Gestor TA visualiza toda la información disponible
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -348,7 +348,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 5.3, RN-DE-07
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Esquema del escenario: DV-24 - Visualizar combinaciones de sustentos pendientes (Pairwise)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -371,7 +371,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 17
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-25 - Validar RN-DE-01: El detalle es accesible desde Lista de Encuentros
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -379,7 +379,7 @@ Característica: Visualización de Detalle del Encuentro
     Entonces el sistema debe abrir la pantalla "Detalle del Encuentro"
     Y debe ser la única forma de acceder al detalle
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: DV-26 - Validar RN-DE-02: La información es de solo lectura
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -388,7 +388,7 @@ Característica: Visualización de Detalle del Encuentro
     Y todos los campos deben ser de solo lectura
     Y la única acción permitida debe ser el cambio de estado
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-27 - Validar RN-DE-07: Sustentos solo se muestran cuando existen pendientes
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -404,7 +404,7 @@ Característica: Visualización de Detalle del Encuentro
   # TÉCNICA: CASOS EDGE - VALORES ESPECIALES Y LÍMITES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Escenario: DV-28 - Visualizar detalle con campos opcionales vacíos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -413,7 +413,7 @@ Característica: Visualización de Detalle del Encuentro
     Entonces debe mostrarse "Código de Autorización: -"
     Y NO debe mostrar "NULL" ni "undefined"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-29 - Visualizar detalle con máximo número de sustentos administrativos
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -433,7 +433,7 @@ Característica: Visualización de Detalle del Encuentro
   # Cobertura: Sección 18
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-30 - Validar que la información proviene de XHIS y Job de Admisión
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -448,7 +448,7 @@ Característica: Visualización de Detalle del Encuentro
   # TÉCNICA: PRUEBAS DE PERFORMANCE Y CARGA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-31 - Cargar detalle con información completa sin degradación
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -465,7 +465,7 @@ Característica: Visualización de Detalle del Encuentro
   # TÉCNICA: VALIDACIÓN DE NAVEGACIÓN
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-32 - Verificar que no se pierde contexto al acceder al detalle
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -477,7 +477,7 @@ Característica: Visualización de Detalle del Encuentro
     Y el ordenamiento debe mantenerse
     Y debe mostrarse la misma vista que tenía antes
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-33 - Validar carga de detalle con todos los agrupadores colapsados por defecto
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Cuando accedo al detalle del encuentro "12345678" por primera vez
@@ -485,7 +485,7 @@ Característica: Visualización de Detalle del Encuentro
     Y el agrupador "Datos del Seguro" debe estar colapsado por defecto
     Y debo poder expandir cada agrupador individualmente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-34 - Validar que la cabecera siempre es visible sin expandir
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"

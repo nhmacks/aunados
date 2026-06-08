@@ -237,6 +237,7 @@ Detalle del Encuentro.
 
 - Superusuario
 - Gestor de A
+- Ejecutivo de admisión
 
 ---
 

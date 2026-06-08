@@ -17,7 +17,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
   # TÉCNICA: VISUALIZACIÓN DE EJECUTIVO SIN ENCUENTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: VIS-EJE-01 - Visualizar ejecutivo sin encuentros en su bandeja
     Dado que el ejecutivo de facturación "Ejecutivo 7" NO tiene encuentros asignados
     Cuando selecciono al "Ejecutivo 7" en el modal de asignación
@@ -32,7 +32,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
       | 2 garantes        |
       | 10 garantes       |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-02 - Expandir información detallada de ejecutivo sin encuentros
     Dado que el ejecutivo "Ejecutivo 7" NO tiene encuentros asignados
     Y he seleccionado al "Ejecutivo 7" en el modal
@@ -48,7 +48,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
   # TÉCNICA: VISUALIZACIÓN DE EJECUTIVO CON ENCUENTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: VIS-EJE-03 - Visualizar ejecutivo con encuentros en su bandeja
     Dado que el ejecutivo "Ejecutivo 5" tiene encuentros en diferentes estados:
       | Estado               | Cantidad |
@@ -69,7 +69,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
       | 2 garantes        |
       | 10 garantes       |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-04 - Expandir información detallada de ejecutivo con encuentros
     Dado que el ejecutivo "Ejecutivo 5" tiene encuentros en diferentes estados:
       | Estado               | Cantidad |
@@ -91,7 +91,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
   # TÉCNICA: VISUALIZACIÓN DE EJECUTIVO QUE DEVOLVIÓ ENCUENTROS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: VIS-EJE-05 - Visualizar ejecutivo que devolvió encuentros a admisión
     Dado que el ejecutivo "Ejecutivo 3" tiene encuentros en diferentes estados:
       | Estado       | Cantidad |
@@ -110,7 +110,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
       | 2 garantes        |
       | 10 garantes       |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-06 - Expandir información de ejecutivo que devolvió encuentros
     Dado que el ejecutivo "Ejecutivo 3" tiene encuentros:
       | Estado       | Cantidad |
@@ -130,7 +130,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
   # TÉCNICA: ACTUALIZACIÓN DINÁMICA AL CONFIGURAR ASIGNACIÓN
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-07 - Actualizar contador "Asignados ahora" al configurar sedes
     Dado que el ejecutivo "Ejecutivo 7" tiene "En bandeja: 0"
     Y he seleccionado al "Ejecutivo 7" en el modal
@@ -140,7 +140,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
     Y "En bandeja" debe permanecer en 0
     Y el total proyectado debe ser 15 encuentros
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-08 - Actualizar contador al agregar múltiples sedes
     Dado que el ejecutivo "Ejecutivo 5" tiene "En bandeja: 9"
     Y he seleccionado al "Ejecutivo 5" en el modal
@@ -151,7 +151,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
     Y "En bandeja" debe permanecer en 9
     Y el total proyectado debe ser 54 encuentros (9 + 45)
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-09 - Actualizar contador al eliminar una sede
     Dado que he configurado 3 sedes con un total de 45 encuentros
     Y el contador muestra "Asignados ahora: 45"
@@ -159,7 +159,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
     Entonces el contador debe actualizarse a "Asignados ahora: 30"
     Y el total proyectado debe recalcularse correctamente
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-10 - Contador vuelve a cero al limpiar todas las sedes
     Dado que he configurado sedes con un total de 45 encuentros
     Y el contador muestra "Asignados ahora: 45"
@@ -171,7 +171,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
   # TÉCNICA: COMPARACIÓN ENTRE EJECUTIVOS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-11 - Comparar carga de trabajo entre ejecutivos disponibles
     Dado que tengo 3 ejecutivos disponibles:
       | Ejecutivo   | En bandeja |
@@ -185,7 +185,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
     Y "Ejecutivo 1" debe aparecer tercero (50 encuentros)
     Y cada ejecutivo debe mostrar claramente su carga actual
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-12 - Identificar visualmente ejecutivo con menor carga
     Dado que tengo ejecutivos con diferentes cargas de trabajo
     Cuando visualizo la lista de ejecutivos
@@ -197,7 +197,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
   # TÉCNICA: VALIDACIÓN DE INFORMACIÓN EN TIEMPO REAL
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: VIS-EJE-13 - Información de ejecutivo se actualiza en tiempo real
     Dado que he seleccionado al "Ejecutivo 5" con "En bandeja: 9"
     Y otro usuario asigna 5 nuevos encuentros al "Ejecutivo 5" simultáneamente
@@ -206,7 +206,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
     Y debe mostrarse una notificación "La información del ejecutivo se ha actualizado"
     Y debo poder continuar con mi asignación con la información actualizada
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: VIS-EJE-14 - Validar que estados Devueltos no aparecen en visualización
     Dado que el ejecutivo tiene encuentros en estado "Devueltos"
     Cuando visualizo la información del ejecutivo con "Ver más"
@@ -219,7 +219,7 @@ Característica: Visualización de Información de Ejecutivos en Asignación Mas
       | No facturable        |
       | Error de facturación |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: VIS-EJE-15 - Colapsar información detallada del ejecutivo
     Dado que he expandido la información del ejecutivo con "Ver más"
     Y se muestra el desglose detallado de estados

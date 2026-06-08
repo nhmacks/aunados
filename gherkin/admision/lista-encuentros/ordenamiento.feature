@@ -9,7 +9,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # DISPONIBILIDAD DE ORDENAMIENTO POR ROL
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-01 - Superusuario y Gestor pueden ordenar columnas
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -28,22 +28,54 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
       | Tipo de Encuentro |
       | Monto             |
 
-  @ejecutivoAdmision
-  Escenario: ORD-02 - Ejecutivo NO puede ordenar columnas
+  @ejecutivoAdmision @happyPath
+  Escenario: ORD-02 - Ejecutivo puede ordenar las columnas permitidas de su vista
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
     Y soy un usuario con rol "Ejecutivo de Admisión"
     Cuando visualizo la grilla de encuentros
-    Entonces ninguna columna debe ser ordenable
-    Y NO debo visualizar indicadores de ordenamiento en los encabezados
-    Y NO debo poder hacer clic para ordenar ninguna columna
+    Entonces las siguientes columnas deben ser ordenables:
+      | Columna           |
+      | Encuentro         |
+      | NHC               |
+      | Apellidos         |
+      | Nombres           |
+      | Fecha de Apertura |
+      | Garante           |
+      | Tipo de Encuentro |
+
+  @ejecutivoAdmision @happyPath
+  Escenario: ORD-41 - Ejecutivo ordena columna permitida ascendente (primer clic)
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Ejecutivo de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Ejecutivo de Admisión"
+    Y existen encuentros de pacientes con diferentes apellidos
+    Cuando hago clic en el encabezado "Apellidos" por primera vez
+    Entonces la grilla debe ordenarse por apellidos ascendente alfabéticamente
+    Y los apellidos que comienzan con "A" deben aparecer primero
+    Y los apellidos que comienzan con "Z" deben aparecer al final
+    Y debe mostrarse el indicador de orden ascendente en la columna "Apellidos"
+
+  @ejecutivoAdmision @happyPath
+  Escenario: ORD-42 - Ejecutivo ordena columna permitida descendente (segundo clic)
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Ejecutivo de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Ejecutivo de Admisión"
+    Y la grilla está ordenada por "Apellidos" ascendente
+    Cuando hago clic en el encabezado "Apellidos" por segunda vez
+    Entonces la grilla debe ordenarse por apellidos descendente alfabéticamente
+    Y los apellidos que comienzan con "Z" deben aparecer primero
+    Y los apellidos que comienzan con "A" deben aparecer al final
+    Y debe mostrarse el indicador de orden descendente en la columna "Apellidos"
 
   # ========================================================================
   # ORDENAMIENTO POR ENCUENTRO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-03 - Ordenar por Encuentro ascendente (primer clic)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -56,7 +88,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el último registro debe ser el encuentro con número más alto
     Y debe mostrarse el indicador de orden ascendente en la columna "Encuentro"
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-04 - Ordenar por Encuentro descendente (segundo clic)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -73,7 +105,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR NHC
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-05 - Ordenar por NHC ascendente
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -85,7 +117,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el primer registro debe ser el NHC más bajo
     Y el último registro debe ser el NHC más alto
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-06 - Ordenar por NHC descendente
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -101,7 +133,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR APELLIDOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-07 - Ordenar por Apellidos ascendente (alfabético A-Z)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -113,7 +145,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los apellidos que comienzan con "A" deben aparecer primero
     Y los apellidos que comienzan con "Z" deben aparecer al final
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-08 - Ordenar por Apellidos descendente (alfabético Z-A)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -129,7 +161,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR NOMBRES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-09 - Ordenar por Nombres ascendente (alfabético A-Z)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -141,7 +173,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los nombres que comienzan con "A" deben aparecer primero
     Y los nombres que comienzan con "Z" deben aparecer al final
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-10 - Ordenar por Nombres descendente (alfabético Z-A)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -157,7 +189,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR FECHA DE APERTURA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-11 - Ordenar por Fecha de Apertura ascendente (más antiguo primero)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -169,7 +201,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el primer registro debe ser el encuentro con fecha de apertura más antigua
     Y el último registro debe ser el encuentro con fecha de apertura más reciente
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-12 - Ordenar por Fecha de Apertura descendente (más reciente primero)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -185,7 +217,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR USUARIO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-13 - Ordenar por Usuario ascendente (alfabético A-Z)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -197,7 +229,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los usuarios que comienzan con "A" deben aparecer primero
     Y los usuarios que comienzan con "Z" deben aparecer al final
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-14 - Ordenar por Usuario descendente (alfabético Z-A)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -213,7 +245,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR GARANTE
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-15 - Ordenar por Garante ascendente (alfabético A-Z)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -225,7 +257,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los garantes que comienzan con "A" deben aparecer primero (ej: "Auna")
     Y los garantes que comienzan con "P" deben aparecer después (ej: "Pacífico")
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-16 - Ordenar por Garante descendente (alfabético Z-A)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -241,7 +273,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR TIPO DE ENCUENTRO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-17 - Ordenar por Tipo de Encuentro ascendente
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -253,7 +285,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los encuentros "Ambulatorio" deben aparecer primero
     Y los encuentros "Emergencia" deben aparecer después
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-18 - Ordenar por Tipo de Encuentro descendente
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -269,7 +301,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDENAMIENTO POR MONTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-19 - Ordenar por Monto ascendente (menor a mayor)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -281,7 +313,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el primer registro debe ser el encuentro con monto más bajo
     Y el último registro debe ser el encuentro con monto más alto
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-20 - Ordenar por Monto descendente (mayor a menor)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -297,7 +329,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # COMPORTAMIENTO DE ORDENAMIENTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-21 - Solo una columna ordenada a la vez
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -311,7 +343,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y la grilla debe ordenarse por "Fecha de Apertura" ascendente
     Y el indicador de ordenamiento debe aparecer en "Fecha de Apertura"
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-22 - Tercer clic elimina el ordenamiento
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -323,7 +355,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y la grilla debe volver al orden por defecto (fecha de apertura más reciente primero)
     Y el indicador de ordenamiento debe desaparecer de "Encuentro"
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-23 - Ordenamiento persiste al hacer scroll infinito
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -336,7 +368,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los nuevos 50 registros deben continuar el orden alfabético ascendente
     Y el indicador de ordenamiento debe permanecer visible en "Apellidos"
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-24 - Ordenamiento se aplica sobre resultados filtrados
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -349,7 +381,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el primer registro debe ser el encuentro "Pendiente" con monto más bajo
     Y el último registro debe ser el encuentro "Pendiente" con monto más alto
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-25 - Ordenamiento se aplica sobre resultados de búsqueda
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -362,7 +394,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y todos los registros deben tener apellido "García"
     Y deben estar ordenados por nombres ascendente
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-26 - Ordenamiento con filtros y búsqueda combinados
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -380,7 +412,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # INDICADORES VISUALES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-27 - Visualizar indicador de ordenamiento ascendente
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -392,7 +424,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el indicador debe estar visible en el encabezado de la columna "Encuentro"
     Y no debe haber indicadores en otras columnas
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-28 - Visualizar indicador de ordenamiento descendente
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -408,7 +440,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # LIMPIEZA Y RESTABLECIMIENTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-29 - Restablecer Vista elimina el ordenamiento
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -422,7 +454,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y la grilla debe volver al orden por defecto (fecha de apertura más reciente primero)
     Y todos los indicadores de ordenamiento deben desaparecer
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-30 - Limpiar filtro NO elimina el ordenamiento
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -440,7 +472,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ORDEN POR DEFECTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-31 - Orden por defecto al cargar la lista (sin ordenamiento aplicado)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -453,7 +485,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el encuentro más antiguo debe aparecer al final
     Y NO debe mostrarse indicador de ordenamiento en ninguna columna
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-32 - Volver al orden por defecto después de eliminar ordenamiento
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -469,7 +501,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # CASOS ESPECIALES Y VALORES NULOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @unhappyPath
   Escenario: ORD-33 - Ordenar columna con valores nulos o vacíos
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -480,7 +512,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Entonces los encuentros con "Usuario" vacío o nulo deben aparecer al final
     Y los encuentros con "Usuario" asignado deben ordenarse alfabéticamente primero
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @unhappyPath
   Escenario: ORD-34 - Ordenar con valores idénticos mantiene suborden por fecha
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -496,7 +528,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # CONTADOR CON ORDENAMIENTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-35 - Contador no cambia al aplicar ordenamiento
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -513,41 +545,33 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # VALIDACIÓN DE RESTRICCIONES DE ROL
   # ========================================================================
 
-  @ejecutivoAdmision
-  Escenario: ORD-36 - Ejecutivo no visualiza funcionalidad de ordenamiento
+  @ejecutivoAdmision @unhappyPath
+  Escenario: ORD-36 - Ejecutivo no puede ordenar columnas exclusivas de Superusuario y Gestor
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
     Y soy un usuario con rol "Ejecutivo de Admisión"
-    Y visualizo la grilla con las columnas permitidas para mi rol
-    Cuando intento hacer clic en cualquier encabezado de columna
-    Entonces NO debe ejecutarse ningún ordenamiento
-    Y NO debe mostrarse ningún indicador visual de ordenamiento
-    Y la grilla debe mantener el orden por defecto (fecha de apertura descendente)
+    Cuando visualizo la grilla de encuentros
+    Entonces las columnas "Usuario" y "Monto" no deben ser visibles en su grilla
+    Y no debe existir opción de ordenar por "Usuario"
+    Y no debe existir opción de ordenar por "Monto"
 
-  @superusuarioAdmision @gestorTA
-  Escenario: ORD-37 - Solo Superusuario y Gestor pueden ordenar columnas visibles para Ejecutivo
+  @superusuarioAdmision @gestorTA @happyPath
+  Escenario: ORD-37 - Superusuario y Gestor pueden ordenar columnas adicionales no visibles para Ejecutivo
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
     Y soy un usuario con rol "Superusuario de Admisión"
-    Cuando visualizo las columnas que también visualiza el Ejecutivo:
-      | Columna           |
-      | Encuentro         |
-      | NHC               |
-      | Apellidos         |
-      | Nombres           |
-      | Fecha de Apertura |
-      | Garante           |
-      | Tipo de Encuentro |
-    Entonces puedo ordenar todas estas columnas (excepto Estado y Prioridad que no son ordenables)
-    Y el Ejecutivo NO puede ordenar ninguna de estas columnas
+    Cuando visualizo la grilla de encuentros
+    Entonces las columnas "Usuario" y "Monto" deben ser visibles y ordenables
+    Y el Ejecutivo de Admisión no visualiza estas columnas en su grilla
+    Y el Ejecutivo de Admisión no puede realizar ordenamiento por ellas
 
   # ========================================================================
   # COLUMNAS NO ORDENABLES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @unhappyPath
   Escenario: ORD-38 - Columnas que NO son ordenables (incluso para Superusuario/Gestor)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
@@ -569,7 +593,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # PERFORMANCE Y ESTABILIDAD
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-39 - Ordenamiento con grandes volúmenes de datos
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
@@ -581,7 +605,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y al hacer scroll debe cargar los siguientes 50 registros siguiendo el orden aplicado
     Y el tiempo de respuesta debe ser aceptable
 
-  @superusuarioAdmision @gestorTA
+  @superusuarioAdmision @gestorTA @happyPath
   Escenario: ORD-40 - Cambio rápido entre ordenamientos múltiples
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"

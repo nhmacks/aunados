@@ -14,7 +14,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
   # TÉCNICA: PARTICIÓN DE EQUIVALENCIA - CLASIFICACIONES VÁLIDAS
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: CLAS-01 - Clasificar encuentro exitosamente
     Dado que existen encuentros sin clasificación
     Y he seleccionado un encuentro sin clasificación
@@ -39,7 +39,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
       | No facturar farmacia       | No Fact. Farm.         |
       | No facturar admisión       | No Fact. Adm.          |
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Esquema del escenario: CLAS-02 - Reclasificar encuentro con clasificación existente
     Dado que existe un encuentro con clasificación "<clasificacion_actual>"
     Y he seleccionado el encuentro
@@ -62,7 +62,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
   # TÉCNICA: CLASIFICACIÓN MASIVA
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-03 - Clasificar múltiples encuentros a la vez
     Dado que existen 5 encuentros sin clasificación
     Y he seleccionado 5 encuentros
@@ -74,7 +74,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y debe mostrarse un mensaje de confirmación "5 encuentros clasificados exitosamente"
     Y todos los encuentros deben mostrar "Por Asignar" en la columna "Clasific."
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-04 - Clasificar encuentros de diferentes clasificaciones actuales
     Dado que he seleccionado 2 encuentros con clasificación "Pendiente en consulta"
     Y he seleccionado 3 encuentros con clasificación "Por Asignar"
@@ -89,7 +89,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
   # TÉCNICA: VALIDACIÓN DE MODAL DE CLASIFICACIÓN
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-05 - Visualizar opciones de clasificación en modal
     Dado que he seleccionado un encuentro
     Cuando selecciono el botón "Clasificar"
@@ -109,7 +109,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y debe mostrarse el botón "Confirmar" deshabilitado
     Y debe mostrarse el botón "Cancelar" habilitado
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-06 - Habilitar botón Confirmar al seleccionar clasificación
     Dado que he seleccionado un encuentro
     Y he abierto el modal de clasificación
@@ -118,7 +118,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Entonces el botón "Confirmar" debe habilitarse
     Y la clasificación "Por Asignar" debe estar marcada como seleccionada
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-07 - Cancelar clasificación de encuentro
     Dado que he seleccionado un encuentro con clasificación "Pendiente en consulta"
     Y he abierto el modal de clasificación
@@ -132,7 +132,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
   # TÉCNICA: VALIDACIÓN DE REGLAS DE NEGOCIO
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-08 - Validar que clasificación persiste después de cerrar modal
     Dado que he clasificado un encuentro como "Facturar con hospitalario"
     Y he cerrado el modal de clasificación
@@ -141,7 +141,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Entonces el encuentro debe seguir mostrando "Facturar con hospitalario" en la columna "Clasific."
     Y la clasificación debe estar guardada en el sistema
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-09 - Clasificar encuentro como "Por Asignar" permite asignación posterior
     Dado que he clasificado un encuentro como "Por Asignar"
     Y el encuentro está en estado "Por asignar"
@@ -150,7 +150,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Entonces el botón "Asignar" debe estar habilitado
     Y debo poder asignar el encuentro a un ejecutivo de facturación
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: CLAS-10 - Clasificar encuentro como "No Facturar" impide asignación
     Dado que he clasificado un encuentro como "No Facturar"
     Cuando deselecciono el encuentro
@@ -162,7 +162,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
   # TÉCNICA: CASOS EDGE - SITUACIONES ESPECIALES
   # ========================================================================
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: CLAS-11 - Clasificar encuentro ya asignado a ejecutivo
     Dado que existe un encuentro asignado al "Ejecutivo A"
     Y el encuentro fue devuelto a la bandeja "Lista de encuentros para asignar"
@@ -172,7 +172,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y el encuentro NO debe volver a asignarse automáticamente al "Ejecutivo A"
     Y debe permanecer en la bandeja "Lista de encuentros para asignar"
 
-  @responsableFacturacion
+  @responsableFacturacion @happyPath
   Escenario: CLAS-12 - Validar historial de clasificaciones
     Dado que un encuentro ha sido clasificado 3 veces:
       | Clasificación anterior     | Clasificación nueva        |
@@ -184,7 +184,7 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y cada clasificación debe mostrar fecha, hora y usuario que la realizó
     Y la clasificación actual debe ser "No Facturar"
 
-  @responsableFacturacion
+  @responsableFacturacion @unhappyPath
   Escenario: CLAS-13 - Deseleccionar encuentro cierra modal de clasificación
     Dado que he seleccionado un encuentro
     Y he abierto el modal de clasificación

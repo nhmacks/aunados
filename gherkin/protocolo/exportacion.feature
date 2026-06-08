@@ -14,7 +14,7 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: EXPORTACIÓN SIN FILTROS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-01 - Descargar todos los encuentros sin filtros aplicados
     Dado que existen 100 encuentros en protocolo
     Y NO he aplicado ningún filtro
@@ -25,7 +25,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y el nombre del archivo debe tener el formato "encuentros_protocolo_YYYYMMDD_HHMMSS.xlsx"
     Y debe mostrarse un mensaje "Archivo descargado exitosamente"
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-02 - Validar columnas en archivo exportado sin filtros
     Dado que existen encuentros en protocolo
     Y NO he aplicado filtros
@@ -50,7 +50,7 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: EXPORTACIÓN CON FILTROS
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-03 - Descargar encuentros con filtro Solo Positivos aplicado
     Dado que existen 60 encuentros positivos y 40 encuentros negativos
     Y he activado el filtro "Solo Positivos"
@@ -60,7 +60,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y NO debe incluir los 40 encuentros negativos
     Y debe mostrarse un mensaje "Archivo con filtros aplicados descargado exitosamente"
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-04 - Descargar encuentros con búsqueda aplicada
     Dado que existen 100 encuentros en protocolo
     Y he realizado una búsqueda por "García"
@@ -69,7 +69,7 @@ Característica: Exportación de Encuentros en Protocolo
     Entonces el archivo debe contener únicamente los 15 encuentros encontrados
     Y todos los encuentros deben tener "García" en nombres o apellidos
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-05 - Descargar encuentros con filtros por columna aplicados
     Dado que existen encuentros en protocolo
     Y he aplicado filtro en "Sede" = "Auna Guardia Civil"
@@ -80,7 +80,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y todos deben tener Sede = "Auna Guardia Civil"
     Y todos deben tener Garante = "Pacífico EPS"
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-06 - Descargar con múltiples filtros combinados
     Dado que he aplicado búsqueda por "Juan"
     Y he activado el filtro "Solo Positivos"
@@ -96,7 +96,7 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE CONTENIDO EXPORTADO
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-07 - Validar consistencia entre UI y archivo exportado
     Dado que visualizo 33 encuentros en la grilla
     Y el primer encuentro visible tiene número "12345678"
@@ -108,7 +108,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y el encuentro "12345678" debe tener garante "Pacífico EPS" en el Excel
     Y todos los datos deben coincidir exactamente con lo mostrado en la UI
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-08 - Validar formato de fechas en archivo exportado
     Dado que existen encuentros con fecha de apertura "05/06/2026"
     Cuando descargo el archivo Excel
@@ -117,7 +117,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y las fechas deben ser editables en Excel
     Y NO deben mostrarse como texto plano
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-09 - Validar formato de montos en archivo exportado
     Dado que existen encuentros con monto "S/ 1,250.00"
     Cuando descargo el archivo Excel
@@ -126,7 +126,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y los montos deben incluir 2 decimales
     Y los montos deben ser valores numéricos en Excel (no texto)
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: EXP-10 - Validar valores vacíos en archivo exportado
     Dado que existen encuentros sin "Producto" asignado
     Cuando descargo el archivo Excel
@@ -139,14 +139,14 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE ESTADO DEL BOTÓN
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-11 - Validar que botón Descargar siempre está habilitado
     Cuando accedo a la pantalla "Encuentros en Protocolo"
     Entonces el botón "Descargar" debe estar habilitado
     Y debo poder hacer clic en él en cualquier momento
     Y esto aplica incluso si no hay encuentros en la grilla
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: EXP-12 - Descargar cuando no hay encuentros disponibles
     Dado que NO existen encuentros en protocolo
     Y el contador muestra "0 registros encontrados"
@@ -155,7 +155,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y el archivo debe contener únicamente los encabezados de las 12 columnas
     Y debe mostrarse un mensaje "No hay datos para exportar"
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: EXP-13 - Descargar cuando búsqueda no arroja resultados
     Dado que he realizado una búsqueda por "XXXXXXX"
     Y la búsqueda muestra "0 registros encontrados"
@@ -168,7 +168,7 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE FORMATO DE ARCHIVO
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-14 - Validar que el archivo descargado es un Excel válido
     Dado que existen encuentros en protocolo
     Cuando descargo el archivo
@@ -177,7 +177,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y el archivo debe poder abrirse en Google Sheets
     Y el archivo debe poder abrirse en LibreOffice Calc
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-15 - Validar encabezados con formato destacado
     Dado que existen encuentros en protocolo
     Cuando descargo el archivo Excel
@@ -187,7 +187,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y los encabezados deben tener color de fondo diferente al de los datos
     Y debe habilitarse el filtro automático de Excel en los encabezados
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-16 - Validar nombre del archivo descargado
     Dado que la fecha actual es "06/06/2026" y la hora es "14:30:25"
     Cuando descargo el archivo
@@ -199,7 +199,7 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: CASOS EDGE - GRANDES VOLÚMENES
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-17 - Exportar lista con gran volumen de encuentros
     Dado que existen 5000 encuentros en protocolo
     Cuando selecciono el botón "Descargar"
@@ -208,7 +208,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y el archivo debe contener los 5000 encuentros
     Y el proceso NO debe exceder 30 segundos
 
-  @gestorTA
+  @gestorTA @unhappyPath
   Escenario: EXP-18 - Validar límite de exportación si aplica
     Dado que existen 15000 encuentros en protocolo
     Cuando selecciono el botón "Descargar"
@@ -220,7 +220,7 @@ Característica: Exportación de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE ORDEN
   # ========================================================================
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-19 - Validar que el archivo respeta el orden de la grilla
     Dado que he ordenado la grilla por "Fecha de Apertura" descendente
     Y los encuentros se muestran del más reciente al más antiguo
@@ -230,7 +230,7 @@ Característica: Exportación de Encuentros en Protocolo
     Y el primer registro debe ser el encuentro más reciente
     Y el último registro debe ser el encuentro más antiguo
 
-  @gestorTA
+  @gestorTA @happyPath
   Escenario: EXP-20 - Exportar con orden por defecto si no hay ordenamiento aplicado
     Dado que NO he aplicado ningún ordenamiento personalizado en la grilla
     Cuando descargo el archivo Excel
