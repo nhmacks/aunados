@@ -13,9 +13,9 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # DISPONIBILIDAD DE FILTROS POR ROL
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
-  Esquema del escenario: FIL-01 - Superusuario y Gestor visualizan todos los filtros disponibles
-    Dado que soy un usuario con rol "<usuario>"
+  @superusuarioAdmision
+  Escenario: FIL-01 - Superusuario visualiza filtros disponibles
+    Dado que soy un usuario con rol "Superusuario de Admisión"
     Cuando accedo a la sección de filtros
     Entonces debo visualizar los siguientes filtros disponibles:
       | Filtro                    |
@@ -28,10 +28,24 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Tipo de Encuentro         |
       | Sustento Administrativo   |
       | Sustento Médico           |
-Ejemplos: 
-      |usuario|
-      |superusuario01|
-      |gestorTA01|
+    Y NO debo visualizar el filtro "Mecanismo"
+
+  @gestorTA
+  Escenario: FIL-01B - Gestor TA visualiza filtros disponibles incluyendo Mecanismo
+    Dado que soy un usuario con rol "Gestor de A"
+    Cuando accedo a la sección de filtros
+    Entonces debo visualizar los siguientes filtros disponibles:
+      | Filtro                    |
+      | Sede                      |
+      | Estado                    |
+      | Fecha Apertura            |
+      | Prioridad                 |
+      | Usuario                   |
+      | Garante                   |
+      | Tipo de Encuentro         |
+      | Sustento Administrativo   |
+      | Sustento Médico           |
+      | Mecanismo                 |
 
   @ejecutivoAdmision
   Escenario: FIL-02 - Ejecutivo visualiza solo filtros permitidos para su rol
@@ -398,6 +412,109 @@ Ejemplos:
     Y presiono el botón "Aplicar"
     Entonces la grilla debe mostrar todos los encuentros
     Y el contador debe reflejar el total
+
+  # ========================================================================
+  # FILTRO POR MECANISMO
+  # Cobertura: Requisito específico de filtrado por tipo de mecanismo de pago
+  # ========================================================================
+
+  @gestorTA
+  Escenario: FIL-54 - Gestor TA visualiza filtro por mecanismo
+    Dado que soy un usuario con rol "Gestor de A"
+    Cuando accedo a la sección de filtros
+    Entonces debo visualizar el filtro "Mecanismo"
+    Y el filtro debe tener las siguientes opciones:
+      | Opción           |
+      | Todos            |
+      | CAPITA           |
+      | CPM              |
+      | Pago por servicio|
+
+  @superusuarioAdmision @ejecutivoAdmision
+  Escenario: FIL-55 - Superusuario y Ejecutivo NO visualizan filtro por mecanismo
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Cuando accedo a la sección de filtros
+    Entonces NO debo visualizar el filtro "Mecanismo"
+
+  @gestorTA
+  Escenario: FIL-56 - Filtrar encuentros por mecanismo CAPITA
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen encuentros con diferentes mecanismos de pago
+    Cuando selecciono el filtro "Mecanismo"
+    Y selecciono la opción "CAPITA"
+    Entonces el sistema debe mostrar únicamente los encuentros del mecanismo "CAPITA"
+    Y la cantidad de registros debe actualizarse correctamente
+    Y el filtro debe permanecer activo
+
+  @gestorTA
+  Escenario: FIL-57 - Filtrar encuentros por mecanismo CPM
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen encuentros con diferentes mecanismos de pago
+    Cuando selecciono el filtro "Mecanismo"
+    Y selecciono la opción "CPM"
+    Entonces el sistema debe mostrar únicamente los encuentros del mecanismo "CPM"
+    Y la cantidad de registros debe actualizarse correctamente
+    Y el filtro debe permanecer activo
+
+  @gestorTA
+  Escenario: FIL-58 - Filtrar encuentros por mecanismo Pago por servicio
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen encuentros con diferentes mecanismos de pago
+    Cuando selecciono el filtro "Mecanismo"
+    Y selecciono la opción "Pago por servicio"
+    Entonces el sistema debe mostrar únicamente los encuentros del mecanismo "Pago por servicio"
+    Y la cantidad de registros debe actualizarse correctamente
+    Y el filtro debe permanecer activo
+
+  @gestorTA
+  Escenario: FIL-59 - Seleccionar "Todos" en filtro de mecanismo muestra todos los encuentros
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen encuentros con diferentes mecanismos de pago
+    Y he aplicado el filtro "Mecanismo" con valor "CAPITA"
+    Cuando selecciono la opción "Todos" en el filtro "Mecanismo"
+    Entonces el sistema debe mostrar encuentros de todos los mecanismos
+    Y la cantidad de registros debe reflejar el total de encuentros disponibles
+
+  @gestorTA
+  Escenario: FIL-60 - Combinar filtro de mecanismo con otros filtros
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen encuentros con diferentes mecanismos y estados
+    Cuando selecciono el filtro "Mecanismo" con valor "CAPITA"
+    Y selecciono el filtro "Estado" con valor "Pendiente"
+    Entonces el sistema debe mostrar únicamente encuentros que cumplan ambos criterios:
+      | Criterio   | Valor     |
+      | Mecanismo  | CAPITA    |
+      | Estado     | Pendiente |
+    Y el contador debe mostrar solo los encuentros que cumplen ambos filtros
+
+  @gestorTA
+  Escenario: FIL-61 - Limpiar filtro de mecanismo sin afectar otros filtros
+    Dado que soy un usuario con rol "Gestor de A"
+    Y he aplicado el filtro "Mecanismo" con valor "CPM"
+    Y he aplicado el filtro "Prioridad" con valor "Prioridad 1"
+    Cuando presiono el botón "Limpiar" del filtro "Mecanismo"
+    Entonces el filtro "Mecanismo" debe eliminarse
+    Y el filtro "Prioridad" debe permanecer activo
+    Y la grilla debe actualizarse mostrando todos los mecanismos con "Prioridad 1"
+
+  @gestorTA
+  Escenario: FIL-62 - Restablecer vista elimina filtro de mecanismo
+    Dado que soy un usuario con rol "Gestor de A"
+    Y he aplicado el filtro "Mecanismo" con valor "Pago por servicio"
+    Y he aplicado el filtro "Estado" con valor "Tramitado"
+    Cuando presiono el botón "Restablecer Vista"
+    Entonces el filtro "Mecanismo" debe eliminarse
+    Y el filtro "Estado" debe eliminarse
+    Y la grilla debe mostrar todos los encuentros disponibles para mi rol
+
+  @gestorTA
+  Escenario: FIL-63 - Contador se actualiza al filtrar por mecanismo
+    Dado que soy un usuario con rol "Gestor de A"
+    Y existen 200 encuentros en total
+    Y 80 encuentros son del mecanismo "CAPITA"
+    Cuando selecciono el filtro "Mecanismo" con valor "CAPITA"
+    Entonces el contador debe mostrar "80 registros encontrados"
+    Y debe coincidir con la cantidad real de encuentros mostrados en la grilla
 
   # ========================================================================
   # FILTROS COMBINADOS

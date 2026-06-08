@@ -124,6 +124,7 @@ Característica: Visualización de Detalle del Encuentro
     Y debe mostrar "Carta de Garantía"
     Y debe mostrar "Hoja SITEDS"
     Y debe mostrar "Denuncia Policial"
+    Y cada sustento administrativo debe mostrar el label "Pendiente"
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: DV-06 - NO visualizar sustentos administrativos cuando NO existen pendientes
