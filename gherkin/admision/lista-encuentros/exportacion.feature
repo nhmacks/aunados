@@ -286,3 +286,48 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | Superusuario de Admisión | asíncrona     |
       | Gestor TA                | asíncrona     |
       | Ejecutivo de Admisión    | asíncrona     |
+
+  @gestorTA @maximosFiltros
+  Escenario: EXP-16 - Exportar coincidencias aplicando búsqueda, todos los filtros y filtros por encabezados
+    Dado que soy un usuario con rol "Gestor TA"
+    Y existen 5000 encuentros clasificados para Admisión con datos en todos los campos filtrables
+    Y existen 12 encuentros que cumplen simultáneamente todos los criterios de búsqueda y filtros
+    Cuando ingreso "12345678" en el buscador de encuentro
+    Y aplico todos los filtros disponibles para mi rol:
+      | Filtro                  | Valor               |
+      | Sede                    | Auna Guardia Civil  |
+      | Estado                  | Pendiente           |
+      | Fecha Apertura          | 03/06/2026          |
+      | Prioridad               | Prioridad 1         |
+      | Usuario                 | ejecutivo01         |
+      | Garante                 | MAPFRE              |
+      | Tipo de Encuentro       | Ambulatorio         |
+      | Sustento Administrativo | Carta de Garantía   |
+      | Sustento Médico         | Laboratorio         |
+      | Sustento de proceso     | Auditoría Médica    |
+      | Mecanismo               | CAPITA              |
+    Y aplico filtros por todos los encabezados visibles de la grilla:
+      | Encabezado                 | Valor              |
+      | Sede                       | Auna Guardia Civil |
+      | Encuentro                  | 12345678           |
+      | Estado                     | Pendiente          |
+      | NHC                        | 987654             |
+      | Apellidos                  | García             |
+      | Nombres                    | Juan               |
+      | Fecha apert.               | 03/06/2026         |
+      | Prioridad                  | Prioridad 1        |
+      | Usuario                    | ejecutivo01        |
+      | Garante                    | MAPFRE             |
+      | Tipo de Encuentro          | Ambulatorio        |
+      | Sustentos Administrativos  | Carta de Garantía  |
+      | Sustentos Médicos          | Laboratorio        |
+      | Sustentos de Proceso       | Auditoría Médica   |
+      | Monto                      | 1500.00            |
+    Y la grilla muestra únicamente 12 encuentros coincidentes
+    Cuando presiono el botón "Descargar"
+    Entonces la descarga debe iniciar correctamente
+    Y el archivo debe llamarse "Lista de Encuentros de Admisión.xlsx"
+    Y el archivo debe contener exactamente 12 registros
+    Y todos los registros del archivo deben coincidir exactamente con los encuentros listados en la grilla
+    Y el archivo debe respetar la búsqueda por encuentro, todos los filtros aplicados y todos los filtros por encabezado
+    Y NO debe incluir encuentros descartados por cualquiera de los criterios aplicados
