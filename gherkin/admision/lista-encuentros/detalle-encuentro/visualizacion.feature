@@ -415,13 +415,25 @@ Característica: Visualización de Detalle del Encuentro
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
-  Escenario: DV-28 - Visualizar detalle con campos opcionales vacíos
+  Escenario: DV-28 - Campo opcional vacío debe mostrar guión, nunca NULL ni undefined
     Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y existe el encuentro "12345678" con los siguientes datos:
+      | Aspecto               | Valor                  |
+      | Paciente              | Juan Carlos García     |
+      | NHC                   | 98765432               |
+      | Sede                  | Auna Guardia Civil      |
+      | Estado                | Pendiente              |
+      | Tipo de Seguro        | Seguro XYZ             |
+      | Tipo de Afiliación    | Principal              |
+      | Código de Autorización| (vacío/no aplica)      |
     Y he accedido al detalle del encuentro "12345678"
-    Y el campo "Código de Autorización" está vacío
     Cuando expando el agrupador "Datos del Seguro"
-    Entonces debe mostrarse "Código de Autorización: -"
-    Y NO debe mostrar "NULL" ni "undefined"
+    Entonces debo visualizar el campo "Tipo de Seguro" con valor "Seguro XYZ"
+    Y debo visualizar el campo "Tipo de Afiliación" con valor "Principal"
+    Y debo visualizar el campo "Código de Autorización" con valor "-"
+    Y NO debe mostrarse "NULL" en ningún campo
+    Y NO debe mostrarse "undefined" en ningún campo
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: DV-29 - Visualizar detalle con máximo número de sustentos administrativos
