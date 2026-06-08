@@ -372,33 +372,43 @@ Característica: Visualización de Detalle del Encuentro
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
-  Escenario: DV-25 - Validar RN-DE-01: El detalle es accesible desde Lista de Encuentros
+  Escenario: DV-25 - Usuario puede acceder al detalle seleccionando un encuentro en la Lista
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
     Cuando selecciono un encuentro de la grilla
     Entonces el sistema debe abrir la pantalla "Detalle del Encuentro"
     Y debe ser la única forma de acceder al detalle
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
-  Escenario: DV-26 - Validar RN-DE-02: La información es de solo lectura
-    Dado que soy un usuario con rol "Gestor TA"
+  @superusuarioAdmision @ejecutivoAdmision @unhappyPath
+  Escenario: DV-26 - Superusuario y Ejecutivo pueden cambiar estado pero no editar datos del encuentro
+    Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
     Cuando intento modificar cualquier dato del paciente, encuentro o seguro
     Entonces el sistema NO debe permitir la modificación
     Y todos los campos deben ser de solo lectura
     Y la única acción permitida debe ser el cambio de estado
 
+  @gestorTA @unhappyPath
+  Escenario: DV-26A - Gestor TA puede visualizar detalle pero NO puede cambiar estado ni editar datos
+    Dado que soy un usuario con rol "Gestor TA"
+    Y he accedido al detalle del encuentro "12345678"
+    Cuando intento modificar cualquier dato del paciente, encuentro o seguro
+    Entonces el sistema NO debe permitir la modificación
+    Y todos los campos deben ser de solo lectura
+    Y NO debe mostrarse ningún botón o control para cambiar estado
+    Y la pantalla debe ser completamente de solo lectura
+
   @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
-  Escenario: DV-27 - Validar RN-DE-07: Sustentos solo se muestran cuando existen pendientes
+  Escenario: DV-27 - Solo se muestran secciones de sustentos que tienen registros pendientes
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
     Y el encuentro tiene 2 sustentos administrativos pendientes
     Y el encuentro NO tiene sustentos médicos pendientes
     Y el encuentro NO tiene sustentos de proceso pendientes
     Cuando visualizo la cabecera de la pantalla
-    Entonces debe mostrarse únicamente la sección "Sustentos Administrativos Pendientes"
-    Y NO debe mostrarse la sección "Sustentos Médicos Pendientes"
-    Y NO debe mostrarse la sección "Sustentos de Proceso Pendientes"
+    Entonces debe mostrarse únicamente la sección "Sustentos Administrativos"
+    Y NO debe mostrarse la sección "Sustentos médicos"
+    Y NO debe mostrarse la sección "Sustentos de Proceso"
 
   # ========================================================================
   # TÉCNICA: CASOS EDGE - VALORES ESPECIALES Y LÍMITES

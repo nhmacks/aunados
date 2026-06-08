@@ -39,9 +39,22 @@ Lista de Encuentros.
 
 # 3. Roles con Acceso
 
+## Acceso a Visualización del Detalle
+
 - Superusuario de Admisión
-- Gestor de A
+- Gestor TA
 - Ejecutivo de Admisión
+
+---
+
+## Acceso a Cambio de Estado (Operativo)
+
+**SOLO:**
+
+- Superusuario de Admisión
+- Ejecutivo de Admisión
+
+**NO tiene acceso:** Gestor TA (puede visualizar pero NO puede cambiar estado)
 
 ---
 
@@ -58,7 +71,20 @@ Los usuarios no podrán modificar:
 - Sustentos médicos.
 - Sustentos de proceso.
 
-La única acción permitida es la actualización del estado operativo del encuentro según los permisos del rol.
+---
+
+## Acciones Permitidas por Rol
+
+### Superusuario de Admisión
+La única acción permitida es la **actualización del estado operativo del encuentro**.
+
+### Ejecutivo de Admisión
+La única acción permitida es la **actualización del estado operativo del encuentro** (sujeto a los estados permitidos para su rol).
+
+### Gestor TA
+**NO tiene acciones permitidas**. La pantalla es de solo lectura.
+
+Solo puede visualizar la información del encuentro pero no puede realizar ninguna modificación ni cambio de estado.
 
 ---
 

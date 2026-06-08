@@ -55,12 +55,6 @@ Puede asignar todos los estados.
 
 ---
 
-## Gestor de A
-
-Puede asignar todos los estados.
-
----
-
 ## Ejecutivo de Admisión
 
 Puede asignar únicamente:
@@ -75,21 +69,29 @@ Puede asignar únicamente:
 
 ---
 
+## Gestor TA
+
+NO tiene permiso para cambiar estados.
+
+Puede visualizar el detalle del encuentro pero no puede realizar cambios de estado.
+
+---
+
 # 4. Catálogo Completo de Estados
 
-| Estado | Ejecutivo | Superusuario | Gestor |
-|----------|----------|----------|----------|
-| Pendiente | No | Sí | Sí |
-| Pago por Adelantado | Sí | Sí | Sí |
-| No Facturable | No | Sí | Sí |
-| Derivado a Dirección Médica | Sí | Sí | Sí |
-| Derivado a Supervisor | Sí | Sí | Sí |
-| Error de Vinculación | Sí | Sí | Sí |
-| Pendiente de Revisión | Sí | Sí | Sí |
-| Terapia de Proceso | Sí | Sí | Sí |
-| En Proceso | No | Sí | Sí |
-| Error de Facturación | No | Sí | Sí |
-| Tramitado | Sí | Sí | Sí |
+| Estado | Ejecutivo | Superusuario |
+|----------|----------|----------|
+| Pendiente | No | Sí |
+| Pago por Adelantado | Sí | Sí |
+| No Facturable | No | Sí |
+| Derivado a Dirección Médica | Sí | Sí |
+| Derivado a Supervisor | Sí | Sí |
+| Error de Vinculación | Sí | Sí |
+| Pendiente de Revisión | Sí | Sí |
+| Terapia de Proceso | Sí | Sí |
+| En Proceso | No | Sí |
+| Error de Facturación | No | Sí |
+| Tramitado | Sí | Sí |
 
 ---
 
@@ -147,8 +149,7 @@ Indica que el encuentro ha sido identificado operativamente como no facturable.
 
 ## Roles
 
-- Superusuario
-- Gestor de A
+- Superusuario de Admisión
 
 ---
 
@@ -248,8 +249,7 @@ Indica que existe una gestión activa sobre el encuentro.
 
 ## Roles
 
-- Superusuario
-- Gestor de A
+- Superusuario de Admisión
 
 ---
 
@@ -269,8 +269,7 @@ Indica que el encuentro presenta una situación operativa relacionada con factur
 
 ## Roles
 
-- Superusuario
-- Gestor de A
+- Superusuario de Admisión
 
 ---
 

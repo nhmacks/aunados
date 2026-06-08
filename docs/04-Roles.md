@@ -231,7 +231,7 @@ El Gestor TA tiene acceso a las siguientes funcionalidades:
 
 ## 5.3 Permisos en Admisión
 
-Posee los mismos permisos que el Superusuario de Admisión:
+Posee los mismos permisos que el Superusuario de Admisión en cuanto a visualización:
 
 - Visualización de todas las sedes
 - Visualización de todos los usuarios
@@ -239,8 +239,11 @@ Posee los mismos permisos que el Superusuario de Admisión:
 - Filtros completos
 - Exportación
 - Ordenamiento
-- Gestión de Estados
 - Consulta de Detalles
+
+**RESTRICCIÓN IMPORTANTE:** 
+
+Gestor TA **NO puede cambiar estado** de los encuentros. Solo puede visualizar la información del detalle pero no puede realizar cambios de estado operativo.
 
 ---
 
