@@ -45,7 +45,15 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Entonces el sistema debe registrar la solicitud
     Y NO debe iniciar descarga inmediata
     Y debe mostrar mensaje de generación en proceso
-    Y cuando el archivo esté listo debo recibir notificación en la campana
+    Y el archivo debe generarse en segundo plano sin bloquear mi navegación
+    Y puedo continuar usando el sistema normalmente
+    Y cuando la generación finalice debo recibir notificación en la campana con:
+      | Campo       | Valor                                                                |
+      | Descripción | El reporte solicitado ya está listo. Tienes una 1h para descargarlo. |
+      | Descripción | hace 5 minutos                                                       |
+      | Acción      | link "Descargar"                                                     |
+    Cuando presiono "Descargar" desde la notificación
+    Entonces el archivo debe descargarse correctamente
     Y el archivo debe contener exactamente <visibles> registros
     Y todos deben ser encuentros creados por mí en mi sede
 
@@ -54,32 +62,6 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | ejecutivo01  | Auna Guardia Civil | 1000  | 200           | sin filtros              | 200      |
       | ejecutivo02  | Las Flores         | 1000  | 150           | filtro Estado = Tramitado| 45       |
       | ejecutivo01  | Auna Guardia Civil | 1000  | 200           | búsqueda nombre = María  | 12       |
-
-  # ========================================================================
-  # TRANSICIÓN DE ESTADOS: FLUJO COMPLETO ASÍNCRONO
-  # Cobertura: RN-EXP-04, RN-EXP-07, RN-EXP-08
-  # ========================================================================
-
-  @ejecutivoAdmision
-  Escenario: EXP-03 - Flujo completo de exportación asíncrona desde solicitud hasta descarga
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y existen 150 encuentros visibles para mi rol
-    # Estado: Inicial
-    Cuando presiono el botón "Descargar"
-    Entonces el sistema debe registrar la solicitud
-    # Estado: Procesando
-    Y el archivo debe generarse en segundo plano sin bloquear mi navegación
-    Y puedo continuar usando el sistema normalmente
-    # Estado: Listo
-    Y cuando la generación finalice debo recibir notificación con:
-      | Campo       | Valor                                                                  |
-      | Título      | Reporte disponible                                                     |
-      | Descripción | El reporte solicitado ya está listo. Tienes una hora para descargarlo.|
-      | Acción      | Botón Descargar                                                        |
-    # Estado: Descargado
-    Cuando presiono "Descargar" desde la notificación
-    Entonces el archivo debe descargarse correctamente
-    Y debe contener los 150 registros solicitados
 
   # ========================================================================
   # ANÁLISIS DE VALORES LÍMITE: VIGENCIA DE ARCHIVO
@@ -103,29 +85,39 @@ Característica: Exportación de Lista de Encuentros de Admisión
 
   # ========================================================================
   # PRUEBAS BASADAS EN RIESGO: INTEGRIDAD DE DATOS (CRÍTICO)
-  # Cobertura: EXP-02, EXP-03, EXP-05
+  # Cobertura: EXP-02, EXP-05
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: EXP-05 - Validar coincidencia exacta entre grilla y archivo exportado
-    Dado que visualizo 50 encuentros en la grilla actual
+  Esquema del escenario: EXP-05 - Validar coincidencia exacta entre grilla y archivo exportado
+    Dado que soy un usuario con rol "<rol>" con usuario "<usuario>"
+    Y estoy asignado a la sede "<sede>"
+    Y existen 50 encuentros visibles para mi rol en la grilla actual
     Y el primer encuentro visible es "12345678" con paciente "García, Juan"
     Y el último encuentro visible es "87654321" con paciente "Pérez, María"
-    Cuando descargo la exportación
+    Cuando solicito la exportación
+    Y obtengo el archivo generado mediante descarga "<tipo_descarga>"
     Entonces el archivo debe contener exactamente 50 registros
     Y la fila 2 del Excel debe ser el encuentro "12345678" con paciente "García, Juan"
     Y la fila 51 del Excel debe ser el encuentro "87654321" con paciente "Pérez, María"
     Y todos los datos de cada columna deben coincidir exactamente con la grilla
     Y NO debe incluir encuentros de otras bandejas (Protocolo, Facturación)
 
+    Ejemplos:
+      | rol                      | usuario      | sede               | tipo_descarga |
+      | Superusuario de Admisión | superadm01   | Todas              | inmediata     |
+      | Gestor TA              | gestorta01   | Todas              | inmediata     |
+      | Ejecutivo de Admisión    | ejecutivo01  | Auna Guardia Civil | asíncrona     |
+
   # ========================================================================
   # PRUEBAS BASADAS EN RIESGO: SEGURIDAD (CRÍTICO)
-  # Cobertura: EXP-03, RN-EXP-03
+  # Cobertura: RN-EXP-03
   # ========================================================================
 
   @ejecutivoAdmision
   Escenario: EXP-06 - Ejecutivo NO puede acceder a exportaciones de otros usuarios (Seguridad)
-    Dado que soy el usuario "ejecutivo01" con sede "Auna Guardia Civil"
+    Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
+    Y estoy asignado a la sede "Auna Guardia Civil"
     Y otro usuario "ejecutivo02" con sede "Las Flores" ha generado un reporte
     Y existen 1000 encuentros en total en el sistema:
       | Encuentros | Usuario      | Sede               |
@@ -148,8 +140,10 @@ Característica: Exportación de Lista de Encuentros de Admisión
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-07 - Validar formato y estructura del archivo Excel según rol
     Dado que soy un usuario con rol "<rol>"
-    Y descargo un archivo de exportación con múltiples registros
-    Cuando abro el archivo Excel
+    Y existen múltiples encuentros visibles para mi rol
+    Cuando solicito una exportación de la Lista de Encuentros
+    Y obtengo el archivo generado mediante descarga "<tipo_descarga>"
+    Y abro el archivo Excel
     Entonces debe cumplir con el formato estándar:
       | Aspecto            | Especificación                                        |
       | Extensión          | .xlsx                                                 |
@@ -166,10 +160,10 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y las columnas deben ser: <columnas_esperadas>
 
     Ejemplos:
-      | rol                      | cantidad_columnas | columnas_esperadas                                                                                                                                                                              |
-      | Superusuario de Admisión | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
-      | Gestor TA              | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
-      | Ejecutivo de Admisión    | 9                 | Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Prioridad, Garante, Tipo de Encuentro                                                                                           |
+      | rol                      | tipo_descarga | cantidad_columnas | columnas_esperadas                                                                                                                                                                              |
+      | Superusuario de Admisión | inmediata     | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
+      | Gestor TA              | inmediata     | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
+      | Ejecutivo de Admisión    | asíncrona     | 9                 | Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Prioridad, Garante, Tipo de Encuentro                                                                                           |
 
   # NOTA IMPORTANTE: Si RN-EXP-09 se interpreta como "todos los roles exportan las mismas 14 columnas",
   # entonces el Ejecutivo exportaría columnas que NO puede ver en la grilla (Sede, Usuario, Sustentos, Monto).
@@ -181,17 +175,20 @@ Característica: Exportación de Lista de Encuentros de Admisión
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-08 - Manejo de valores especiales en exportación
-    Dado que descargo una exportación con encuentros que tienen <caso_especial>
-    Cuando reviso el archivo Excel
+    Dado que soy un usuario con rol "<rol>"
+    Y existen encuentros visibles para mi rol que tienen <caso_especial>
+    Cuando solicito la exportación
+    Y obtengo el archivo generado mediante descarga "<tipo_descarga>"
+    Y reviso el archivo Excel
     Entonces <comportamiento_esperado>
 
     Ejemplos:
-      | caso_especial                           | comportamiento_esperado                                    |
-      | sustentos administrativos vacíos        | debe mostrar "-" en la columna correspondiente            |
-      | múltiples sustentos administrativos     | debe separar con ";" (ej: "Carta de Garantía; SOAT")     |
-      | campos opcionales sin valor             | debe mostrar celda vacía o "-", NO "NULL" ni "undefined" |
-      | 0 registros después de filtrar          | debe generar archivo con encabezados pero sin datos      |
-      | 1 solo registro                         | debe exportar correctamente 1 fila de datos              |
+      | rol                      | tipo_descarga | caso_especial                           | comportamiento_esperado                                    |
+      | Superusuario de Admisión | inmediata     | sustentos administrativos vacíos        | debe mostrar "-" en la columna correspondiente            |
+      | Gestor TA              | inmediata     | múltiples sustentos administrativos     | debe separar con ";" (ej: "Carta de Garantía; SOAT")     |
+      | Ejecutivo de Admisión    | asíncrona     | campos opcionales sin valor             | debe mostrar celda vacía o "-", NO "NULL" ni "undefined" |
+      | Superusuario de Admisión | inmediata     | 0 registros después de filtrar          | debe generar archivo con encabezados pero sin datos      |
+      | Ejecutivo de Admisión    | asíncrona     | 1 solo registro                         | debe exportar correctamente 1 fila de datos              |
 
   # ========================================================================
   # PAIRWISE TESTING: COMBINACIONES DE FACTORES CRÍTICOS
@@ -220,8 +217,8 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # ========================================================================
 
   @superusuarioAdmision @gestorTA
-  Escenario: EXP-10 - Exportación de gran volumen sin degradación (Performance)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+  Esquema del escenario: EXP-10 - Exportación de gran volumen sin degradación (Performance)
+    Dado que soy un usuario con rol "<rol>"
     Y existen 5000 encuentros clasificados para Admisión
     Cuando presiono el botón "Descargar"
     Entonces el archivo debe generarse completamente en tiempo aceptable
@@ -229,14 +226,22 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y el archivo debe descargarse sin errores
     Y el sistema debe mantener performance aceptable
 
+    Ejemplos:
+      | rol                      |
+      | Superusuario de Admisión |
+      | Gestor TA              |
+
   @ejecutivoAdmision
   Escenario: EXP-11 - Múltiples exportaciones asíncronas simultáneas no se mezclan
-    Dado que 3 ejecutivos diferentes solicitan exportaciones simultáneamente:
+    Dado que existen los siguientes usuarios autenticados con rol "Ejecutivo de Admisión":
       | Usuario      | Sede               | Encuentros_propios |
       | ejecutivo01  | Auna Guardia Civil | 200               |
       | ejecutivo02  | Las Flores         | 150               |
       | ejecutivo03  | Delgado            | 180               |
-    Cuando cada uno descarga su archivo después de la notificación
+    Y cada usuario se encuentra en la pantalla "Lista de Encuentros"
+    Y cada usuario visualiza únicamente encuentros de su usuario y sede
+    Cuando cada usuario solicita una exportación asíncrona simultáneamente
+    Y cada uno descarga su archivo después de la notificación
     Entonces cada archivo debe contener únicamente los encuentros de su usuario/sede
     Y NO debe haber mezcla de datos entre usuarios
     Y cada uno debe recibir la cantidad correcta de registros
@@ -259,61 +264,25 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | Ejecutivo de Admisión    | timeout en generación asíncrona | el reporte no pudo completarse            | solicitar nueva exportación  |
       | Gestor TA              | sesión expirada                 | debe autenticarse nuevamente              | redirigir al login           |
 
-  # ========================================================================
-  # AUDITORÍA Y TRAZABILIDAD
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: EXP-13 - Registrar auditoría completa de cada exportación
-    Dado que realizo una exportación con 75 registros filtrados por Estado = Pendiente
-    Cuando la exportación se completa exitosamente
-    Entonces el sistema debe registrar en auditoría:
-      | Campo                 | Información registrada                    |
-      | Usuario               | Mi nombre de usuario                      |
-      | Rol                   | Mi rol actual                             |
-      | Fecha y Hora          | Timestamp exacto de la exportación        |
-      | Cantidad de registros | 75                                        |
-      | Filtros aplicados     | Estado = Pendiente                        |
-      | Tipo de descarga      | Inmediata o Asíncrona según rol           |
-      | Estado generación     | Exitosa                                   |
-      | IP de origen          | Dirección IP del usuario                  |
-
-  # ========================================================================
-  # TABLA DE DECISIÓN: VALIDACIÓN DE REGLAS DE NEGOCIO
-  # Cobertura: Todas las RN-EXP consolidadas
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Esquema del escenario: EXP-14 - Validar reglas de negocio según contexto (Tabla de decisión)
-    Dado que soy un usuario con rol "<rol>"
-    Y hay filtros activos = <filtros_activos>
-    Y hay búsqueda activa = <busqueda_activa>
-    Y han pasado <tiempo_minutos> minutos desde generación (solo async)
-    Cuando solicito o intento descargar la exportación
-    Entonces tipo de descarga = "<tipo_descarga>"
-    Y respeta filtros = <respeta_filtros>
-    Y respeta búsqueda = <respeta_busqueda>
-    Y respeta restricciones de rol = <respeta_rol>
-    Y estado disponibilidad = "<disponibilidad>"
-
-    Ejemplos: # Tabla de decisión consolidada
-      | rol                      | filtros_activos | busqueda_activa | tiempo_minutos | tipo_descarga | respeta_filtros | respeta_busqueda | respeta_rol | disponibilidad |
-      | Superusuario de Admisión | Sí              | No              | N/A            | inmediata     | Sí              | N/A              | Sí          | inmediata      |
-      | Gestor TA              | No              | Sí              | N/A            | inmediata     | N/A             | Sí               | Sí          | inmediata      |
-      | Ejecutivo de Admisión    | Sí              | Sí              | 30             | asíncrona     | Sí              | Sí               | Sí          | disponible     |
-      | Ejecutivo de Admisión    | No              | No              | 65             | asíncrona     | N/A             | N/A              | Sí          | expirado       |
-      | Superusuario de Admisión | Sí              | Sí              | N/A            | inmediata     | Sí              | Sí               | Sí          | inmediata      |
 
   # ========================================================================
   # COMPATIBILIDAD Y SCROLL INFINITO
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: EXP-15 - Exportación incluye todos los registros disponibles, no solo los visibles en pantalla
-    Dado que existen 300 encuentros disponibles después de aplicar filtros
+  Esquema del escenario: EXP-15 - Exportación incluye todos los registros disponibles, no solo los visibles en pantalla
+    Dado que soy un usuario con rol "<rol>"
+    Y existen 300 encuentros disponibles para mi rol después de aplicar filtros
     Y he cargado solo los primeros 50 mediante scroll infinito
     Y visualizo únicamente 50 registros en pantalla
     Cuando presiono el botón "Descargar"
+    Y obtengo el archivo generado mediante descarga "<tipo_descarga>"
     Entonces el archivo debe contener los 300 encuentros completos
     Y NO debe limitarse a los 50 visibles en pantalla
     Y debe respetar los filtros que resultaron en 300 registros
+
+    Ejemplos:
+      | rol                      | tipo_descarga |
+      | Superusuario de Admisión | asíncrona     |
+      | Gestor TA                | asíncrona     |
+      | Ejecutivo de Admisión    | asíncrona     |
