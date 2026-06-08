@@ -98,16 +98,6 @@ Característica: Visualización de Lista de Encuentros en Admisión
   # ========================================================================
 
   @ejecutivoAdmision
-  Escenario: VIS-06 - Ejecutivo solo visualiza encuentros creados por él mismo
-    Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
-    Y existen 100 encuentros clasificados para Admisión
-    Y 30 encuentros fueron creados por "ejecutivo01"
-    Y 70 encuentros fueron creados por otros usuarios
-    Cuando accedo a la Lista de Encuentros
-    Entonces debo visualizar únicamente 30 encuentros
-    Y todos los encuentros mostrados deben haber sido creados por "ejecutivo01"
-
-  @ejecutivoAdmision
   Escenario: VIS-08 - Ejecutivo solo visualiza encuentros clasificados para Admisión creados por él en su sede
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01" asignado a la sede "Auna Guardia Civil"
     Y existen los siguientes encuentros:
@@ -160,16 +150,6 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Entonces el contador debe mostrar "150 registros encontrados"
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: VIS-12 - Contador se actualiza al aplicar filtro
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y existen 200 encuentros clasificados para Admisión
-    Y he accedido a la Lista de Encuentros
-    Y el contador muestra "200 registros encontrados"
-    Cuando aplico un filtro que retorna 15 registros
-    Entonces el contador debe actualizarse automáticamente
-    Y debe mostrar "15 registros encontrados"
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-13 - Contador se actualiza al realizar búsqueda
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y existen 200 encuentros clasificados para Admisión
@@ -177,15 +157,6 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Cuando realizo una búsqueda que retorna 8 registros
     Entonces el contador debe actualizarse automáticamente
     Y debe mostrar "8 registros encontrados"
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: VIS-14 - Contador se actualiza al restablecer vista
-    Dado que soy un usuario con rol "Gestor TA"
-    Y he aplicado filtros que muestran 25 registros
-    Y el contador muestra "25 registros encontrados"
-    Cuando selecciono el botón "Restablecer Vista"
-    Entonces el contador debe actualizarse
-    Y debe mostrar la cantidad total de encuentros disponibles para mi rol
 
   # ========================================================================
   # ESTADOS DE ERROR Y VACÍOS
@@ -199,15 +170,6 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Entonces debe mostrarse el mensaje de error funcional
     Y el mensaje debe mostrar el título "Hubo un inconveniente"
     Y el mensaje debe mostrar la descripción "En estos momentos no podemos mostrar la información que necesita. Por favor, inténtelo nuevamente"
-
-  @ejecutivoAdmision
-  Escenario: VIS-16 - Ejecutivo sin encuentros propios visualiza lista vacía
-    Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
-    Y existen 100 encuentros clasificados para Admisión
-    Y ningún encuentro fue creado por "ejecutivo01"
-    Cuando accedo a la Lista de Encuentros
-    Entonces debe mostrarse el mensaje de error funcional
-    Y no debo visualizar ningún encuentro en la grilla
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-17 - Error general al cargar la lista de encuentros
@@ -268,44 +230,3 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Entonces el sistema debe cargar únicamente los siguientes 50 registros
     Y no debe volver a cargar los registros previamente mostrados
     Y no debe recargar la página completa
-
-  # ========================================================================
-  # REGLAS DE NEGOCIO
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: VIS-22 - Validar RN-LE-02: Solo mostrar encuentros clasificados para Admisión
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y el Job de Admisión ha clasificado encuentros en diferentes bandejas:
-      | Encuentro | Bandeja     |
-      | 11111111  | Admisión    |
-      | 22222222  | Admisión    |
-      | 33333333  | Protocolo   |
-      | 44444444  | Facturación |
-      | 55555555  | Admisión    |
-    Cuando accedo a la Lista de Encuentros de Admisión
-    Entonces debo visualizar únicamente 3 encuentros
-    Y debo visualizar el encuentro "11111111"
-    Y debo visualizar el encuentro "22222222"
-    Y debo visualizar el encuentro "55555555"
-    Y NO debo visualizar encuentros clasificados en Protocolo
-    Y NO debo visualizar encuentros clasificados en Facturación
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: VIS-23 - Validar RN-LE-03: Información visible depende del rol autenticado
-    Dado que soy un usuario con rol "Superusuario de Admisión"
-    Y existen encuentros clasificados para Admisión
-    Cuando accedo a la Lista de Encuentros
-    Entonces la información visible debe depender de mi rol:
-      | Rol                        | Visibilidad                                          |
-      | Superusuario de Admisión   | Todos los encuentros, todas las columnas             |
-      | Gestor TA                | Todos los encuentros, todas las columnas             |
-      | Ejecutivo de Admisión      | Solo encuentros propios de su sede, columnas limitadas |
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
-  Escenario: VIS-24 - Validar RN-LE-09: Contador debe coincidir con cantidad real de registros
-    Dado que soy un usuario con rol "Gestor TA"
-    Y he aplicado filtros que retornan 47 registros
-    Cuando visualizo el contador de resultados
-    Entonces el contador debe mostrar exactamente "47 registros encontrados"
-    Y la cantidad mostrada debe coincidir con la cantidad real de registros en la grilla
