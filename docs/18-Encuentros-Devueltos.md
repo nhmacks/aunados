@@ -17,7 +17,7 @@ Esta funcionalidad opera dentro del módulo de Admisión y permite gestionar enc
 ## 3. Roles Autorizados
 
 - Superusuario de Admisión
-- Gestor de A
+- Gestor TA
 - Ejecutivo de Admisión
 
 ---
@@ -58,7 +58,7 @@ La pantalla debe mostrar:
 
 ### 5.2 Restricciones por Rol
 
-#### Superusuario y Gestor de A
+#### Superusuario y Gestor TA
 
 Visualizan todos los encuentros devueltos sin restricciones de sede o usuario.
 
