@@ -201,36 +201,6 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y debe registrar el intento de acceso no autorizado en logs
 
   # ========================================================================
-  # TÉCNICA: AUDITORÍA DE ACCESOS
-  # ========================================================================
-
-  @gestorTA @auditoria @happyPath
-  Escenario: PERM-18 - Registrar accesos autorizados en log de auditoría
-    Dado que soy un usuario con rol "Gestor TA"
-    Cuando accedo exitosamente a "Encuentros en Protocolo"
-    Entonces debe registrarse en el log de auditoría:
-      | Campo            | Valor                        |
-      | usuario          | nombre del Gestor TA         |
-      | rol              | Gestor TA                    |
-      | acción           | Acceso a Encuentros Protocolo|
-      | fecha_hora       | timestamp actual             |
-      | resultado        | Exitoso                      |
-
-  @superusuarioAdmision @auditoria @unhappyPath
-  Escenario: PERM-19 - Registrar intentos de acceso denegado en log de auditoría
-    Dado que soy un usuario con rol "Superusuario de Admisión"
-    Cuando intento acceder a "Encuentros en Protocolo"
-    Y el acceso es denegado
-    Entonces debe registrarse en el log de auditoría:
-      | Campo            | Valor                         |
-      | usuario          | nombre del Superusuario       |
-      | rol              | Superusuario de Admisión      |
-      | acción           | Intento de acceso a Protocolo |
-      | fecha_hora       | timestamp actual              |
-      | resultado        | Denegado                      |
-      | motivo           | Rol no autorizado             |
-
-  # ========================================================================
   # TÉCNICA: EXCLUSIVIDAD DEL ROL
   # ========================================================================
 

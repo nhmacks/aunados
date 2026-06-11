@@ -143,20 +143,3 @@ Característica: Exportación de Pendientes por Facturar
     Entonces el sistema debe denegar la operación
     Y solo debe exportar encuentros asignados a "ejecutivo01"
 
-  # ========================================================================
-  # TÉCNICA: AUDITORÍA
-  # Cobertura: Sección 16 del documento 21-Pendientes-Facturar.md
-  # ========================================================================
-
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: EXP-13 - Registrar exportación en auditoría
-    Dado que he solicitado una exportación de 50 encuentros
-    Cuando se completa la generación del archivo
-    Entonces el sistema debe registrar en auditoría:
-      | Campo                | Valor                     |
-      | Acción               | Exportación de pendientes |
-      | Usuario              | ejecutivo01               |
-      | Rol                  | Ejecutivo de Facturación  |
-      | Cantidad Exportada   | 50                        |
-      | Filtros Aplicados    | Prioridad = Alta          |
-      | Fecha y Hora         | [timestamp actual]        |

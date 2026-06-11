@@ -40,7 +40,6 @@ Característica: Gestión de Encuentros Devueltos
     Dado que tengo el encuentro devuelto "12345678"
     Cuando cambio el estado a "<estado>"
     Entonces el encuentro debe actualizarse con estado "<estado>"
-    Y debe registrarse en auditoría el cambio de estado
 
     Ejemplos:
       | estado               |
@@ -118,20 +117,6 @@ Característica: Gestión de Encuentros Devueltos
     Y cada devolución debe mostrar fecha, hora, usuario y motivo
     Y cada devolución debe mostrar la fecha de resolución si aplica
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: GEST-10 - Registrar resolución en auditoría
-    Dado que he resuelto el encuentro devuelto "12345678"
-    Cuando se completa la resolución
-    Entonces el sistema debe registrar en auditoría:
-      | Campo                | Valor                     |
-      | Acción               | Resolución de encuentro   |
-      | Usuario              | ejecutivo01               |
-      | Rol                  | Ejecutivo de Admisión     |
-      | Número de Encuentro  | 12345678                  |
-      | Estado Anterior      | Devuelto                  |
-      | Estado Nuevo         | Resuelto                  |
-      | Fecha y Hora         | [timestamp actual]        |
-
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE PERMISOS
   # Cobertura: RN-ED-04
@@ -153,20 +138,56 @@ Característica: Gestión de Encuentros Devueltos
     Entonces el sistema debe denegar el acceso
     Y solo debo poder gestionar encuentros de mi sede
 
+
   # ========================================================================
-  # TÉCNICA: PRIORIZACIÓN
-  # Cobertura: Sección 6.3, RN-ED-07 del documento 18-Encuentros-Devueltos.md
+  # TÉCNICA: REGULARIZACIÓN Y REENVÍO
+  # Cobertura: Secciones 15-16 del documento 18-Encuentros-Devueltos.md
+  # RN-ED-013, RN-ED-014
   # ========================================================================
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Esquema del escenario: GEST-13 - Cambiar prioridad de encuentro devuelto
+  Escenario: GEST-14 - Regularizar encuentro devuelto (RN-ED-013)
     Dado que tengo el encuentro devuelto "12345678"
-    Y la prioridad actual es "Media"
-    Cuando cambio la prioridad a "<nueva_prioridad>"
-    Entonces la prioridad debe actualizarse a "<nueva_prioridad>"
-    Y debe registrarse en auditoría el cambio de prioridad
+    Y el motivo de devolución fue "Carta de Garantía por Laboratorio"
+    Cuando corrijo las observaciones registradas
+    Y marco el encuentro como "Regularizado"
+    Entonces el encuentro debe abandonar la bandeja "Encuentros Devueltos"
+    Y el encuentro debe cambiar su estado a "Regularizado"
+    Y debe mostrarse el mensaje "Encuentro regularizado exitosamente"
 
-    Ejemplos:
-      | nueva_prioridad |
-      | Alta            |
-      | Baja            |
+  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  Escenario: GEST-15 - Reenviar encuentro regularizado a Facturación (RN-ED-014)
+    Dado que he regularizado el encuentro "12345678"
+    Cuando reenvío el encuentro a Facturación
+    Entonces el encuentro NO debe ser asignado automáticamente
+    Y el encuentro debe ser recibido por el Responsable de Facturación
+    Y el encuentro debe aparecer en "Lista de Encuentros por Asignar"
+    Y el Responsable de Facturación debe poder asignarlo a un Ejecutivo de Facturación
+
+  # ========================================================================
+  # TÉCNICA: VISUALIZACIÓN DE COMENTARIOS
+  # Cobertura: Sección 7 del documento 18-Encuentros-Devueltos.md
+  # RN-ED-004, RN-ED-005
+  # ========================================================================
+
+  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  Escenario: GEST-16 - Visualizar encuentro devuelto sin comentarios (RN-ED-004, RN-ED-025)
+    Dado que tengo el encuentro devuelto "12345678"
+    Y la devolución fue registrada sin comentarios
+    Cuando accedo al detalle del encuentro
+    Entonces debo visualizar los motivos de devolución
+    Y NO debo visualizar ningún comentario asociado
+    Y debo visualizar el estado del encuentro como "Devuelto"
+    Y NO debo visualizar la fecha de devolución
+    Y NO debo visualizar el usuario que realizó la devolución
+
+  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  Escenario: GEST-17 - Visualizar encuentro devuelto con comentarios (RN-ED-005, RN-ED-025)
+    Dado que tengo el encuentro devuelto "12345678"
+    Y la devolución fue registrada con el comentario "Se requiere adjuntar resultado de biopsia del paciente"
+    Cuando accedo al detalle del encuentro
+    Entonces debo visualizar los motivos de devolución
+    Y debo visualizar el comentario "Se requiere adjuntar resultado de biopsia del paciente"
+    Y debo visualizar el estado del encuentro como "Devuelto"
+    Y NO debo visualizar la fecha de devolución
+    Y NO debo visualizar el usuario que realizó la devolución

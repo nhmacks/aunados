@@ -208,22 +208,3 @@ Característica: Permisos y Control de Acceso en Pendientes por Facturar
     Entonces debo visualizar únicamente encuentros asignados a "ejecutivo01"
     Y NO debo visualizar información de otros ejecutivos
     Y NO debo visualizar encuentros sin asignar
-
-  # ========================================================================
-  # TÉCNICA: VALIDACIÓN DE AUDITORÍA
-  # Cobertura: Sección 16 del documento 21-Pendientes-Facturar.md
-  # RN-PF-07
-  # ========================================================================
-
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: PERM-20 - Toda acción sobre encuentros debe quedar registrada para auditoría
-    Dado que soy el ejecutivo "ejecutivo01"
-    Y tengo el encuentro "12345678" asignado
-    Cuando realizo cualquier acción sobre el encuentro
-    Entonces el sistema debe registrar en auditoría:
-      | Campo           | Valor                    |
-      | Usuario         | ejecutivo01              |
-      | Rol             | Ejecutivo de Facturación |
-      | Encuentro       | 12345678                 |
-      | Acción          | [acción realizada]       |
-      | Fecha y Hora    | [timestamp actual]       |

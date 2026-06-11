@@ -13,7 +13,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # ========================================================================
   # TÉCNICA: FLUJO COMPLETO - DEVOLUCIÓN DE ENCUENTROS
   # Cobertura: Sección 8.2, 10.2 del documento 21-Pendientes-Facturar.md
-  # RN-PF-06, RN-PF-10
+  # RN-PF-06, RN-PF-10, RN-PF-11, RN-PF-16, RN-PF-17
   # ========================================================================
 
   @ejecutivoFacturacion @pendientesPorFacturar @regresion
@@ -22,6 +22,28 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Entonces el encuentro desaparece de su bandeja
     Y el encuentro debe visualizarse en Encuentros Devueltos del Ejecutivo de Admisión
     Y el encuentro debe visualizarse en Encuentros Devueltos del Superusuario de Admisión
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-01A - Flujo completo de devolución con modal de confirmación y éxito
+    Dado que el encuentro asignado tiene el número "12345678"
+    Y he accedido al detalle del encuentro
+    Y identifico que faltan sustentos médicos
+    Cuando selecciono el botón "Devolver Encuentro"
+    Entonces el sistema debe mostrar la sección "Devoluciones" con la lista de motivos
+    Cuando selecciono el motivo "Carta de Garantía por Lab"
+    Entonces el botón "Agregar Devoluciones" debe estar habilitado
+    Cuando selecciono "Agregar Devoluciones"
+    Entonces el sistema debe mostrar el modal con el mensaje "¿Deseas devolver el encuentro?"
+    Y el modal debe mostrar las opciones "Sí, devolver", "No, cancelar" y "Cerrar (X)"
+    Cuando selecciono "Sí, devolver"
+    Entonces el sistema debe registrar la devolución
+    Y el sistema debe mostrar el modal con el mensaje "El encuentro ha sido devuelto a Ruth Evelyn Solís vía bandeja de admisión"
+    Y el modal debe mostrar el botón "Entendido"
+    Cuando selecciono "Entendido"
+    Entonces el sistema debe cerrar el detalle del encuentro
+    Y el sistema debe retornarme a la pantalla "Pendientes por Facturar"
+    Y el encuentro "12345678" debe desaparecer de mi bandeja
+    Y el encuentro debe aparecer en Encuentros Devueltos de Admisión
 
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-01 - Devolver encuentro por falta de sustentos médicos
@@ -37,11 +59,14 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y debe mostrarse el mensaje "Encuentro devuelto exitosamente"
 
   @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
-  Escenario: DEV-02 - Validar que motivo de devolución es obligatorio
-    Dado que he seleccionado "Devolver Encuentro"
-    Cuando intento confirmar la devolución sin ingresar motivo
-    Entonces el botón "Confirmar" debe estar deshabilitado
-    Y debe mostrarse el mensaje "Debe ingresar un motivo de devolución antes de continuar"
+  Escenario: DEV-02 - Validar que motivo de devolución es obligatorio (RN-PF-11)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Entonces el sistema debe mostrar la sección "Devoluciones"
+    Y el botón "Agregar Devoluciones" debe estar deshabilitado
+    Cuando intento seleccionar "Agregar Devoluciones" sin seleccionar ningún motivo
+    Entonces el botón debe permanecer deshabilitado
+    Y debe mostrarse el mensaje "Debe seleccionar al menos un motivo de devolución antes de continuar"
     Y NO debe procesarse la devolución
 
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
@@ -59,17 +84,94 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
       | Información de paciente incompleta            |
 
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: DEV-04 - Cancelar devolución de encuentro
-    Dado que he seleccionado "Devolver Encuentro"
-    Y he ingresado un motivo de devolución
-    Cuando selecciono el botón "Cancelar"
-    Entonces el modal de devolución debe cerrarse
+  Escenario: DEV-04 - Cancelar devolución durante selección de motivos (RN-PF-14)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Falta documentación administrativa"
+    Y selecciono el motivo "Error en datos del seguro"
+    Y selecciono el botón "Cancelar"
+    Entonces la sección "Devoluciones" debe cerrarse
+    Y todos los motivos seleccionados deben eliminarse
     Y el encuentro debe permanecer en mi bandeja
     Y NO debe procesarse ninguna devolución
 
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-04A - Cancelar devolución desde modal de confirmación con "No, cancelar" (RN-PF-15)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Cobertura insuficiente"
+    Y selecciono "Agregar Devoluciones"
+    Entonces el sistema debe mostrar el modal "¿Deseas devolver el encuentro?"
+    Cuando selecciono "No, cancelar"
+    Entonces el modal de confirmación debe cerrarse
+    Y NO debe procesarse ninguna devolución
+    Y debo permanecer en el detalle del encuentro
+    Y los motivos seleccionados deben mantenerse
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-04B - Cancelar devolución cerrando modal con X (RN-PF-15)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Falta autorización de garante"
+    Y selecciono "Agregar Devoluciones"
+    Entonces el sistema debe mostrar el modal "¿Deseas devolver el encuentro?"
+    Cuando cierro el modal mediante el botón "X"
+    Entonces el modal de confirmación debe cerrarse
+    Y NO debe procesarse ninguna devolución
+    Y debo permanecer en el detalle del encuentro
+    Y los motivos seleccionados deben mantenerse
+
+  # ========================================================================
+  # TÉCNICA: VALIDACIÓN DE SELECCIÓN MÚLTIPLE DE MOTIVOS
+  # Cobertura: Sección 8.2.2, RN-PF-12, RN-PF-13, RN-PF-21, RN-PF-22
+  # ========================================================================
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Esquema del escenario: DEV-10 - Devolver encuentro con múltiples motivos (RN-PF-21)
+    Dado que he accedido al detalle del encuentro "12345678"
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono <cantidad> motivos de devolución
+    Y selecciono "Agregar Devoluciones"
+    Y selecciono "Sí, devolver" en el modal de confirmación
+    Entonces el sistema debe registrar la devolución con <cantidad> motivos
+    Y todos los motivos deben quedar registrados en el historial
+
+    Ejemplos:
+      | cantidad |
+      | 1        |
+      | 2        |
+      | 3        |
+      | 4        |
+
+  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  Escenario: DEV-11 - Validar límite máximo de 4 motivos de devolución (RN-PF-12)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono los siguientes motivos:
+      | Motivo                              |
+      | Acta Conformidad                    |
+      | Actualizar Datos Económicos         |
+      | Adjuntar Oncosys                    |
+      | Ampliación de Carta                 |
+    Entonces el sistema debe permitir la selección de los 4 motivos
+    Cuando intento seleccionar un quinto motivo "Área Devoluciones"
+    Entonces el sistema debe bloquear la selección
+    Y debe mostrarse el mensaje "Solo puede seleccionar hasta cuatro motivos de devolución"
+
+  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  Escenario: DEV-12 - Validar que no se puede seleccionar el mismo motivo dos veces (RN-PF-13, RN-PF-22)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Error Copago"
+    Entonces el motivo "Error Copago" debe aparecer como seleccionado
+    Cuando intento seleccionar nuevamente el motivo "Error Copago"
+    Entonces el sistema debe bloquear la selección
+    Y debe mostrarse el mensaje "No puede seleccionar el mismo motivo más de una vez"
+    Y solo debe quedar una instancia del motivo "Error Copago"
+
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE REGLAS DE NEGOCIO
-  # Cobertura: RN-PF-06, RN-PF-10
+  # Cobertura: RN-PF-06, RN-PF-10, RN-PF-18, RN-PF-19, RN-PF-20, RN-PF-23
   # ========================================================================
 
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
@@ -90,25 +192,6 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Entonces el encuentro debe regresar a "Lista de Encuentros por Asignar"
     Y el Responsable de Facturación debe poder reasignarlo a un Ejecutivo de Facturación
 
-  # ========================================================================
-  # TÉCNICA: AUDITORÍA Y TRAZABILIDAD
-  # Cobertura: Sección 16 del documento 21-Pendientes-Facturar.md
-  # RN-PF-07
-  # ========================================================================
-
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: DEV-07 - Registrar devolución en auditoría
-    Dado que he devuelto un encuentro con motivo "Falta autorización"
-    Cuando se completa la devolución
-    Entonces el sistema debe registrar en auditoría:
-      | Campo                  | Valor                           |
-      | Acción                 | Devolución de encuentro         |
-      | Usuario                | ejecutivo01                     |
-      | Rol                    | Ejecutivo de Facturación        |
-      | Número de Encuentro    | 12345678                        |
-      | Motivo                 | Falta autorización              |
-      | Fecha y Hora           | [timestamp actual]              |
-
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-08 - Visualizar historial de devoluciones en detalle del encuentro
     Dado que un encuentro ha sido devuelto 2 veces
@@ -117,6 +200,158 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Cuando accedo al historial del encuentro
     Entonces debe mostrarse el registro de las 2 devoluciones
     Y cada devolución debe mostrar fecha, hora, ejecutivo y motivo
+
+  # ========================================================================
+  # TÉCNICA: REGISTRO DE COMENTARIOS
+  # Cobertura: Sección 7 del documento 18-Encuentros-Devueltos.md
+  # RN-ED-004, RN-ED-005, RN-ED-006, RN-ED-007
+  # ========================================================================
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-13 - Devolver encuentro sin registrar comentarios (RN-ED-004)
+    Dado que he accedido al detalle del encuentro "12345678"
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Acta Conformidad"
+    Y NO ingreso ningún comentario
+    Y selecciono "Agregar Devoluciones"
+    Y selecciono "Sí, devolver" en el modal de confirmación
+    Entonces el sistema debe registrar la devolución exitosamente
+    Y la devolución debe completarse sin comentarios
+    Y el encuentro debe aparecer en Encuentros Devueltos de Admisión
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-14 - Devolver encuentro registrando comentarios (RN-ED-005)
+    Dado que he accedido al detalle del encuentro "12345678"
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Adjuntar Oncosys"
+    Y ingreso el comentario "Se requiere adjuntar resultado de biopsia del paciente"
+    Y selecciono "Agregar Devoluciones"
+    Y selecciono "Sí, devolver" en el modal de confirmación
+    Entonces el sistema debe registrar la devolución exitosamente
+    Y el comentario debe quedar registrado en el historial
+    Y el Ejecutivo de Admisión debe poder visualizar el comentario
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-15 - Validar límite máximo de 400 caracteres en comentarios (RN-ED-006)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Error Beneficio"
+    Y ingreso un comentario de exactamente 400 caracteres
+    Entonces el sistema debe aceptar el comentario
+    Y el botón "Agregar Devoluciones" debe estar habilitado
+
+  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  Escenario: DEV-16 - Validar que no se puede exceder 400 caracteres en comentarios (RN-ED-007)
+    Dado que he accedido al detalle del encuentro
+    Cuando selecciono el botón "Devolver Encuentro"
+    Y selecciono el motivo "Duplicidad de Gastos"
+    Y intento ingresar un comentario de 401 caracteres
+    Entonces el sistema debe bloquear la entrada adicional
+    Y debe mostrarse el mensaje "Ha alcanzado el límite máximo de 400 caracteres"
+    Y el botón "Agregar Devoluciones" debe estar deshabilitado hasta ajustar el contenido
+
+  # ========================================================================
+  # TÉCNICA: HISTORIAL CON INDICADORES VISUALES
+  # Cobertura: Sección 19 del documento 18-Encuentros-Devueltos.md
+  # RN-ED-017
+  # ========================================================================
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-17 - Visualizar indicadores visuales de motivos subsanados (RN-ED-017)
+    Dado que el encuentro "12345678" fue devuelto con los motivos:
+      | Motivo                       |
+      | Ampliación de Carta          |
+      | Carta de Garantía por Imagen |
+      | Error CIE10                  |
+    Y el Ejecutivo de Admisión subsanó los motivos "Ampliación de Carta" y "Error CIE10"
+    Y el encuentro fue reasignado a mi usuario
+    Cuando accedo al historial de devoluciones del encuentro
+    Entonces debo visualizar el motivo "Ampliación de Carta" con el indicador "✓"
+    Y debo visualizar el motivo "Error CIE10" con el indicador "✓"
+    Y el motivo "Carta de Garantía por Imagen" NO debe mostrar el indicador "✓"
+
+  # ========================================================================
+  # TÉCNICA: NUEVA DEVOLUCIÓN
+  # Cobertura: Secciones 20-23 del documento 18-Encuentros-Devueltos.md
+  # RN-ED-018, RN-ED-019, RN-ED-020, RN-ED-021, RN-ED-022, RN-ED-023, RN-ED-024
+  # ========================================================================
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-18 - Botón "Nueva Devolución" solo disponible para encuentros previamente devueltos (RN-ED-018)
+    Dado que tengo asignado el encuentro "11111111" que nunca ha sido devuelto
+    Y tengo asignado el encuentro "22222222" que fue devuelto anteriormente
+    Cuando accedo al detalle del encuentro "11111111"
+    Entonces NO debo visualizar el botón "Nueva Devolución"
+    Y solo debo visualizar el botón "Devolver Encuentro"
+    Cuando accedo al detalle del encuentro "22222222"
+    Entonces debo visualizar el botón "Nueva Devolución"
+    Y también debo visualizar el botón "Devolver Encuentro"
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-19 - Confirmar nueva devolución con modal específico (RN-ED-019)
+    Dado que el encuentro "12345678" fue devuelto anteriormente
+    Y el encuentro ha sido reasignado a mi usuario
+    Cuando accedo al detalle del encuentro
+    Y selecciono el botón "Nueva Devolución"
+    Entonces el sistema debe mostrar un modal con el mensaje "¿Deseas devolver nuevamente el encuentro?"
+    Y debe mostrar el submensaje "Al continuar, se reemplazarán las devoluciones actuales por las nuevas."
+    Y debe mostrar el submensaje "Esta acción no se puede deshacer."
+    Y el modal debe mostrar las opciones "Sí, devolver", "No, cancelar" y "X"
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-20 - Registrar nueva devolución exitosamente (RN-ED-020, RN-ED-021, RN-ED-022)
+    Dado que el encuentro "12345678" fue devuelto anteriormente por "Error Copago"
+    Y el encuentro ha sido reasignado a mi usuario
+    Cuando selecciono el botón "Nueva Devolución"
+    Y selecciono "Sí, devolver" en el modal de confirmación
+    Entonces el sistema debe mostrar la sección "Devoluciones"
+    Cuando selecciono los nuevos motivos:
+      | Motivo                      |
+      | Carta de Garantía por Imagen |
+      | Doble Garante               |
+    Y ingreso el comentario "Garante incorrecto en sistema"
+    Y selecciono "Agregar Devoluciones"
+    Y selecciono "Sí, devolver" en el modal de confirmación final
+    Entonces el sistema debe registrar la nueva devolución
+    Y debe mostrarse el mensaje "El encuentro ha sido devuelto a César Augusto Melgar Obregón vía bandeja de admisión"
+    Y los motivos anteriores deben ser reemplazados por los nuevos
+    Y la nueva devolución debe quedar registrada en el historial
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-21 - Cancelar nueva devolución en modal inicial (RN-ED-019)
+    Dado que el encuentro "12345678" fue devuelto anteriormente
+    Y el encuentro ha sido reasignado a mi usuario
+    Cuando accedo al detalle del encuentro
+    Y selecciono el botón "Nueva Devolución"
+    Entonces el sistema debe mostrar el modal "¿Deseas devolver nuevamente el encuentro?"
+    Cuando selecciono "No, cancelar"
+    Entonces el modal debe cerrarse
+    Y NO debe procesarse ninguna nueva devolución
+    Y debo permanecer en el detalle del encuentro
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-22 - Eliminar motivo antes de registrar nueva devolución (RN-ED-023)
+    Dado que estoy registrando una nueva devolución para el encuentro "12345678"
+    Y he seleccionado los siguientes motivos:
+      | Motivo                 |
+      | CG Ampliatoria         |
+      | CG Anulada             |
+      | CG Errada              |
+    Cuando selecciono el botón "X" junto al motivo "CG Anulada"
+    Entonces el motivo "CG Anulada" debe eliminarse de la lista
+    Y solo deben quedar los motivos "CG Ampliatoria" y "CG Errada"
+    Y puedo continuar seleccionando hasta 2 motivos adicionales
+
+  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  Escenario: DEV-23 - Validar restricciones de motivos en nueva devolución (RN-ED-020, RN-ED-021, RN-ED-022)
+    Dado que estoy registrando una nueva devolución para el encuentro "12345678"
+    Cuando intento confirmar sin seleccionar ningún motivo
+    Entonces el botón "Agregar Devoluciones" debe estar deshabilitado
+    Cuando selecciono 4 motivos diferentes
+    Y intento seleccionar un quinto motivo
+    Entonces el sistema debe bloquear la selección
+    Cuando intento seleccionar el mismo motivo dos veces
+    Entonces el sistema debe bloquear la selección duplicada
 
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE EXPORTACIÓN

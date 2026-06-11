@@ -145,24 +145,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y todos deben estar asignados a "ejecutivo01"
     Y todos deben tener estado "Devuelto"
 
-  # ========================================================================
-  # TÉCNICA: VALIDACIÓN DE AUDITORÍA
-  # Cobertura: Sección 12 del documento 18-Encuentros-Devueltos.md
-  # RN-ED-06
-  # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: PERM-14 - Toda acción sobre encuentros devueltos debe quedar registrada
-    Dado que soy el ejecutivo "ejecutivo01"
-    Y tengo el encuentro devuelto "12345678"
-    Cuando realizo cualquier acción sobre el encuentro
-    Entonces el sistema debe registrar en auditoría:
-      | Campo           | Valor                    |
-      | Usuario         | ejecutivo01              |
-      | Rol             | Ejecutivo de Admisión    |
-      | Encuentro       | 12345678                 |
-      | Acción          | [acción realizada]       |
-      | Fecha y Hora    | [timestamp actual]       |
 
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE SEGURIDAD

@@ -7,7 +7,6 @@ Característica: Visualización de Encuentros Devueltos
 
   Antecedentes:
     Dado que he iniciado sesión en el sistema
-    Y soy un usuario con rol "Ejecutivo de Admisión"
 
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE PANTALLA Y COLUMNAS
@@ -16,7 +15,8 @@ Característica: Visualización de Encuentros Devueltos
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-01 - Acceder a la pantalla Encuentros Devueltos
-    Dado que existen encuentros devueltos desde Facturación
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y existen encuentros devueltos desde Facturación
     Cuando accedo a la bandeja "Encuentros Devueltos"
     Entonces el sistema debe mostrar la lista de encuentros devueltos
     Y debe mostrar los primeros 50 registros
@@ -24,20 +24,26 @@ Característica: Visualización de Encuentros Devueltos
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-02 - Visualizar columnas de la lista de encuentros devueltos
-    Dado que he accedido a "Encuentros Devueltos"
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he accedido a "Encuentros Devueltos"
     Cuando visualizo la grilla de encuentros
     Entonces debe visualizar la grilla con las siguientes columnas:
-      | Columna              |
-      | Encuentro            |
-      | Apellidos            |
-      | Nombres              |
-      | NHC                  |
-      | Fecha de Devolución  |
-      | Motivo de Devolución |
-      | Usuario Responsable  |
-      | Estado Actual        |
-      | Sede                 |
-      | Prioridad            |
+      | Columna                      |
+      | Sede                         |
+      | Encuentro                    |
+      | Estado                       |
+      | Apellidos                    |
+      | Nombres                      |
+      | NºHC                         |
+      | Usuario                      |
+      | Garante                      |
+      | Tipo de encuentro            |
+      | Fecha apert.                 |
+      | Prioridad                    |
+      | Devoluciones administrativas |
+      | Devoluciones médicas         |
+      | Devoluciones de proceso      |
+      | Monto                        |
 
   # ========================================================================
   # TÉCNICA: RESTRICCIONES DE VISIBILIDAD POR ROL
@@ -85,7 +91,8 @@ Característica: Visualización de Encuentros Devueltos
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: VIS-06 - Visualizar motivo de devolución en la grilla
-    Dado que existe un encuentro devuelto por "<motivo>"
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y existe un encuentro devuelto por "<motivo>"
     Cuando visualizo la lista de "Encuentros Devueltos"
     Entonces la columna "Motivo de Devolución" debe mostrar "<motivo>"
 
@@ -104,18 +111,36 @@ Característica: Visualización de Encuentros Devueltos
   # ========================================================================
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: VIS-07 - Acceder al detalle del encuentro devuelto
-    Dado que tengo encuentros devueltos
+  Escenario: VIS-07 - Acceder al detalle del encuentro devuelto (RN-ED-025)
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y tengo encuentros devueltos
     Y visualizo la lista en "Encuentros Devueltos"
     Cuando selecciono un encuentro de la grilla
     Entonces el sistema debe abrir la pantalla "Detalle del Encuentro"
     Y debe mostrar los datos del paciente
     Y debe mostrar los datos del encuentro
     Y debe mostrar los datos del seguro
-    Y debe mostrar el motivo de devolución
-    Y debe mostrar la fecha de devolución
-    Y debe mostrar el usuario que realizó la devolución
-    Y debe mostrar el historial de devoluciones previas
+    Y debe mostrar los motivos de devolución
+    Y debe mostrar los comentarios si fueron registrados
+    Y debe mostrar el estado del encuentro como "Devuelto"
+    Y NO debe mostrar la fecha de devolución
+    Y NO debe mostrar el usuario que realizó la devolución
+
+  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  Escenario: VIS-09 - Visualizar columnas de devoluciones por tipo en la grilla
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he accedido a "Encuentros Devueltos"
+    Y existe un encuentro con los siguientes motivos:
+      | Motivo                              | Tipo            |
+      | Acta Conformidad                    | Administrativa  |
+      | Actualizar Datos Económicos         | Administrativa  |
+      | Carta de Garantía por Laboratorio   | Médica          |
+      | Error CIE10                         | Médica          |
+      | Duplicidad de Gastos                | Proceso         |
+    Cuando visualizo la grilla de encuentros
+    Entonces la columna "Devoluciones administrativas" debe mostrar "2"
+    Y la columna "Devoluciones médicas" debe mostrar "2"
+    Y la columna "Devoluciones de proceso" debe mostrar "1"
 
   # ========================================================================
   # TÉCNICA: SCROLL INFINITO
@@ -124,7 +149,8 @@ Característica: Visualización de Encuentros Devueltos
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-08 - Cargar registros adicionales mediante scroll infinito
-    Dado que tengo más de 50 encuentros devueltos
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y tengo más de 50 encuentros devueltos
     Y he visualizado los primeros 50 registros
     Cuando me desplazo hasta el final de la grilla
     Entonces el sistema debe cargar automáticamente los siguientes 50 registros

@@ -185,13 +185,101 @@ El ejecutivo puede:
 
 ### 8.2 Devolver Encuentro
 
-Si identifica inconsistencias:
+Si identifica inconsistencias, el Ejecutivo de Facturación puede devolver el encuentro al Ejecutivo de Admisión responsable para su regularización.
 
-1. Selecciona "Devolver".
-2. Ingresa motivo de devolución (obligatorio).
-3. Confirma la devolución.
-4. El encuentro regresa al Responsable de Facturación.
-5. El encuentro se marca con estado "Devuelto".
+#### 8.2.1 Flujo de Devolución
+
+1. El ejecutivo accede al detalle del encuentro.
+2. Selecciona el botón "Devolver Encuentro".
+3. El sistema muestra la sección "Devoluciones".
+4. Selecciona entre uno y cuatro motivos de devolución.
+5. Selecciona "Agregar Devoluciones".
+6. El sistema muestra modal de confirmación: "¿Deseas devolver el encuentro?"
+7. El ejecutivo selecciona "Sí, devolver".
+8. El sistema registra la devolución.
+9. El sistema muestra confirmación: "El encuentro ha sido devuelto a {Nombre del Ejecutivo de Admisión} vía bandeja de admisión".
+10. El ejecutivo selecciona "Entendido".
+11. El sistema cierra el detalle y retorna a Pendientes por Facturar.
+12. El encuentro desaparece de la bandeja del Ejecutivo de Facturación.
+
+#### 8.2.2 Selección de Motivos
+
+El ejecutivo debe seleccionar entre uno y cuatro motivos de devolución.
+
+**Motivos disponibles:**
+
+- Acta Conformidad
+- Actualizar Datos Económicos
+- Adjuntar Oncosys
+- Ampliación de Carta
+- Área Devoluciones
+- Autorización No Válida
+- Carta de Garantía por Consulta
+- Carta de Garantía por Imagen
+- Carta de Garantía por Laboratorio
+- Carta de Garantía por Medicamentos
+- Carta de Garantía por Procedimiento
+- Carta de Garantía por Terapias
+- Carta de Terapia Incompleta
+- Carta Terapia Errónea
+- CG
+- CG Ampliatoria
+- CG Anulada
+- CG Errada
+- CG Ilegible
+- CG Usada
+- Código de Autorización Usado
+- Denuncia Policial
+- Doble Consulta
+- Doble Garante
+- Duplicidad de Gastos
+- Error Beneficio
+- Error Copago
+- Error Deducible
+- Error CIE10
+
+**Nota:** La lista definitiva será administrada por negocio.
+
+#### 8.2.3 Botones Disponibles
+
+**Agregar Devoluciones:**
+- Habilitado cuando se selecciona al menos un motivo.
+- Permite continuar con el proceso de devolución.
+
+**Cancelar:**
+- Permite cancelar completamente el proceso de devolución.
+- Elimina todos los motivos seleccionados durante la operación actual.
+
+#### 8.2.4 Modal de Confirmación
+
+Al seleccionar "Agregar Devoluciones", el sistema muestra:
+
+**Mensaje:** ¿Deseas devolver el encuentro?
+
+**Opciones:**
+- Sí, devolver
+- No, cancelar
+- Cerrar (X)
+
+Si el usuario selecciona "No, cancelar" o cierra el modal, no se realiza ninguna devolución.
+
+La devolución solo se ejecuta cuando el usuario selecciona "Sí, devolver".
+
+#### 8.2.5 Confirmación Exitosa
+
+Cuando la devolución es registrada exitosamente:
+
+**Mensaje:** El encuentro ha sido devuelto a {Nombre Completo del Ejecutivo de Admisión} vía bandeja de admisión.
+
+**Ejemplo:** El encuentro ha sido devuelto a Ruth Evelyn Solís vía bandeja de admisión.
+
+**Botón:** Entendido
+
+Al seleccionar "Entendido":
+- El sistema cierra el detalle del encuentro.
+- El sistema retorna a la pantalla Pendientes por Facturar.
+- El encuentro deja de estar disponible en la bandeja del Ejecutivo de Facturación.
+- El encuentro aparece en Encuentros Devueltos del Ejecutivo de Admisión responsable.
 
 ### 8.3 Solicitar Soporte
 
@@ -202,7 +290,120 @@ Si requiere apoyo:
 3. El sistema notifica al Responsable de Facturación.
 4. El encuentro se marca como "En Revisión".
 
-### 8.4 Agregar Observaciones
+### 8.4 Cambiar Estado del Encuentro
+
+El Ejecutivo de Facturación puede cambiar manualmente el estado del encuentro desde el detalle del mismo.
+
+---
+
+#### 8.4.1 Acceso al Cambio de Estado
+
+1. El ejecutivo accede al detalle del encuentro.
+2. Selecciona el **Estado actual** en la parte superior de la pantalla.
+3. El sistema muestra la lista de estados disponibles.
+
+---
+
+#### 8.4.2 Estados Disponibles
+
+El ejecutivo puede cambiar el estado del encuentro a:
+
+- **Por facturar**
+- **En revisión**
+- **Facturado**
+
+---
+
+#### 8.4.3 Cambiar Estado a "Por facturar"
+
+Cuando el ejecutivo selecciona el estado **"Por facturar"**:
+
+**Modal de Confirmación:**
+
+- **Mensaje principal:** ¿Deseas marcar el encuentro como por facturar?
+- **Submensaje:** El encuentro será marcado como por facturar, listo para el proceso de facturación.
+- **Opciones:**
+  - Botón: **No, cancelar**
+  - Botón: **Sí, cambiar estado**
+  - Botón: **X** (cerrar modal en la parte superior)
+
+**Al seleccionar "No, cancelar" o "X":**
+
+- El modal se cierra.
+- El sistema retorna al detalle del encuentro.
+- No se realiza ningún cambio.
+
+**Al seleccionar "Sí, cambiar estado":**
+
+1. El sistema actualiza el estado del encuentro a **"Por facturar"**.
+2. El sistema cierra la pantalla de detalle.
+3. El sistema retorna al usuario a **"Pendientes por Facturar"**.
+4. El sistema recarga la pantalla.
+5. El encuentro se muestra con el nuevo estado **"Por facturar"**.
+
+---
+
+#### 8.4.4 Cambiar Estado a "En revisión"
+
+Cuando el ejecutivo selecciona el estado **"En revisión"**:
+
+**Modal de Confirmación:**
+
+- **Mensaje principal:** ¿Deseas marcar el encuentro como en revisión?
+- **Submensaje:** El encuentro quedará en tu bandeja para que puedas seguir trabajándolo cuando lo necesites.
+- **Opciones:**
+  - Botón: **No, cancelar**
+  - Botón: **Sí, cambiar estado**
+  - Botón: **X** (cerrar modal en la parte superior)
+
+**Al seleccionar "No, cancelar" o "X":**
+
+- El modal se cierra.
+- El sistema retorna al detalle del encuentro.
+- No se realiza ningún cambio.
+
+**Al seleccionar "Sí, cambiar estado":**
+
+1. El sistema actualiza el estado del encuentro a **"En revisión"**.
+2. El sistema cierra la pantalla de detalle.
+3. El sistema retorna al usuario a **"Pendientes por Facturar"**.
+4. El sistema recarga la pantalla.
+5. El encuentro se muestra con el nuevo estado **"En revisión"**.
+6. El encuentro permanece en la bandeja del ejecutivo.
+
+---
+
+#### 8.4.5 Cambiar Estado a "Facturado"
+
+Cuando el ejecutivo selecciona el estado **"Facturado"**:
+
+**Modal de Confirmación:**
+
+- **Mensaje principal:** ¿Deseas marcar el encuentro como facturado?
+- **Submensaje:** Al marcar el encuentro como facturado ya no podrás hacer cambios ni devolverlo.
+- **Opciones:**
+  - Botón: **No, cancelar**
+  - Botón: **Sí, cambiar estado**
+  - Botón: **X** (cerrar modal en la parte superior)
+
+**Al seleccionar "No, cancelar" o "X":**
+
+- El modal se cierra.
+- El sistema retorna al detalle del encuentro.
+- No se realiza ningún cambio.
+
+**Al seleccionar "Sí, cambiar estado":**
+
+1. El sistema actualiza el estado del encuentro a **"Facturado"**.
+2. El sistema cierra la pantalla de detalle.
+3. El sistema retorna al usuario a **"Pendientes por Facturar"**.
+4. El sistema recarga la pantalla.
+5. El encuentro **YA NO** se muestra en la bandeja (porque fue facturado).
+6. El encuentro sale de Pendientes por Facturar.
+
+---
+
+### 8.5 Agregar Observaciones
 
 Puede agregar notas o comentarios al encuentro para:
 
@@ -248,12 +449,21 @@ Los encuentros en Pendientes por Facturar pueden tener los siguientes estados:
 ### 10.2 Flujo Alterno - Devolver por Inconsistencias
 
 1. El ejecutivo identifica inconsistencias en el encuentro.
-2. Selecciona "Devolver Encuentro".
-3. Ingresa motivo detallado de la devolución.
-4. Confirma la devolución.
-5. El sistema actualiza el estado a "Devuelto".
-6. El encuentro regresa a la bandeja del Responsable de Facturación.
-7. El ejecutivo continúa con el siguiente encuentro.
+2. Selecciona el botón "Devolver Encuentro".
+3. El sistema muestra la sección "Devoluciones" con lista de motivos disponibles.
+4. El ejecutivo selecciona entre uno y cuatro motivos de devolución.
+5. El sistema habilita el botón "Agregar Devoluciones".
+6. El ejecutivo selecciona "Agregar Devoluciones".
+7. El sistema muestra modal: "¿Deseas devolver el encuentro?"
+8. El ejecutivo selecciona "Sí, devolver".
+9. El sistema registra la devolución con los motivos seleccionados.
+10. El sistema actualiza el estado a "Devuelto".
+11. El sistema muestra modal: "El encuentro ha sido devuelto a {Nombre del Ejecutivo de Admisión} vía bandeja de admisión".
+12. El ejecutivo selecciona "Entendido".
+13. El sistema cierra el detalle y retorna a Pendientes por Facturar.
+14. El encuentro desaparece de la bandeja del Ejecutivo de Facturación.
+15. El encuentro aparece en Encuentros Devueltos del Ejecutivo de Admisión responsable.
+16. El ejecutivo continúa con el siguiente encuentro.
 
 ### 10.3 Flujo Alterno - Solicitar Soporte
 
@@ -264,6 +474,20 @@ Los encuentros en Pendientes por Facturar pueden tener los siguientes estados:
 5. El sistema notifica al Responsable de Facturación.
 6. El estado del encuentro se actualiza a "En Revisión".
 7. El ejecutivo espera respuesta o puede continuar con otros encuentros.
+
+### 10.4 Flujo Alterno - Cambiar Estado del Encuentro
+
+1. El ejecutivo accede al detalle del encuentro.
+2. Selecciona el "Estado actual" en la parte superior.
+3. El sistema muestra la lista de estados disponibles.
+4. El ejecutivo selecciona el estado deseado (Por facturar, En revisión, o Facturado).
+5. El sistema muestra un modal de confirmación con el mensaje correspondiente.
+6. El ejecutivo selecciona "Sí, cambiar estado".
+7. El sistema actualiza el estado del encuentro.
+8. El sistema cierra la pantalla de detalle.
+9. El sistema retorna a Pendientes por Facturar.
+10. El sistema recarga la pantalla.
+11. El encuentro se muestra con el nuevo estado (o desaparece si fue marcado como "Facturado").
 
 ---
 
@@ -307,7 +531,94 @@ El ejecutivo puede procesar encuentros de diferentes garantes.
 
 ### RN-PF-10
 
-La devolución de encuentros requiere motivo obligatorio.
+La devolución de encuentros requiere motivo obligatorio (mínimo uno, máximo cuatro).
+
+### RN-PF-11 (RN-ED-08)
+
+Debe seleccionarse como mínimo un motivo de devolución.
+
+### RN-PF-12 (RN-ED-09)
+
+Pueden seleccionarse como máximo cuatro motivos de devolución.
+
+### RN-PF-13 (RN-ED-10)
+
+No se permite seleccionar el mismo motivo más de una vez en una misma devolución.
+
+### RN-PF-14 (RN-ED-11)
+
+Al seleccionar Cancelar se eliminarán todos los motivos seleccionados durante la operación actual.
+
+### RN-PF-15 (RN-ED-12)
+
+Si el usuario selecciona "No, cancelar" o cierra el modal mediante la X, no deberá realizarse ninguna devolución.
+
+### RN-PF-16 (RN-ED-13)
+
+La devolución solo se ejecutará cuando el usuario seleccione "Sí, devolver".
+
+### RN-PF-17 (RN-ED-14)
+
+Al seleccionar "Entendido" después de una devolución exitosa:
+- El sistema cerrará el detalle del encuentro.
+- El sistema retornará al usuario a la pantalla Pendientes por Facturar.
+- El encuentro dejará de estar disponible para gestión inmediata dentro de la bandeja actual de facturación.
+
+### RN-PF-18 (RN-ED-16)
+
+Toda devolución debe quedar asociada al usuario que la realizó.
+
+### RN-PF-19 (RN-ED-17)
+
+Toda devolución debe almacenar la fecha y hora de registro.
+
+### RN-PF-20 (RN-ED-18)
+
+Toda devolución debe registrar los motivos seleccionados.
+
+### RN-PF-21 (RN-ED-19)
+
+Un encuentro puede contener entre uno y cuatro motivos activos de devolución.
+
+### RN-PF-22 (RN-ED-20)
+
+El mismo motivo no puede registrarse más de una vez dentro de una misma devolución.
+
+### RN-PF-23 (RN-ED-21)
+
+Las devoluciones forman parte del historial auditable del encuentro.
+
+### RN-PF-24
+
+El Ejecutivo de Facturación puede cambiar manualmente el estado del encuentro desde el detalle.
+
+### RN-PF-25
+
+Los estados disponibles para cambio manual son: Por facturar, En revisión, y Facturado.
+
+### RN-PF-26
+
+El cambio de estado requiere confirmación mediante modal.
+
+### RN-PF-27
+
+Al cancelar el modal de cambio de estado, no se realiza ninguna modificación y el usuario permanece en el detalle.
+
+### RN-PF-28
+
+Al cambiar el estado a "Por facturar" o "En revisión", el encuentro permanece en la bandeja del ejecutivo.
+
+### RN-PF-29
+
+Al cambiar el estado a "Facturado", el encuentro desaparece de la bandeja del ejecutivo.
+
+### RN-PF-30
+
+Al confirmar un cambio de estado a "Facturado", el encuentro NO puede ser modificado ni devuelto posteriormente.
+
+### RN-PF-31
+
+Todo cambio de estado debe quedar registrado en auditoría con: usuario, fecha, hora, estado anterior y estado nuevo.
 
 ---
 
@@ -383,22 +694,54 @@ Monto Pendiente: S/ 125,340.00
 
 **Actor:** Ejecutivo de Facturación
 
+**Precondiciones:**
+- Usuario autenticado como Ejecutivo de Facturación
+- Tiene un encuentro asignado
+- Ha identificado inconsistencias en el encuentro
+
 **Flujo Principal:**
 
-1. El usuario revisa un encuentro.
-2. Identifica que faltan sustentos médicos.
-3. Selecciona "Devolver Encuentro".
-4. Ingresa motivo: "Faltan sustentos médicos: resultado de biopsia".
-5. Confirma la devolución.
-6. El sistema actualiza el estado a "Devuelto".
-7. El sistema notifica al Responsable de Facturación.
-8. El encuentro regresa a la bandeja del responsable.
-9. El sistema muestra confirmación al ejecutivo.
+1. El usuario ingresa a Pendientes por Facturar.
+2. El usuario selecciona un encuentro asignado.
+3. El usuario ingresa al Detalle del Encuentro.
+4. El usuario identifica que faltan sustentos médicos.
+5. El usuario selecciona el botón "Devolver Encuentro".
+6. El sistema muestra la sección "Devoluciones" con lista de motivos.
+7. El usuario selecciona el motivo "Faltan sustentos médicos".
+8. El usuario puede seleccionar hasta 3 motivos adicionales (opcional).
+9. El sistema habilita el botón "Agregar Devoluciones".
+10. El usuario selecciona "Agregar Devoluciones".
+11. El sistema muestra modal de confirmación: "¿Deseas devolver el encuentro?"
+12. El usuario selecciona "Sí, devolver".
+13. El sistema registra la devolución con los motivos seleccionados.
+14. El sistema actualiza el estado del encuentro a "Devuelto".
+15. El sistema muestra modal de confirmación: "El encuentro ha sido devuelto a {Nombre del Ejecutivo de Admisión} vía bandeja de admisión".
+16. El usuario selecciona "Entendido".
+17. El sistema cierra el detalle del encuentro.
+18. El sistema retorna al usuario a Pendientes por Facturar.
+19. El encuentro desaparece de la bandeja del Ejecutivo de Facturación.
+20. El encuentro aparece en Encuentros Devueltos del Ejecutivo de Admisión responsable.
+
+**Flujo Alterno 1: Cancelar durante selección de motivos**
+
+6a. El usuario selecciona "Cancelar" en la sección de Devoluciones.
+6b. El sistema elimina todos los motivos seleccionados.
+6c. El sistema cierra la sección de Devoluciones.
+6d. El usuario permanece en el detalle del encuentro.
+
+**Flujo Alterno 2: Cancelar en modal de confirmación**
+
+12a. El usuario selecciona "No, cancelar" o cierra el modal (X).
+12b. El sistema cierra el modal de confirmación.
+12c. No se realiza ninguna devolución.
+12d. El usuario permanece en el detalle del encuentro con los motivos seleccionados.
 
 **Postcondiciones:**
-- El encuentro ha sido devuelto
-- El responsable ha sido notificado
-- La devolución está registrada en auditoría
+- El encuentro ha sido devuelto al Ejecutivo de Admisión responsable
+- El encuentro tiene entre 1 y 4 motivos de devolución registrados
+- El Ejecutivo de Admisión puede visualizar el encuentro en Encuentros Devueltos
+- La devolución está registrada en auditoría con usuario, fecha, hora y motivos
+- El encuentro ya no aparece en Pendientes por Facturar del Ejecutivo de Facturación
 
 ---
 
@@ -436,19 +779,75 @@ Título: Encuentro facturado exitosamente
 
 Descripción: El encuentro ha sido procesado y facturado correctamente. El registro ha sido actualizado.
 
-**Encuentro Devuelto**
+**Modal de Confirmación de Devolución**
 
-Título: Encuentro devuelto
+Título: ¿Deseas devolver el encuentro?
 
-Descripción: El encuentro ha sido devuelto al Responsable de Facturación con el motivo especificado.
+Opciones:
+- Sí, devolver
+- No, cancelar
+- Cerrar (X)
+
+**Devolución Exitosa**
+
+Mensaje: El encuentro ha sido devuelto a {Nombre Completo del Ejecutivo de Admisión} vía bandeja de admisión.
+
+Ejemplo: El encuentro ha sido devuelto a Ruth Evelyn Solís vía bandeja de admisión.
+
+Botón: Entendido
+
+**Modal de Cambio de Estado - Por facturar**
+
+Título: ¿Deseas marcar el encuentro como por facturar?
+
+Submensaje: El encuentro será marcado como por facturar, listo para el proceso de facturación.
+
+Opciones:
+- Sí, cambiar estado
+- No, cancelar
+- X (Cerrar)
+
+**Modal de Cambio de Estado - En revisión**
+
+Título: ¿Deseas marcar el encuentro como en revisión?
+
+Submensaje: El encuentro quedará en tu bandeja para que puedas seguir trabajándolo cuando lo necesites.
+
+Opciones:
+- Sí, cambiar estado
+- No, cancelar
+- X (Cerrar)
+
+**Modal de Cambio de Estado - Facturado**
+
+Título: ¿Deseas marcar el encuentro como facturado?
+
+Submensaje: Al marcar el encuentro como facturado ya no podrás hacer cambios ni devolverlo.
+
+Opciones:
+- Sí, cambiar estado
+- No, cancelar
+- X (Cerrar)
 
 ### 15.2 Advertencias
 
-**Sin Motivo de Devolución**
+**Motivo de Devolución Obligatorio**
 
 Título: Motivo requerido
 
-Descripción: Debe ingresar un motivo de devolución antes de continuar.
+Descripción: Debe seleccionar al menos un motivo de devolución antes de continuar.
+
+**Límite de Motivos Excedido**
+
+Título: Límite de motivos
+
+Descripción: Solo puede seleccionar hasta cuatro motivos de devolución.
+
+**Motivo Duplicado**
+
+Título: Motivo ya seleccionado
+
+Descripción: No puede seleccionar el mismo motivo más de una vez.
 
 ### 15.3 Errores
 
