@@ -280,7 +280,8 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y estoy en la pantalla "Lista de Encuentros"
     Y he abierto el filtro "Prioridad"
     Cuando ingreso "xyz" en el campo de búsqueda del filtro
-    Entonces el sistema debe mostrar el mensaje "Sin coincidencias"
+    Entonces debe mostrarse el mensaje "No encontramos resultados por atender"
+    Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro."
 
   # ========================================================================
   # FILTRO POR USUARIO
@@ -384,7 +385,8 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y estoy en la pantalla "Lista de Encuentros"
     Y he abierto el filtro "Tipo de Encuentro"
     Cuando ingreso "XYZ" en el campo de búsqueda del filtro
-    Entonces el sistema debe mostrar el mensaje "Sin coincidencias"
+    Entonces debe mostrarse el mensaje "No encontramos resultados por atender"
+    Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro."
 
   # ========================================================================
   # FILTRO POR SUSTENTO ADMINISTRATIVO
@@ -705,8 +707,8 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y estoy en la pantalla "Lista de Encuentros"
     Y existen encuentros en la lista
     Cuando aplico un filtro que no tiene coincidencias
-    Entonces debe mostrarse el mensaje "No encontramos resultados para atender"
-    Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro"
+    Entonces debe mostrarse el mensaje "No encontramos resultados por atender"
+    Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro."
     Y la grilla debe estar vacía
     Y el contador debe mostrar "0 registros encontrados"
 

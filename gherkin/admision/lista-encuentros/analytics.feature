@@ -7,7 +7,6 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
 
   Antecedentes:
     Dado que el sistema está configurado para registrar eventos en Amplitude
-    Y el usuario ha iniciado sesión correctamente
 
   # ========================================================================
   # TÉCNICA: PARTICIÓN DE EQUIVALENCIA - EVENTOS DE ORDENAMIENTO
@@ -427,7 +426,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Dado que soy un usuario con rol "Gestor TA"
     Y me encuentro en la sección de Lista de encuentros
     Cuando aplico un filtro que no tiene coincidencias
-    Y se muestra el mensaje "No encontramos resultados para atender"
+    Y se muestra el mensaje "No encontramos resultados por atender"
     Entonces se guarda en Amplitude el evento "FILTER_NO_RESULTS"
     Y se registra el nombre y apellido del usuario
     Y se registra el usuario

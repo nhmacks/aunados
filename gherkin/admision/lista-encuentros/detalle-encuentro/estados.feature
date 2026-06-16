@@ -5,10 +5,6 @@ Característica: Gestión de Estados del Encuentro
   Quiero cambiar el estado operativo de un encuentro
   Para registrar la situación operativa actual según mi rol y permisos
 
-  Antecedentes:
-    Dado que he iniciado sesión en el sistema
-    Y estoy en la pantalla "Lista de Encuentros"
-
   # ========================================================================
   # ESTADO INICIAL
   # Cobertura: RN-LE-001, Sección 5 del documento 05-Lista-Encuentros.md

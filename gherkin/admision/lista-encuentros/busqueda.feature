@@ -5,10 +5,6 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   Quiero buscar encuentros por número de encuentro, nombres o apellidos
   Para localizar rápidamente un encuentro específico
 
-  Antecedentes:
-    Dado que el usuario ha iniciado sesión
-    Y está en la pantalla "Lista de Encuentros"
-
   # ========================================================================
   # VALIDACIÓN DE MÍNIMO 3 CARACTERES (RN-LE-038)
   # ========================================================================
@@ -314,8 +310,8 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y existen encuentros en la lista
     Cuando ingreso "XYZ999" en la caja de búsqueda
     Y presiono la tecla Enter
-    Entonces debe mostrarse el mensaje "No encontramos resultados para atender"
-    Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro"
+    Entonces debe mostrarse el mensaje "No encontramos resultados por atender"
+    Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro."
     Y la grilla debe estar vacía
     Y el contador debe mostrar "0 registros encontrados"
 

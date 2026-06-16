@@ -5,10 +5,6 @@ Característica: Visualización de Detalle del Encuentro
   Quiero visualizar el detalle completo de un encuentro
   Para revisar toda la información operativa y dar seguimiento administrativo
 
-  Antecedentes:
-    Dado que he iniciado sesión en el sistema
-    Y estoy en la pantalla "Lista de Encuentros"
-
   # ========================================================================
   # TÉCNICA: PARTICIÓN DE EQUIVALENCIA - ACCESO POR ROL
   # Cobertura: RN-DE-01, Sección 2, 3

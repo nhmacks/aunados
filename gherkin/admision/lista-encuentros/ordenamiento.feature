@@ -47,44 +47,6 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y la columna "Usuario" NO debe estar disponible para ordenamiento
     Y la columna "Usuario" NO debe ser visible en la grilla
 
-  @ejecutivoAdmision @unhappyPath
-  Escenario: ORD-02A - Ejecutivo NO puede ordenar por campo Usuario (no disponible en su vista)
-    Dado que ingreso al aplicativo
-    Y inicio sesión con el perfil "Ejecutivo de Admisión"
-    Y estoy en la pantalla "Lista de Encuentros"
-    Y soy un usuario con rol "Ejecutivo de Admisión"
-    Cuando visualizo los encabezados de la grilla
-    Entonces la columna "Usuario" NO debe estar presente en la grilla
-    Y NO debe existir la opción de ordenar por "Usuario"
-    Y solo debo poder ordenar por las columnas visibles en mi rol
-    Y la ausencia del campo "Usuario" impide su ordenamiento
-
-  @ejecutivoAdmision @happyPath
-  Escenario: ORD-41 - Ejecutivo ordena columna permitida ascendente (primer clic)
-    Dado que ingreso al aplicativo
-    Y inicio sesión con el perfil "Ejecutivo de Admisión"
-    Y estoy en la pantalla "Lista de Encuentros"
-    Y soy un usuario con rol "Ejecutivo de Admisión"
-    Y existen encuentros de pacientes con diferentes apellidos
-    Cuando hago clic en el encabezado "Apellidos" por primera vez
-    Entonces la grilla debe ordenarse por apellidos ascendente alfabéticamente
-    Y los apellidos que comienzan con "A" deben aparecer primero
-    Y los apellidos que comienzan con "Z" deben aparecer al final
-    Y debe mostrarse el indicador de orden ascendente en la columna "Apellidos"
-
-  @ejecutivoAdmision @happyPath
-  Escenario: ORD-42 - Ejecutivo ordena columna permitida descendente (segundo clic)
-    Dado que ingreso al aplicativo
-    Y inicio sesión con el perfil "Ejecutivo de Admisión"
-    Y estoy en la pantalla "Lista de Encuentros"
-    Y soy un usuario con rol "Ejecutivo de Admisión"
-    Y la grilla está ordenada por "Apellidos" ascendente
-    Cuando hago clic en el encabezado "Apellidos" por segunda vez
-    Entonces la grilla debe ordenarse por apellidos descendente alfabéticamente
-    Y los apellidos que comienzan con "Z" deben aparecer primero
-    Y los apellidos que comienzan con "A" deben aparecer al final
-    Y debe mostrarse el indicador de orden descendente en la columna "Apellidos"
-
   # ========================================================================
   # ORDENAMIENTO POR ENCUENTRO
   # ========================================================================
@@ -499,24 +461,12 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el encuentro más antiguo debe aparecer al final
     Y NO debe mostrarse indicador de ordenamiento en ninguna columna
 
-  @superusuarioAdmision @gestorTA @happyPath
-  Escenario: ORD-32 - Volver al orden por defecto después de eliminar ordenamiento
-    Dado que ingreso al aplicativo
-    Y inicio sesión con el perfil "Gestor TA"
-    Y estoy en la pantalla "Lista de Encuentros"
-    Y soy un usuario con rol "Gestor TA"
-    Y he ordenado la grilla por "NHC" ascendente
-    Cuando hago clic en el encabezado "NHC" dos veces más para eliminar el ordenamiento
-    Entonces la grilla debe volver al orden por defecto
-    Y los encuentros deben ordenarse por fecha de apertura descendente
-    Y el encuentro más reciente debe aparecer primero
-
   # ========================================================================
   # CASOS ESPECIALES Y VALORES NULOS
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @unhappyPath
-  Escenario: ORD-33 - Ordenar columna con valores nulos o vacíos
+  Escenario: ORD-32 - Ordenar columna con valores nulos o vacíos
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -527,7 +477,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y los encuentros con "Usuario" asignado deben ordenarse alfabéticamente primero
 
   @superusuarioAdmision @gestorTA @unhappyPath
-  Escenario: ORD-34 - Ordenar con valores idénticos mantiene suborden por fecha
+  Escenario: ORD-33 - Ordenar con valores idénticos mantiene suborden por fecha
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -543,7 +493,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @happyPath
-  Escenario: ORD-35 - Contador no cambia al aplicar ordenamiento
+  Escenario: ORD-34 - Contador no cambia al aplicar ordenamiento
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -560,7 +510,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ========================================================================
 
   @ejecutivoAdmision @unhappyPath
-  Escenario: ORD-36 - Ejecutivo no puede ordenar columnas exclusivas de Superusuario y Gestor
+  Escenario: ORD-35 - Ejecutivo no puede ordenar columnas exclusivas de Superusuario y Gestor
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -570,23 +520,12 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y no debe existir opción de ordenar por "Usuario"
     Y no debe existir opción de ordenar por "Monto"
 
-  @superusuarioAdmision @gestorTA @happyPath
-  Escenario: ORD-37 - Superusuario y Gestor pueden ordenar columnas adicionales no visibles para Ejecutivo
-    Dado que ingreso al aplicativo
-    Y inicio sesión con el perfil "Superusuario de Admisión"
-    Y estoy en la pantalla "Lista de Encuentros"
-    Y soy un usuario con rol "Superusuario de Admisión"
-    Cuando visualizo la grilla de encuentros
-    Entonces las columnas "Usuario" y "Monto" deben ser visibles y ordenables
-    Y el Ejecutivo de Admisión no visualiza estas columnas en su grilla
-    Y el Ejecutivo de Admisión no puede realizar ordenamiento por ellas
-
   # ========================================================================
   # COLUMNAS NO ORDENABLES
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @unhappyPath
-  Escenario: ORD-38 - Columnas que NO son ordenables (incluso para Superusuario/Gestor)
+  Escenario: ORD-36 - Columnas que NO son ordenables (incluso para Superusuario/Gestor)
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -608,7 +547,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
   # ========================================================================
 
   @superusuarioAdmision @gestorTA @happyPath
-  Escenario: ORD-39 - Ordenamiento con grandes volúmenes de datos
+  Escenario: ORD-37 - Ordenamiento con grandes volúmenes de datos
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -620,7 +559,7 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Y el tiempo de respuesta debe ser aceptable
 
   @superusuarioAdmision @gestorTA @happyPath
-  Escenario: ORD-40 - Cambio rápido entre ordenamientos múltiples
+  Escenario: ORD-38 - Cambio rápido entre ordenamientos múltiples
     Dado que ingreso al aplicativo
     Y inicio sesión con el perfil "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"

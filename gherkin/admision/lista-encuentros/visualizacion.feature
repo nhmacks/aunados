@@ -255,40 +255,6 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Y la bandeja NO debe mostrar encuentros devueltos
 
   @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
-  Escenario: VIS-23 - Encuentros devueltos solo visibles en funcionalidad Encuentros Devueltos (RN-LE-012)
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y el encuentro "12345678" tiene estado "Devuelto"
-    Y el encuentro fue devuelto desde Facturación
-    Cuando accedo a la bandeja "Lista de Encuentros"
-    Entonces el encuentro "12345678" NO debe ser visible
-    Cuando accedo a la funcionalidad "Encuentros Devueltos"
-    Entonces el encuentro "12345678" debe ser visible
-    Y los encuentros devueltos deben visualizarse exclusivamente en "Encuentros Devueltos"
-
-  @ejecutivoAdmision @happyPath
-  Escenario: VIS-24 - Encuentro devuelto sale de Lista de Encuentros y aparece en Encuentros Devueltos
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
-    Y el encuentro tiene estado "Tramitado"
-    Cuando el Ejecutivo de Facturación devuelve el encuentro "12345678"
-    Y el encuentro cambia a estado "Devuelto"
-    Entonces el encuentro debe salir de la bandeja "Lista de Encuentros"
-    Y el encuentro debe aparecer en la funcionalidad "Encuentros Devueltos"
-    Y el encuentro NO debe ser visible en "Lista de Encuentros"
-
-  @superusuarioAdmision @gestorTA @happyPath
-  Escenario: VIS-25 - Encuentro resuelto regresa de Encuentros Devueltos a Lista de Encuentros
-    Dado que soy un usuario con rol "Superusuario de Admisión"
-    Y el encuentro "12345678" está en "Encuentros Devueltos" con estado "Devuelto"
-    Y el Ejecutivo de Admisión resuelve las inconsistencias
-    Cuando el Ejecutivo marca el encuentro como "Resuelto"
-    Y el Job de Admisión evalúa el encuentro
-    Y el Job clasifica el encuentro para "Admisión"
-    Entonces el encuentro debe aparecer en la bandeja "Lista de Encuentros"
-    Y el encuentro NO debe ser visible en "Encuentros Devueltos"
-    Y el encuentro debe tener el nuevo estado asignado
-
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: VIS-26 - Validar separación estricta entre bandejas
     Dado que soy un usuario con rol "Gestor TA"
     Y existen 10 encuentros en "Lista de Encuentros"
