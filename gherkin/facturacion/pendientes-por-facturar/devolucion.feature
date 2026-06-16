@@ -16,15 +16,8 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # RN-PF-06, RN-PF-10, RN-PF-11, RN-PF-16, RN-PF-17
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @regresion
-  Escenario: PPF-01 - Devolver encuentro con al menos un motivo obligatorio
-    Cuando devuelve el encuentro indicando al menos un motivo
-    Entonces el encuentro desaparece de su bandeja
-    Y el encuentro debe visualizarse en Encuentros Devueltos del Ejecutivo de Admisión
-    Y el encuentro debe visualizarse en Encuentros Devueltos del Superusuario de Admisión
-
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: DEV-01A - Flujo completo de devolución con modal de confirmación y éxito
+  Escenario: DEV-01 - Flujo completo de devolución con modal de confirmación y éxito
     Dado que el encuentro asignado tiene el número "12345678"
     Y he accedido al detalle del encuentro
     Y identifico que faltan sustentos médicos
@@ -44,19 +37,6 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y el sistema debe retornarme a la pantalla "Pendientes por Facturar"
     Y el encuentro "12345678" debe desaparecer de mi bandeja
     Y el encuentro debe aparecer en Encuentros Devueltos de Admisión
-
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: DEV-01 - Devolver encuentro por falta de sustentos médicos
-    Dado que el encuentro asignado tiene el número "12345678"
-    Y he accedido al detalle del encuentro
-    Y identifico que faltan sustentos médicos
-    Cuando selecciono "Devolver Encuentro"
-    Y ingreso el motivo "Faltan sustentos médicos: resultado de biopsia"
-    Y confirmo la devolución
-    Entonces el sistema debe actualizar el estado a "Devuelto"
-    Y el encuentro debe desaparecer de mi bandeja "Pendientes por Facturar"
-    Y el encuentro debe aparecer en Encuentros Devueltos de Admisión
-    Y debe mostrarse el mensaje "Encuentro devuelto exitosamente"
 
   @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: DEV-02 - Validar que motivo de devolución es obligatorio (RN-PF-11)
@@ -96,30 +76,22 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y NO debe procesarse ninguna devolución
 
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: DEV-04A - Cancelar devolución desde modal de confirmación con "No, cancelar" (RN-PF-15)
+  Esquema del escenario: DEV-04A - Cancelar devolución desde modal de confirmación (RN-PF-15)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
     Y selecciono el motivo "Cobertura insuficiente"
     Y selecciono "Agregar Devoluciones"
     Entonces el sistema debe mostrar el modal "¿Deseas devolver el encuentro?"
-    Cuando selecciono "No, cancelar"
+    Cuando cancelo mediante "<metodo_cancelacion>"
     Entonces el modal de confirmación debe cerrarse
     Y NO debe procesarse ninguna devolución
     Y debo permanecer en el detalle del encuentro
     Y los motivos seleccionados deben mantenerse
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
-  Escenario: DEV-04B - Cancelar devolución cerrando modal con X (RN-PF-15)
-    Dado que he accedido al detalle del encuentro
-    Cuando selecciono el botón "Devolver Encuentro"
-    Y selecciono el motivo "Falta autorización de garante"
-    Y selecciono "Agregar Devoluciones"
-    Entonces el sistema debe mostrar el modal "¿Deseas devolver el encuentro?"
-    Cuando cierro el modal mediante el botón "X"
-    Entonces el modal de confirmación debe cerrarse
-    Y NO debe procesarse ninguna devolución
-    Y debo permanecer en el detalle del encuentro
-    Y los motivos seleccionados deben mantenerse
+    Ejemplos:
+      | metodo_cancelacion |
+      | No, cancelar       |
+      | X                  |
 
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE SELECCIÓN MÚLTIPLE DE MOTIVOS
@@ -357,12 +329,6 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # TÉCNICA: VALIDACIÓN DE EXPORTACIÓN
   # Cobertura: Sección 14 del documento 21-Pendientes-Facturar.md
   # ========================================================================
-
-  @ejecutivoFacturacion @pendientesPorFacturar @funcional
-  Escenario: PPF-02 - Validar que encuentros devueltos no se incluyan en el reporte
-    Dado que existe un encuentro devuelto
-    Cuando el Ejecutivo de Facturación descarga el reporte
-    Entonces el encuentro devuelto no debe visualizarse en el reporte
 
   @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-09 - Exportar solo incluye encuentros activos en mi bandeja

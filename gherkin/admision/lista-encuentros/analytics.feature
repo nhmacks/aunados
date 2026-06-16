@@ -230,7 +230,7 @@ Característica: Registro de Eventos Analytics en Lista de Encuentros
     Ejemplos:
       | rol                      | criterio_busqueda |
       | Superusuario de Admisión | Juan              |
-      | Gestor TA              | 12345678          |
+      | Gestor TA                | 12345678          |
       | Ejecutivo de Admisión    | García            |
 
   # ========================================================================

@@ -161,13 +161,55 @@ Característica: Exportación de Lista de Encuentros de Admisión
 
     Ejemplos:
       | rol                      | tipo_descarga | cantidad_columnas | columnas_esperadas                                                                                                                                                                              |
-      | Superusuario de Admisión | inmediata     | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
-      | Gestor TA              | inmediata     | 14                | Sede, Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustentos de Proceso, Monto                   |
-      | Ejecutivo de Admisión    | asíncrona     | 9                 | Encuentro, Estado, NHC, Apellidos, Nombres, Fecha de Apertura, Prioridad, Garante, Tipo de Encuentro                                                                                           |
+      | Superusuario de Admisión | inmediata     | 14                | Sede, Encuentro, Estado, Nº HC, Apellidos, Nombres, Fecha Apert., Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustento de Proceso, Monto                        |
+      | Gestor TA                | inmediata     | 14                | Sede, Encuentro, Estado, Nº HC, Apellidos, Nombres, Fecha Apert., Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Sustento de Proceso, Monto                        |
+      | Ejecutivo de Admisión    | asíncrona     | 13                | Sede, Encuentro, Estado, Nº HC, Apellidos, Nombres, Fecha Apert., Usuario, Garante, Prioridad, Sustentos Administrativos, Sustentos Médicos, Monto                                             |
 
-  # NOTA IMPORTANTE: Si RN-EXP-09 se interpreta como "todos los roles exportan las mismas 14 columnas",
-  # entonces el Ejecutivo exportaría columnas que NO puede ver en la grilla (Sede, Usuario, Sustentos, Monto).
-  # Esto debe validarse desde perspectiva de seguridad y UX antes de implementación.
+  # NOTA IMPORTANTE: El Ejecutivo de Admisión exporta columnas que NO visualiza en su grilla
+  # (Sede, Usuario, Sustentos Administrativos, Sustentos Médicos, Monto) pero NO exporta "Sustento de Proceso".
+
+  @ejecutivoAdmision @happyPath
+  Escenario: EXP-07A - Ejecutivo exporta columnas no visibles en grilla pero NO exporta "Sustento de Proceso"
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y mi grilla muestra únicamente las siguientes columnas:
+      | Columna Visible   |
+      | Encuentro         |
+      | Estado            |
+      | Nº HC             |
+      | Apellidos         |
+      | Nombres           |
+      | Fecha Apert.      |
+      | Prioridad         |
+      | Garante           |
+      | Tipo de Encuentro |
+    Y existen encuentros con datos en todas las columnas
+    Cuando solicito la exportación
+    Y descargo el archivo desde la notificación
+    Y abro el archivo Excel
+    Entonces el archivo debe contener exactamente 13 columnas
+    Y debe incluir columnas NO visibles en mi grilla:
+      | Columna No Visible           |
+      | Sede                         |
+      | Usuario                      |
+      | Sustentos Administrativos    |
+      | Sustentos Médicos            |
+      | Monto                        |
+    Y debe incluir todas las columnas visibles en mi grilla
+    Y NO debe incluir la columna "Sustento de Proceso"
+    Y la columna "Sustento de Proceso" es la única columna de exportación excluida para este rol
+
+  @superusuarioAdmision @gestorTA @happyPath
+  Escenario: EXP-07B - Superusuario y Gestor TA exportan todas las 14 columnas incluyendo "Sustento de Proceso"
+    Dado que soy un usuario con rol "Gestor TA"
+    Y mi grilla muestra las 14 columnas disponibles para mi rol
+    Y existen encuentros con datos en todas las columnas
+    Cuando solicito la exportación
+    Y descargo el archivo
+    Y abro el archivo Excel
+    Entonces el archivo debe contener exactamente 14 columnas
+    Y debe incluir la columna "Sustento de Proceso"
+    Y todas las columnas visibles en grilla deben estar en el archivo
+    Y todas las columnas del archivo son visibles en mi grilla
 
   # ========================================================================
   # CASOS EDGE: VALORES ESPECIALES
@@ -331,3 +373,147 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y todos los registros del archivo deben coincidir exactamente con los encuentros listados en la grilla
     Y el archivo debe respetar la búsqueda por encuentro, todos los filtros aplicados y todos los filtros por encabezado
     Y NO debe incluir encuentros descartados por cualquiera de los criterios aplicados
+
+  # ========================================================================
+  # PROCESO ASÍNCRONO DE GENERACIÓN
+  # Cobertura: RN-LE-008, RN-LE-009
+  # Sección 15, 16 del documento 05-Lista-Encuentros.md
+  # ========================================================================
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: EXP-17 - Proceso asíncrono de generación (RN-LE-008)
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y visualizo encuentros en la Lista de Encuentros
+    Cuando presiono el botón "Descargar"
+    Entonces el sistema debe iniciar un proceso asíncrono de generación
+    Y NO debe bloquear la interfaz
+    Y debo poder continuar usando el sistema normalmente
+    Y la descarga NO debe ser inmediata
+    Y el archivo debe generarse en segundo plano
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: EXP-18 - Notificación cuando archivo está disponible (RN-LE-009)
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he solicitado una descarga
+    Y el sistema está generando el archivo de forma asíncrona
+    Cuando el archivo se encuentre disponible
+    Entonces debo recibir una notificación en la campana de notificaciones
+    Y la notificación debe contener el mensaje "El reporte solicitado ya está listo"
+    Y la notificación debe contener el mensaje "Tienes una hora para descargarlo"
+    Y la notificación debe contener un botón "Descargar"
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: EXP-19 - Validar estructura completa de notificación de descarga
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y he solicitado una descarga hace 2 minutos
+    Y el archivo ha sido generado exitosamente
+    Cuando accedo a la campana de notificaciones
+    Entonces debe mostrarse una notificación con:
+      | Elemento        | Valor                                                  |
+      | Título          | El reporte solicitado ya está listo                    |
+      | Descripción     | Tienes una hora para descargarlo                       |
+      | Tiempo          | hace 2 minutos                                         |
+      | Acción          | Botón "Descargar"                                      |
+    Y debo poder descargar el archivo presionando el botón "Descargar"
+
+  @ejecutivoAdmision @happyPath
+  Escenario: EXP-20 - Tiempo límite de 1 hora para descargar archivo (RN-LE-009)
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he solicitado una descarga
+    Y el archivo fue generado hace 58 minutos
+    Cuando accedo a la notificación en la campana
+    Y presiono el botón "Descargar"
+    Entonces el archivo debe descargarse exitosamente
+    Y debe llamarse "Lista de Encuentros de Admisión.xlsx"
+
+  @ejecutivoAdmision @unhappyPath
+  Escenario: EXP-21 - Archivo expira después de 1 hora
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he solicitado una descarga
+    Y el archivo fue generado hace 62 minutos
+    Cuando intento descargar el archivo desde la notificación
+    Entonces el sistema debe mostrar un mensaje de expiración
+    Y NO debe permitir la descarga
+    Y debo poder solicitar una nueva exportación
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: EXP-22 - Solicitar descarga no bloquea navegación
+    Dado que soy un usuario con rol "Gestor TA"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Cuando presiono el botón "Descargar"
+    Entonces el sistema debe registrar la solicitud
+    Y debo poder navegar a otras pantallas inmediatamente
+    Y debo poder aplicar nuevos filtros
+    Y debo poder buscar encuentros
+    Y debo poder acceder al detalle de encuentros
+    Y el archivo debe generarse en segundo plano sin interrumpir mis actividades
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: EXP-23 - Validar mensaje durante generación asíncrona
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Cuando presiono el botón "Descargar"
+    Entonces el sistema debe mostrar un mensaje indicando que la generación está en proceso
+    Y el mensaje debe informar que recibiré una notificación cuando esté listo
+    Y debo poder cerrar el mensaje y continuar trabajando
+
+  @ejecutivoAdmision @happyPath
+  Escenario: EXP-24 - Múltiples solicitudes de descarga - cada una genera notificación independiente
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y solicito una primera descarga con filtro "Estado = Pendiente" a las 10:00
+    Y solicito una segunda descarga con filtro "Estado = Tramitado" a las 10:05
+    Y solicito una tercera descarga sin filtros a las 10:10
+    Cuando las 3 descargas se generan exitosamente
+    Entonces debo recibir 3 notificaciones independientes en la campana
+    Y cada notificación debe permitirme descargar su archivo correspondiente
+    Y el primer archivo debe contener solo encuentros con estado "Pendiente"
+    Y el segundo archivo debe contener solo encuentros con estado "Tramitado"
+    Y el tercer archivo debe contener todos los encuentros
+
+  @superusuarioAdmision @gestorTA @happyPath
+  Escenario: EXP-25 - Notificación persiste hasta ser descargada o hasta expirar
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y he solicitado una descarga
+    Y el archivo fue generado hace 10 minutos
+    Y he cerrado sesión y vuelto a iniciar sesión
+    Cuando accedo a la campana de notificaciones
+    Entonces la notificación de descarga debe seguir visible
+    Y debo poder descargar el archivo
+    Y la notificación debe mostrar "hace X minutos" actualizado
+
+  @ejecutivoAdmision @happyPath
+  Escenario: EXP-26 - Descarga asíncrona respeta restricciones de rol
+    Dado que soy un usuario con rol "Ejecutivo de Admisión" asignado a "Auna Guardia Civil"
+    Y existen 1000 encuentros en el sistema
+    Y solo 200 fueron creados por mí en mi sede
+    Cuando solicito una descarga
+    Y el sistema genera el archivo de forma asíncrona
+    Y recibo la notificación de archivo disponible
+    Y descargo el archivo desde la notificación
+    Entonces el archivo debe contener exactamente 200 registros
+    Y todos deben ser encuentros creados por mí
+    Y todos deben ser de mi sede "Auna Guardia Civil"
+    Y NO debe incluir encuentros de otros usuarios o sedes
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
+  Escenario: EXP-27 - Error en generación asíncrona notifica al usuario
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y he solicitado una descarga
+    Y ocurre un error técnico durante la generación del archivo
+    Cuando el sistema detecta el error
+    Entonces debo recibir una notificación en la campana
+    Y la notificación debe indicar que ocurrió un error
+    Y debe permitirme solicitar una nueva exportación
+    Y debe mostrar un mensaje descriptivo del problema
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: EXP-28 - Validar que proceso asíncrono libera recursos correctamente
+    Dado que soy un usuario con rol "Gestor TA"
+    Y existen 5000 encuentros clasificados para Admisión
+    Cuando solicito una descarga
+    Entonces el proceso asíncrono debe iniciarse
+    Y NO debe consumir recursos del navegador del usuario
+    Y debe ejecutarse completamente en el servidor
+    Y el usuario puede cerrar el navegador sin interrumpir la generación
+    Cuando el usuario regresa posteriormente
+    Entonces la notificación debe estar disponible si el archivo se generó
+    Y debe poder descargar el archivo normalmente

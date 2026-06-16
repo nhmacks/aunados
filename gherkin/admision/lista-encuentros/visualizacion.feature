@@ -26,17 +26,17 @@ Característica: Visualización de Lista de Encuentros en Admisión
       | Sede                        |
       | Encuentro                   |
       | Estado                      |
-      | NHC                         |
+      | Nº HC                       |
       | Apellidos                   |
       | Nombres                     |
-      | Fecha apert.                |
+      | Fecha Apert.                |
       | Prioridad                   |
       | Usuario                     |
       | Garante                     |
-      | Tipo de encuentro           |
-      | Sustentos administrativos   |
-      | Sustentos médicos           |
-      | Sustentos de proceso        |
+      | Tipo de Encuentro           |
+      | Sustentos Administrativos   |
+      | Sustentos Médicos           |
+      | Sustento de Proceso         |
       | Monto                       |
 
   @ejecutivoAdmision
@@ -52,10 +52,10 @@ Característica: Visualización de Lista de Encuentros en Admisión
       | Columna           |
       | Encuentro         |
       | Estado            |
-      | NHC               |
+      | Nº HC             |
       | Apellidos         |
       | Nombres           |
-      | Fecha apert.      |
+      | Fecha Apert.      |
       | Prioridad         |
       | Garante           |
       | Tipo de Encuentro |
@@ -230,3 +230,73 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Entonces el sistema debe cargar únicamente los siguientes 50 registros
     Y no debe volver a cargar los registros previamente mostrados
     Y no debe recargar la página completa
+
+  # ========================================================================
+  # RELACIÓN CON ENCUENTROS DEVUELTOS
+  # Cobertura: RN-LE-011, RN-LE-012
+  # Sección 19 del documento 05-Lista-Encuentros.md
+  # ========================================================================
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: VIS-22 - Lista de Encuentros NO muestra encuentros devueltos (RN-LE-011)
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y existen los siguientes encuentros:
+      | Encuentro | Estado    | Bandeja               |
+      | 12345678  | Pendiente | Lista de Encuentros   |
+      | 23456789  | Tramitado | Lista de Encuentros   |
+      | 34567890  | Devuelto  | Encuentros Devueltos  |
+      | 45678901  | Devuelto  | Encuentros Devueltos  |
+    Cuando accedo a la bandeja "Lista de Encuentros"
+    Entonces debo visualizar únicamente 2 encuentros
+    Y debo visualizar el encuentro "12345678"
+    Y debo visualizar el encuentro "23456789"
+    Y NO debo visualizar el encuentro "34567890"
+    Y NO debo visualizar el encuentro "45678901"
+    Y la bandeja NO debe mostrar encuentros devueltos
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: VIS-23 - Encuentros devueltos solo visibles en funcionalidad Encuentros Devueltos (RN-LE-012)
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y el encuentro "12345678" tiene estado "Devuelto"
+    Y el encuentro fue devuelto desde Facturación
+    Cuando accedo a la bandeja "Lista de Encuentros"
+    Entonces el encuentro "12345678" NO debe ser visible
+    Cuando accedo a la funcionalidad "Encuentros Devueltos"
+    Entonces el encuentro "12345678" debe ser visible
+    Y los encuentros devueltos deben visualizarse exclusivamente en "Encuentros Devueltos"
+
+  @ejecutivoAdmision @happyPath
+  Escenario: VIS-24 - Encuentro devuelto sale de Lista de Encuentros y aparece en Encuentros Devueltos
+    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
+    Y el encuentro tiene estado "Tramitado"
+    Cuando el Ejecutivo de Facturación devuelve el encuentro "12345678"
+    Y el encuentro cambia a estado "Devuelto"
+    Entonces el encuentro debe salir de la bandeja "Lista de Encuentros"
+    Y el encuentro debe aparecer en la funcionalidad "Encuentros Devueltos"
+    Y el encuentro NO debe ser visible en "Lista de Encuentros"
+
+  @superusuarioAdmision @gestorTA @happyPath
+  Escenario: VIS-25 - Encuentro resuelto regresa de Encuentros Devueltos a Lista de Encuentros
+    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Y el encuentro "12345678" está en "Encuentros Devueltos" con estado "Devuelto"
+    Y el Ejecutivo de Admisión resuelve las inconsistencias
+    Cuando el Ejecutivo marca el encuentro como "Resuelto"
+    Y el Job de Admisión evalúa el encuentro
+    Y el Job clasifica el encuentro para "Admisión"
+    Entonces el encuentro debe aparecer en la bandeja "Lista de Encuentros"
+    Y el encuentro NO debe ser visible en "Encuentros Devueltos"
+    Y el encuentro debe tener el nuevo estado asignado
+
+  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  Escenario: VIS-26 - Validar separación estricta entre bandejas
+    Dado que soy un usuario con rol "Gestor TA"
+    Y existen 10 encuentros en "Lista de Encuentros"
+    Y existen 5 encuentros en "Encuentros Devueltos"
+    Cuando accedo a la bandeja "Lista de Encuentros"
+    Entonces debo visualizar exactamente 10 encuentros
+    Y NO debo visualizar ningún encuentro devuelto
+    Cuando accedo a la funcionalidad "Encuentros Devueltos"
+    Entonces debo visualizar exactamente 5 encuentros devueltos
+    Y NO debo visualizar encuentros de la bandeja "Lista de Encuentros"
+    Y debe existir separación estricta entre ambas funcionalidades

@@ -43,7 +43,6 @@ Característica: Gestión de Encuentros Devueltos
 
     Ejemplos:
       | estado               |
-      | No facturable        |
       | Error de facturación |
       | Regularizado         |
 

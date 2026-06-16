@@ -19,10 +19,10 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Entonces las siguientes columnas deben ser ordenables:
       | Columna           |
       | Encuentro         |
-      | NHC               |
+      | Nº HC             |
       | Apellidos         |
       | Nombres           |
-      | Fecha de Apertura |
+      | Fecha Apert.      |
       | Usuario           |
       | Garante           |
       | Tipo de Encuentro |
@@ -38,12 +38,26 @@ Característica: Ordenamiento en Lista de Encuentros de Admisión
     Entonces las siguientes columnas deben ser ordenables:
       | Columna           |
       | Encuentro         |
-      | NHC               |
+      | Nº HC             |
       | Apellidos         |
       | Nombres           |
-      | Fecha de Apertura |
+      | Fecha Apert.      |
       | Garante           |
       | Tipo de Encuentro |
+    Y la columna "Usuario" NO debe estar disponible para ordenamiento
+    Y la columna "Usuario" NO debe ser visible en la grilla
+
+  @ejecutivoAdmision @unhappyPath
+  Escenario: ORD-02A - Ejecutivo NO puede ordenar por campo Usuario (no disponible en su vista)
+    Dado que ingreso al aplicativo
+    Y inicio sesión con el perfil "Ejecutivo de Admisión"
+    Y estoy en la pantalla "Lista de Encuentros"
+    Y soy un usuario con rol "Ejecutivo de Admisión"
+    Cuando visualizo los encabezados de la grilla
+    Entonces la columna "Usuario" NO debe estar presente en la grilla
+    Y NO debe existir la opción de ordenar por "Usuario"
+    Y solo debo poder ordenar por las columnas visibles en mi rol
+    Y la ausencia del campo "Usuario" impide su ordenamiento
 
   @ejecutivoAdmision @happyPath
   Escenario: ORD-41 - Ejecutivo ordena columna permitida ascendente (primer clic)
