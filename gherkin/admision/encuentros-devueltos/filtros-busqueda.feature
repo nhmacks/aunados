@@ -5,11 +5,6 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
   Quiero buscar y filtrar encuentros devueltos
   Para encontrar rápidamente los encuentros que necesito subsanar
 
-  Antecedentes:
-    Dado que he iniciado sesión en el sistema
-    Y soy un usuario con rol "Ejecutivo de Admisión"
-    Y he accedido a "Encuentros Devueltos"
-
   # ========================================================================
   # TÉCNICA: BÚSQUEDA POR DIFERENTES CRITERIOS
   # Cobertura: Sección 6.1 del documento 18-Encuentros-Devueltos.md

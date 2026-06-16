@@ -5,11 +5,6 @@ Característica: Gestión de Encuentros Devueltos
   Quiero gestionar encuentros devueltos desde Facturación
   Para subsanar inconsistencias y reenviarlos al flujo correcto
 
-  Antecedentes:
-    Dado que he iniciado sesión en el sistema
-    Y soy un usuario con rol "Ejecutivo de Admisión"
-    Y tengo encuentros devueltos asignados
-
   # ========================================================================
   # TÉCNICA: RESOLVER ENCUENTRO DEVUELTO
   # Cobertura: Sección 6.3, 7.1 del documento 18-Encuentros-Devueltos.md

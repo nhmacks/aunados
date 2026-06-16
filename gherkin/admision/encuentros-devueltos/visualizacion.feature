@@ -5,29 +5,20 @@ Característica: Visualización de Encuentros Devueltos
   Quiero visualizar la lista de encuentros devueltos desde Facturación
   Para identificar y subsanar las inconsistencias detectadas
 
-  Antecedentes:
-    Dado que he iniciado sesión en el sistema
-
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE PANTALLA Y COLUMNAS
   # Cobertura: Sección 5.1 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: VIS-01 - Acceder a la pantalla Encuentros Devueltos
+  Escenario: VIS-01 - Acceder a Encuentros Devueltos y visualizar grilla con columnas
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y existen encuentros devueltos desde Facturación
     Cuando accedo a la bandeja "Encuentros Devueltos"
     Entonces el sistema debe mostrar la lista de encuentros devueltos
     Y debe mostrar los primeros 50 registros
     Y debe mostrar los encuentros más recientes primero basándose en la fecha de devolución
-
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: VIS-02 - Visualizar columnas de la lista de encuentros devueltos
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y he accedido a "Encuentros Devueltos"
-    Cuando visualizo la grilla de encuentros
-    Entonces debe visualizar la grilla con las siguientes columnas:
+    Y debe visualizar la grilla con las siguientes columnas:
       | Columna                      |
       | Sede                         |
       | Encuentro                    |
@@ -52,7 +43,7 @@ Característica: Visualización de Encuentros Devueltos
   # ========================================================================
 
   @ejecutivoAdmision @encuentrosDevueltos @regresion
-  Escenario: VIS-03 - Ejecutivo solo visualiza encuentros devueltos creados por él en su sede
+  Escenario: VIS-02 - Ejecutivo solo visualiza encuentros devueltos creados por él en su sede
     Dado que soy el ejecutivo "ejecutivo01" asignado a la sede "Auna Guardia Civil"
     Y existen los siguientes encuentros devueltos:
       | Encuentro | Usuario      | Sede               |
@@ -68,7 +59,7 @@ Característica: Visualización de Encuentros Devueltos
     Y NO debo visualizar el encuentro "45678901"
 
   @superusuarioAdmision @gestorTA @encuentrosDevueltos @regresion
-  Escenario: VIS-04 - Superusuario y Gestor TA visualizan todos los encuentros devueltos
+  Escenario: VIS-03 - Superusuario y Gestor TA visualizan todos los encuentros devueltos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros devueltos de múltiples sedes y usuarios
     Cuando accedo a "Encuentros Devueltos"
@@ -77,33 +68,13 @@ Característica: Visualización de Encuentros Devueltos
     Y debo visualizar encuentros de todos los usuarios
 
   @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
-  Escenario: VIS-05 - Ejecutivo sin encuentros devueltos visualiza lista vacía
+  Escenario: VIS-04 - Ejecutivo sin encuentros devueltos visualiza lista vacía
     Dado que soy el ejecutivo "ejecutivo01"
     Y NO tengo encuentros devueltos
     Cuando accedo a "Encuentros Devueltos"
     Entonces debe mostrarse el mensaje "Sin encuentros devueltos"
     Y NO debe visualizarse ningún encuentro en la grilla
 
-  # ========================================================================
-  # TÉCNICA: VISUALIZACIÓN DE MOTIVO DE DEVOLUCIÓN
-  # Cobertura: Sección 4.2, 8.2 del documento 18-Encuentros-Devueltos.md
-  # ========================================================================
-
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Esquema del escenario: VIS-06 - Visualizar motivo de devolución en la grilla
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
-    Y existe un encuentro devuelto por "<motivo>"
-    Cuando visualizo la lista de "Encuentros Devueltos"
-    Entonces la columna "Motivo de Devolución" debe mostrar "<motivo>"
-
-    Ejemplos:
-      | motivo                                    |
-      | Falta documentación administrativa        |
-      | Error en datos del seguro                 |
-      | Cobertura insuficiente                    |
-      | Falta autorización de garante             |
-      | Información de paciente incompleta        |
-      | Faltan sustentos médicos                  |
 
   # ========================================================================
   # TÉCNICA: ACCESO AL DETALLE
@@ -111,7 +82,7 @@ Característica: Visualización de Encuentros Devueltos
   # ========================================================================
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: VIS-07 - Acceder al detalle del encuentro devuelto (RN-ED-025)
+  Escenario: VIS-06 - Acceder al detalle del encuentro devuelto (RN-ED-025)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y tengo encuentros devueltos
     Y visualizo la lista en "Encuentros Devueltos"
@@ -127,7 +98,7 @@ Característica: Visualización de Encuentros Devueltos
     Y NO debe mostrar el usuario que realizó la devolución
 
   @ejecutivoAdmision @encuentrosDevueltos @happyPath
-  Escenario: VIS-09 - Visualizar columnas de devoluciones por tipo en la grilla
+  Escenario: VIS-07 - Visualizar columnas de devoluciones por tipo en la grilla
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido a "Encuentros Devueltos"
     Y existe un encuentro con los siguientes motivos:
@@ -138,9 +109,9 @@ Característica: Visualización de Encuentros Devueltos
       | Error CIE10                         | Médica          |
       | Duplicidad de Gastos                | Proceso         |
     Cuando visualizo la grilla de encuentros
-    Entonces la columna "Devoluciones administrativas" debe mostrar "2"
-    Y la columna "Devoluciones médicas" debe mostrar "2"
-    Y la columna "Devoluciones de proceso" debe mostrar "1"
+    Entonces la columna "Devoluciones administrativas" debe mostrar "Acta Conformidad, Actualizar Datos Económicos"
+    Y la columna "Devoluciones médicas" debe mostrar "Carta de Garantía por Laboratorio, Error CIE10"
+    Y la columna "Devoluciones de proceso" debe mostrar "Duplicidad de Gastos"
 
   # ========================================================================
   # TÉCNICA: SCROLL INFINITO
