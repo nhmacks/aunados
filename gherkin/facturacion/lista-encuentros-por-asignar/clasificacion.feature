@@ -20,8 +20,9 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y he seleccionado un encuentro sin clasificación
     Y he seleccionado el botón "Clasificar"
     Y se ha abierto el modal de clasificación
-    Cuando selecciono la clasificación "<clasificacion>"
-    Y confirmo la clasificación
+    Y el modal muestra el título "Cambiar clasificación de 1 encuentro seleccionado"
+    Cuando selecciono la clasificación "<clasificacion>" del dropdown
+    Y selecciono el botón "Clasificar" del modal
     Entonces se debe procesar correctamente la clasificación
     Y el encuentro debe cambiar a la clasificación "<clasificacion>"
     Y debe mostrarse un mensaje de confirmación "Encuentro clasificado exitosamente"
@@ -45,8 +46,9 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y he seleccionado el encuentro
     Y he seleccionado el botón "Clasificar"
     Y se ha abierto el modal de clasificación
-    Cuando selecciono la clasificación "<nueva_clasificacion>"
-    Y confirmo la reclasificación
+    Y el modal muestra el título "Cambiar clasificación de 1 encuentro seleccionado"
+    Cuando selecciono la clasificación "<nueva_clasificacion>" del dropdown
+    Y selecciono el botón "Clasificar" del modal
     Entonces se debe procesar correctamente la reclasificación
     Y el encuentro debe cambiar de "<clasificacion_actual>" a "<nueva_clasificacion>"
     Y debe mostrarse un mensaje de confirmación "Encuentro reclasificado exitosamente"
@@ -68,8 +70,9 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y he seleccionado 5 encuentros
     Y he seleccionado el botón "Clasificar"
     Y se ha abierto el modal de clasificación
-    Cuando selecciono la clasificación "Por Asignar"
-    Y confirmo la clasificación masiva
+    Y el modal muestra el título "Cambiar clasificación de 5 encuentros seleccionados"
+    Cuando selecciono la clasificación "Por Asignar" del dropdown
+    Y selecciono el botón "Clasificar" del modal
     Entonces se deben clasificar los 5 encuentros como "Por Asignar"
     Y debe mostrarse un mensaje de confirmación "5 encuentros clasificados exitosamente"
     Y todos los encuentros deben mostrar "Por Asignar" en la columna "Clasific."
@@ -80,8 +83,9 @@ Característica: Clasificación de Encuentros en Lista para Asignar
     Y he seleccionado 3 encuentros con clasificación "Por Asignar"
     Y he seleccionado el botón "Clasificar"
     Y se ha abierto el modal de clasificación
-    Cuando selecciono la clasificación "No Facturar"
-    Y confirmo la reclasificación masiva
+    Y el modal muestra el título "Cambiar clasificación de 5 encuentros seleccionados"
+    Cuando selecciono la clasificación "No Facturar" del dropdown
+    Y selecciono el botón "Clasificar" del modal
     Entonces se deben reclasificar los 5 encuentros a "No Facturar"
     Y debe mostrarse un mensaje de confirmación "5 encuentros reclasificados exitosamente"
 
@@ -90,12 +94,30 @@ Característica: Clasificación de Encuentros en Lista para Asignar
   # ========================================================================
 
   @responsableFacturacion @happyPath
+  Esquema del escenario: CLAS-05A - Validar título dinámico del modal según cantidad de encuentros seleccionados
+    Dado que he accedido a la bandeja "Lista de encuentros para asignar"
+    Y existen encuentros para clasificar
+    Cuando selecciono <cantidad> encuentros
+    Y selecciono el botón "Clasificar"
+    Entonces debe abrirse el modal de clasificación
+    Y debe mostrarse el título "Cambiar clasificación de <cantidad> <texto> seleccionado<plural>"
+
+    Ejemplos:
+      | cantidad | texto      | plural |
+      | 1        | encuentro  |        |
+      | 5        | encuentros | s      |
+      | 10       | encuentros | s      |
+      | 50       | encuentros | s      |
+
+  @responsableFacturacion @happyPath
   Escenario: CLAS-05 - Visualizar opciones de clasificación en modal
     Dado que he seleccionado un encuentro
     Cuando selecciono el botón "Clasificar"
     Entonces debe abrirse el modal de clasificación
-    Y debe mostrarse el título "Clasificar encuentro"
-    Y debe mostrarse una lista con todas las clasificaciones disponibles:
+    Y debe mostrarse el título "Cambiar clasificación de 1 encuentro seleccionado"
+    Y debe mostrarse el dropdown "Selecciona una opción"
+    Y debe mostrarse el texto "*Campos obligatorios"
+    Y el dropdown debe contener todas las clasificaciones disponibles:
       | Clasificación              |
       | Facturar con hospitalario  |
       | Imp Fact Fin               |
@@ -106,17 +128,17 @@ Característica: Clasificación de Encuentros en Lista para Asignar
       | Por Asignar                |
       | No facturar farmacia       |
       | No facturar admisión       |
-    Y debe mostrarse el botón "Confirmar" deshabilitado
+    Y debe mostrarse el botón "Clasificar" deshabilitado
     Y debe mostrarse el botón "Cancelar" habilitado
 
   @responsableFacturacion @happyPath
-  Escenario: CLAS-06 - Habilitar botón Confirmar al seleccionar clasificación
+  Escenario: CLAS-06 - Habilitar botón Clasificar al seleccionar clasificación del dropdown
     Dado que he seleccionado un encuentro
     Y he abierto el modal de clasificación
-    Y el botón "Confirmar" está deshabilitado
-    Cuando selecciono la clasificación "Por Asignar"
-    Entonces el botón "Confirmar" debe habilitarse
-    Y la clasificación "Por Asignar" debe estar marcada como seleccionada
+    Y el botón "Clasificar" está deshabilitado
+    Cuando selecciono la clasificación "Por Asignar" del dropdown
+    Entonces el botón "Clasificar" debe habilitarse
+    Y la clasificación "Por Asignar" debe estar seleccionada en el dropdown
 
   @responsableFacturacion @happyPath
   Escenario: CLAS-07 - Cancelar clasificación de encuentro

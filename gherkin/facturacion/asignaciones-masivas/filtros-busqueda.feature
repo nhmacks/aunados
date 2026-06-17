@@ -167,3 +167,171 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y la grilla debe permanecer vacía
     Y el botón "Asignar" debe permanecer deshabilitado
     Y el contador debe mostrar "0 Registros encontrados"
+
+  # ========================================================================
+  # TÉCNICA: INDICADOR VISUAL DE SELECCIONES MÚLTIPLES
+  # ========================================================================
+
+  @responsableFacturacion @happyPath
+  Esquema del escenario: FIL-13 - Visualizar chip con cantidad de opciones seleccionadas en Tipo de garante
+    Dado que he abierto el dropdown "Tipo de garante"
+    Cuando selecciono <cantidad> tipos de garante
+    Y cierro el dropdown
+    Entonces debe mostrarse un chip con el texto "× <cantidad> Opciones seleccionada"
+    Y el chip debe tener color azul/turquesa
+    Y debe mostrarse una "X" en el chip para limpiar la selección
+    Y el chip debe reemplazar el placeholder "Selecciona"
+
+    Ejemplos:
+      | cantidad |
+      | 1        |
+      | 5        |
+      | 10       |
+      | 15       |
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-14 - Limpiar selección usando la X del chip
+    Dado que he seleccionado 10 tipos de garante
+    Y se muestra el chip "× 10 Opciones seleccionada"
+    Cuando hago clic en la "X" del chip
+    Entonces el chip debe desaparecer
+    Y debe mostrarse nuevamente el placeholder "Selecciona"
+    Y todas las opciones de garante deben desmarcarse
+    Y el botón "Buscar" debe deshabilitarse si no hay otros filtros completos
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-15 - Actualizar chip al modificar cantidad de selecciones
+    Dado que he seleccionado 5 tipos de garante
+    Y se muestra el chip "× 5 Opciones seleccionada"
+    Cuando abro nuevamente el dropdown
+    Y selecciono 3 tipos de garante adicionales
+    Y cierro el dropdown
+    Entonces el chip debe actualizarse a "× 8 Opciones seleccionada"
+    Y el número debe reflejar la cantidad correcta
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-16 - Chip desaparece al deseleccionar todas las opciones
+    Dado que he seleccionado 10 tipos de garante
+    Y se muestra el chip "× 10 Opciones seleccionada"
+    Cuando abro el dropdown
+    Y deselecciono todos los tipos de garante
+    Y cierro el dropdown
+    Entonces el chip debe desaparecer
+    Y debe mostrarse el placeholder "Selecciona"
+
+  # ========================================================================
+  # TÉCNICA: VALIDACIÓN DE PLACEHOLDER EN FILTROS
+  # ========================================================================
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-17 - Validar placeholder en campo Tipo de garante vacío
+    Dado que estoy en la bandeja "Asignaciones masivas"
+    Y el campo "Tipo de garante" está vacío
+    Cuando visualizo el campo sin hacer clic
+    Entonces debe mostrarse el placeholder "Selecciona"
+    Y el placeholder debe tener estilo de texto en gris claro
+    Y debe desaparecer al abrir el dropdown
+
+  # ========================================================================
+  # TÉCNICA: CHECKBOXES EN GRILLA DE RESULTADOS
+  # ========================================================================
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-18 - Visualizar checkboxes en cada fila de la grilla
+    Dado que he aplicado filtros válidos
+    Y he presionado el botón "Buscar"
+    Cuando visualizo la grilla de resultados
+    Entonces cada fila de garante debe tener un checkbox al inicio
+    Y todos los checkboxes deben estar desmarcados inicialmente
+    Y debe mostrarse la columna "Garante" con los nombres
+    Y debe mostrarse la columna "Cantidad de encuentros"
+    Y debe mostrarse la columna "Monto por facturar"
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-19 - Seleccionar un garante usando checkbox
+    Dado que la grilla muestra 70 resultados
+    Y todos los checkboxes están desmarcados
+    Cuando hago clic en el checkbox del garante "MAPFRE SEGUROS"
+    Entonces el checkbox debe marcarse
+    Y la fila debe resaltarse visualmente
+    Y el botón "Asignar" debe habilitarse
+    Y el contador de seleccionados debe actualizarse
+
+  @responsableFacturacion @happyPath
+  Esquema del escenario: FIL-20 - Seleccionar múltiples garantes usando checkboxes
+    Dado que la grilla muestra resultados con múltiples garantes
+    Cuando selecciono <cantidad> garantes usando sus checkboxes
+    Entonces <cantidad> checkboxes deben estar marcados
+    Y las <cantidad> filas deben resaltarse visualmente
+    Y el botón "Asignar" debe estar habilitado
+    Y debe mostrarse un indicador de "<cantidad> garantes seleccionados"
+
+    Ejemplos:
+      | cantidad |
+      | 2        |
+      | 5        |
+      | 10       |
+      | 15       |
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-21 - Deseleccionar garante usando checkbox
+    Dado que he seleccionado 3 garantes
+    Y el botón "Asignar" está habilitado
+    Cuando hago clic en el checkbox de un garante ya seleccionado
+    Entonces el checkbox debe desmarcarse
+    Y la fila debe volver a su estado normal (sin resaltar)
+    Y el contador debe actualizarse a 2 garantes seleccionados
+    Y el botón "Asignar" debe permanecer habilitado
+
+  @responsableFacturacion @unhappyPath
+  Escenario: FIL-22 - Deseleccionar todos los garantes deshabilita botón Asignar
+    Dado que he seleccionado 3 garantes usando checkboxes
+    Y el botón "Asignar" está habilitado
+    Cuando deselecciono los 3 garantes uno por uno
+    Entonces todos los checkboxes deben estar desmarcados
+    Y ninguna fila debe estar resaltada
+    Y el botón "Asignar" debe deshabilitarse
+    Y el indicador debe mostrar "0 garantes seleccionados"
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-23 - Checkbox de encabezado para seleccionar todos (si existe)
+    Dado que la grilla muestra 10 garantes
+    Y existe un checkbox en el encabezado de la columna
+    Cuando hago clic en el checkbox del encabezado
+    Entonces todos los 10 checkboxes de las filas deben marcarse
+    Y todas las 10 filas deben resaltarse
+    Y el botón "Asignar" debe habilitarse
+    Y debe mostrarse "10 garantes seleccionados"
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-24 - Deseleccionar todos usando checkbox de encabezado
+    Dado que he seleccionado todos los garantes usando el checkbox del encabezado
+    Y todos los checkboxes están marcados
+    Cuando hago clic nuevamente en el checkbox del encabezado
+    Entonces todos los checkboxes deben desmarcarse
+    Y ninguna fila debe estar resaltada
+    Y el botón "Asignar" debe deshabilitarse
+
+  # ========================================================================
+  # TÉCNICA: ORDENAMIENTO CON CHECKBOXES SELECCIONADOS
+  # ========================================================================
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-25 - Mantener selección de checkboxes al ordenar columnas
+    Dado que he seleccionado 5 garantes usando checkboxes
+    Y las 5 filas están resaltadas
+    Cuando ordeno la grilla por "Cantidad de encuentros" descendente
+    Entonces los 5 checkboxes deben permanecer marcados
+    Y las 5 filas deben seguir resaltadas después del ordenamiento
+    Y el botón "Asignar" debe permanecer habilitado
+
+  @responsableFacturacion @happyPath
+  Escenario: FIL-26 - Perder selección al realizar nueva búsqueda
+    Dado que he seleccionado 5 garantes usando checkboxes
+    Y el botón "Asignar" está habilitado
+    Cuando modifico los filtros de fecha
+    Y presiono el botón "Buscar" nuevamente
+    Entonces todos los checkboxes deben desmarcarse
+    Y ninguna fila debe estar resaltada
+    Y el botón "Asignar" debe deshabilitarse
+    Y debe mostrarse una nueva grilla con resultados frescos

@@ -32,7 +32,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Cuando visualizo la tabla de encuentros
     Entonces debe mostrarse la tabla con los siguientes encabezados en orden:
       | Columna            |
-      | Encuentros         |
+      | Encuentro          |
       | Clasific.          |
       | Sede               |
       | Apellidos          |
@@ -71,6 +71,20 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Clasificar" debe estar habilitado
     Y el botón "Descargar" debe estar habilitado
     Y el botón "Restablecer vista" debe estar habilitado
+
+  @responsableFacturacion @happyPath
+  Esquema del escenario: VIS-04B - Validar contador de encuentros seleccionados
+    Dado que he accedido a la bandeja "Lista de encuentros para asignar"
+    Y existen <total> encuentros para asignar
+    Cuando selecciono <seleccionados> encuentros de la tabla
+    Entonces debe mostrarse "<seleccionados> registro seleccionado de <total>"
+
+    Ejemplos:
+      | total | seleccionados |
+      | 25040 | 1             |
+      | 500   | 5             |
+      | 1000  | 10            |
+      | 100   | 50            |
 
   # ========================================================================
   # TÉCNICA: VALIDACIÓN DE CONTADOR DE REGISTROS

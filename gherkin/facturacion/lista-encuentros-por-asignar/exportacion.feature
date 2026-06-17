@@ -202,6 +202,33 @@ Característica: Exportación de Lista de Encuentros para Asignar
     Y los encuentros deben estar ordenados por "Fecha apert." descendente
 
   # ========================================================================
+  # TÉCNICA: VALORES DE FRONTERA - MONTOS MÍNIMOS, PROMEDIO Y MÁXIMOS
+  # ========================================================================
+
+  @responsableFacturacion @happyPath
+  Esquema del escenario: EXP-16B - Validar exportación de montos mínimos, promedio y máximos
+    Dado que existen encuentros para asignar con montos variados
+    Y existe el encuentro "12345678" con monto "<monto>"
+    Cuando descargo el archivo Excel
+    Y abro el archivo
+    Entonces la columna de monto para el encuentro "12345678" debe mostrar "<monto_esperado>"
+    Y el formato debe incluir separador de miles y dos decimales
+    Y NO debe haber truncamiento ni desbordamiento
+
+    Ejemplos:
+      | monto        | monto_esperado | tipo_valor    |
+      | 0.00         | 0.00           | Mínimo        |
+      | 0.01         | 0.01           | Mínimo límite |
+      | 100.50       | 100.50         | Bajo          |
+      | 1250.00      | 1,250.00       | Promedio bajo |
+      | 5000.00      | 5,000.00       | Promedio      |
+      | 25000.00     | 25,000.00      | Promedio alto |
+      | 50000.00     | 50,000.00      | Alto          |
+      | 100000.00    | 100,000.00     | Muy alto      |
+      | 500000.00    | 500,000.00     | Máximo        |
+      | 9999999.99   | 9,999,999.99   | Máximo límite |
+
+  # ========================================================================
   # TÉCNICA: VALIDACIÓN DE FORMATO DE ARCHIVO
   # ========================================================================
 

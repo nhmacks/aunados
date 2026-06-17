@@ -728,3 +728,34 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja de Facturación
     Y el estado final debe ser "Terapia en Proceso"
     Y el encuentro tuvo múltiples cambios de estado pero solo el Job determinó su salida
+
+  # ========================================================================
+  # ENCUENTROS DEVUELTOS REEVALUADOS POR EL JOB
+  # El Job evalúa encuentros devueltos cuando XHIS resuelve la condición bloqueante
+  # ========================================================================
+
+  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  Escenario: JOB-37 - Encuentro devuelto por laboratorios pendientes es enviado a Facturación por el Job al completarse los exámenes vía XHIS
+    Dado que el encuentro "12345678" fue enviado previamente a Facturación por el Job
+    Y Facturación devolvió el encuentro con el motivo "Carta de Garantía por Laboratorio"
+    Y el encuentro se encuentra en la bandeja "Encuentros Devueltos" de Admisión
+    Y el encuentro es de tipo "Consulta Externa"
+    Y el encuentro tiene garante "MAPFRE EPS"
+    Y el encuentro fue creado hace 10 días
+    Y el encuentro tiene toda la documentación administrativa completa
+    Y los exámenes de laboratorio tenían resultado pendiente al momento de la devolución:
+      | Examen        |
+      | Hemoglobina   |
+      | Glucosa       |
+    Y XHIS cargó los resultados de laboratorio para "Hemoglobina" y "Glucosa"
+    Y todos los exámenes están imputados
+    Cuando el Job de Admisión ejecuta su evaluación periódica
+    Entonces el Job debe detectar que los laboratorios ahora tienen resultado completo vía XHIS
+    Y el Job debe detectar que todos los exámenes están imputados
+    Y el Job debe detectar que la documentación está completa
+    Y el Job debe identificar que es tipo "Consulta Externa"
+    Y el Job debe identificar que el garante NO es Oncosalud
+    Y el Job debe evaluar que han pasado 10 días desde la creación (≥ 7 días)
+    Y el Job debe reclasificar el encuentro para "Facturación"
+    Y el encuentro debe salir de la bandeja "Encuentros Devueltos"
+    Y el encuentro debe aparecer en la bandeja de Facturación

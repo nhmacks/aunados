@@ -21,7 +21,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @gestorTA @happyPath
   Escenario: PERM-02 - Gestor TA puede utilizar todas las funcionalidades
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Gestor TA"
     Y he accedido a la pantalla "Encuentros en Protocolo"
     Entonces debo poder visualizar la grilla completa con 12 columnas
     Y debo poder realizar búsquedas
@@ -113,7 +114,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @gestorTA @backend @happyPath
   Escenario: PERM-10 - Validar permisos en el backend para Gestor TA
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Gestor TA"
     Cuando realizo una petición al endpoint "/api/admision/encuentros-protocolo"
     Entonces el backend debe validar mi rol
     Y debe permitir la petición con código HTTP 200
@@ -121,7 +123,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @superusuarioAdmision @backend @unhappyPath
   Escenario: PERM-11 - Backend bloquea peticiones de Superusuario de Admisión
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Superusuario de Admisión"
     Cuando realizo una petición al endpoint "/api/admision/encuentros-protocolo"
     Entonces el backend debe validar mi rol
     Y debe denegar la petición con código HTTP 403 (Forbidden)
@@ -130,7 +133,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @ejecutivoAdmision @backend @unhappyPath
   Escenario: PERM-12 - Backend bloquea peticiones de Ejecutivo de Admisión
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Ejecutivo de Admisión"
     Cuando realizo una petición al endpoint "/api/admision/encuentros-protocolo"
     Entonces el backend debe validar mi rol
     Y debe denegar la petición con código HTTP 403 (Forbidden)
@@ -142,7 +146,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @gestorTA @happyPath
   Escenario: PERM-13 - Gestor TA puede descargar información
-    Dado que soy un usuario con rol "Gestor TA"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Gestor TA"
     Y he accedido a la pantalla "Encuentros en Protocolo"
     Cuando selecciono el botón "Descargar"
     Entonces debe permitirse la descarga
@@ -151,7 +156,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @superusuarioAdmision @backend @unhappyPath
   Escenario: PERM-14 - Backend bloquea exportación de otros roles
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Superusuario de Admisión"
     Cuando intento realizar una petición al endpoint "/api/admision/encuentros-protocolo/exportar"
     Entonces el backend debe denegar la petición con código HTTP 403
     Y NO debe generarse ningún archivo
@@ -163,7 +169,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @superusuarioAdmision @unhappyPath
   Escenario: PERM-15 - Validar mensaje de error específico para acceso denegado
-    Dado que soy un usuario con rol "Superusuario de Admisión"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Superusuario de Admisión"
     Cuando intento acceder a la URL "/admision/encuentros-protocolo"
     Entonces debe mostrarse un mensaje claro y específico:
       """
@@ -180,7 +187,8 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
 
   @gestorTA @seguridad @unhappyPath
   Escenario: PERM-16 - Validar que NO se exponen datos mediante URL manipulation
-    Dado que soy un usuario con rol "Ejecutivo de Admisión"
+    Dado que he iniciado sesión en el sistema
+    Y soy un usuario con rol "Ejecutivo de Admisión"
     Cuando intento acceder mediante diferentes variaciones de URL:
       | URL                                        |
       | /admision/encuentros-protocolo             |

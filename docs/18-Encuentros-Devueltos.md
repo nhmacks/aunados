@@ -330,7 +330,28 @@ Visualiza todos los encuentros devueltos.
 
 ## 13. Grilla de Encuentros Devueltos
 
-La pantalla mostrará las siguientes columnas:
+### 13.1 Columnas por Rol
+
+Las columnas visibles en la grilla varían según el rol del usuario:
+
+#### Ejecutivo de Admisión
+
+El Ejecutivo de Admisión visualiza las siguientes columnas (10 columnas):
+
+- Encuentro
+- Estado
+- Apellidos
+- Nombres
+- NºHC
+- Garante
+- Tipo de encuentro
+- Fecha apert.
+- Prioridad
+- Monto
+
+#### Gestor TA y Superusuario de Admisión
+
+El Gestor TA y el Superusuario de Admisión visualizan todas las columnas (15 columnas):
 
 - Sede
 - Encuentro
@@ -350,47 +371,269 @@ La pantalla mostrará las siguientes columnas:
 
 ---
 
-### 13.1 Descripción de Columnas Específicas
+### 13.2 Descripción de Columnas Específicas
 
 #### Devoluciones administrativas
 
-Muestra la cantidad de motivos de devolución de tipo administrativo registrados para el encuentro.
+Muestra los motivos de devolución de tipo administrativo registrados para el encuentro. Si no existen devoluciones administrativas, se muestra un guion (-).
+
+**Nota:** Esta columna solo es visible para Gestor TA y Superusuario de Admisión.
 
 #### Devoluciones médicas
 
-Muestra la cantidad de motivos de devolución de tipo médico registrados para el encuentro.
+Muestra los motivos de devolución de tipo médico registrados para el encuentro. Si no existen devoluciones médicas, se muestra un guion (-).
+
+**Nota:** Esta columna solo es visible para Gestor TA y Superusuario de Admisión.
 
 #### Devoluciones de proceso
 
-Muestra la cantidad de motivos de devolución de tipo proceso registrados para el encuentro.
+Muestra los motivos de devolución de tipo proceso registrados para el encuentro. Si no existen devoluciones de proceso, se muestra un guion (-).
+
+**Nota:** Esta columna solo es visible para Gestor TA y Superusuario de Admisión.
+
+#### Sede
+
+Muestra la sede a la que pertenece el encuentro devuelto.
+
+**Nota:** Esta columna solo es visible para Gestor TA y Superusuario de Admisión.
+
+#### Usuario
+
+Muestra el usuario (Ejecutivo de Admisión) que originalmente gestionó el encuentro.
+
+**Nota:** Esta columna solo es visible para Gestor TA y Superusuario de Admisión.
 
 ---
 
 ## 14. Detalle del Encuentro Devuelto
 
-Cuando el Ejecutivo de Admisión accede al detalle de un encuentro devuelto, el sistema muestra:
+Cuando un usuario accede al detalle de un encuentro devuelto, el sistema muestra una vista organizada en secciones expandibles para facilitar la navegación y evitar saturación de información.
 
-### Información Visualizada
+---
 
-- **Motivos de devolución:** Lista completa de motivos registrados por Facturación
-- **Comentarios:** Comentarios adicionales registrados durante la devolución (si los hay)
-- **Estado del encuentro:** "Devuelto"
-- **Datos del paciente:** Información completa del paciente
-- **Datos del encuentro:** Información general del encuentro
-- **Datos del seguro:** Información de cobertura y garante
+### 14.1 Estructura del Detalle
 
-### Información NO Visualizada
+La pantalla de detalle se organiza en las siguientes secciones:
 
-El Ejecutivo de Admisión **NO** visualiza en el detalle:
+**Sección Principal (siempre visible):**
+- **Devoluciones:** Lista de motivos de devolución registrados por Facturación
+- **Comentarios:** Campo de texto para comentarios (400 caracteres máximo)
+
+**Secciones Expandibles (colapsadas por defecto):**
+- **Datos generales:** Información básica del paciente (visible por defecto)
+- **Datos de encuentro:** Información detallada del encuentro (colapsable)
+- **Datos del seguro:** Información de cobertura y garante (colapsable)
+
+---
+
+### 14.2 Datos Generales (Visible por defecto)
+
+Esta sección se muestra expandida por defecto y contiene:
+
+- **Paciente:** Nombre completo del paciente
+- **NHC:** Número de historia clínica
+- **Ejecutivo(a) de admisión:** Usuario que gestionó el encuentro originalmente
+
+---
+
+### 14.3 Datos de Encuentro (Sección Expandible)
+
+Esta sección está **colapsada por defecto** y muestra un indicador visual (▼) para expandirla.
+
+Al hacer clic en "Datos de encuentro", se expande y muestra:
+
+- **Nº de encuentro:** Número único del encuentro (8 dígitos)
+- **Fecha de apertura:** Fecha en formato DD/MM/AAAA
+- **Tipo de encuentro:** Tipo de atención (ej: CEX, Emergencia, etc.)
+- **Prestación:** Descripción de la prestación (ej: CONSULTA MEDICA)
+
+**Comportamiento:**
+- Al hacer clic nuevamente, la sección se colapsa y oculta la información
+- Puede permanecer expandida simultáneamente con otras secciones
+
+---
+
+### 14.4 Datos del Seguro (Sección Expandible)
+
+Esta sección está **colapsada por defecto** y muestra un indicador visual (▼) para expandirla.
+
+Al hacer clic en "Datos del seguro", se expande y muestra:
+
+- **Nombre del garante:** Nombre de la aseguradora o garante
+- **Producto:** Producto de seguro contratado
+- **Plan copago:** Plan específico con copago
+- **Beneficio:** Tipo de beneficio (ej: AMBULATORIA, EMERGENCIA, etc.)
+
+**Comportamiento:**
+- Al hacer clic nuevamente, la sección se colapsa y oculta la información
+- Puede permanecer expandida simultáneamente con otras secciones
+
+---
+
+### 14.5 Interacción con Secciones Expandibles
+
+**Expansión individual:**
+- Cada sección se expande/colapsa de forma independiente al hacer clic en su encabezado
+- El indicador visual cambia de dirección (▼ → ▲) cuando la sección está expandida
+
+**Expansión múltiple:**
+- El usuario puede expandir ambas secciones ("Datos de encuentro" y "Datos del seguro") simultáneamente
+- No hay límite en la cantidad de secciones que pueden estar expandidas al mismo tiempo
+
+**Estado persistente:**
+- El estado (expandido/colapsado) de cada sección NO se persiste al salir y regresar al detalle
+- Siempre se muestran en su estado por defecto (colapsadas) al acceder al detalle
+
+---
+
+### 14.6 Información Visualizada por Rol
+
+Todos los roles (Ejecutivo de Admisión, Gestor TA, Superusuario de Admisión) visualizan la misma información en las secciones expandibles.
+
+**Diferencias:**
+- El **Ejecutivo de Admisión** solo visualiza encuentros de su responsabilidad
+- El **Gestor TA** y **Superusuario** visualizan todos los encuentros
+- El **Superusuario** además puede gestionar el encuentro (checkboxes, comentarios, cambio de estado)
+
+---
+
+### 14.7 Información NO Visualizada
+
+Los usuarios **NO** visualizan en el detalle:
 
 - Fecha de la devolución
-- Usuario que devolvió el encuentro
+- Usuario que devolvió el encuentro (quien registró la devolución desde Facturación)
 
 ---
 
 #### RN-ED-025
 
 El detalle del encuentro devuelto debe mostrar únicamente los motivos de devolución, comentarios y estado, sin incluir la fecha ni el usuario que realizó la devolución.
+
+---
+
+## 14.8 Gestión por Superusuario de Admisión
+
+El Superusuario de Admisión tiene capacidades de gestión adicionales al visualizar el detalle de un encuentro devuelto.
+
+---
+
+### 14.8.1 Diferencias con el Ejecutivo de Admisión
+
+| Aspecto | Ejecutivo de Admisión | Superusuario de Admisión |
+|---------|----------------------|--------------------------|
+| Visualización de motivos | Solo visualiza (sin checkboxes) | Visualiza con checkboxes interactivos |
+| Marcar motivos como subsanados | No puede | Puede marcar/desmarcar cada motivo |
+| Agregar comentarios | No | Sí (límite 400 caracteres) |
+| Cambiar estado del encuentro | Limitado | Acceso completo a todos los estados |
+| Acceso a estado "Regularizado" | No | Sí (condicionado) |
+
+---
+
+### 14.8.2 Checkboxes de Motivos de Devolución
+
+Cuando el Superusuario accede al detalle del encuentro devuelto:
+
+- Cada motivo de devolución muestra un **checkbox** a su lado
+- El Superusuario puede **marcar** el checkbox para indicar que el motivo ha sido subsanado
+- El Superusuario puede **desmarcar** el checkbox si el motivo aún no está resuelto
+- Los checkboxes son interactivos y su estado se actualiza inmediatamente al hacer clic
+
+---
+
+### 14.8.3 Estados Disponibles
+
+El Superusuario tiene acceso al siguiente dropdown de estados:
+
+**Estados siempre disponibles:**
+- Pago por adelantado
+- No facturable
+- Derivado a D.M (Dirección Médica)
+- Derivado a Supervisor
+- Error de vinculación
+- Pendiente de revisión
+- Terapia en proceso
+- Error de facturación
+
+**Estado condicionado:**
+- **Regularizado** (solo disponible cuando TODOS los checkboxes de motivos están marcados)
+
+---
+
+### 14.8.4 Habilitación del Estado "Regularizado"
+
+#### RN-ED-026
+
+El estado "Regularizado" solo estará disponible en el dropdown cuando **TODOS** los checkboxes de motivos de devolución estén marcados.
+
+**Comportamiento:**
+
+1. **Checkboxes incompletos:**
+   - Si falta marcar **al menos un** motivo
+   - El estado "Regularizado" **NO** aparece en el dropdown
+   - El Superusuario puede seleccionar cualquier otro estado
+
+2. **Todos los checkboxes marcados:**
+   - Cuando **TODOS** los motivos están marcados como subsanados
+   - El estado "Regularizado" **aparece** en el dropdown
+   - El Superusuario puede seleccionar "Regularizado"
+
+3. **Desmarcado dinámico:**
+   - Si el Superusuario desmarca un checkbox después de haber marcado todos
+   - El estado "Regularizado" **desaparece inmediatamente** del dropdown
+   - Si ya había seleccionado "Regularizado", la selección se debe cancelar
+
+**Ejemplos:**
+
+- Encuentro con 3 motivos → 0 marcados → "Regularizado" NO disponible
+- Encuentro con 3 motivos → 1 marcado → "Regularizado" NO disponible
+- Encuentro con 3 motivos → 2 marcados → "Regularizado" NO disponible
+- Encuentro con 3 motivos → 3 marcados → "Regularizado" disponible ✓
+- Encuentro con 1 motivo → 1 marcado → "Regularizado" disponible ✓
+
+---
+
+### 14.8.5 Campo de Comentarios
+
+El Superusuario puede agregar comentarios al gestionar el encuentro:
+
+**Características:**
+- Campo de texto libre
+- Límite: 400 caracteres
+- Contador de caracteres visible: "0/400"
+- No es obligatorio para cambiar el estado
+- Se guarda en el historial del encuentro
+
+---
+
+### 14.8.6 Flujo de Regularización por Superusuario
+
+**Pasos:**
+
+1. El Superusuario accede al detalle del encuentro devuelto
+2. Visualiza los motivos de devolución con sus checkboxes
+3. Marca cada checkbox conforme subsana cada motivo
+4. (Opcional) Agrega comentarios explicativos
+5. Una vez marcados TODOS los checkboxes, el estado "Regularizado" aparece en el dropdown
+6. Selecciona "Regularizado" del dropdown
+7. Confirma el cambio de estado
+8. El encuentro cambia a estado "Regularizado"
+9. El encuentro abandona la bandeja "Encuentros Devueltos"
+10. Se muestra mensaje: "Encuentro regularizado exitosamente"
+
+---
+
+### 14.8.7 Cambio de Estado sin Regularización
+
+El Superusuario puede cambiar el estado del encuentro a cualquier otro estado **sin necesidad de marcar todos los checkboxes**.
+
+**Ejemplo:**
+- Si el encuentro debe ser derivado a Dirección Médica
+- El Superusuario puede seleccionar "Derivado a D.M" directamente
+- No requiere marcar ningún checkbox
+- El encuentro cambia de estado inmediatamente
+
+Esto permite al Superusuario tomar decisiones sobre encuentros que no pueden ser regularizados completamente por Admisión.
 
 ---
 
@@ -630,6 +873,511 @@ Sin pérdida de historial.
 
 ---
 
-## 27. Fuente de Verdad
+## 27. Filtros Avanzados (Ejecutivo de Admisión)
+
+### Objetivo
+
+Permitir al Ejecutivo de Admisión filtrar los encuentros devueltos mediante modales interactivos con controles específicos para cada columna, facilitando la búsqueda y análisis de encuentros según criterios específicos.
+
+---
+
+### 27.1 Filtros Disponibles
+
+El Ejecutivo de Admisión puede filtrar por las siguientes columnas:
+
+1. **Estado**
+2. **Fecha de apertura**
+3. **Garante**
+4. **Tipo de encuentro**
+5. **Prioridad**
+
+---
+
+### 27.2 Comportamiento del Modal de Filtros
+
+#### Apertura del Modal
+
+- Cada columna filtrable muestra un **icono de filtro** en su encabezado
+- Al hacer clic en el icono, se abre un modal específico para esa columna
+- El modal se posiciona cerca de la columna para mejor contexto visual
+
+#### Estructura General del Modal
+
+Todos los modales de filtro contienen:
+
+- **Título:** Nombre de la columna a filtrar
+- **Controles de filtrado:** Varían según el tipo de columna
+- **Botones de acción:**
+  - **Limpiar:** Elimina todos los filtros aplicados en esa columna
+  - **Aplicar:** Confirma y ejecuta el filtrado
+
+#### Cierre del Modal
+
+El modal se cierra cuando:
+- El usuario hace clic en "Aplicar"
+- El usuario hace clic en "Limpiar"
+- El usuario hace clic fuera del modal
+- El usuario presiona la tecla ESC
+
+---
+
+### 27.3 Filtro por Estado
+
+#### Controles Disponibles
+
+**Caja de búsqueda:**
+- Ubicada en la parte superior del modal
+- Permite buscar estados por texto
+- Filtra la lista de estados mientras el usuario escribe
+
+**Opciones de selección:**
+- ☑ **Seleccionar todo:** Marca/desmarca todos los estados visibles
+- ☐ Devuelto
+- ☐ No facturable
+- ☐ Error de facturación
+- ☐ Regularizado
+- ☐ Derivado a Supervisor
+- ☐ Derivado a Dirección Médica
+
+#### Comportamiento
+
+**Búsqueda interna:**
+- La búsqueda filtra los estados mostrados en el modal
+- Los estados que no coinciden con la búsqueda se ocultan temporalmente
+- Al limpiar la búsqueda, se muestran nuevamente todos los estados
+
+**Seleccionar todo:**
+- Al activar "Seleccionar todo", se marcan todos los checkboxes de estados visibles
+- Al desactivar "Seleccionar todo", se desmarcan todos los checkboxes
+- Si la búsqueda está activa, "Seleccionar todo" afecta solo a los estados filtrados
+
+**Aplicar filtro:**
+- Al hacer clic en "Aplicar", el sistema filtra la grilla mostrando solo encuentros con los estados seleccionados
+- Si no se selecciona ningún estado, no se aplica filtro
+
+**Limpiar filtro:**
+- Al hacer clic en "Limpiar", se desmarcan todos los checkboxes
+- El filtro de estado se elimina de la grilla
+
+---
+
+### 27.4 Filtro por Fecha de Apertura
+
+#### Controles Disponibles
+
+**Selector de operador:**
+- Dropdown con las siguientes opciones:
+  - **Igual a**
+  - **Entre**
+  - **Antes**
+  - **Después**
+
+**Campos de fecha:**
+- Campos de entrada de fecha con calendario desplegable (date picker)
+- Formato: DD/MM/AAAA
+- Los campos disponibles cambian según el operador seleccionado
+
+#### Comportamiento por Operador
+
+**Igual a:**
+- Muestra 1 campo de fecha
+- Filtra encuentros cuya fecha de apertura coincide exactamente con la fecha seleccionada
+
+**Entre:**
+- Muestra 2 campos de fecha: "Desde" y "Hasta"
+- Filtra encuentros cuya fecha de apertura está dentro del rango (inclusive)
+- Validación: La fecha "Desde" no puede ser posterior a "Hasta"
+
+**Antes:**
+- Muestra 1 campo de fecha
+- Filtra encuentros cuya fecha de apertura es anterior a la fecha seleccionada (no inclusive)
+
+**Después:**
+- Muestra 1 campo de fecha
+- Filtra encuentros cuya fecha de apertura es posterior a la fecha seleccionada (no inclusive)
+
+#### Validaciones
+
+- No se permite aplicar el filtro si los campos requeridos están vacíos
+- No se permite aplicar el filtro si la fecha "Desde" es posterior a "Hasta" (operador "Entre")
+- Si las fechas son inválidas, se muestra un mensaje de error
+
+**Limpiar filtro:**
+- Al hacer clic en "Limpiar", se eliminan todas las fechas ingresadas
+- El operador se mantiene en la última selección
+- El filtro de fecha se elimina de la grilla
+
+---
+
+### 27.5 Filtro por Garante
+
+#### Controles Disponibles
+
+**Selector de operador:**
+- Dropdown con la opción:
+  - **Contiene** (deshabilitado - valor fijo)
+
+**Campo de texto:**
+- Input de texto libre
+- Permite ingresar el nombre o parte del nombre del garante
+
+#### Comportamiento
+
+**Búsqueda por texto:**
+- El sistema busca encuentros cuyo garante contiene el texto ingresado
+- La búsqueda es case-insensitive (no distingue mayúsculas/minúsculas)
+- La búsqueda es parcial (busca coincidencias en cualquier parte del nombre)
+
+**Aplicar filtro:**
+- Al hacer clic en "Aplicar", el sistema filtra mostrando solo encuentros cuyo garante contiene el texto ingresado
+- Si el campo está vacío, no se aplica filtro
+
+**Limpiar filtro:**
+- Al hacer clic en "Limpiar", se elimina el texto ingresado
+- El filtro de garante se elimina de la grilla
+
+---
+
+### 27.6 Filtro por Tipo de Encuentro
+
+#### Controles Disponibles
+
+**Caja de búsqueda:**
+- Ubicada en la parte superior del modal
+- Permite buscar tipos de encuentro por texto
+- Filtra la lista de tipos mientras el usuario escribe
+
+**Opciones de selección:**
+- ☑ **Seleccionar todo:** Marca/desmarca todos los tipos visibles
+- ☐ Ambulatorio
+- ☐ Emergencia
+
+#### Comportamiento
+
+**Búsqueda interna:**
+- La búsqueda filtra los tipos mostrados en el modal
+- Los tipos que no coinciden con la búsqueda se ocultan temporalmente
+- Al limpiar la búsqueda, se muestran nuevamente todos los tipos
+
+**Seleccionar todo:**
+- Al activar "Seleccionar todo", se marcan ambos checkboxes
+- Al desactivar "Seleccionar todo", se desmarcan ambos checkboxes
+- Si la búsqueda está activa, "Seleccionar todo" afecta solo a los tipos filtrados
+
+**Aplicar filtro:**
+- Al hacer clic en "Aplicar", el sistema filtra mostrando solo encuentros con los tipos seleccionados
+- Si no se selecciona ningún tipo, no se aplica filtro
+
+**Limpiar filtro:**
+- Al hacer clic en "Limpiar", se desmarcan todos los checkboxes
+- El filtro de tipo de encuentro se elimina de la grilla
+
+---
+
+### 27.7 Filtro por Prioridad
+
+#### Controles Disponibles
+
+**Caja de búsqueda:**
+- Ubicada en la parte superior del modal
+- Permite buscar prioridades por texto
+- Filtra la lista de prioridades mientras el usuario escribe
+
+**Opciones de selección:**
+- ☑ **Seleccionar todo:** Marca/desmarca todas las prioridades visibles
+- ☐ Alta
+- ☐ Media
+- ☐ Baja
+
+#### Comportamiento
+
+**Búsqueda interna:**
+- La búsqueda filtra las prioridades mostradas en el modal
+- Las prioridades que no coinciden con la búsqueda se ocultan temporalmente
+- Al limpiar la búsqueda, se muestran nuevamente todas las prioridades
+
+**Seleccionar todo:**
+- Al activar "Seleccionar todo", se marcan todos los checkboxes
+- Al desactivar "Seleccionar todo", se desmarcan todos los checkboxes
+- Si la búsqueda está activa, "Seleccionar todo" afecta solo a las prioridades filtradas
+
+**Aplicar filtro:**
+- Al hacer clic en "Aplicar", el sistema filtra mostrando solo encuentros con las prioridades seleccionadas
+- Si no se selecciona ninguna prioridad, no se aplica filtro
+
+**Limpiar filtro:**
+- Al hacer clic en "Limpiar", se desmarcan todos los checkboxes
+- El filtro de prioridad se elimina de la grilla
+
+---
+
+### 27.8 Combinación de Filtros
+
+**Múltiples filtros activos:**
+- El Ejecutivo de Admisión puede aplicar múltiples filtros simultáneamente
+- Los filtros se aplican con lógica **AND** (se muestran solo encuentros que cumplan TODOS los filtros)
+- Ejemplo: Estado = "Devuelto" AND Prioridad = "Alta" AND Garante contiene "MAPFRE"
+
+**Indicadores visuales:**
+- Cada columna con filtro activo debe mostrar un indicador visual
+- El indicador permite identificar rápidamente qué filtros están aplicados
+
+**Persistencia:**
+- Los filtros se mantienen al hacer scroll infinito
+- Los filtros se mantienen al ordenar columnas
+- Los filtros NO se mantienen al cerrar sesión
+
+---
+
+### 27.9 Restablecer Vista
+
+Al seleccionar "Restablecer vista":
+- Se eliminan TODOS los filtros aplicados
+- Se eliminan las búsquedas por texto (caja de búsqueda general)
+- Se restaura el ordenamiento por defecto (fecha de devolución descendente)
+- Se muestra la grilla completa sin filtros
+
+---
+
+### 27.10 Validaciones Generales
+
+**Filtros sin selección:**
+- Si el usuario abre un modal de filtro y hace clic en "Aplicar" sin seleccionar ninguna opción, no se aplica filtro
+
+**Fechas inválidas:**
+- El sistema valida que las fechas ingresadas sean válidas
+- No permite aplicar filtros con fechas mal formadas
+- Muestra mensajes de error claros al usuario
+
+**Búsqueda interna vs Filtro de grilla:**
+- La búsqueda dentro del modal NO filtra la grilla, solo filtra las opciones del modal
+- Para filtrar la grilla, el usuario debe seleccionar opciones y hacer clic en "Aplicar"
+
+---
+
+## 28. Ordenamiento de la Grilla
+
+### Objetivo
+
+Permitir a todos los usuarios ordenar la grilla de encuentros devueltos por columnas específicas para facilitar el análisis y gestión. Las columnas disponibles varían según el rol del usuario.
+
+---
+
+### 28.1 Roles con Permiso de Ordenamiento
+
+**Todos los roles** (Ejecutivo de Admisión, Gestor TA, Superusuario de Admisión) pueden ordenar la grilla, pero con columnas diferentes según su rol.
+
+---
+
+### 28.2 Columnas Ordenables por Rol
+
+#### Ejecutivo de Admisión
+
+Puede ordenar por las siguientes **7 columnas**:
+
+1. **Encuentro** - Ascendente / Descendente
+2. **NºHC** - Ascendente / Descendente
+3. **Apellidos** - Ascendente / Descendente
+4. **Nombres** - Ascendente / Descendente
+5. **Fecha apert.** - Ascendente / Descendente
+6. **Garante** - Ascendente / Descendente
+7. **Tipo de encuentro** - Ascendente / Descendente
+
+**NO puede ordenar por:** Usuario, Monto
+
+#### Gestor TA y Superusuario de Admisión
+
+Pueden ordenar por las siguientes **8 columnas**:
+
+1. **Encuentro** - Ascendente / Descendente
+2. **Apellidos** - Ascendente / Descendente
+3. **Nombres** - Ascendente / Descendente
+4. **NºHC** - Ascendente / Descendente
+5. **Usuario** - Ascendente / Descendente
+6. **Garante** - Ascendente / Descendente
+7. **Fecha apert.** - Ascendente / Descendente
+8. **Monto** - Ascendente / Descendente
+
+**NO pueden ordenar por:** Tipo de encuentro
+
+---
+
+### 28.3 Columnas NO Ordenables (Todos los Roles)
+
+Las siguientes columnas NO permiten ordenamiento para ningún rol:
+
+- Sede
+- Estado
+- Prioridad
+- Devoluciones administrativas
+- Devoluciones médicas
+- Devoluciones de proceso
+
+---
+
+### 28.4 Orden por Defecto
+
+Al acceder a la bandeja "Encuentros Devueltos", los encuentros se muestran ordenados por:
+
+- **Fecha de devolución** en orden **descendente**
+- Los encuentros más recientes aparecen primero
+
+---
+
+### 28.5 Comportamiento del Ordenamiento
+
+**Persistencia:**
+- El ordenamiento se mantiene al aplicar filtros
+- El ordenamiento se mantiene al realizar búsquedas
+- El ordenamiento se mantiene al hacer scroll infinito
+
+**Cambio de ordenamiento:**
+- Al ordenar por una columna diferente, el ordenamiento anterior se cancela
+- Solo puede haber un ordenamiento activo a la vez
+
+**Indicador visual:**
+- Se muestra un indicador visual en la columna ordenada
+- El indicador muestra la dirección del ordenamiento (ascendente/descendente)
+
+**Valores vacíos o nulos:**
+- En orden ascendente: valores vacíos aparecen al final
+- En orden descendente: valores vacíos aparecen al principio
+
+---
+
+### 28.6 Restablecer Vista
+
+Al seleccionar "Restablecer vista":
+- El ordenamiento vuelve al orden por defecto
+- Los encuentros se muestran ordenados por fecha de devolución descendente
+- Se limpian todos los filtros aplicados
+
+---
+
+## 29. Exportación de Encuentros Devueltos
+
+### Objetivo
+
+Permitir a los usuarios descargar los datos de encuentros devueltos visibles en la grilla en formato Excel para análisis externos y reportes operativos.
+
+---
+
+### 29.1 Formato del Archivo
+
+**Nombre del archivo:**
+- Formato: `Encuentros_Devueltos_<hash>.xlsx`
+- El hash es un identificador alfanumérico de 8 caracteres único por descarga
+- Ejemplo: `Encuentros_Devueltos_RypkFtcu.xlsx`
+
+**Extensión:**
+- `.xlsx` (Microsoft Excel)
+
+**Estructura:**
+- Fila 1: Encabezados de columnas
+- Fila 2 en adelante: Datos de encuentros devueltos
+
+---
+
+### 29.2 Columnas Exportadas
+
+Todos los roles (Ejecutivo de Admisión, Gestor TA, Superusuario de Admisión) exportan las mismas 15 columnas en el siguiente orden:
+
+1. Sede
+2. Encuentro
+3. Estado
+4. Nº HC
+5. Apellidos
+6. Nombres
+7. Fecha Apert.
+8. Usuario
+9. Garante
+10. Tipo encuentro
+11. Prioridad
+12. Devoluciones administrativas
+13. Devoluciones médicas
+14. Devoluciones de proceso
+15. Monto
+
+**Nota importante:** El Ejecutivo de Admisión exporta columnas que NO visualiza en la grilla (Sede, Usuario, Devoluciones administrativas, Devoluciones médicas, Devoluciones de proceso).
+
+---
+
+### 29.3 Formato de Datos
+
+**Fechas:**
+- Formato: DD/MM/AAAA
+- Ejemplo: 03/06/2026
+
+**Encuentro:**
+- Numérico de 8 dígitos sin notación científica
+
+**Prioridad:**
+- Valores: Alta, Media, Baja
+
+**Devoluciones múltiples:**
+- Separadas por coma (,)
+- Ejemplo: "Acta Conformidad, Actualizar Datos Económicos"
+- Si no hay devoluciones: guion (-)
+
+**Monto:**
+- Formato decimal con separadores correctos
+
+---
+
+### 29.4 Alcance de la Exportación
+
+**Registros incluidos:**
+- Se exportan TODOS los registros que cumplen con los filtros aplicados
+- NO se limita a los registros visibles en pantalla (scroll infinito)
+- Sin límite máximo de registros
+
+**Filtros:**
+- La exportación respeta todos los filtros activos
+- La exportación respeta las búsquedas aplicadas
+- La exportación respeta las restricciones de rol del usuario
+
+---
+
+### 29.5 Restricciones por Rol
+
+**Ejecutivo de Admisión:**
+- Solo exporta encuentros devueltos creados por él en su sede
+- Aunque exporta 15 columnas, solo visualiza 10 en la grilla
+
+**Gestor TA y Superusuario de Admisión:**
+- Exportan todos los encuentros devueltos del sistema
+- Las columnas exportadas coinciden con las visualizadas en la grilla
+
+---
+
+### 29.6 Tipo de Descarga
+
+**Todos los roles:**
+- Descarga inmediata al presionar el botón "Descargar"
+- El archivo se genera y descarga sin demoras
+
+---
+
+### 29.7 Estado del Botón "Descargar"
+
+**Habilitado:**
+- Cuando existen encuentros devueltos visibles en la grilla
+
+**Deshabilitado:**
+- Cuando no hay encuentros devueltos
+- Cuando se muestra el mensaje "No encontramos resultados por atender"
+
+---
+
+### 29.8 Compatibilidad
+
+El archivo exportado debe poder abrirse correctamente en:
+- Microsoft Excel
+- Google Sheets
+- LibreOffice Calc
+
+---
+
+## 30. Fuente de Verdad
 
 Este documento constituye la especificación funcional oficial de la funcionalidad Encuentros Devueltos del sistema AUNADOS y deberá ser utilizado como referencia para Análisis Funcional, Desarrollo, QA, Automatización y UAT.
