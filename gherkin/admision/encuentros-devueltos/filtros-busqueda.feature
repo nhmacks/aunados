@@ -10,7 +10,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
   # Cobertura: Sección 6.1 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: BUS-00 - Validar placeholder de caja de búsqueda
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -23,7 +23,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
       | Gestor TA                |
       | Superusuario de Admisión |
 
-  @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: BUS-01 - Buscar encuentro devuelto por nombre del paciente
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -39,7 +39,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
       | Gestor TA                |
       | Superusuario de Admisión |
 
-  @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: BUS-02 - Buscar encuentro devuelto por apellido del paciente
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -54,7 +54,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
       | Gestor TA                |
       | Superusuario de Admisión |
 
-  @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: BUS-03 - Buscar encuentro devuelto por número de encuentro
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -73,7 +73,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
   # Cobertura: Sección 6.2 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: FIL-01 - Filtrar encuentros por fecha de devolución
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -82,7 +82,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
     Entonces debe mostrarse únicamente encuentros devueltos en ese rango de fechas
     Y el contador debe actualizarse
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: FIL-02 - Filtrar encuentros por motivo de devolución
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -98,7 +98,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
       | Falta autorización de garante       |
       | Información de paciente incompleta  |
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: FIL-03 - Filtrar encuentros por estado
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -115,7 +115,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
       | Derivado a Supervisor          |
       | Derivado a Dirección Médica    |
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: FIL-04 - Filtrar encuentros por prioridad
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -134,7 +134,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
   # Cobertura: Sección 6.2 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: FIL-05 - Superusuario y Gestor pueden filtrar por sede
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -142,7 +142,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
     Cuando aplico el filtro "Sede" con valor "Auna Guardia Civil"
     Entonces debe mostrarse únicamente encuentros de la sede "Auna Guardia Civil"
 
-  @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: FIL-06 - Superusuario y Gestor pueden filtrar por usuario responsable
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -150,7 +150,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
     Cuando aplico el filtro "Usuario Responsable" con valor "ejecutivo01"
     Entonces debe mostrarse únicamente encuentros del usuario "ejecutivo01"
 
-  @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Esquema del escenario: FIL-06B - Gestor TA y Superusuario pueden filtrar por múltiples columnas
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -172,7 +172,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
       | Devoluciones médicas          | Carta de Garantía por Laboratorio |
       | Devoluciones de proceso       | Duplicidad de Gastos              |
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: FIL-07 - Ejecutivo NO tiene acceso a filtros de Sede y Usuario
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -184,7 +184,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
   # TÉCNICA: COMBINACIÓN DE FILTROS
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: FIL-08 - Aplicar múltiples filtros simultáneamente
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -194,7 +194,7 @@ Característica: Búsqueda y Filtros en Encuentros Devueltos
     Y aplico el filtro "Motivo de Devolución" con valor "Falta documentación administrativa"
     Entonces debe mostrarse únicamente encuentros que cumplan TODOS los filtros
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: FIL-09 - Limpiar todos los filtros con Restablecer vista
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema

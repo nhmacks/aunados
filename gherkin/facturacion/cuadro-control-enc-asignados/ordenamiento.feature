@@ -13,7 +13,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ORDENAMIENTO POR TODAS LAS COLUMNAS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-01 - Ordenar grilla por cualquier columna en orden ascendente
     Dado que soy un usuario con rol "<rol>"
     Dado que existen múltiples ejecutivos en la grilla
@@ -63,7 +63,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Monto devuelto           | | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-02 - Ordenar grilla por cualquier columna en orden descendente
     Dado que soy un usuario con rol "<rol>"
     Dado que existen múltiples ejecutivos en la grilla
@@ -117,7 +117,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ORDENAMIENTO DE 3 ESTADOS (ASC → DESC → NINGUNO)
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-03 - Tercer clic elimina el ordenamiento
     Dado que soy un usuario con rol "<rol>"
     Y la grilla está ordenada por "<columna>" descendente
@@ -143,7 +143,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS DE TEXTO
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-04 - Validar ordenamiento alfabético ascendente de ejecutivos
     Dado que soy un usuario con rol "<rol>"
     Dado que existen los siguientes ejecutivos en la grilla:
@@ -164,7 +164,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-05 - Validar ordenamiento alfabético descendente de ejecutivos
     Dado que soy un usuario con rol "<rol>"
     Dado que existen los siguientes ejecutivos en la grilla:
@@ -189,7 +189,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS NUMÉRICAS (CANTIDADES)
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-06 - Validar ordenamiento numérico ascendente de cantidades
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con diferentes valores en "<columna>":
@@ -222,7 +222,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Devuelto a adm.   | | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-07 - Validar ordenamiento numérico descendente de cantidades
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con diferentes valores en "<columna>":
@@ -259,7 +259,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS NUMÉRICAS (MONTOS)
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-08 - Validar ordenamiento de montos ascendente
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con diferentes valores en "<columna>":
@@ -292,7 +292,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Monto devuelto          | | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-09 - Validar ordenamiento de montos descendente
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con diferentes valores en "<columna>":
@@ -329,7 +329,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNA DE PORCENTAJE
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-10 - Validar ordenamiento de porcentajes ascendente
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con diferentes valores en "% Total pendiente":
@@ -348,7 +348,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-11 - Validar ordenamiento de porcentajes descendente
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con diferentes valores en "% Total pendiente":
@@ -371,7 +371,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ORDENAMIENTO CON FILTROS APLICADOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-12 - Ordenar grilla después de aplicar filtros
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado el filtro "Garante" con valor "IAFAS PÚBLICAS"
@@ -388,7 +388,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-13 - Mantener ordenamiento al modificar filtros
     Dado que soy un usuario con rol "<rol>"
     Dado que he ordenado la grilla por "Monto fact." descendente
@@ -403,7 +403,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-14 - Restablecer ordenamiento al limpiar filtros
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado filtros y ordenado por "Total pendientes" ascendente
@@ -422,7 +422,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: CAMBIO DE COLUMNA DE ORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-15 - Cambiar de una columna de ordenamiento a otra
     Dado que soy un usuario con rol "<rol>"
     Dado que la grilla está ordenada por "Ejecutivo" ascendente
@@ -437,7 +437,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-16 - Validar que solo una columna puede ordenarse a la vez
     Dado que soy un usuario con rol "<rol>"
     Dado que la grilla está ordenada por "Monto fact." descendente
@@ -456,7 +456,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: MANEJO DE VALORES IGUALES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-17 - Ordenar cuando múltiples ejecutivos tienen el mismo valor
     Dado que soy un usuario con rol "<rol>"
     Dado que existen 5 ejecutivos con "Facturado hoy" = 0
@@ -476,7 +476,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: MANEJO DE VALORES NULOS O VACÍOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-18 - Ordenar columnas que contienen valores cero
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con "Facturado hoy" = 0
@@ -491,7 +491,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-19 - Ordenar columnas de montos que contienen 0.00
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con "Monto fact." = 0.00
@@ -510,7 +510,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: INDICADORES VISUALES DE ORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-20 - Validar indicadores visuales de ordenamiento
     Dado que soy un usuario con rol "<rol>"
     Dado que la grilla NO está ordenada
@@ -531,7 +531,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ORDENAMIENTO CON GRANDES VOLÚMENES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-21 - Ordenar grilla con gran cantidad de ejecutivos
     Dado que soy un usuario con rol "<rol>"
     Dado que existen 200 ejecutivos en la grilla
@@ -550,7 +550,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: RESTABLECER VISTA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-22 - Validar ordenamiento después de restablecer vista
     Dado que soy un usuario con rol "<rol>"
     Dado que he ordenado la grilla por "Total pendientes" descendente
@@ -569,7 +569,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ORDENAMIENTO DESPUÉS DE EXPORTAR
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-23 - Mantener ordenamiento en pantalla después de exportar
     Dado que soy un usuario con rol "<rol>"
     Dado que he ordenado la grilla por "Ejecutivo" ascendente
@@ -588,7 +588,7 @@ Característica: Ordenamiento de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE PERSISTENCIA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: ORD-24 - El ordenamiento se pierde al refrescar la página
     Dado que soy un usuario con rol "<rol>"
     Dado que he ordenado la grilla por "Monto por fact." descendente

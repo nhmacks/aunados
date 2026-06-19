@@ -11,7 +11,7 @@ Característica: Gestión de Encuentros Devueltos
   # RN-ED-05, RN-ED-06
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-01 - Resolver encuentro devuelto y reenviarlo a Facturación
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -23,7 +23,7 @@ Característica: Gestión de Encuentros Devueltos
     Y el Responsable de Facturación debe poder reasignarlo
     Y debe mostrarse el mensaje "Encuentro resuelto exitosamente"
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-02 - Cambiar estado de encuentro devuelto a No facturable
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -35,7 +35,7 @@ Característica: Gestión de Encuentros Devueltos
     Y el encuentro debe pasar automáticamente a la bandeja del Responsable de Facturación
     Y debe mostrarse el mensaje "Estado actualizado correctamente"
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: GEST-03 - Cambiar estado de encuentro devuelto
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -50,7 +50,7 @@ Característica: Gestión de Encuentros Devueltos
       | Error de facturación |
       | Regularizado         |
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-04 - Agregar observaciones al resolver encuentro devuelto
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -65,7 +65,7 @@ Característica: Gestión de Encuentros Devueltos
   # Cobertura: RN-ED-04
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: GEST-05 - Ejecutivo NO puede resolver encuentros de otros ejecutivos
     Dado que soy el ejecutivo "ejecutivo01"
     Y he iniciado sesión en el sistema
@@ -74,7 +74,7 @@ Característica: Gestión de Encuentros Devueltos
     Entonces el sistema debe denegar el acceso
     Y debe mostrarse el mensaje "No tienes permisos para gestionar este encuentro"
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: GEST-06 - Ejecutivo NO puede resolver encuentros de otras sedes
     Dado que soy el ejecutivo "ejecutivo01" de la sede "Auna Guardia Civil"
     Y he iniciado sesión en el sistema
@@ -90,7 +90,7 @@ Característica: Gestión de Encuentros Devueltos
   # RN-ED-013, RN-ED-014
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-07 - Regularizar encuentro devuelto (RN-ED-013)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -103,7 +103,7 @@ Característica: Gestión de Encuentros Devueltos
     Y el encuentro debe pasar automáticamente a la bandeja del Responsable de Facturación
     Y debe mostrarse el mensaje "Encuentro regularizado exitosamente"
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-08 - Reenviar encuentro regularizado a Facturación (RN-ED-014)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -120,7 +120,7 @@ Característica: Gestión de Encuentros Devueltos
   # RN-ED-004, RN-ED-005
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-09 - Visualizar encuentro devuelto sin comentarios (RN-ED-004, RN-ED-025)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -133,7 +133,7 @@ Característica: Gestión de Encuentros Devueltos
     Y NO debo visualizar la fecha de devolución
     Y NO debo visualizar el usuario que realizó la devolución
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-10 - Visualizar encuentro devuelto con comentarios (RN-ED-005, RN-ED-025)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -151,7 +151,7 @@ Característica: Gestión de Encuentros Devueltos
   # Cobertura: Funcionalidad exclusiva del Superusuario de Admisión
   # ========================================================================
 
-  @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-11 - Superusuario visualiza checkboxes para marcar motivos como subsanados
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -165,7 +165,7 @@ Característica: Gestión de Encuentros Devueltos
     Y debo visualizar un campo de comentarios con límite de 400 caracteres
     Y debo visualizar un dropdown de estado
 
-  @superusuarioAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @unhappyPath
   Escenario: GEST-12 - Estado Regularizado se deshabilita al desmarcar un motivo
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -176,7 +176,7 @@ Característica: Gestión de Encuentros Devueltos
     Entonces el estado "Regularizado" debe desaparecer del dropdown
     Y NO debo poder seleccionar "Regularizado" como estado
 
-  @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: GEST-13 - Superusuario puede cambiar estado independientemente de los checkboxes
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -203,7 +203,7 @@ Característica: Gestión de Encuentros Devueltos
       | 3                   | 3                | disponible          |
       | 1                   | 1                | disponible          |
 
-  @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-14 - Superusuario regulariza encuentro marcando todos los motivos y cambiando estado
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -219,7 +219,7 @@ Característica: Gestión de Encuentros Devueltos
     Y el encuentro debe pasar automáticamente a la bandeja del Responsable de Facturación
     Y debe mostrarse el mensaje "Encuentro regularizado exitosamente"
 
-  @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: GEST-15 - Superusuario agrega comentarios al gestionar encuentro devuelto
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -234,7 +234,7 @@ Característica: Gestión de Encuentros Devueltos
     Y el encuentro debe desaparecer de la bandeja "Encuentros Devueltos"
     Y el encuentro debe pasar automáticamente a la bandeja del Responsable de Facturación
 
-  @superusuarioAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @unhappyPath
   Escenario: GEST-16 - Validar límite de 400 caracteres en comentarios del Superusuario
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema

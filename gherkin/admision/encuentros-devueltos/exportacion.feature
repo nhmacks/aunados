@@ -10,7 +10,7 @@ Característica: Exportación de Encuentros Devueltos
   # Cobertura: Sección 13 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-01 - Exportación respeta filtros activos
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -30,7 +30,7 @@ Característica: Exportación de Encuentros Devueltos
       | Superusuario de Admisión   | 500   | búsqueda apellido = García               | 25       |
       | Gestor TA                  | 500   | filtro Prioridad Alta + búsqueda Juan    | 8        |
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-02 - Exportación respeta filtros y restricciones de rol (Ejecutivo)
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "<usuario>"
     Y he iniciado sesión en el sistema
@@ -56,7 +56,7 @@ Característica: Exportación de Encuentros Devueltos
   # PRUEBAS BASADAS EN RIESGO: INTEGRIDAD DE DATOS (CRÍTICO)
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-03 - Validar coincidencia exacta entre grilla y archivo exportado
     Dado que soy un usuario con rol "<rol>" con usuario "<usuario>"
     Y he iniciado sesión en el sistema
@@ -80,7 +80,7 @@ Característica: Exportación de Encuentros Devueltos
   # PRUEBAS BASADAS EN RIESGO: SEGURIDAD (CRÍTICO)
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadAlta @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: EXP-04 - Ejecutivo NO puede exportar encuentros de otros usuarios (Seguridad)
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
     Y he iniciado sesión en el sistema
@@ -101,7 +101,7 @@ Característica: Exportación de Encuentros Devueltos
   # NOTA IMPORTANTE: Todos los roles exportan las mismas 15 columnas
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-05 - Validar formato y estructura del archivo Excel
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -136,7 +136,7 @@ Característica: Exportación de Encuentros Devueltos
   # VALIDACIÓN DE COLUMNAS POR ROL
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: EXP-06 - Ejecutivo exporta columnas que no visualiza en la grilla
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -151,7 +151,7 @@ Característica: Exportación de Encuentros Devueltos
     Y debe incluir la columna "Devoluciones médicas"
     Y debe incluir la columna "Devoluciones de proceso"
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: EXP-07 - Gestor TA y Superusuario exportan las mismas columnas que visualizan
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -164,7 +164,7 @@ Característica: Exportación de Encuentros Devueltos
   # CASOS EDGE: VALORES ESPECIALES
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-08 - Manejo de valores especiales en exportación
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -191,7 +191,7 @@ Característica: Exportación de Encuentros Devueltos
   # TÉCNICA: VALORES DE FRONTERA - MONTOS MÍNIMOS, PROMEDIO Y MÁXIMOS
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-08B - Validar exportación de montos mínimos, promedio y máximos
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -221,7 +221,7 @@ Característica: Exportación de Encuentros Devueltos
   # COMPATIBILIDAD Y SCROLL INFINITO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-09 - Exportación incluye todos los registros, no solo los visibles en pantalla
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -243,7 +243,7 @@ Característica: Exportación de Encuentros Devueltos
   # ERROR HANDLING Y SIN RESULTADOS
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: EXP-10 - No se puede exportar cuando no hay encuentros devueltos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -253,7 +253,7 @@ Característica: Exportación de Encuentros Devueltos
     Entonces el botón "Descargar" debe estar deshabilitado
     Y NO debe permitir exportar
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Esquema del escenario: EXP-11 - Manejo de errores en proceso de exportación
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -272,7 +272,7 @@ Característica: Exportación de Encuentros Devueltos
   # PRUEBAS BASADAS EN RIESGO: PERFORMANCE (ALTO)
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-12 - Exportación de gran volumen sin degradación (Performance)
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -292,7 +292,7 @@ Característica: Exportación de Encuentros Devueltos
   # VALIDACIÓN DE NOMBRE DE ARCHIVO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadAlta @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: EXP-13 - Validar formato del nombre de archivo con hash único
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema

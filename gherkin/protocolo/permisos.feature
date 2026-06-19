@@ -9,7 +9,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: ACCESO AUTORIZADO - GESTOR TA
   # ========================================================================
 
-  @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @happyPath
   Escenario: PERM-01 - Gestor TA puede acceder a Encuentros en Protocolo
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Gestor TA"
@@ -19,7 +19,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y la pantalla "Encuentros en Protocolo" debe cargarse correctamente
     Y debo poder visualizar todos los encuentros clasificados en protocolo
 
-  @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @happyPath
   Escenario: PERM-02 - Gestor TA puede utilizar todas las funcionalidades
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Gestor TA"
@@ -35,7 +35,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: ACCESO DENEGADO - SUPERUSUARIO DE ADMISIÓN
   # ========================================================================
 
-  @superusuarioAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @unhappyPath
   Escenario: PERM-03 - Superusuario de Admisión NO puede acceder a Encuentros en Protocolo
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -44,7 +44,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y NO debe aparecer ningún enlace a la funcionalidad
     Y NO debe ser posible acceder mediante navegación normal
 
-  @superusuarioAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @unhappyPath
   Escenario: PERM-04 - Superusuario NO puede acceder mediante URL directa
     Dado que he iniciado sesión como "Superusuario de Admisión"
     Cuando intento acceder directamente a la URL "/admision/encuentros-protocolo"
@@ -57,7 +57,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: ACCESO DENEGADO - EJECUTIVO DE ADMISIÓN
   # ========================================================================
 
-  @ejecutivoAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @unhappyPath
   Escenario: PERM-05 - Ejecutivo de Admisión NO puede acceder a Encuentros en Protocolo
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Admisión"
@@ -66,7 +66,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y NO debe aparecer ningún enlace a la funcionalidad
     Y NO debe ser posible acceder mediante navegación normal
 
-  @ejecutivoAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @unhappyPath
   Escenario: PERM-06 - Ejecutivo NO puede acceder mediante URL directa
     Dado que he iniciado sesión como "Ejecutivo de Admisión"
     Cuando intento acceder directamente a la URL "/admision/encuentros-protocolo"
@@ -79,7 +79,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: ACCESO DENEGADO - ROLES DE FACTURACIÓN
   # ========================================================================
 
-  @responsableFacturacion @unhappyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: PERM-07 - Responsable de Facturación NO puede acceder a Encuentros en Protocolo
     Dado que he iniciado sesión como "Responsable de Facturación"
     Cuando navego por el sistema
@@ -87,7 +87,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y NO debo poder acceder a la funcionalidad
     Y si intento acceder por URL directa, debe denegarse el acceso
 
-  @ejecutivoFacturacion @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @unhappyPath
   Escenario: PERM-08 - Ejecutivo de Facturación NO puede acceder a Encuentros en Protocolo
     Dado que he iniciado sesión como "Ejecutivo de Facturación"
     Cuando navego por el sistema
@@ -99,7 +99,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: ACCESO DENEGADO - USUARIOS NO AUTENTICADOS
   # ========================================================================
 
-  @sinAutenticacion @unhappyPath
+  @prioridadExtrema @sinAutenticacion @unhappyPath
   Escenario: PERM-09 - Usuario no autenticado NO puede acceder
     Dado que NO he iniciado sesión en el sistema
     Cuando intento acceder a la URL "/admision/encuentros-protocolo"
@@ -112,7 +112,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE PERMISOS EN BACKEND
   # ========================================================================
 
-  @gestorTA @backend @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @backend @happyPath
   Escenario: PERM-10 - Validar permisos en el backend para Gestor TA
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Gestor TA"
@@ -121,7 +121,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y debe permitir la petición con código HTTP 200
     Y debe retornar los datos de encuentros en protocolo
 
-  @superusuarioAdmision @backend @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @backend @unhappyPath
   Escenario: PERM-11 - Backend bloquea peticiones de Superusuario de Admisión
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -131,7 +131,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y debe retornar un mensaje "Acceso denegado"
     Y NO debe retornar ningún dato de encuentros
 
-  @ejecutivoAdmision @backend @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @backend @unhappyPath
   Escenario: PERM-12 - Backend bloquea peticiones de Ejecutivo de Admisión
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Admisión"
@@ -144,7 +144,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE PERMISOS DE EXPORTACIÓN
   # ========================================================================
 
-  @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @happyPath
   Escenario: PERM-13 - Gestor TA puede descargar información
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Gestor TA"
@@ -154,7 +154,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y el archivo debe generarse correctamente
     Y NO debe mostrarse ningún mensaje de error de permisos
 
-  @superusuarioAdmision @backend @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @backend @unhappyPath
   Escenario: PERM-14 - Backend bloquea exportación de otros roles
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -167,7 +167,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: MENSAJES DE ERROR ESPECÍFICOS
   # ========================================================================
 
-  @superusuarioAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @unhappyPath
   Escenario: PERM-15 - Validar mensaje de error específico para acceso denegado
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -185,7 +185,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE SEGURIDAD
   # ========================================================================
 
-  @gestorTA @seguridad @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @seguridad @unhappyPath
   Escenario: PERM-16 - Validar que NO se exponen datos mediante URL manipulation
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Admisión"
@@ -199,7 +199,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
     Y NO debe exponerse ningún dato de encuentros en protocolo
     Y debe mostrarse "Acceso denegado" en todos los casos
 
-  @seguridad @unhappyPath
+  @prioridadExtrema @seguridad @unhappyPath
   Escenario: PERM-17 - Validar que el token de sesión valida correctamente el rol
     Dado que un usuario tiene un token de sesión válido
     Y el token contiene el rol "Ejecutivo de Admisión"
@@ -212,7 +212,7 @@ Característica: Permisos de Acceso a Encuentros en Protocolo
   # TÉCNICA: EXCLUSIVIDAD DEL ROL
   # ========================================================================
 
-  @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @happyPath
   Escenario: PERM-20 - Validar que Gestor TA es el ÚNICO rol con acceso
     Dado que existen los siguientes roles en el sistema:
       | Rol                        |

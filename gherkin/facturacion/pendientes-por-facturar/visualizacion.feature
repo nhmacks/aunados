@@ -15,7 +15,7 @@ Característica: Visualización de Pendientes por Facturar
   # RN-PF-01, RN-PF-02, RN-PF-03
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: VIS-01 - Acceder a Pendientes por Facturar como pantalla inicial
     Dado que tengo encuentros asignados
     Cuando inicio sesión correctamente en el sistema
@@ -24,7 +24,7 @@ Característica: Visualización de Pendientes por Facturar
     Y debe mostrar los encuentros más recientes primero basándose en la fecha de asignación
     Y debe mostrar el contador de carga de trabajo
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: VIS-02 - Visualizar columnas de la lista de pendientes
     Dado que he accedido a la pantalla "Pendientes por Facturar"
     Cuando visualizo la grilla de encuentros
@@ -50,7 +50,7 @@ Característica: Visualización de Pendientes por Facturar
   # Cobertura: Sección 6.2 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: VIS-03 - Cargar registros adicionales mediante scroll infinito
     Dado que tengo más de 50 encuentros asignados
     Y he visualizado los primeros 50 registros
@@ -64,7 +64,7 @@ Característica: Visualización de Pendientes por Facturar
   # Cobertura: Sección 12 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: VIS-04 - Visualizar contador de carga de trabajo
     Dado que tengo 45 encuentros asignados
     Y 32 encuentros están en estado "Pendiente"
@@ -78,7 +78,7 @@ Característica: Visualización de Pendientes por Facturar
       | En Proceso             | 8     |
       | Facturados Hoy         | 5     |
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: VIS-05 - Visualizar monto total pendiente en contador
     Dado que tengo encuentros asignados pendientes de facturar
     Y el monto total pendiente es "S/ 125,340.00"
@@ -91,7 +91,7 @@ Característica: Visualización de Pendientes por Facturar
   # RN-PF-01, RN-PF-02, RN-PF-03
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @regresion
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @regresion
   Escenario: VIS-06 - Ejecutivo solo visualiza encuentros asignados a su usuario
     Dado que soy el ejecutivo "ejecutivo01"
     Y existen 100 encuentros clasificados para Facturación
@@ -101,7 +101,7 @@ Característica: Visualización de Pendientes por Facturar
     Entonces debo visualizar únicamente 30 encuentros
     Y todos los encuentros mostrados deben estar asignados a "ejecutivo01"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: VIS-07 - Ejecutivo NO visualiza encuentros sin asignar
     Dado que soy el ejecutivo "ejecutivo01"
     Y existen encuentros en estado "Por asignar" sin ejecutivo asignado
@@ -109,7 +109,7 @@ Característica: Visualización de Pendientes por Facturar
     Entonces NO debo visualizar encuentros en estado "Por asignar"
     Y solo debo visualizar encuentros asignados a mi usuario
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: VIS-08 - Ejecutivo sin encuentros asignados visualiza lista vacía
     Dado que soy el ejecutivo "ejecutivo01"
     Y NO tengo encuentros asignados
@@ -122,7 +122,7 @@ Característica: Visualización de Pendientes por Facturar
   # Cobertura: Sección 7.4 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: VIS-09 - Acceder al detalle del encuentro
     Dado que tengo encuentros asignados
     Y visualizo la lista en "Pendientes por Facturar"
@@ -139,7 +139,7 @@ Característica: Visualización de Pendientes por Facturar
   # Cobertura: Sección 9 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Esquema del escenario: VIS-10 - Visualizar encuentros según su estado de facturación
     Dado que tengo encuentros asignados en diferentes estados
     Y existen encuentros en estado "<estado>"
@@ -154,14 +154,14 @@ Característica: Visualización de Pendientes por Facturar
       | Pendiente de Validación   |
       | Observado                 |
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: VIS-11 - NO visualizar encuentros ya facturados en la lista
     Dado que tengo encuentros que fueron marcados como "Facturado"
     Cuando accedo a "Pendientes por Facturar"
     Entonces NO debo visualizar encuentros en estado "Facturado"
     Y solo debo visualizar encuentros pendientes de procesar
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadMedia @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: VIS-12 - NO visualizar encuentros devueltos en la lista activa
     Dado que devolví encuentros a Admisión
     Y los encuentros están en estado "Devuelto"

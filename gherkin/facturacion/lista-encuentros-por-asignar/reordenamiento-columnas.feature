@@ -14,7 +14,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-01 - Mover columna de derecha a izquierda
     Dado que estoy visualizando la tabla de encuentros
     Y las columnas están en el orden original:
@@ -31,7 +31,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
     Y la columna "Clasific." debe desplazarse a la posición 3
     Y el nuevo orden debe ser: Encuentro, Sede, Clasific., Apellidos, ...
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-02 - Mover columna de izquierda a derecha
     Dado que estoy visualizando la tabla de encuentros
     Cuando arrastro la columna "Clasific." (posición 2)
@@ -40,7 +40,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
     Y las columnas intermedias deben reordenarse automáticamente
     Y el nuevo orden debe reflejar el cambio
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-03 - Mover columna al inicio de la tabla
     Dado que estoy visualizando la tabla de encuentros
     Y la columna "Fact. Fin" está en la última posición (15)
@@ -50,7 +50,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
     Y "Encuentro" debe desplazarse a la segunda posición
     Y todas las demás columnas deben desplazarse una posición a la derecha
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-04 - Mover columna al final de la tabla
     Dado que estoy visualizando la tabla de encuentros
     Y la columna "Encuentro" está en la posición 1
@@ -63,7 +63,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN VISUAL DURANTE EL ARRASTRE
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-05 - Indicador visual durante el arrastre
     Cuando empiezo a arrastrar la columna "Garante"
     Entonces debe mostrarse un indicador visual de que la columna está siendo arrastrada
@@ -72,7 +72,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
     Cuando muevo el mouse sobre diferentes posiciones
     Entonces el indicador de posición debe actualizarse dinámicamente
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-06 - Cancelar arrastre sin soltar
     Dado que he empezado a arrastrar la columna "Apellidos"
     Cuando presiono la tecla ESC
@@ -85,7 +85,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: TODAS LAS COLUMNAS SON MOVIBLES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-07 - Todas las columnas pueden moverse
     Cuando intento arrastrar cada columna de la tabla
     Entonces todas las 15 columnas deben ser arrastrables
@@ -96,7 +96,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: REORDENAMIENTO CON DATOS PRESENTES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-08 - Los datos se mantienen al reordenar columnas
     Dado que el encuentro "12345678" del paciente "García Pérez, Juan" tiene:
       | Columna      | Valor              |
@@ -114,7 +114,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: REORDENAMIENTO CON BÚSQUEDA Y ORDENAMIENTO ACTIVOS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-09 - Reordenar columnas con búsqueda aplicada
     Dado que he buscado encuentros por "García"
     Y la tabla muestra resultados filtrados
@@ -122,7 +122,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
     Entonces la búsqueda debe mantenerse activa
     Y los datos filtrados deben mostrarse en el nuevo orden de columnas
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-10 - Reordenar columnas con ordenamiento activo
     Dado que la tabla está ordenada por "Apellidos" descendente
     Y se muestra el indicador de orden (↓)
@@ -135,7 +135,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: REORDENAMIENTO Y SELECCIÓN DE REGISTROS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-11 - La selección se mantiene al reordenar columnas
     Dado que he seleccionado 10 encuentros con sus checkboxes marcados
     Y el contador muestra "10 registro seleccionado de 25040"
@@ -148,7 +148,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: MÚLTIPLES REORDENAMIENTOS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-12 - Realizar múltiples reordenamientos consecutivos
     Cuando muevo "Sede" de la posición 3 a la posición 1
     Y luego muevo "Garante" de la posición 6 a la posición 2
@@ -160,14 +160,14 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: PERSISTENCIA DEL REORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-13 - El reordenamiento persiste al hacer scroll
     Dado que he reordenado las columnas
     Cuando hago scroll vertical en la tabla
     Entonces el orden de las columnas debe mantenerse
     Y los encabezados deben seguir mostrando el orden personalizado
 
-  @responsableFacturacion @unhappyPath
+  @prioridadBaja @responsableFacturacion @unhappyPath
   Escenario: REORD-14 - El reordenamiento NO persiste al recargar la página
     Dado que he reordenado las columnas a un orden personalizado
     Cuando refresco la página del navegador
@@ -178,7 +178,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: REORDENAMIENTO Y RESTABLECER VISTA
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-15 - Restablecer vista elimina el reordenamiento
     Dado que he reordenado las columnas
     Cuando presiono el botón "Restablecer vista"
@@ -189,13 +189,13 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: ACCESIBILIDAD Y USABILIDAD
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-16 - Cursor indica que columna es arrastrable
     Cuando paso el mouse sobre el encabezado de una columna
     Entonces el cursor debe cambiar para indicar que la columna es arrastrable
     Y debe mostrarse una pista visual (ej: ícono de mano, líneas de arrastre)
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-17 - No se puede soltar columna en posición inválida
     Dado que estoy arrastrando una columna
     Cuando intento soltarla fuera del área de la tabla
@@ -207,7 +207,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
   # TÉCNICA: REORDENAMIENTO Y FUNCIONALIDADES DE ACCIÓN
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-18 - Los botones funcionan después de reordenar columnas
     Dado que he reordenado las columnas
     Y he seleccionado 5 encuentros
@@ -215,7 +215,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros para Asignar
     Entonces el botón "Asignar" debe funcionar correctamente
     Y debe abrir el modal de asignación con los 5 encuentros seleccionados
 
-  @responsableFacturacion @happyPath
+  @prioridadBaja @responsableFacturacion @happyPath
   Escenario: REORD-19 - El botón Descargar funciona con columnas reordenadas
     Dado que he reordenado las columnas
     Cuando presiono el botón "Descargar"

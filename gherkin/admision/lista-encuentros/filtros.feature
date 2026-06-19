@@ -9,7 +9,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # DISPONIBILIDAD DE FILTROS POR ROL
   # ========================================================================
 
-  @superusuarioAdmision
+  @prioridadAlta @superusuarioAdmision
   Escenario: FIL-01 - Superusuario visualiza filtros disponibles
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -29,7 +29,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Sustento de proceso       |
     Y NO debo visualizar el filtro "Mecanismo"
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-01B - Gestor TA visualiza filtros disponibles incluyendo Mecanismo
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -48,7 +48,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Sustento Médico           |
       | Sustento de proceso       |
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Escenario: FIL-02 - Ejecutivo visualiza solo filtros permitidos para su rol
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -72,7 +72,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR SEDE
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-03 - Filtrar por una sede específica
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -85,7 +85,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y el contador debe actualizarse automáticamente
     Y el filtro debe permanecer activo
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-04 - Filtrar por múltiples sedes simultáneamente
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -100,7 +100,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar encuentros de ambas sedes seleccionadas
     Y el contador debe mostrar la suma de encuentros de ambas sedes
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-05 - Buscar sede dentro del filtro de Sede
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -110,7 +110,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces el sistema debe mostrar únicamente las sedes que contengan "Auna"
     Y debe permitir seleccionarlas
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-06 - Limpiar filtro de Sede sin afectar otros filtros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -126,7 +126,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR ESTADO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-07 - Filtrar por un estado específico
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -138,7 +138,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con estado "Pendiente"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-08 - Filtrar por múltiples estados simultáneamente
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -154,7 +154,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar encuentros de los tres estados seleccionados
     Y el contador debe reflejar la suma de encuentros de todos los estados
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-09 - Buscar estado dentro del filtro de Estado
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -170,7 +170,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR FECHA DE APERTURA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-10 - Filtrar por fecha exacta usando operador "Igual a"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -183,7 +183,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con fecha de apertura "03/06/2026"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-11 - Filtrar por rango de fechas usando operador "Entre"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -197,7 +197,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con fecha de apertura entre "01/06/2026" y "05/06/2026"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-12 - Filtrar por fechas anteriores usando operador "Antes de"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -210,7 +210,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con fecha de apertura anterior a "01/06/2026"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-13 - Filtrar por fechas posteriores usando operador "Después de"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -223,7 +223,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con fecha de apertura posterior a "01/06/2026"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-14 - Seleccionar fecha mediante calendario visual
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -239,7 +239,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR PRIORIDAD
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-15 - Filtrar por Prioridad 1 (única selección)
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -251,7 +251,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con Prioridad 1
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-16 - Intentar seleccionar múltiples prioridades (no permitido)
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -263,7 +263,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y debe deseleccionar la prioridad previamente seleccionada
     Y debe seleccionar la nueva prioridad
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-17 - Buscar prioridad dentro del filtro (búsqueda desde segundo carácter)
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -273,7 +273,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces el sistema debe iniciar la búsqueda
     Y debe mostrar "Prioridad 1 - Mes de castigo"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-18 - Buscar prioridad sin coincidencias
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -287,7 +287,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR USUARIO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-19 - Filtrar por usuario usando operador "Contiene"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -300,7 +300,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros de usuarios que contengan "Lucía"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-20 - Limpiar filtro de Usuario
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -314,7 +314,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR GARANTE
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-21 - Filtrar por garante usando operador "Contiene"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -327,7 +327,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con garante que contenga "MAPFRE"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-22 - Filtrar garante con búsqueda parcial
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -342,7 +342,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR TIPO DE ENCUENTRO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-23 - Filtrar por Tipo de Encuentro Ambulatorio
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -354,7 +354,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros ambulatorios
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-24 - Filtrar por Tipo de Encuentro Emergencia
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -365,7 +365,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y presiono el botón "Aplicar"
     Entonces la grilla debe mostrar únicamente encuentros de emergencia
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-25 - Seleccionar todos los tipos de encuentro
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -378,7 +378,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Emergencia  |
     Y al aplicar el filtro debe mostrar ambos tipos
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-26 - Buscar tipo de encuentro sin coincidencias
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -392,7 +392,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR SUSTENTO ADMINISTRATIVO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-27 - Filtrar por un sustento administrativo específico
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -404,7 +404,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con sustento "Carta de Garantía"
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-28 - Filtrar por múltiples sustentos administrativos
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -420,7 +420,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar encuentros que tengan cualquiera de los tres sustentos seleccionados
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-29 - Seleccionar todos los sustentos administrativos
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -430,7 +430,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces deben seleccionarse todos los sustentos administrativos disponibles
     Y al aplicar debe mostrar encuentros con cualquier sustento administrativo
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-30 - Buscar sustento administrativo dentro del filtro
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -444,7 +444,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTRO POR SUSTENTO MÉDICO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-31 - Filtrar por Sustento Médico "Laboratorio"
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -456,7 +456,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros con pendientes de laboratorio
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-32 - Filtrar por Sustento Médico "-" (sin pendientes)
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -468,7 +468,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros sin pendientes médicos
     Y el contador debe actualizarse automáticamente
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-33 - Seleccionar ambos valores de Sustento Médico
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -485,7 +485,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # Cobertura: Requisito específico de filtrado por tipo de mecanismo de pago
   # ========================================================================
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-54 - Gestor TA visualiza filtro por mecanismo
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -499,7 +499,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | CPM              |
       | Pago por servicio|
 
-  @superusuarioAdmision @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @ejecutivoAdmision
   Escenario: FIL-55 - Superusuario y Ejecutivo NO visualizan filtro por mecanismo
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -507,7 +507,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Cuando accedo a la sección de filtros
     Entonces NO debo visualizar el filtro "Mecanismo"
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-56 - Filtrar encuentros por mecanismo CAPITA
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -519,7 +519,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y la cantidad de registros debe actualizarse correctamente
     Y el filtro debe permanecer activo
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-57 - Filtrar encuentros por mecanismo CPM
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -531,7 +531,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y la cantidad de registros debe actualizarse correctamente
     Y el filtro debe permanecer activo
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-58 - Filtrar encuentros por mecanismo Pago por servicio
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -543,7 +543,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y la cantidad de registros debe actualizarse correctamente
     Y el filtro debe permanecer activo
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-59 - Seleccionar "Todos" en filtro de mecanismo muestra todos los encuentros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -554,7 +554,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces el sistema debe mostrar encuentros de todos los mecanismos
     Y la cantidad de registros debe reflejar el total de encuentros disponibles
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-60 - Combinar filtro de mecanismo con otros filtros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -568,7 +568,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Estado     | Pendiente |
     Y el contador debe mostrar solo los encuentros que cumplen ambos filtros
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-61 - Limpiar filtro de mecanismo sin afectar otros filtros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -580,7 +580,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y el filtro "Prioridad" debe permanecer activo
     Y la grilla debe actualizarse mostrando todos los mecanismos con "Prioridad 1"
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-62 - Restablecer vista elimina filtro de mecanismo
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -592,7 +592,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y el filtro "Estado" debe eliminarse
     Y la grilla debe mostrar todos los encuentros disponibles para mi rol
 
-  @gestorTA
+  @prioridadAlta @gestorTA
   Escenario: FIL-63 - Contador se actualiza al filtrar por mecanismo
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -607,7 +607,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # FILTROS COMBINADOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-34 - Combinar múltiples filtros simultáneamente
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -623,7 +623,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
       | Prioridad | Prioridad 1        |
     Y el contador debe mostrar solo los encuentros que cumplen todos los filtros
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Escenario: FIL-35 - Ejecutivo combina filtros permitidos para su rol
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -635,7 +635,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente encuentros que cumplan los tres criterios
     Y el contador debe reflejar la cantidad de encuentros filtrados
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-36 - Los filtros permanecen activos hasta ser eliminados
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -651,7 +651,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # LIMPIEZA Y RESTABLECIMIENTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-37 - Limpiar filtro individual sin afectar otros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -666,7 +666,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y los filtros "Estado" y "Tipo Encuentro" deben permanecer activos
     Y la grilla debe actualizarse mostrando encuentros que cumplan los dos filtros restantes
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-38 - Restablecer vista elimina todos los filtros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -682,7 +682,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y la grilla debe mostrar todos los encuentros disponibles para mi rol
     Y el contador debe mostrar el total de encuentros sin filtros
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-39 - Restablecer vista también elimina búsquedas y ordenamientos
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -700,7 +700,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # MENSAJES Y VALIDACIONES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-40 - Mensaje cuando filtro no retorna resultados
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -712,7 +712,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y la grilla debe estar vacía
     Y el contador debe mostrar "0 registros encontrados"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-41 - Contador se actualiza automáticamente al aplicar filtro
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -724,7 +724,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces el contador debe actualizarse automáticamente
     Y debe mostrar "75 registros encontrados"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-42 - Contador se actualiza al limpiar un filtro
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -739,7 +739,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # REGLAS DE NEGOCIO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-43 - Validar RN-FIL-01: Los filtros pueden combinarse
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -752,7 +752,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y la grilla debe mostrar solo encuentros que cumplan todos los criterios
     Y el sistema debe permitir agregar más filtros adicionales
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-44 - Validar RN-FIL-02: Contador refleja resultados filtrados
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -762,7 +762,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces el contador debe mostrar exactamente "42 registros encontrados"
     Y la cantidad mostrada debe coincidir con los registros visibles en la grilla
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-45 - Validar RN-FIL-03: Aplicar ejecuta el filtro seleccionado
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -774,7 +774,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces el filtro debe ejecutarse
     Y la grilla debe actualizarse mostrando solo encuentros con estado "Pendiente"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-46 - Validar RN-FIL-04: Limpiar elimina solo el filtro correspondiente
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -785,7 +785,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces solo el filtro "Estado" debe eliminarse
     Y el filtro "Prioridad" debe permanecer activo y aplicado
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-47 - Validar RN-FIL-05: Restablecer Vista elimina todos los filtros
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -796,7 +796,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y todas las búsquedas deben eliminarse
     Y todos los ordenamientos deben restablecerse
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-48 - Validar RN-FIL-06: Prioridad permite una única selección
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -808,7 +808,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y "Prioridad 1" debe deseleccionarse automáticamente
     Y "Prioridad 2" debe quedar seleccionada
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-49 - Validar RN-FIL-07: Sede permite múltiples selecciones
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -822,7 +822,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces las tres sedes deben permanecer seleccionadas simultáneamente
     Y al aplicar el filtro debe mostrar encuentros de las tres sedes
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-50 - Validar RN-FIL-08: Estado permite múltiples selecciones
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -836,7 +836,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces los tres estados deben permanecer seleccionados simultáneamente
     Y al aplicar el filtro debe mostrar encuentros de los tres estados
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: FIL-51 - Validar RN-FIL-09: Tipo de Encuentro permite múltiples selecciones
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión"
@@ -846,7 +846,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces ambos tipos deben permanecer seleccionados simultáneamente
     Y al aplicar el filtro debe mostrar encuentros de ambos tipos
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-52 - Validar RN-FIL-10: Sustentos Administrativos permite múltiples selecciones
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Gestor TA"
@@ -861,7 +861,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Entonces los cuatro sustentos deben permanecer seleccionados simultáneamente
     Y al aplicar el filtro debe mostrar encuentros con cualquiera de los cuatro sustentos
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-53 - Validar RN-FIL-11: Sustentos Médicos permite múltiples selecciones
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"
@@ -875,7 +875,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
   # RESPETO A RESTRICCIONES DE ROL
   # ========================================================================
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Escenario: FIL-54 - Filtros respetan restricciones de visibilidad del Ejecutivo
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
@@ -890,7 +890,7 @@ Característica: Filtros en Lista de Encuentros de Admisión
     Y NO debo visualizar encuentros de otros usuarios
     Y NO debo visualizar encuentros de otras sedes
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Escenario: FIL-55 - Filtros no restringen visibilidad de Superusuario y Gestor
     Dado que ingreso al aplicativo AUNADOS
     Y inicio sesión con rol "Superusuario de Admisión"

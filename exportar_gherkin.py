@@ -10,12 +10,17 @@ import sys
 from dataclasses import dataclass, field
 
 import openpyxl
+from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.datavalidation import DataValidation
 
 HEADERS = [
     "SCENARIO",
     "EXAMPLE",
+    "MÓDULO",
+    "FUNCIONALIDAD",
+    "SUB FUNCIONALIDAD",
     "PATH",
     "FEATURE NAME",
     "BACKGROUND /\nPRECONDICIÓN",
@@ -24,6 +29,7 @@ HEADERS = [
     "DATA DE PRUEBA",
     "HISTORIA/TAREA",
     "PLATAFORMA",
+    "PRIORIDAD",
     "CRITICIDAD",
     "ESTADO DE EJECUCIÓN",
     "EJECUTADO POR",
@@ -221,11 +227,46 @@ def collect_rows(gherkin_dir: str) -> list[dict]:
     return rows
 
 
+def _extract_levels(path: str) -> tuple[str, str, str]:
+    """Extrae Módulo, Funcionalidad y Sub Funcionalidad del path del feature.
+
+    gherkin/                         → nivel 0 (raíz, se ignora)
+    gherkin/<modulo>/                → nivel 1 → Módulo
+    gherkin/<modulo>/<func>/         → nivel 2 → Funcionalidad
+    gherkin/<modulo>/<func>/<sub>/   → nivel 3 → Sub Funcionalidad
+    """
+    parts = path.replace("\\", "/").split("/")
+    folders = parts[1:-1]  # descarta 'gherkin' (índice 0) y el archivo (último)
+    modulo         = folders[0] if len(folders) > 0 else ""
+    funcionalidad  = folders[1] if len(folders) > 1 else ""
+    sub_func       = folders[2] if len(folders) > 2 else ""
+    return modulo, funcionalidad, sub_func
+
+
+
+def _prioridad(tags: list[str]) -> str:
+    mapping = {
+        "@prioridadBaja":    "Baja",
+        "@prioridadMedia":   "Media",
+        "@prioridadAlta":    "Alta",
+        "@prioridadExtrema": "Extrema",
+    }
+    for tag in tags:
+        if tag in mapping:
+            return mapping[tag]
+    return ""
+
+
 def _criticidad(tags: list[str]) -> str:
-    if "@happyPath" in tags:
-        return "Happy Path"
-    if "@unhappyPath" in tags:
-        return "Unhappy Path"
+    mapping = {
+        "@c_baja":   "Baja",
+        "@c_Media":  "Media",
+        "@c_alta":   "Alta",
+        "@c_extrema": "Extrema",
+    }
+    for tag in tags:
+        if tag in mapping:
+            return mapping[tag]
     return ""
 
 
@@ -247,14 +288,26 @@ def write_excel(rows: list[dict], output_path: str):
 
     fill_even = PatternFill(start_color="DCE6F1", end_color="DCE6F1", fill_type="solid")
     fill_odd = PatternFill(start_color="FFFFFF", end_color="FFFFFF", fill_type="solid")
-    cell_align = Alignment(vertical="top", wrap_text=True)
-    cell_font = Font(size=9)
+    cell_font = Font(size=9, name="Consolas")
+
+    centered_headers = {
+        "SCENARIO", "EXAMPLE", "MÓDULO", "FUNCIONALIDAD", "SUB FUNCIONALIDAD",
+        "PATH", "FEATURE NAME", "BACKGROUND /\nPRECONDICIÓN", "SCENARIO NAME",
+        "PRIORIDAD", "CRITICIDAD", "ESTADO DE EJECUCIÓN", "EJECUTADO POR", "FECHA DE EJECUCIÓN",
+    }
+    centered_cols = {col for col, h in enumerate(HEADERS, 1) if h in centered_headers}
+    align_center = Alignment(horizontal="center", vertical="center", wrap_text=True)
+    align_top    = Alignment(vertical="top", wrap_text=True)
 
     for i, row in enumerate(rows, start=2):
         fill = fill_even if i % 2 == 0 else fill_odd
+        modulo, funcionalidad, sub_func = _extract_levels(row["path"])
         values = [
             row["n"],
             row["ex"],
+            modulo,
+            funcionalidad,
+            sub_func,
             row["path"],
             row["feature"],
             row["background"],
@@ -263,8 +316,9 @@ def write_excel(rows: list[dict], output_path: str):
             row["data"],
             "",   # HISTORIA/TAREA
             "",   # PLATAFORMA
-            _criticidad(row["tags"]),
-            "",   # ESTADO DE EJECUCIÓN
+            _prioridad(row["tags"]),    # PRIORIDAD
+            _criticidad(row["tags"]),   # CRITICIDAD
+            "PENDING",   # ESTADO DE EJECUCIÓN (dropdown)
             "",   # EJECUTADO POR
             "",   # FECHA DE EJECUCIÓN
             "",   # BUGS (LINK)
@@ -272,8 +326,8 @@ def write_excel(rows: list[dict], output_path: str):
         for col, val in enumerate(values, 1):
             cell = ws.cell(row=i, column=col, value=val)
             cell.fill = fill
-            cell.alignment = cell_align
             cell.font = cell_font
+            cell.alignment = align_center if col in centered_cols else align_top
 
         # Row height based on longest cell content
         max_lines = max(
@@ -282,11 +336,59 @@ def write_excel(rows: list[dict], output_path: str):
         )
         ws.row_dimensions[i].height = max(15, min(max_lines * 14, 250))
 
-    col_widths = [10, 10, 40, 30, 35, 45, 50, 35, 20, 15, 15, 20, 20, 20, 20]
+    col_widths = [10, 10, 20, 25, 25, 40, 30, 35, 45, 50, 35, 20, 15, 15, 15, 20, 20, 20, 20]
     for col, width in enumerate(col_widths, 1):
         ws.column_dimensions[get_column_letter(col)].width = width
 
     ws.freeze_panes = "A2"
+
+    # Dropdowns de validación de datos
+    last_row = len(rows) + 1
+
+    def _add_dropdown(formula: str, col_name: str, error_msg: str):
+        col_letter = get_column_letter(HEADERS.index(col_name) + 1)
+        dv = DataValidation(
+            type="list",
+            formula1=formula,
+            allow_blank=True,
+            showErrorMessage=True,
+            errorTitle="Valor inválido",
+            error=error_msg,
+        )
+        ws.add_data_validation(dv)
+        dv.add(f"{col_letter}2:{col_letter}{last_row}")
+
+    _add_dropdown('"Baja,Media,Alta,Extrema"',    "PRIORIDAD",          "Seleccione: Baja, Media, Alta o Extrema")
+    _add_dropdown('"Baja,Media,Alta,Extrema"',    "CRITICIDAD",         "Seleccione: Baja, Media, Alta o Extrema")
+    _add_dropdown('"PENDING,In progress,PASSED,FAILED,BLOCKED"', "ESTADO DE EJECUCIÓN", "Seleccione: PENDING, In progress, PASSED, FAILED o BLOCKED")
+
+    # Formato condicional por color
+    col_prioridad = get_column_letter(HEADERS.index("PRIORIDAD") + 1)
+    col_estado    = get_column_letter(HEADERS.index("ESTADO DE EJECUCIÓN") + 1)
+
+    def _cond_color(col: str, value: str, bg: str, fg: str):
+        ws.conditional_formatting.add(
+            f"{col}2:{col}{last_row}",
+            FormulaRule(
+                formula=[f'${col}2="{value}"'],
+                fill=PatternFill(start_color=bg, end_color=bg, fill_type="solid"),
+                font=Font(size=9, name="Consolas", color=fg, bold=True),
+            ),
+        )
+
+    # PRIORIDAD
+    _cond_color(col_prioridad, "Baja",    "C6EFCE", "276221")  # verde
+    _cond_color(col_prioridad, "Media",   "FFEB9C", "9C6500")  # amarillo
+    _cond_color(col_prioridad, "Alta",    "FFDCA0", "7F3F00")  # naranja
+    _cond_color(col_prioridad, "Extrema", "FFC7CE", "9C0006")  # rojo
+
+    # ESTADO DE EJECUCIÓN
+    _cond_color(col_estado, "PENDING",     "BFBFBF", "262626")  # gris
+    _cond_color(col_estado, "In progress", "BDD7EE", "1F4E79")  # azul
+    _cond_color(col_estado, "PASSED",      "C6EFCE", "276221")  # verde
+    _cond_color(col_estado, "FAILED",      "FFC7CE", "9C0006")  # rojo
+    _cond_color(col_estado, "BLOCKED",     "F4CCCC", "7F0000")  # rojo oscuro
+
     wb.save(output_path)
     print(f"Exportado: {output_path}  ({len(rows)} filas)")
 

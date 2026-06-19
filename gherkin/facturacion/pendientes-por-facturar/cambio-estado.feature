@@ -15,7 +15,7 @@ Característica: Cambio de Estado del Encuentro
   # RN-PF-24, RN-PF-25
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-01 - Acceder a lista de estados disponibles desde detalle del encuentro (RN-PF-24, RN-PF-25)
     Dado que tengo encuentros en la bandeja "Pendientes por Facturar"
     Y he accedido al detalle del encuentro "12345678" con estado "Por facturar"
@@ -32,7 +32,7 @@ Característica: Cambio de Estado del Encuentro
   # RN-PF-24, RN-PF-25, RN-PF-26, RN-PF-28, RN-PF-31
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-02 - Cambiar estado a "Por facturar" exitosamente (RN-PF-24, RN-PF-26, RN-PF-28)
     Dado que he accedido al detalle del encuentro "12345678"
     Y el estado actual del encuentro es "En revisión"
@@ -50,7 +50,7 @@ Característica: Cambio de Estado del Encuentro
     Y el sistema debe recargar la pantalla
     Y el encuentro "12345678" debe mostrarse en la grilla con estado "Por facturar"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-03 - Validar que encuentro permanece en bandeja al cambiar a "Por facturar" (RN-PF-28)
     Dado que he accedido al detalle del encuentro "12345678"
     Cuando cambio el estado a "Por facturar"
@@ -64,7 +64,7 @@ Característica: Cambio de Estado del Encuentro
   # RN-PF-24, RN-PF-25, RN-PF-26, RN-PF-28, RN-PF-31
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-05 - Cambiar estado a "En revisión" exitosamente (RN-PF-24, RN-PF-26, RN-PF-28)
     Dado que he accedido al detalle del encuentro "12345678"
     Y el estado actual del encuentro es "Por facturar"
@@ -82,7 +82,7 @@ Característica: Cambio de Estado del Encuentro
     Y el sistema debe recargar la pantalla
     Y el encuentro "12345678" debe mostrarse en la grilla con estado "En revisión"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-06 - Validar que el encuentro permanece en bandeja al cambiar a "En revisión" (RN-PF-28)
     Dado que he accedido al detalle del encuentro "12345678"
     Cuando cambio el estado a "En revisión"
@@ -96,7 +96,7 @@ Característica: Cambio de Estado del Encuentro
   # RN-PF-24, RN-PF-25, RN-PF-26, RN-PF-29, RN-PF-30, RN-PF-31
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-08 - Cambiar estado a "Facturado" exitosamente (RN-PF-24, RN-PF-26, RN-PF-29)
     Dado que he accedido al detalle del encuentro "12345678"
     Y el estado actual del encuentro es "Por facturar"
@@ -115,7 +115,7 @@ Característica: Cambio de Estado del Encuentro
     Y el encuentro "12345678" NO debe mostrarse en la grilla
     Y el encuentro debe haber salido de la bandeja "Pendientes por Facturar"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-09 - Validar que el encuentro desaparece de bandeja al cambiar a "Facturado" (RN-PF-29)
     Dado que tengo 5 encuentros en la bandeja "Pendientes por Facturar"
     Y he accedido al detalle del encuentro "12345678"
@@ -125,7 +125,7 @@ Característica: Cambio de Estado del Encuentro
     Y debo visualizar únicamente 4 encuentros en la grilla
     Y el encuentro "12345678" NO debe aparecer en la lista
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: EST-10 - Validar que el encuentro "Facturado" no puede modificarse ni devolverse (RN-PF-30)
     Dado que el encuentro "12345678" tiene estado "Facturado"
     Cuando intento acceder al detalle del encuentro "12345678"
@@ -138,7 +138,7 @@ Característica: Cambio de Estado del Encuentro
   # RN-PF-27
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Esquema del escenario: EST-12 - Cancelar cambio de estado para cualquier opción de estado (RN-PF-27)
     Dado que he accedido al detalle del encuentro "12345678"
     Y el estado actual del encuentro es "Por facturar"
@@ -163,7 +163,7 @@ Característica: Cambio de Estado del Encuentro
   # RN-PF-26
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Esquema del escenario: EST-13 - Validar mensajes específicos de modal para cada estado (RN-PF-26)
     Dado que he accedido al detalle del encuentro "12345678"
     Cuando selecciono el estado "<estado>" del desplegable
@@ -182,7 +182,7 @@ Característica: Cambio de Estado del Encuentro
   # Cobertura: Sección 10.4 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EST-14 - Flujo completo de cambio de estado desde "Por facturar" hasta "Facturado"
     Dado que he accedido al detalle del encuentro "12345678"
     Y el estado actual del encuentro es "Por facturar"
@@ -199,7 +199,7 @@ Característica: Cambio de Estado del Encuentro
     Y selecciono "Sí, cambiar estado" en el modal de confirmación
     Entonces el encuentro "12345678" NO debe aparecer en la bandeja "Pendientes por Facturar"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: EST-15 - Validar que encuentro "Facturado" no permite nueva devolución (RN-PF-30)
     Dado que el encuentro "12345678" tiene estado "Facturado"
     Cuando el sistema evalúa opciones disponibles para el encuentro

@@ -13,7 +13,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE NAVEGACIÓN
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-01 - Registrar evento al ingresar a la bandeja de asignaciones masivas
     Cuando accedo a la bandeja "Asignaciones masivas"
     Entonces se debe registrar un evento en Amplitude con nombre "PAGINA_VER_ASIGNACIONES"
@@ -27,7 +27,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE BÚSQUEDA Y FILTROS
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Esquema del escenario: ANLT-02 - Registrar evento al seleccionar el botón Buscar
     Dado que he accedido a la bandeja "Asignaciones masivas"
     Y he seleccionado una fecha de inicio válida
@@ -53,7 +53,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
       | 5 tipos de garante       |
       | todos los tipos de garante |
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Esquema del escenario: ANLT-03 - Registrar evento al seleccionar el botón Limpiar
     Dado que he accedido a la bandeja "Asignaciones masivas"
     Y he aplicado filtros con "<cantidad_garantes>"
@@ -84,7 +84,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE ASIGNACIÓN - BOTÓN PRINCIPAL
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Esquema del escenario: ANLT-04 - Registrar evento al seleccionar el botón Asignar en la bandeja
     Dado que he accedido a la bandeja "Asignaciones masivas"
     Y he aplicado filtros válidos y realizado búsqueda
@@ -113,7 +113,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE ASIGNACIÓN - MODAL
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Esquema del escenario: ANLT-05 - Registrar evento al asignar exitosamente en el modal
     Dado que he seleccionado "<cantidad_registros>" registros de la tabla
     Y he abierto el modal de asignación
@@ -142,7 +142,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
       | 10                 |
       | 20                 |
 
-  @responsableFacturacion @amplitude @unhappyPath
+  @prioridadBaja @responsableFacturacion @amplitude @unhappyPath
   Escenario: ANLT-06 - Registrar evento al intentar asignar sin seleccionar ejecutivo
     Dado que he seleccionado registros de la tabla
     Y he abierto el modal de asignación
@@ -168,7 +168,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE CANCELACIÓN
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-07 - Registrar evento al cancelar la asignación en el modal
     Dado que he seleccionado registros de la tabla
     Y he abierto el modal de asignación
@@ -193,7 +193,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE SELECCIÓN
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-08 - Registrar evento al seleccionar un ejecutivo en el modal
     Dado que he seleccionado registros de la tabla
     Y he abierto el modal de asignación
@@ -206,7 +206,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
     Y se debe registrar el rol del usuario
     Y se debe registrar el ejecutivo seleccionado "Carlos Ramírez"
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-09 - Registrar evento al cambiar de ejecutivo en el modal
     Dado que he seleccionado un ejecutivo "María López"
     Y he configurado sedes y cantidades
@@ -220,7 +220,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: METADATOS COMUNES EN TODOS LOS EVENTOS
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-10 - Validar que todos los eventos registran metadatos comunes del usuario
     Dado que realizo cualquier acción que genera un evento en Amplitude
     Cuando se registra el evento
@@ -234,7 +234,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
       | rol                  | string | Responsable de Facturación |
       | timestamp            | number | 1717689025000              |
 
-  @responsableFacturacion @amplitude @unhappyPath
+  @prioridadBaja @responsableFacturacion @amplitude @unhappyPath
   Escenario: ANLT-11 - Validar que eventos NO registran datos sensibles de pacientes
     Dado que realizo una asignación que incluye encuentros de pacientes
     Cuando se registran eventos en Amplitude
@@ -252,7 +252,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE ORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Esquema del escenario: ANLT-12 - Registrar evento al ordenar tabla de resultados
     Dado que he realizado una búsqueda con resultados
     Y la tabla muestra múltiples registros
@@ -276,7 +276,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE GESTIÓN DE SEDES
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-13 - Registrar evento al agregar una sede en el modal
     Dado que he abierto el modal de asignación
     Y he seleccionado un ejecutivo
@@ -287,7 +287,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
     Y se debe registrar el nombre y apellido del usuario
     Y se debe registrar la fecha y hora del evento
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-14 - Registrar evento al eliminar una sede en el modal
     Dado que he configurado 3 sedes para un garante
     Cuando elimino la sede "San Isidro"
@@ -297,7 +297,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
     Y se debe registrar el garante del que se eliminó la sede
     Y se debe registrar el nombre y apellido del usuario
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-15 - Registrar evento al modificar cantidad de una sede
     Dado que he configurado una sede "Guardia Civil" con cantidad 10
     Cuando cambio la cantidad a 25
@@ -311,7 +311,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE ERROR Y VALIDACIÓN
   # ========================================================================
 
-  @responsableFacturacion @amplitude @unhappyPath
+  @prioridadBaja @responsableFacturacion @amplitude @unhappyPath
   Escenario: ANLT-16 - Registrar evento cuando asignación falla por error del servidor
     Dado que he configurado una asignación válida
     Cuando intento confirmar la asignación
@@ -322,7 +322,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
     Y se debe registrar el mensaje de error
     Y se debe registrar todos los metadatos de la asignación que falló
 
-  @responsableFacturacion @amplitude @unhappyPath
+  @prioridadBaja @responsableFacturacion @amplitude @unhappyPath
   Escenario: ANLT-17 - Registrar evento cuando validación bloquea asignación
     Dado que intento asignar una cantidad mayor al disponible
     Cuando el sistema bloquea la asignación por validación
@@ -336,7 +336,7 @@ Característica: Registro de Eventos en Amplitude - Asignaciones Masivas
   # TÉCNICA: EVENTOS DE ÉXITO
   # ========================================================================
 
-  @responsableFacturacion @amplitude @happyPath
+  @prioridadBaja @responsableFacturacion @amplitude @happyPath
   Escenario: ANLT-18 - Registrar evento de éxito completo de asignación masiva
     Dado que he completado exitosamente una asignación de 50 encuentros
     Entonces se debe registrar un evento en Amplitude con nombre "ASIGNACION_MASIVA_EXITOSA"

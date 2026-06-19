@@ -16,7 +16,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Sección 2.3 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: JOB-01 - Clasificación de encuentros es responsabilidad exclusiva del Job (RN-LE-016)
     Dado que existen encuentros pendientes de clasificación
     Y algunos encuentros tienen diferentes estados operativos
@@ -32,7 +32,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Sección 2.3, 15 del documento 07-Detalle-Encuentro.md
   # ========================================================================
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-02 - Cambio de estado NO determina la bandeja (RN-LE-017)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -44,7 +44,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el cambio de estado NO debe determinar la bandeja
     Y solo el Job de Admisión puede determinar la bandeja
 
-  @ejecutivoAdmision @happyPath
+  @prioridadExtrema @ejecutivoAdmision @happyPath
   Escenario: JOB-03 - Estado operativo y bandeja son conceptos independientes (RN-LE-018)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -54,7 +54,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el estado operativo NO debe influir en la clasificación de bandeja
     Y el estado operativo y la bandeja deben ser conceptos independientes
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Esquema del escenario: JOB-04 - Encuentros con diferentes estados permanecen en Admisión hasta nueva clasificación
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -80,7 +80,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Sección 21 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: JOB-05 - Job evalúa periódicamente los encuentros (RN-LE-019)
     Dado que existen encuentros en la bandeja "Lista de Encuentros"
     Y los encuentros tienen diferentes estados operativos
@@ -93,7 +93,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
       | Facturación  |
     Y la evaluación debe ser independiente del estado operativo
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-06 - Encuentro se mueve de Admisión a Protocolo según clasificación del Job
     Dado que el encuentro "12345678" está en la bandeja "Lista de Encuentros"
     Y el encuentro tiene estado "Tramitado"
@@ -104,7 +104,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja de Protocolo
     Y el estado "Tramitado" debe mantenerse
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-07 - Encuentro se mueve de Admisión a Facturación según clasificación del Job
     Dado que el encuentro "12345678" está en la bandeja "Lista de Encuentros"
     Y el encuentro tiene estado "En Proceso"
@@ -121,7 +121,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Sección 21 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Escenario: JOB-08 - Encuentro retorna de Facturación a Admisión por exámenes sin resultado (RN-LE-020)
     Dado que el encuentro "12345678" está en la bandeja "Facturación"
     Y el encuentro tiene exámenes imputados sin resultado
@@ -131,7 +131,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja "Lista de Encuentros"
     Y el encuentro debe salir de la bandeja de Facturación
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Escenario: JOB-09 - Encuentro retorna de Facturación a Admisión por exámenes no imputados (RN-LE-020)
     Dado que el encuentro "12345678" está en la bandeja "Facturación"
     Y el encuentro tiene exámenes con resultado no imputados
@@ -141,7 +141,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja "Lista de Encuentros"
     Y el encuentro debe salir de la bandeja de Facturación
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Escenario: JOB-10 - Encuentro retorna de Facturación a Admisión por documentación pendiente (RN-LE-020)
     Dado que el encuentro "12345678" está en la bandeja "Facturación"
     Y el encuentro tiene documentación administrativa pendiente
@@ -155,7 +155,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja "Lista de Encuentros"
     Y el encuentro debe mostrar los sustentos administrativos pendientes
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: JOB-11 - Encuentro puede retornar por diferentes condiciones (RN-LE-020)
     Dado que el encuentro "12345678" está en la bandeja "Facturación"
     Y el encuentro tiene la condición "<condicion_detectada>"
@@ -177,7 +177,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Cobertura: RN-LE-020, Sección 21
   # ========================================================================
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-12 - Encuentro puede ir de Admisión a Facturación y volver múltiples veces
     Dado que el encuentro "12345678" está inicialmente en la bandeja "Lista de Encuentros"
     Y el encuentro cumple las condiciones para Facturación
@@ -198,7 +198,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Excepción a la regla de independencia
   # ========================================================================
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-13 - Estado "No Facturable" es la excepción: provoca salida inmediata (RN-LE-013)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -210,7 +210,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el estado "No Facturable" SÍ afecta directamente la bandeja
     Y el encuentro espera la próxima evaluación del Job
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-14 - Estado "Error de Facturación" es la excepción: provoca salida inmediata (RN-LE-013)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -222,7 +222,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el estado "Error de Facturación" SÍ afecta directamente la bandeja
     Y el encuentro espera la próxima evaluación del Job
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-15 - Llegada posterior a Facturación depende del Job (RN-LE-014, RN-LE-015)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he cambiado el estado del encuentro "12345678" a "No Facturable"
@@ -238,7 +238,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Cobertura: Sección 20, 21 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-16 - Caso complejo: encuentro con múltiples estados permanece en Admisión
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -251,7 +251,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y todos los cambios de estado deben quedar registrados en el historial
     Y los estados NO deben haber provocado cambio de bandeja
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: JOB-17 - Estado "Tramitado" no mueve a Facturación, solo el Job lo hace
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -270,7 +270,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Cobertura: Sección 21 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: JOB-18 - Usuarios no pueden mover encuentros entre bandejas manualmente (RN-EST-03)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" está en la bandeja "Lista de Encuentros"
@@ -279,7 +279,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y NO debo poder cambiar manualmente la bandeja del encuentro
     Y solo el Job de Admisión tiene autoridad para clasificar encuentros
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: JOB-19 - Clasificación vigente determina visibilidad en bandeja
     Dado que el Job de Admisión ha clasificado el encuentro "12345678" para "Admisión"
     Y el encuentro tiene estado "Tramitado"
@@ -296,7 +296,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # El estado NO determina la salida, solo el Job lo hace
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: JOB-20 - Encuentros en cualquier estado pueden permanecer en Admisión
     Dado que existen los siguientes encuentros en la bandeja "Lista de Encuentros":
       | Encuentro | Estado                          | Documentación | Laboratorios | Exámenes Imputados |
@@ -310,7 +310,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el estado de cada encuentro NO debe afectar la permanencia en Admisión
     Y solo el Job determina cuándo un encuentro debe salir
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Esquema del escenario: JOB-21 - Encuentro permanece en Admisión independientemente del estado hasta completar requisitos
     Dado que el encuentro "12345678" está en la bandeja "Lista de Encuentros"
     Y el encuentro tiene estado "<estado>"
@@ -338,7 +338,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # Basado en Tipo de Encuentro y Garante
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-22 - Consulta Externa NO Oncosalud < 7 días → Protocolo
     Dado que el encuentro "12345678" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -371,7 +371,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja de Protocolo
     Y el estado "Tramitado" debe mantenerse
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-23 - Consulta Externa NO Oncosalud ≥ 7 días → Facturación
     Dado que el encuentro "87654321" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -402,7 +402,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe aparecer en la bandeja de Facturación
     Y el estado "En Proceso" debe mantenerse
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-24 - Consulta Externa Oncosalud < 31 días → Protocolo
     Dado que el encuentro "11223344" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -425,7 +425,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe salir de la bandeja "Lista de Encuentros"
     Y el encuentro debe aparecer en la bandeja de Protocolo
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-25 - Consulta Externa Oncosalud ≥ 31 días → Facturación
     Dado que el encuentro "55667788" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -447,7 +447,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe salir de la bandeja "Lista de Encuentros"
     Y el encuentro debe aparecer en la bandeja de Facturación
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-26 - Emergencia < 2 días → Protocolo
     Dado que el encuentro "99887766" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Emergencia"
@@ -469,7 +469,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro debe salir de la bandeja "Lista de Encuentros"
     Y el encuentro debe aparecer en la bandeja de Protocolo
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-27 - Emergencia ≥ 2 días → Facturación
     Dado que el encuentro "44556677" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Emergencia"
@@ -495,7 +495,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # COMPLETADO PARCIAL - PERMANECE EN ADMISIÓN
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-28 - Documentación completa pero laboratorios pendientes - permanece en Admisión
     Dado que el encuentro "66778899" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -515,7 +515,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro NO debe salir de Admisión
     Y debe esperar a que se carguen los resultados pendientes
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-29 - Laboratorios completos pero exámenes no imputados - permanece en Admisión
     Dado que el encuentro "77889900" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -536,7 +536,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el encuentro NO debe salir de Admisión
     Y debe esperar a que se imputen los exámenes pendientes
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-30 - Documentación incompleta - permanece en Admisión sin importar laboratorios
     Dado que el encuentro "88990011" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Emergencia"
@@ -559,7 +559,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # MÚLTIPLES ENCUENTROS EN DIFERENTES ESTADOS - EVALUACIÓN DEL JOB
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Escenario: JOB-31 - Job evalúa múltiples encuentros en diferentes estados y los clasifica según completitud
     Dado que existen los siguientes encuentros en la bandeja "Lista de Encuentros":
       | Encuentro | Estado                      | Tipo              | Garante    | Fecha Creación | Documentación | Laboratorios   | Imputación | Destino Esperado |
@@ -581,7 +581,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # CRITERIOS DE CLASIFICACIÓN SEGÚN TIPO Y GARANTE
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: JOB-32 - Consulta Externa NO Oncosalud: umbral de 7 días
     Dado que el encuentro "12345678" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -607,7 +607,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
       | Pacífico    | 10   | Facturación  |
       | La Positiva | 30   | Facturación  |
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: JOB-33 - Consulta Externa Oncosalud: umbral de 31 días
     Dado que el encuentro "23456789" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Consulta Externa"
@@ -633,7 +633,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
       | 45   | Facturación  |
       | 60   | Facturación  |
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: JOB-34 - Emergencia: umbral de 2 días
     Dado que el encuentro "34567890" está en la bandeja "Lista de Encuentros"
     Y el encuentro es de tipo "Emergencia"
@@ -661,7 +661,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # FLUJO COMPLETO DE VIDA DE UN ENCUENTRO
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-35 - Flujo completo: Emergencia con múltiples estados hasta salida a Protocolo
     Dado que el encuentro "20240001" ingresa por primera vez a Admisión
     Y el encuentro es de tipo "Emergencia"
@@ -697,7 +697,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
     Y el estado final debe ser "Tramitado"
     Y el encuentro tuvo 4 cambios de estado pero solo el Job determinó su salida
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-36 - Flujo completo: Consulta Externa NO Oncosalud con múltiples estados hasta salida a Facturación
     Dado que el encuentro "20230001" ingresó a Admisión hace 15 días
     Y el encuentro es de tipo "Consulta Externa"
@@ -734,7 +734,7 @@ Característica: Relación entre Job de Admisión, Estados y Bandejas
   # El Job evalúa encuentros devueltos cuando XHIS resuelve la condición bloqueante
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: JOB-37 - Encuentro devuelto por laboratorios pendientes es enviado a Facturación por el Job al completarse los exámenes vía XHIS
     Dado que el encuentro "12345678" fue enviado previamente a Facturación por el Job
     Y Facturación devolvió el encuentro con el motivo "Carta de Garantía por Laboratorio"

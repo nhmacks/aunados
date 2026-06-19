@@ -14,7 +14,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS - TABLA PROTOCOLO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-01 - Mover columna de derecha a izquierda en tabla Protocolo
     Dado que estoy visualizando la tabla "Protocolo"
     Y las columnas están en el orden original:
@@ -30,7 +30,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
     Y la columna "Total cant." debe desplazarse a la posición 3
     Y el nuevo orden debe ser: Protocolo, Total monto, Total cant., PxS cant., ...
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-02 - Mover columna de izquierda a derecha en tabla Protocolo
     Dado que estoy visualizando la tabla "Protocolo"
     Cuando arrastro la columna "Total cant." (posición 2)
@@ -39,7 +39,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
     Y las columnas intermedias deben reordenarse automáticamente
     Y el nuevo orden debe reflejar el cambio
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-03 - Mover columna al inicio de la tabla Protocolo
     Dado que estoy visualizando la tabla "Protocolo"
     Y la columna "CPM monto" está en la última posición
@@ -49,7 +49,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
     Y "Protocolo" debe desplazarse a la segunda posición
     Y todas las demás columnas deben desplazarse una posición a la derecha
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-04 - Mover columna al final de la tabla Protocolo
     Dado que estoy visualizando la tabla "Protocolo"
     Y la columna "Total cant." está en la posición 2
@@ -62,7 +62,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS - TABLA ADMISIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-05 - Mover columnas en tabla Admisión
     Dado que estoy visualizando la tabla "Admisión"
     Y las columnas están en el orden original:
@@ -82,7 +82,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS - TABLA FACTURACIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-06 - Mover columnas en tabla Facturación
     Dado que estoy visualizando la tabla "Facturación"
     Cuando arrastro "PxS cant." y la suelto antes de "Total cant."
@@ -93,7 +93,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN VISUAL DURANTE EL ARRASTRE
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-07 - Indicador visual durante el arrastre
     Dado que estoy visualizando cualquier tabla
     Cuando empiezo a arrastrar la columna "Total monto"
@@ -103,7 +103,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
     Cuando muevo el mouse sobre diferentes posiciones
     Entonces el indicador de posición debe actualizarse dinámicamente
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-08 - Cancelar arrastre sin soltar
     Dado que he empezado a arrastrar la columna "PxS monto"
     Cuando presiono la tecla ESC
@@ -116,7 +116,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: TODAS LAS COLUMNAS SON MOVIBLES
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: REORD-09 - Todas las columnas pueden moverse
     Dado que estoy visualizando la tabla "<tabla>"
     Cuando intento arrastrar cada columna de la tabla
@@ -134,7 +134,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: REORDENAMIENTO CON DATOS PRESENTES
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-10 - Los datos se mantienen al reordenar columnas
     Dado que estoy visualizando la tabla "Protocolo"
     Y la fila "Con sustentos completos" tiene:
@@ -152,7 +152,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: REORDENAMIENTO CON FILTROS Y ORDENAMIENTO ACTIVOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-11 - Reordenar columnas con filtros aplicados
     Dado que he aplicado el filtro "Sede" = "Auna Guardia Civil"
     Y las tablas muestran datos filtrados
@@ -160,7 +160,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
     Entonces los filtros deben mantenerse activos
     Y los datos filtrados deben mostrarse en el nuevo orden de columnas
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-12 - Reordenar columnas con ordenamiento activo
     Dado que la tabla "Facturación" está ordenada por "Total cant." descendente
     Y se muestra el indicador de orden (↓)
@@ -173,7 +173,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: MÚLTIPLES REORDENAMIENTOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-13 - Realizar múltiples reordenamientos consecutivos
     Dado que estoy visualizando la tabla "Protocolo"
     Cuando muevo "Total monto" de la posición 3 a la posición 2
@@ -186,14 +186,14 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: PERSISTENCIA DEL REORDENAMIENTO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-14 - El reordenamiento persiste al hacer scroll
     Dado que he reordenado las columnas de la tabla "Admisión"
     Cuando hago scroll hacia abajo en la página
     Entonces el orden de las columnas debe mantenerse
     Y los encabezados deben seguir mostrando el orden personalizado
 
-  @gestorTA @pxfAmbulatorio @unhappyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @unhappyPath
   Escenario: REORD-15 - El reordenamiento NO persiste al recargar la página
     Dado que he reordenado las columnas de la tabla "Facturación" a un orden personalizado
     Cuando refresco la página del navegador
@@ -204,7 +204,7 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: REORDENAMIENTO INDEPENDIENTE POR TABLA
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-16 - El reordenamiento es independiente por tabla
     Dado que he reordenado las columnas de la tabla "Protocolo"
     Cuando visualizo la tabla "Admisión"
@@ -215,13 +215,13 @@ Característica: Reordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ACCESIBILIDAD Y USABILIDAD
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-17 - Cursor indica que columna es arrastrable
     Cuando paso el mouse sobre el encabezado de una columna en cualquier tabla
     Entonces el cursor debe cambiar para indicar que la columna es arrastrable
     Y debe mostrarse una pista visual (ej: ícono de mano, líneas de arrastre)
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadBaja @gestorTA @pxfAmbulatorio @happyPath
   Escenario: REORD-18 - No se puede soltar columna en posición inválida
     Dado que estoy arrastrando una columna
     Cuando intento soltarla fuera del área de la tabla

@@ -14,7 +14,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: ORDENAMIENTO DE 3 ESTADOS (ASC → DESC → NINGUNO)
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: ORD-01 - Primer clic ordena ascendente (menor a mayor)
     Dado que existen múltiples encuentros en la tabla
     Y la tabla NO está ordenada por "<columna>"
@@ -41,7 +41,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
       | Por Liq. Fin      |
       | Fact. Fin         |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: ORD-02 - Segundo clic ordena descendente (mayor a menor)
     Dado que la tabla está ordenada por "<columna>" ascendente
     Y se muestra el indicador de orden ascendente (↑)
@@ -59,7 +59,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
       | Por Fact. Fin     |
       | Fecha apert.      |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: ORD-03 - Tercer clic quita el ordenamiento
     Dado que la tabla está ordenada por "<columna>" descendente
     Y se muestra el indicador de orden descendente (↓)
@@ -79,20 +79,20 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS DE TEXTO
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-04 - Ordenar alfabéticamente columna Apellidos ascendente
     Dado que la tabla tiene encuentros de pacientes con diferentes apellidos
     Cuando ordeno por "Apellidos" ascendente
     Entonces los apellidos deben mostrarse en orden alfabético A-Z
     Y los pacientes con apellidos que empiezan con "A" deben aparecer primero
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-05 - Ordenar alfabéticamente columna Sede descendente
     Dado que existen encuentros de múltiples sedes
     Cuando ordeno por "Sede" descendente
     Entonces las sedes deben mostrarse en orden alfabético Z-A
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-06 - Ordenar por columna Garante
     Dado que existen encuentros con diferentes garantes
     Cuando ordeno por "Garante" ascendente
@@ -103,21 +103,21 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS NUMÉRICAS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-07 - Ordenar por número de Encuentro ascendente
     Dado que existen encuentros con diferentes números
     Cuando ordeno por "Encuentro" ascendente
     Entonces los números de encuentro deben ordenarse numéricamente
     Y los encuentros con números menores deben aparecer primero
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-08 - Ordenar por montos Por Fact. Fin descendente
     Dado que existen encuentros con diferentes montos en "Por Fact. Fin"
     Cuando ordeno por "Por Fact. Fin" descendente
     Entonces los montos deben ordenarse numéricamente
     Y los encuentros con mayores montos deben aparecer primero
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-09 - Ordenar por montos Por Liq. Fin ascendente
     Dado que existen encuentros con diferentes montos en "Por Liq. Fin"
     Cuando ordeno por "Por Liq. Fin" ascendente
@@ -128,14 +128,14 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS DE FECHA
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-10 - Ordenar por Fecha apert. ascendente
     Dado que existen encuentros con diferentes fechas de apertura
     Cuando ordeno por "Fecha apert." ascendente
     Entonces las fechas deben ordenarse cronológicamente
     Y los encuentros más antiguos deben aparecer primero
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-11 - Ordenar por Fecha apert. descendente
     Dado que existen encuentros con diferentes fechas de apertura
     Cuando ordeno por "Fecha apert." descendente
@@ -146,7 +146,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: CAMBIO DE COLUMNA DE ORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-12 - Cambiar de una columna a otra elimina orden previo
     Dado que la tabla está ordenada por "Apellidos" ascendente
     Cuando hago clic en el encabezado "Por Fact. Fin"
@@ -154,7 +154,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
     Y la tabla debe ordenarse por "Por Fact. Fin" ascendente
     Y solo debe mostrarse un indicador de ordenamiento activo en "Por Fact. Fin"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-13 - Solo una columna puede estar ordenada a la vez
     Dado que la tabla está ordenada por "Sede" descendente
     Cuando hago clic en el encabezado "Garante"
@@ -166,7 +166,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: ORDENAMIENTO CON BÚSQUEDA ACTIVA
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-14 - Ordenar después de aplicar búsqueda
     Dado que he buscado encuentros por "García"
     Y la tabla muestra 50 encuentros filtrados
@@ -174,7 +174,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
     Entonces solo los 50 encuentros filtrados deben ordenarse
     Y el encuentro con mayor "Por Fact. Fin" debe aparecer primero
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-15 - Mantener ordenamiento al realizar búsqueda
     Dado que he ordenado la tabla por "Fecha apert." descendente
     Cuando busco encuentros por número "12345"
@@ -185,7 +185,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: ORDENAMIENTO Y SELECCIÓN DE REGISTROS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-16 - La selección se mantiene después de ordenar
     Dado que he seleccionado 5 encuentros con sus checkboxes marcados
     Cuando ordeno la tabla por "Apellidos" ascendente
@@ -193,7 +193,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
     Y sus checkboxes deben permanecer marcados
     Y el contador debe seguir mostrando "5 registro seleccionado de X"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-17 - Ordenar no afecta la funcionalidad de selección
     Dado que he ordenado la tabla por "Sede" descendente
     Cuando selecciono encuentros de la tabla ordenada
@@ -205,7 +205,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: INDICADORES VISUALES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-18 - Validar indicadores visuales de ordenamiento
     Dado que la tabla NO está ordenada
     Cuando hago clic en "Por Fact. Fin"
@@ -220,7 +220,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: MANEJO DE VALORES ESPECIALES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-19 - Ordenar columnas con valores vacíos o nulos
     Dado que existen encuentros con campo "Mec." vacío
     Y existen encuentros con campo "Mec." con valor
@@ -228,7 +228,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
     Entonces los encuentros con campo vacío deben aparecer primero
     Y luego deben aparecer los encuentros con valor en orden alfabético
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-20 - Ordenar montos con valores cero
     Dado que existen encuentros con "Por Fact. Fin" = S/ 0.00
     Y existen encuentros con "Por Fact. Fin" > S/ 0.00
@@ -240,7 +240,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: RESTABLECER VISTA
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-21 - Restablecer vista elimina el ordenamiento
     Dado que he ordenado la tabla por "Garante" descendente
     Y he realizado una búsqueda
@@ -253,14 +253,14 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: PERSISTENCIA DEL ORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-22 - El ordenamiento persiste al hacer scroll
     Dado que he ordenado la tabla por "Apellidos" ascendente
     Cuando hago scroll vertical en la tabla
     Entonces el ordenamiento debe mantenerse
     Y el indicador visual debe seguir siendo visible en el encabezado
 
-  @responsableFacturacion @unhappyPath
+  @prioridadMedia @responsableFacturacion @unhappyPath
   Escenario: ORD-23 - El ordenamiento NO persiste al recargar la página
     Dado que he ordenado la tabla por "Por Fact. Fin" descendente
     Cuando refresco la página del navegador
@@ -272,7 +272,7 @@ Característica: Ordenamiento de Lista de Encuentros para Asignar
   # TÉCNICA: PERFORMANCE CON GRANDES VOLÚMENES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: ORD-24 - Ordenar tabla con gran cantidad de encuentros
     Dado que existen más de 25000 encuentros en la tabla
     Cuando ordeno por "Fecha apert." descendente

@@ -15,7 +15,7 @@ Característica: Exportación de Pendientes por Facturar
   # Cobertura: Sección 14 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-01 - Solicitar exportación asíncrona de pendientes
     Dado que tengo 80 encuentros asignados
     Cuando selecciono la opción "Exportar"
@@ -23,7 +23,7 @@ Característica: Exportación de Pendientes por Facturar
     Y el archivo NO debe descargarse inmediatamente
     Y debe generarse una notificación en la campana cuando esté listo
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-02 - Descargar archivo exportado desde campana
     Dado que he solicitado una exportación
     Y el archivo ha sido generado
@@ -33,7 +33,7 @@ Característica: Exportación de Pendientes por Facturar
     Entonces el archivo XLSX debe descargarse correctamente
     Y el archivo debe contener todos mis encuentros asignados
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-03 - Validar vigencia de archivo exportado (1 hora)
     Dado que he solicitado una exportación
     Y el archivo fue generado hace 1 hora y 5 minutos
@@ -46,7 +46,7 @@ Característica: Exportación de Pendientes por Facturar
   # Cobertura: Sección 14.3 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-04 - Exportar incluye todas las columnas visibles
     Dado que tengo encuentros asignados
     Cuando exporto mi lista de pendientes
@@ -67,7 +67,7 @@ Característica: Exportación de Pendientes por Facturar
       | Monto                |
       | Observaciones        |
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-05 - Exportar respeta filtros aplicados
     Dado que tengo 100 encuentros asignados
     Y he aplicado un filtro de "Prioridad" = "Alta"
@@ -76,7 +76,7 @@ Característica: Exportación de Pendientes por Facturar
     Entonces el archivo debe contener exactamente 25 encuentros
     Y todos los encuentros deben tener prioridad "Alta"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-06 - Exportar respeta búsqueda activa
     Dado que tengo encuentros asignados
     Y he realizado una búsqueda por "García"
@@ -85,7 +85,7 @@ Característica: Exportación de Pendientes por Facturar
     Entonces el archivo debe contener exactamente 8 encuentros
     Y todos los encuentros deben corresponder a la búsqueda "García"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-07 - Exportar solo incluye encuentros del ejecutivo autenticado
     Dado que soy el ejecutivo "ejecutivo01"
     Y tengo 30 encuentros asignados
@@ -94,7 +94,7 @@ Característica: Exportación de Pendientes por Facturar
     Entonces el archivo debe contener exactamente 30 encuentros
     Y todos los encuentros deben estar asignados a "ejecutivo01"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @funcional
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @funcional
   Escenario: EXP-08 - Exportar NO incluye encuentros devueltos
     Dado que tengo 30 encuentros asignados activos
     Y he devuelto 5 encuentros al Responsable
@@ -102,7 +102,7 @@ Característica: Exportación de Pendientes por Facturar
     Entonces el archivo debe contener exactamente 30 encuentros
     Y NO debe incluir los 5 encuentros devueltos
 
-  @ejecutivoFacturacion @pendientesPorFacturar @funcional
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @funcional
   Escenario: EXP-09 - Exportar NO incluye encuentros ya facturados
     Dado que tengo 25 encuentros pendientes
     Y he facturado 10 encuentros hoy
@@ -114,7 +114,7 @@ Característica: Exportación de Pendientes por Facturar
   # TÉCNICA: FORMATO Y ESTRUCTURA DEL ARCHIVO
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-10 - Validar formato del archivo exportado
     Dado que he solicitado una exportación
     Cuando descargo el archivo generado
@@ -123,7 +123,7 @@ Característica: Exportación de Pendientes por Facturar
     Y el nombre del archivo debe incluir mi usuario
     Y debe tener el formato "PendientesPorFacturar_ejecutivo01_20240608_143000.xlsx"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: EXP-11 - Exportar sin filtros incluye todos los encuentros asignados
     Dado que tengo 150 encuentros asignados
     Y NO he aplicado ningún filtro
@@ -135,7 +135,7 @@ Característica: Exportación de Pendientes por Facturar
   # TÉCNICA: VALIDACIÓN DE PERMISOS
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadAlta @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: EXP-12 - Ejecutivo NO puede exportar encuentros de otros ejecutivos
     Dado que soy el ejecutivo "ejecutivo01"
     Y existen encuentros asignados a "ejecutivo02"

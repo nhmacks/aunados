@@ -13,7 +13,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ESTRUCTURA - ELEMENTOS DE UI
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-01 - Visualizar elementos principales de la pantalla Lista de Encuentros para Asignar
     Dado que estoy en el sistema AUNADOS
     Cuando accedo a la bandeja "Lista de encuentros para asignar"
@@ -25,7 +25,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y debe mostrarse el botón "Restablecer vista" habilitado
     Y debe mostrarse el label con formato "###### Registros encontrados"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-02 - Visualizar columnas de la tabla de encuentros para asignar
     Dado que estoy en el sistema AUNADOS
     Y he accedido a la bandeja "Lista de encuentros para asignar"
@@ -52,7 +52,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE ESTADOS INICIALES - BOTONES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-03 - Validar estado inicial de botones sin selección de encuentros
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y NO he seleccionado ningún encuentro
@@ -62,7 +62,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Descargar" debe estar habilitado
     Y el botón "Restablecer vista" debe estar habilitado
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-04 - Validar habilitación de botones al seleccionar un encuentro
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros en estado "Por asignar"
@@ -72,7 +72,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Descargar" debe estar habilitado
     Y el botón "Restablecer vista" debe estar habilitado
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: VIS-04B - Validar contador de encuentros seleccionados
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen <total> encuentros para asignar
@@ -90,7 +90,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE CONTADOR DE REGISTROS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: VIS-05 - Visualizar contador de registros encontrados
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen "<cantidad>" encuentros para asignar
@@ -108,7 +108,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN DE BÚSQUEDA
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-06 - Buscar encuentro por nombre del paciente
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros del paciente "Juan Carlos García"
@@ -116,7 +116,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debe mostrarse únicamente los encuentros que coincidan con "Juan Carlos" en nombres
     Y el contador debe actualizarse con la cantidad de resultados encontrados
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-07 - Buscar encuentro por apellido del paciente
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros del paciente con apellido "García Pérez"
@@ -124,7 +124,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debe mostrarse únicamente los encuentros que coincidan con "García" en apellidos
     Y el contador debe actualizarse con la cantidad de resultados encontrados
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-08 - Buscar encuentro por número de encuentro
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existe el encuentro con número "12345678"
@@ -132,7 +132,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debe mostrarse únicamente el encuentro "12345678"
     Y el contador debe mostrar "1 Registros encontrados"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-09 - Limpiar búsqueda con botón Restablecer vista
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y he realizado una búsqueda por "García"
@@ -146,7 +146,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: CHECKBOXES - SELECCIÓN DE ENCUENTROS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-10 - Visualizar checkbox en cada fila de la tabla
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros para asignar
@@ -155,7 +155,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y todos los checkboxes deben estar desmarcados inicialmente
     Y el checkbox debe ser clicable
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-11 - Seleccionar un encuentro usando checkbox
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen 100 encuentros para asignar
@@ -166,7 +166,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Clasificar" debe habilitarse
     Y debe mostrarse "1 registro seleccionado de 100"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: VIS-12 - Seleccionar múltiples encuentros usando checkboxes
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen <total> encuentros para asignar
@@ -184,7 +184,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
       | 1000  | 10       |
       | 5000  | 50       |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-13 - Deseleccionar encuentro usando checkbox
     Dado que he seleccionado 3 encuentros usando checkboxes
     Y existen 100 encuentros para asignar
@@ -196,7 +196,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Asignar" debe permanecer habilitado
     Y el botón "Clasificar" debe permanecer habilitado
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-14 - Deseleccionar todos los encuentros deshabilita botones
     Dado que he seleccionado 3 encuentros usando checkboxes
     Y existen 100 encuentros para asignar
@@ -208,7 +208,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Clasificar" debe deshabilitarse
     Y debe mostrarse "0 registros seleccionados de 100"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-15 - Checkbox de encabezado para seleccionar todos
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen 25 encuentros para asignar
@@ -220,7 +220,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el botón "Clasificar" debe habilitarse
     Y debe mostrarse "25 registros seleccionados de 25"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-16 - Deseleccionar todos usando checkbox de encabezado
     Dado que he seleccionado todos los encuentros usando el checkbox del encabezado
     Y existen 25 encuentros para asignar
@@ -236,7 +236,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: SCROLL HORIZONTAL - VISUALIZACIÓN DE TODAS LAS COLUMNAS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-17 - Hacer scroll horizontal para visualizar todas las columnas
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros para asignar
@@ -246,7 +246,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Entonces debo poder visualizar las columnas: Producto, Beneficio, Fecha apert., Mec., Servicio básico, Por Fact. Fin, Por Liq. Fin, Fact. Fin
     Y todas las 15 columnas deben ser accesibles mediante scroll
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-18 - Validar visibilidad de columnas al hacer scroll horizontal
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros para asignar
@@ -260,7 +260,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: FORMATO DE MONTOS EN COLUMNAS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: VIS-19 - Validar formato de montos en columnas monetarias
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existe el encuentro "12345678" con "<columna>" igual a <valor>
@@ -283,7 +283,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
       | Por Liq. Fin  | 500000.00  | S/ 500,000.00    |
       | Fact. Fin     | 9999999.99 | S/ 9,999,999.99  |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-20 - Validar alineación de montos en columnas
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen múltiples encuentros con diferentes montos
@@ -296,7 +296,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: VALIDACIÓN VISUAL DE BADGES DE CLASIFICACIÓN
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-21 - Visualizar badge de clasificación "Por asignar" con estilo correcto
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros en estado "Por asignar"
@@ -306,7 +306,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
     Y el badge debe tener bordes redondeados
     Y el texto debe ser legible sobre el fondo
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: VIS-22 - Validar colores de badges según clasificación
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen encuentros con clasificación "<clasificacion>"
@@ -330,7 +330,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
   # TÉCNICA: CONTADOR DE SELECCIÓN DETALLADO
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: VIS-23 - Validar formato de contador con selección activa
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen <total> encuentros para asignar
@@ -346,7 +346,7 @@ Característica: Visualización de Lista de Encuentros para Asignar
       | 23281 | 1             | 1 registro seleccionado de 23281|
       | 23281 | 50            | 50 registros seleccionados de 23281|
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: VIS-24 - Validar que contador vuelve a formato original al deseleccionar
     Dado que he accedido a la bandeja "Lista de encuentros para asignar"
     Y existen 23281 encuentros para asignar

@@ -12,7 +12,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS - SUPERUSUARIO Y GESTOR TA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-01 - Mover columna de derecha a izquierda
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -35,7 +35,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Superusuario de Admisión   |
       | Gestor TA                  |
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-02 - Mover columna de izquierda a derecha
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -50,7 +50,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Superusuario de Admisión   |
       | Gestor TA                  |
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-03 - Mover columna al inicio de la grilla
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -66,7 +66,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Superusuario de Admisión   |
       | Gestor TA                  |
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-04 - Mover columna al final de la grilla
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -85,7 +85,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS - EJECUTIVO DE ADMISIÓN
   # ========================================================================
 
-  @ejecutivoAdmision @happyPath
+  @prioridadBaja @ejecutivoAdmision @happyPath
   Escenario: REORD-05 - Ejecutivo de Admisión puede reordenar columnas de su vista
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -108,7 +108,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: VALIDACIÓN VISUAL DURANTE EL ARRASTRE
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-06 - Indicador visual durante el arrastre
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -125,7 +125,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Gestor TA                  |
       | Ejecutivo de Admisión      |
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-07 - Cancelar arrastre sin soltar
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -146,7 +146,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: TODAS LAS COLUMNAS SON MOVIBLES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-08 - Todas las columnas pueden moverse (Superusuario/Gestor)
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -160,7 +160,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Superusuario de Admisión   |
       | Gestor TA                  |
 
-  @ejecutivoAdmision @happyPath
+  @prioridadBaja @ejecutivoAdmision @happyPath
   Escenario: REORD-09 - Todas las columnas pueden moverse (Ejecutivo)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -173,7 +173,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: REORDENAMIENTO CON DATOS PRESENTES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-10 - Los datos se mantienen al reordenar columnas
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -198,7 +198,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: REORDENAMIENTO CON FILTROS Y ORDENAMIENTO ACTIVOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-11 - Reordenar columnas con filtros aplicados
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -213,7 +213,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Superusuario de Admisión   |
       | Gestor TA                  |
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-12 - Reordenar columnas con ordenamiento activo
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -234,7 +234,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: REORDENAMIENTO CON BÚSQUEDA ACTIVA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-13 - Reordenar columnas con búsqueda activa
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -254,7 +254,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: MÚLTIPLES REORDENAMIENTOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @happyPath
   Esquema del escenario: REORD-14 - Realizar múltiples reordenamientos consecutivos
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -273,7 +273,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: PERSISTENCIA DEL REORDENAMIENTO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-15 - El reordenamiento persiste al hacer scroll infinito
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -289,7 +289,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Gestor TA                  |
       | Ejecutivo de Admisión      |
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @unhappyPath
   Esquema del escenario: REORD-16 - El reordenamiento NO persiste al recargar la página
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -308,7 +308,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: REORDENAMIENTO Y RESTABLECER VISTA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-17 - Restablecer Vista elimina el reordenamiento
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -327,7 +327,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: ACCESIBILIDAD Y USABILIDAD
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-18 - Cursor indica que columna es arrastrable
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -341,7 +341,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
       | Gestor TA                  |
       | Ejecutivo de Admisión      |
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-19 - No se puede soltar columna en posición inválida
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -361,7 +361,7 @@ Característica: Reordenamiento de Columnas en Lista de Encuentros de Admisión
   # TÉCNICA: EXPORTACIÓN CON COLUMNAS REORDENADAS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadBaja @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Esquema del escenario: REORD-20 - El archivo exportado mantiene orden original
     Dado que soy un usuario con rol "<rol>"
     Y estoy en la pantalla "Lista de Encuentros"

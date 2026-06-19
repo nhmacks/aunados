@@ -14,7 +14,7 @@ Característica: Responsable de Facturación - Asignaciones Masivas
   # Cobertura: Validar que encuentros provienen del Job de Admisión
   # ========================================================================
 
-  @responsableFacturacion @asignacionesMasivas @regresion
+  @prioridadExtrema @responsableFacturacion @asignacionesMasivas @regresion
   Escenario: ASM-01 - Listar encuentros nuevos pendientes de asignación
     Dado que el Job de Admisión procesa nuevos encuentros hacia Facturación
     Cuando el Responsable de Facturación ingresa a la funcionalidad "Asignaciones Masivas"
@@ -26,7 +26,7 @@ Característica: Responsable de Facturación - Asignaciones Masivas
   # Cobertura: Validar encuentros devueltos por Superusuario de Admisión
   # ========================================================================
 
-  @responsableFacturacion @asignacionesMasivas @funcional
+  @prioridadExtrema @responsableFacturacion @asignacionesMasivas @funcional
   Esquema del escenario: ASM-02 - Listar encuentros devueltos desde Admisión
     Dado que el Superusuario de Admisión cambia el estado del encuentro a "<estado>"
     Cuando el Responsable de Facturación ingresa a la funcionalidad "Asignaciones Masivas"
@@ -44,7 +44,7 @@ Característica: Responsable de Facturación - Asignaciones Masivas
   # Cobertura: Validar que encuentros desaparecen de ambas bandejas
   # ========================================================================
 
-  @responsableFacturacion @asignacionesMasivas @regresion
+  @prioridadExtrema @responsableFacturacion @asignacionesMasivas @regresion
   Escenario: ASM-03 - Asignar masivamente encuentros nuevos
     Dado que existen encuentros pendientes de asignación
     Y el Responsable de Facturación se encuentra en "Asignaciones Masivas"
@@ -57,7 +57,7 @@ Característica: Responsable de Facturación - Asignaciones Masivas
   # Cobertura: Validar asignación de encuentros devueltos desde Admisión
   # ========================================================================
 
-  @responsableFacturacion @asignacionesMasivas @funcional
+  @prioridadExtrema @responsableFacturacion @asignacionesMasivas @funcional
   Escenario: ASM-04 - Asignar masivamente encuentros devueltos
     Dado que existen encuentros devueltos pendientes de asignación
     Cuando el Responsable de Facturación realiza una asignación masiva

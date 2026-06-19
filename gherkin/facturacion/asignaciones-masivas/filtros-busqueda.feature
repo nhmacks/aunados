@@ -14,7 +14,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: VALIDACIÓN DE FILTROS - FILTRO POR FECHAS Y GARANTE
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-01 - Aplicar filtros de fecha y tipo de garante exitosamente
     Dado que existen encuentros en el rango de los últimos 6 meses
     Y existen encuentros de diferentes tipos de garante
@@ -27,7 +27,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el contador debe mostrar la cantidad total de registros encontrados
     Y el botón "Asignar" debe estar deshabilitado hasta seleccionar registros
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: FIL-02 - Filtrar por diferentes cantidades de tipos de garante
     Dado que existen encuentros de múltiples tipos de garante
     Y he seleccionado una fecha de inicio dentro de los últimos 6 meses
@@ -43,7 +43,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
       | 5 tipos de garante       | 5 registros         |
       | todos los tipos de garante | Todos los registros |
 
-  @responsableFacturacion @unhappyPath
+  @prioridadMedia @responsableFacturacion @unhappyPath
   Escenario: FIL-03 - Validar que fecha de inicio no puede ser mayor a 6 meses
     Dado que estoy en la bandeja "Asignaciones masivas"
     Cuando selecciono una fecha de inicio mayor a 6 meses atrás
@@ -51,7 +51,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el botón "Buscar" debe permanecer deshabilitado
     Y NO debe realizarse ninguna búsqueda
 
-  @responsableFacturacion @unhappyPath
+  @prioridadMedia @responsableFacturacion @unhappyPath
   Escenario: FIL-04 - Validar que fecha fin no puede ser menor a fecha inicio
     Dado que he seleccionado una fecha de inicio válida
     Cuando selecciono una fecha fin anterior a la fecha de inicio
@@ -63,7 +63,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: LIMPIAR FILTROS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-05 - Limpiar filtros realizados
     Dado que he seleccionado una fecha de inicio dentro de los últimos 6 meses
     Y he seleccionado como fecha fin la fecha actual
@@ -79,7 +79,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y la grilla debe limpiarse
     Y debe mostrarse el mensaje "Filtra para ver los resultados"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: FIL-06 - Limpiar con diferentes cantidades de garantes seleccionados
     Dado que he aplicado filtros con "<cantidad_garantes>"
     Y he seleccionado el botón "Buscar"
@@ -100,7 +100,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: ORDENAMIENTO DE RESULTADOS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: FIL-07 - Ordenar resultados por diferentes criterios
     Dado que he aplicado filtros válidos
     Y he seleccionado el botón "Buscar"
@@ -115,7 +115,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
       | Cantidad de encuentros   |
       | Monto por facturar       |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-08 - Ordenar ascendente y descendente alternadamente
     Dado que he aplicado filtros válidos
     Y he seleccionado el botón "Buscar"
@@ -124,7 +124,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Entonces el sistema debe cambiar el orden a descendente
     Y los resultados deben mostrarse de Z a A
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-09 - Mantener ordenamiento después de realizar nueva búsqueda
     Dado que he aplicado filtros y realizado una búsqueda
     Y he ordenado los resultados por "Monto por facturar"
@@ -137,7 +137,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: VALIDACIÓN DE ESTADO INICIAL
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-10 - Validar estado inicial de la pantalla de asignaciones masivas
     Cuando accedo a la bandeja "Asignaciones masivas"
     Entonces el campo "fecha de inicio" debe estar vacío
@@ -149,7 +149,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y debe mostrarse el mensaje "Filtra para ver los resultados"
     Y la grilla debe estar vacía
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-11 - Habilitar botón Buscar al completar filtros mínimos requeridos
     Dado que el botón "Buscar" está deshabilitado
     Cuando selecciono una fecha de inicio válida
@@ -158,7 +158,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Entonces el botón "Buscar" debe habilitarse
     Y debo poder realizar la búsqueda
 
-  @responsableFacturacion @unhappyPath
+  @prioridadMedia @responsableFacturacion @unhappyPath
   Escenario: FIL-12 - Validar mensaje cuando búsqueda no arroja resultados
     Dado que he seleccionado filtros válidos
     Y NO existen encuentros que cumplan los criterios de búsqueda
@@ -172,7 +172,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: INDICADOR VISUAL DE SELECCIONES MÚLTIPLES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: FIL-13 - Visualizar chip con cantidad de opciones seleccionadas en Tipo de garante
     Dado que he abierto el dropdown "Tipo de garante"
     Cuando selecciono <cantidad> tipos de garante
@@ -189,7 +189,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
       | 10       |
       | 15       |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-14 - Limpiar selección usando la X del chip
     Dado que he seleccionado 10 tipos de garante
     Y se muestra el chip "× 10 Opciones seleccionada"
@@ -199,7 +199,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y todas las opciones de garante deben desmarcarse
     Y el botón "Buscar" debe deshabilitarse si no hay otros filtros completos
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-15 - Actualizar chip al modificar cantidad de selecciones
     Dado que he seleccionado 5 tipos de garante
     Y se muestra el chip "× 5 Opciones seleccionada"
@@ -209,7 +209,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Entonces el chip debe actualizarse a "× 8 Opciones seleccionada"
     Y el número debe reflejar la cantidad correcta
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-16 - Chip desaparece al deseleccionar todas las opciones
     Dado que he seleccionado 10 tipos de garante
     Y se muestra el chip "× 10 Opciones seleccionada"
@@ -223,7 +223,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: VALIDACIÓN DE PLACEHOLDER EN FILTROS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-17 - Validar placeholder en campo Tipo de garante vacío
     Dado que estoy en la bandeja "Asignaciones masivas"
     Y el campo "Tipo de garante" está vacío
@@ -236,7 +236,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: CHECKBOXES EN GRILLA DE RESULTADOS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-18 - Visualizar checkboxes en cada fila de la grilla
     Dado que he aplicado filtros válidos
     Y he presionado el botón "Buscar"
@@ -247,7 +247,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y debe mostrarse la columna "Cantidad de encuentros"
     Y debe mostrarse la columna "Monto por facturar"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-19 - Seleccionar un garante usando checkbox
     Dado que la grilla muestra 70 resultados
     Y todos los checkboxes están desmarcados
@@ -257,7 +257,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el botón "Asignar" debe habilitarse
     Y el contador de seleccionados debe actualizarse
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Esquema del escenario: FIL-20 - Seleccionar múltiples garantes usando checkboxes
     Dado que la grilla muestra resultados con múltiples garantes
     Cuando selecciono <cantidad> garantes usando sus checkboxes
@@ -273,7 +273,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
       | 10       |
       | 15       |
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-21 - Deseleccionar garante usando checkbox
     Dado que he seleccionado 3 garantes
     Y el botón "Asignar" está habilitado
@@ -283,7 +283,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el contador debe actualizarse a 2 garantes seleccionados
     Y el botón "Asignar" debe permanecer habilitado
 
-  @responsableFacturacion @unhappyPath
+  @prioridadMedia @responsableFacturacion @unhappyPath
   Escenario: FIL-22 - Deseleccionar todos los garantes deshabilita botón Asignar
     Dado que he seleccionado 3 garantes usando checkboxes
     Y el botón "Asignar" está habilitado
@@ -293,7 +293,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el botón "Asignar" debe deshabilitarse
     Y el indicador debe mostrar "0 garantes seleccionados"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-23 - Checkbox de encabezado para seleccionar todos (si existe)
     Dado que la grilla muestra 10 garantes
     Y existe un checkbox en el encabezado de la columna
@@ -303,7 +303,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y el botón "Asignar" debe habilitarse
     Y debe mostrarse "10 garantes seleccionados"
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-24 - Deseleccionar todos usando checkbox de encabezado
     Dado que he seleccionado todos los garantes usando el checkbox del encabezado
     Y todos los checkboxes están marcados
@@ -316,7 +316,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
   # TÉCNICA: ORDENAMIENTO CON CHECKBOXES SELECCIONADOS
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-25 - Mantener selección de checkboxes al ordenar columnas
     Dado que he seleccionado 5 garantes usando checkboxes
     Y las 5 filas están resaltadas
@@ -325,7 +325,7 @@ Característica: Filtros y Búsqueda en Asignaciones Masivas
     Y las 5 filas deben seguir resaltadas después del ordenamiento
     Y el botón "Asignar" debe permanecer habilitado
 
-  @responsableFacturacion @happyPath
+  @prioridadMedia @responsableFacturacion @happyPath
   Escenario: FIL-26 - Perder selección al realizar nueva búsqueda
     Dado que he seleccionado 5 garantes usando checkboxes
     Y el botón "Asignar" está habilitado

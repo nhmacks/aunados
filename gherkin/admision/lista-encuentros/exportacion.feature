@@ -10,7 +10,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # Cobertura: RN-EXP-04, RN-EXP-05, RN-EXP-06, EXP-01, EXP-02
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Esquema del escenario: EXP-01 - Exportación inmediata respeta filtros activos (Superusuario/Gestor)
     Dado que soy un usuario con rol "<rol>"
     Y existen <total> encuentros clasificados para Admisión
@@ -29,7 +29,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | Superusuario de Admisión   | 500   | búsqueda apellido = García               | 25       |
       | Gestor TA                | 500   | filtro Prioridad 1 + búsqueda nombre Juan| 8        |
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Esquema del escenario: EXP-02 - Exportación asíncrona respeta filtros y restricciones de rol (Ejecutivo)
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "<usuario>"
     Y estoy asignado a la sede "<sede>"
@@ -64,7 +64,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # Cobertura: RN-EXP-07, RN-EXP-08
   # ========================================================================
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Esquema del escenario: EXP-04 - Validar vigencia de archivo exportado (valores límite)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he solicitado una exportación hace <tiempo_transcurrido> minutos
@@ -84,7 +84,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # Cobertura: EXP-02, EXP-05
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-05 - Validar coincidencia exacta entre grilla y archivo exportado
     Dado que soy un usuario con rol "<rol>" con usuario "<usuario>"
     Y estoy asignado a la sede "<sede>"
@@ -110,7 +110,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # Cobertura: RN-EXP-03
   # ========================================================================
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Escenario: EXP-06 - Ejecutivo NO puede acceder a exportaciones de otros usuarios (Seguridad)
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
     Y estoy asignado a la sede "Auna Guardia Civil"
@@ -133,7 +133,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # mismas columnas para todos o columnas según visibilidad de grilla
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-07 - Validar formato y estructura del archivo Excel según rol
     Dado que soy un usuario con rol "<rol>"
     Y existen múltiples encuentros visibles para mi rol
@@ -168,7 +168,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # CASOS EDGE: VALORES ESPECIALES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-09 - Combinaciones de rol, filtros y volumen (Pairwise)
     Dado que soy un usuario con rol "<rol>"
     Y existen a<volumen> encuentros visibles para mi rol
@@ -189,7 +189,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # PRUEBAS BASADAS EN RIESGO: PERFORMANCE (ALTO)
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA
+  @prioridadAlta @superusuarioAdmision @gestorTA
   Esquema del escenario: EXP-10 - Exportación de gran volumen sin degradación (Performance)
     Dado que soy un usuario con rol "<rol>"
     Y existen 5000 encuentros clasificados para Admisión
@@ -204,7 +204,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | Superusuario de Admisión |
       | Gestor TA              |
 
-  @ejecutivoAdmision
+  @prioridadAlta @ejecutivoAdmision
   Escenario: EXP-11 - Múltiples exportaciones asíncronas simultáneas no se mezclan
     Dado que existen los siguientes usuarios autenticados con rol "Ejecutivo de Admisión":
       | Usuario      | Sede               | Encuentros_propios |
@@ -223,7 +223,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # ERROR HANDLING Y DISPONIBILIDAD
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-12 - Manejo de errores en proceso de exportación
     Dado que soy un usuario con rol "<rol>"
     Y ocurre "<tipo_error>"
@@ -242,7 +242,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # COMPATIBILIDAD Y SCROLL INFINITO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: EXP-15 - Exportación incluye todos los registros disponibles, no solo los visibles en pantalla
     Dado que soy un usuario con rol "<rol>"
     Y existen 300 encuentros disponibles para mi rol después de aplicar filtros
@@ -260,7 +260,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
       | Gestor TA                | asíncrona     |
       | Ejecutivo de Admisión    | asíncrona     |
 
-  @gestorTA @maximosFiltros
+  @prioridadAlta @gestorTA @maximosFiltros
   Escenario: EXP-16 - Exportar coincidencias aplicando búsqueda, todos los filtros y filtros por encabezados
     Dado que soy un usuario con rol "Gestor TA"
     Y existen 5000 encuentros clasificados para Admisión con datos en todos los campos filtrables
@@ -312,7 +312,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
   # ========================================================================
 
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: EXP-18 - Notificación cuando archivo está disponible (RN-LE-009)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he solicitado una descarga
@@ -323,7 +323,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y la notificación debe contener el mensaje "Tienes una hora para descargarlo"
     Y la notificación debe contener un botón "Descargar"
 
-  @ejecutivoAdmision @unhappyPath
+  @prioridadAlta @ejecutivoAdmision @unhappyPath
   Escenario: EXP-21 - Archivo expira después de 1 hora
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he solicitado una descarga
@@ -333,7 +333,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y NO debe permitir la descarga
     Y debo poder solicitar una nueva exportación
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadAlta @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: EXP-22 - Solicitar descarga no bloquea navegación
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -345,7 +345,7 @@ Característica: Exportación de Lista de Encuentros de Admisión
     Y debo poder acceder al detalle de encuentros
     Y el archivo debe generarse en segundo plano sin interrumpir mis actividades
 
-  @ejecutivoAdmision @happyPath
+  @prioridadAlta @ejecutivoAdmision @happyPath
   Escenario: EXP-24 - Múltiples solicitudes de descarga - cada una genera notificación independiente
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y solicito una primera descarga con filtro "Estado = Pendiente" a las 10:00

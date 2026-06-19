@@ -10,7 +10,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # Cobertura: Sección 13 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-01 - Ordenar encuentros devueltos por columnas disponibles
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -42,7 +42,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: ORDENAMIENTO POR EJECUTIVO DE ADMISIÓN
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-02 - Ejecutivo de Admisión ordena por columnas disponibles
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -68,7 +68,7 @@ Característica: Ordenamiento de Encuentros Devueltos
       | Tipo de encuentro | Ascendente  |
       | Tipo de encuentro | Descendente |
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @encuentrosDevueltos @unhappyPath
   Escenario: ORD-02B - Gestor TA y Superusuario NO pueden ordenar por Tipo de encuentro
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -82,7 +82,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: ORDEN POR DEFECTO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: ORD-03 - Orden por defecto al acceder a Encuentros Devueltos
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -95,7 +95,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: PERSISTENCIA DEL ORDENAMIENTO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-04 - El ordenamiento se mantiene al aplicar filtros
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -111,7 +111,7 @@ Característica: Ordenamiento de Encuentros Devueltos
       | Gestor TA                | Usuario           | Ascendente  | Sede = Guardia Civil |
       | Ejecutivo de Admisión    | Tipo de encuentro | Ascendente  | Estado = Devuelto    |
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-05 - El ordenamiento se mantiene al realizar búsqueda
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -130,7 +130,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: CAMBIO DE ORDENAMIENTO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-06 - Cambiar ordenamiento de una columna a otra
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -150,7 +150,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: ORDENAMIENTO CON VALORES NULOS O ESPECIALES
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-07 - Ordenamiento con valores vacíos o nulos
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -169,7 +169,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: INDICADOR VISUAL DE ORDENAMIENTO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-08 - Indicador visual muestra columna y dirección de ordenamiento activo
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -188,7 +188,7 @@ Característica: Ordenamiento de Encuentros Devueltos
   # TÉCNICA: RESTAURAR ORDEN POR DEFECTO
   # ========================================================================
 
-  @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: ORD-09 - Restablecer vista restaura orden por defecto
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema

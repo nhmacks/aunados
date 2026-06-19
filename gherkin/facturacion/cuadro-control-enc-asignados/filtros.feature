@@ -13,7 +13,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: FILTRO POR GARANTE CON CHECKBOXES MÚLTIPLES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-01 - Abrir dropdown de filtro Garante y visualizar opciones
     Dado que soy un usuario con rol "<rol>"
     Cuando hago clic en el dropdown "Garante"
@@ -34,7 +34,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-02 - Seleccionar uno o más garantes y aplicar filtro
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Garante"
@@ -53,7 +53,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-03 - Seleccionar todos los garantes con botón "Seleccionar todo"
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Garante"
@@ -68,7 +68,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-04 - Limpiar selección de garantes con botón "Limpiar"
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Garante"
@@ -87,7 +87,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: FILTRO POR SEDE CON CHECKBOXES MÚLTIPLES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-05 - Abrir dropdown de filtro Sede y visualizar opciones
     Dado que soy un usuario con rol "<rol>"
     Cuando hago clic en el dropdown "Sede"
@@ -103,7 +103,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-06 - Filtrar por una o más sedes
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Sede"
@@ -128,7 +128,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: FILTRO POR EJECUTIVO CON CHECKBOXES MÚLTIPLES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-07 - Abrir dropdown de filtro Ejecutivo y visualizar opciones
     Dado que soy un usuario con rol "<rol>"
     Cuando hago clic en el dropdown "Ejecutivo"
@@ -144,7 +144,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-08 - Filtrar por ejecutivos específicos
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Ejecutivo"
@@ -167,7 +167,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: COMBINACIÓN DE FILTROS MÚLTIPLES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-09 - Aplicar filtros combinados de Garante, Sede y Ejecutivo
     Dado que soy un usuario con rol "<rol>"
     Dado que he seleccionado 2 garantes en el filtro "Garante"
@@ -186,7 +186,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-10 - Limpiar todos los filtros con botón "Limpiar"
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado filtros en "Garante", "Sede" y "Ejecutivo"
@@ -208,7 +208,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE BOTÓN FILTRAR
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-11 - Validar que el botón Filtrar aplica los filtros seleccionados
     Dado que soy un usuario con rol "<rol>"
     Dado que he seleccionado filtros en los dropdowns
@@ -227,7 +227,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @unhappyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @unhappyPath
   Esquema del escenario: FIL-12 - Filtros sin resultados
     Dado que soy un usuario con rol "<rol>"
     Dado que he seleccionado un garante que no tiene encuentros asignados
@@ -248,7 +248,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: PERSISTENCIA DE FILTROS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-13 - Validar que los filtros persisten al hacer scroll en la grilla
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado filtros por "Garante" y "Sede"
@@ -263,7 +263,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-14 - Modificar filtros existentes y reaplicar
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado filtros y la grilla muestra 10 registros
@@ -284,7 +284,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: INDICADORES VISUALES DE FILTROS ACTIVOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-15 - Validar indicador visual cuando hay filtros activos
     Dado que soy un usuario con rol "<rol>"
     Dado que he seleccionado "<cantidad>" opciones en el filtro "<filtro>"
@@ -307,7 +307,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: EXPORTACIÓN CON FILTROS ACTIVOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-16 - Exportar datos con filtros aplicados respeta los filtros
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado filtros por "Garante" = "IAFAS PÚBLICAS"
@@ -327,7 +327,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: BOTÓN RESTABLECER VISTA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-17 - Restablecer vista limpia filtros y restablece estado inicial
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado múltiples filtros
@@ -349,7 +349,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE CONTADORES CON FILTROS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-18 - Validar actualización de contador con filtros
     Dado que soy un usuario con rol "<rol>"
     Dado que existen <total> ejecutivos en total
@@ -374,7 +374,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
   # TÉCNICA: CERRAR DROPDOWN SIN APLICAR
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-19 - Cerrar dropdown sin presionar Filtrar no aplica cambios
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Garante"
@@ -390,7 +390,7 @@ Característica: Filtros en Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: FIL-20 - Validar que se puede hacer clic fuera del dropdown para cerrarlo
     Dado que soy un usuario con rol "<rol>"
     Dado que he abierto el dropdown "Sede"

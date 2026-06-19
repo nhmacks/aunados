@@ -13,7 +13,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
   # Cobertura: Sección 3 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @superusuarioAdmision @encuentrosDevueltos @regresion
+  @autoP0 @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @regresion
   Escenario: PERM-01 - Superusuario de Admisión puede acceder a Encuentros Devueltos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -21,7 +21,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Entonces debo poder acceder a la funcionalidad completa
     Y debo visualizar todos los encuentros devueltos sin restricciones
 
-  @gestorTA @encuentrosDevueltos @regresion
+  @autoP0 @prioridadExtrema @gestorTA @encuentrosDevueltos @regresion
   Escenario: PERM-02 - Gestor TA puede acceder a visualización completa de Encuentros Devueltos
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -31,7 +31,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y debo visualizar todas las columnas de la grilla
     Pero NO debo poder gestionar los encuentros
 
-  @ejecutivoAdmision @encuentrosDevueltos @regresion
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @regresion
   Escenario: PERM-03 - Ejecutivo de Admisión puede acceder a Encuentros Devueltos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -39,7 +39,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Entonces debo poder acceder a la funcionalidad
     Y debo visualizar únicamente encuentros de mi responsabilidad
 
-  @ejecutivoFacturacion @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @encuentrosDevueltos @unhappyPath
   Escenario: PERM-04 - Ejecutivo de Facturación NO puede acceder a Encuentros Devueltos de Admisión
     Dado que soy un usuario con rol "Ejecutivo de Facturación"
     Y he iniciado sesión en el sistema
@@ -53,7 +53,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
   # RN-ED-04
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @regresion
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @regresion
   Escenario: PERM-05 - Ejecutivo solo visualiza encuentros creados por él en su sede
     Dado que soy el ejecutivo "ejecutivo01" asignado a la sede "Auna Guardia Civil"
     Y he iniciado sesión en el sistema
@@ -66,7 +66,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y todos deben haber sido creados por "ejecutivo01"
     Y todos deben ser de la sede "Auna Guardia Civil"
 
-  @superusuarioAdmision @gestorTA @encuentrosDevueltos @regresion
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @encuentrosDevueltos @regresion
   Escenario: PERM-06 - Superusuario y Gestor visualizan todos los encuentros sin restricciones
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -76,7 +76,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y debo visualizar encuentros de todas las sedes
     Y debo visualizar encuentros de todos los usuarios
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: PERM-07 - Ejecutivo NO puede acceder a encuentros de otros usuarios mediante URL
     Dado que soy el ejecutivo "ejecutivo01"
     Y he iniciado sesión en el sistema
@@ -91,7 +91,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
   # RN-ED-04
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: PERM-08 - Ejecutivo puede resolver sus propios encuentros devueltos
     Dado que soy el ejecutivo "ejecutivo01"
     Y he iniciado sesión en el sistema
@@ -101,7 +101,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y debo poder cambiar el estado del encuentro
     Y debo poder agregar observaciones
 
-  @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: PERM-10 - Superusuario puede gestionar todos los encuentros
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he iniciado sesión en el sistema
@@ -112,7 +112,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y debo poder resolver el encuentro
     Y debo poder escalarlo
 
-  @gestorTA @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @encuentrosDevueltos @unhappyPath
   Escenario: PERM-10B - Gestor TA NO puede gestionar encuentros, solo visualizarlos
     Dado que soy un usuario con rol "Gestor TA"
     Y existen encuentros devueltos de diferentes usuarios
@@ -124,7 +124,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y NO debo poder escalarlo
     Y NO debo visualizar opciones de gestión
 
-  @gestorTA @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @encuentrosDevueltos @unhappyPath
   Escenario: PERM-10C - Gestor TA NO puede modificar checkboxes de motivos de devolución
     Dado que soy un usuario con rol "Gestor TA"
     Y existe el encuentro devuelto "12345678" con los siguientes motivos:
@@ -136,7 +136,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Pero NO debo visualizar checkboxes junto a los motivos
     Y NO debo poder marcar motivos como subsanados
 
-  @gestorTA @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @encuentrosDevueltos @unhappyPath
   Escenario: PERM-10D - Gestor TA NO visualiza dropdown de estado ni puede cambiar estado
     Dado que soy un usuario con rol "Gestor TA"
     Y existe el encuentro devuelto "12345678"
@@ -150,7 +150,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
   # Cobertura: Sección 6.2 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: PERM-11 - Superusuario y Gestor tienen acceso a todos los filtros
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -159,7 +159,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y debo visualizar el filtro "Usuario Responsable"
     Y debo visualizar todos los filtros estándar
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: PERM-12 - Ejecutivo NO tiene acceso a filtros de Sede y Usuario
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -168,7 +168,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y NO debo visualizar el filtro "Usuario Responsable"
     Y solo debo visualizar filtros de: Estado, Prioridad, Motivo, Fecha
 
-  @ejecutivoAdmision @encuentrosDevueltos @regresion
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @regresion
   Escenario: PERM-13 - Los filtros del Ejecutivo solo afectan sus propios encuentros
     Dado que soy el ejecutivo "ejecutivo01"
     Y he iniciado sesión en el sistema
@@ -186,7 +186,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
   # TÉCNICA: VALIDACIÓN DE SEGURIDAD
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: PERM-15 - Validar que todo acceso requiere autenticación previa
     Dado que NO he iniciado sesión en el sistema
     Cuando intento acceder directamente a "Encuentros Devueltos" mediante URL
@@ -194,7 +194,7 @@ Característica: Permisos y Control de Acceso en Encuentros Devueltos
     Y debe redirigirme a la pantalla de login
     Y NO debe mostrar ninguna información de encuentros
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: PERM-16 - Ejecutivo NO puede manipular parámetros para ver otros encuentros
     Dado que soy el ejecutivo "ejecutivo01"
     Y he iniciado sesión en el sistema

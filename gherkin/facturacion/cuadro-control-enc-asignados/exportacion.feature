@@ -13,7 +13,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: EXPORTACIÓN SIN FILTROS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-01 - Exportar cuadro de control sin filtros aplicados
     Dado que soy un usuario con rol "<rol>"
     Dado que existen 135 ejecutivos de facturación
@@ -30,7 +30,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-02 - Validar columnas del archivo exportado
     Dado que soy un usuario con rol "<rol>"
     Dado que existen ejecutivos con encuentros asignados
@@ -69,7 +69,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: EXPORTACIÓN CON FILTROS APLICADOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-03 - Exportación respeta filtros activos
     Dado que soy un usuario con rol "<rol>"
     Dado que existen 135 ejecutivos en total
@@ -93,7 +93,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
       | 135       | | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-04 - Exportar con filtro de Garante específico
     Dado que soy un usuario con rol "<rol>"
     Dado que he filtrado por garante "IAFAS PÚBLICAS"
@@ -113,7 +113,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE FORMATO DE DATOS EXPORTADOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-05 - Validar formato de datos en archivo Excel
     Dado que soy un usuario con rol "<rol>"
     Dado que existe el ejecutivo "Luis Medrano" con los siguientes datos:
@@ -144,7 +144,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
       | Gestor TA                  |
 
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-06 - Validar que el archivo puede abrirse en diferentes herramientas
     Dado que soy un usuario con rol "<rol>"
     Cuando descargo el archivo Excel
@@ -164,7 +164,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ORDEN DE REGISTROS EN EXPORTACIÓN
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-07 - El orden de los ejecutivos en el archivo coincide con la grilla
     Dado que soy un usuario con rol "<rol>"
     Dado que la grilla muestra ejecutivos en un orden específico
@@ -185,7 +185,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE TOTALES Y SUMATORIAS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-08 - Los totales en el archivo coinciden con las tarjetas de métricas
     Dado que soy un usuario con rol "<rol>"
     Dado que la tarjeta "Facturado hoy" muestra "S/ 7,933.70" y "Cant. 20"
@@ -208,7 +208,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: EXPORTACIÓN CON GRILLA VACÍA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @unhappyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @unhappyPath
   Esquema del escenario: EXP-09 - No se puede exportar cuando no hay datos
     Dado que soy un usuario con rol "<rol>"
     Dado que he aplicado filtros que no retornan resultados
@@ -228,7 +228,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: MANEJO DE ERRORES EN EXPORTACIÓN
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @unhappyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @unhappyPath
   Esquema del escenario: EXP-10 - Manejo de errores en proceso de exportación
     Dado que soy un usuario con rol "<rol>"
     Dado que existen datos en la grilla
@@ -251,7 +251,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE PERFORMANCE EN EXPORTACIÓN
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-11 - Exportación de gran volumen de ejecutivos
     Dado que soy un usuario con rol "<rol>"
     Dado que existen 200 ejecutivos de facturación
@@ -271,7 +271,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: NOTIFICACIÓN DE DESCARGA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-12 - Visualizar notificación cuando la descarga está lista
     Dado que soy un usuario con rol "<rol>"
     Dado que he presionado el botón "Descargar"
@@ -291,7 +291,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE NOMBRE DE ARCHIVO
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-13 - Validar formato del nombre de archivo con timestamp
     Dado que soy un usuario con rol "<rol>"
     Dado que descargo el archivo el día 16/06/2026 a las 14:30:45
@@ -311,7 +311,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: EXPORTACIÓN INCLUYE TODOS LOS REGISTROS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-14 - Exportación incluye todos los ejecutivos, no solo los visibles en pantalla
     Dado que soy un usuario con rol "<rol>"
     Dado que existen 135 ejecutivos después de aplicar filtros
@@ -331,7 +331,7 @@ Característica: Exportación del Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE DATOS ESPECIALES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadAlta @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: EXP-15 - Manejo de valores especiales en exportación
     Dado que soy un usuario con rol "<rol>"
     Dado que existe un ejecutivo con "<campo>" = "<valor>"

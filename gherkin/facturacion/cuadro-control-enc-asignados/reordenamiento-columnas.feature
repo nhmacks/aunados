@@ -13,7 +13,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: REORDENAMIENTO DE COLUMNAS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-01 - Mover columna de derecha a izquierda
     Dado que soy un usuario con rol "<rol>"
     Y estoy visualizando la grilla con las columnas en el orden original:
@@ -35,7 +35,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-02 - Mover columna de izquierda a derecha
     Dado que soy un usuario con rol "<rol>"
     Cuando arrastro la columna "Facturado hoy" (posición 2)
@@ -49,7 +49,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-03 - Mover columna al inicio de la grilla
     Dado que soy un usuario con rol "<rol>"
     Y la columna "Monto devuelto" está en la última posición
@@ -64,7 +64,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-04 - Mover columna al final de la grilla
     Dado que soy un usuario con rol "<rol>"
     Y la columna "Facturado hoy" está en la posición 2
@@ -82,7 +82,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: VALIDACIÓN VISUAL DURANTE EL ARRASTRE
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-05 - Indicador visual durante el arrastre
     Dado que soy un usuario con rol "<rol>"
     Cuando empiezo a arrastrar la columna "Por facturar"
@@ -97,7 +97,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-06 - Cancelar arrastre sin soltar
     Dado que soy un usuario con rol "<rol>"
     Y he empezado a arrastrar la columna "Monto por fact."
@@ -116,7 +116,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: TODAS LAS COLUMNAS SON MOVIBLES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-07 - Todas las columnas pueden moverse
     Dado que soy un usuario con rol "<rol>"
     Cuando intento arrastrar cada columna de la grilla
@@ -133,7 +133,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: REORDENAMIENTO CON DATOS PRESENTES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-08 - Los datos se mantienen al reordenar columnas
     Dado que soy un usuario con rol "<rol>"
     Y el ejecutivo "ANDREA AMELIA PAZ CRUZ" tiene:
@@ -156,7 +156,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: REORDENAMIENTO CON FILTROS Y ORDENAMIENTO ACTIVOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-09 - Reordenar columnas con filtros aplicados
     Dado que soy un usuario con rol "<rol>"
     Y he aplicado el filtro "Garante" = "IAFAS PÚBLICAS"
@@ -170,7 +170,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-10 - Reordenar columnas con ordenamiento activo
     Dado que soy un usuario con rol "<rol>"
     Y la grilla está ordenada por "Por facturar" descendente
@@ -189,7 +189,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: MÚLTIPLES REORDENAMIENTOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-11 - Realizar múltiples reordenamientos consecutivos
     Dado que soy un usuario con rol "<rol>"
     Cuando muevo "Monto fact." de la posición 3 a la posición 2
@@ -207,7 +207,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: PERSISTENCIA DEL REORDENAMIENTO
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-12 - El reordenamiento persiste al hacer scroll
     Dado que soy un usuario con rol "<rol>"
     Y he reordenado las columnas
@@ -220,7 +220,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @unhappyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @unhappyPath
   Esquema del escenario: REORD-13 - El reordenamiento NO persiste al recargar la página
     Dado que soy un usuario con rol "<rol>"
     Y he reordenado las columnas a un orden personalizado
@@ -237,7 +237,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: ACCESIBILIDAD Y USABILIDAD
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-14 - Cursor indica que columna es arrastrable
     Dado que soy un usuario con rol "<rol>"
     Cuando paso el mouse sobre el encabezado de una columna
@@ -249,7 +249,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-15 - No se puede soltar columna en posición inválida
     Dado que soy un usuario con rol "<rol>"
     Y estoy arrastrando una columna
@@ -267,7 +267,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
   # TÉCNICA: REORDENAMIENTO DESPUÉS DE OTRAS ACCIONES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-16 - Reordenamiento se mantiene después de restablecer vista
     Dado que soy un usuario con rol "<rol>"
     Y he reordenado las columnas
@@ -280,7 +280,7 @@ Característica: Reordenamiento de Columnas en Cuadro de Control - Enc. Asignado
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadBaja @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: REORD-17 - El reordenamiento se mantiene después de exportar
     Dado que soy un usuario con rol "<rol>"
     Y he reordenado las columnas

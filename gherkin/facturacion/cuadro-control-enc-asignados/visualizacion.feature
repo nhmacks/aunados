@@ -12,7 +12,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ELEMENTOS DE UI PRINCIPALES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-01 - Visualizar elementos principales de la pantalla Cuadro de Control
     Dado que soy un usuario con rol "<rol>"
     Cuando accedo a la pantalla "Cuadro de control - Enc. asignados"
@@ -39,7 +39,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE TARJETAS DE MÉTRICAS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-02 - Visualizar las 7 tarjetas de métricas con datos correctos
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -60,7 +60,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-03 - Validar cálculos de métricas en tarjetas
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -85,7 +85,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALORES DE FRONTERA - MONTOS MÍNIMOS, PROMEDIO Y MÁXIMOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-03B - Validar manejo de montos mínimos, promedio y máximos
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -118,7 +118,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación | 9999999.99   | 9,999,999.99     | Máximo límite |
       | Gestor TA                  | 9999999.99   | 9,999,999.99     | Máximo límite |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-03C - Validar cantidades mínimas, promedio y máximas
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -155,7 +155,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE GRÁFICO CIRCULAR
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-04 - Visualizar gráfico circular "Total de encuentros pendientes"
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -178,7 +178,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-05 - Validar distribución porcentual en gráfico circular
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -203,7 +203,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE GRILLA DE EJECUTIVOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-06 - Visualizar grilla "Encuentros asignados" con todas las columnas
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -234,7 +234,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-07 - Validar datos de un ejecutivo en la grilla
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -257,7 +257,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-08 - Validar contador de registros en la grilla
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -271,7 +271,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-09 - Validar cálculo del porcentaje de pendientes por ejecutivo
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -296,7 +296,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE FORMATO DE MONTOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-10 - Validar formato de montos en soles
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -323,7 +323,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE SCROLL HORIZONTAL EN GRILLA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-11 - Validar scroll horizontal para visualizar todas las columnas
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -343,7 +343,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ESTADO INICIAL
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-12 - Validar estado inicial de la pantalla al cargar
     Dado que soy un usuario con rol "<rol>"
     Cuando accedo por primera vez a la pantalla "Cuadro de control - Enc. asignados"
@@ -359,7 +359,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @unhappyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @unhappyPath
   Esquema del escenario: VIS-13 - Visualizar pantalla sin ejecutivos asignados
     Dado que soy un usuario con rol "<rol>"
     Y NO existen ejecutivos de facturación con encuentros asignados
@@ -379,7 +379,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE ACTUALIZACIÓN DE DATOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-14 - Validar que los datos se actualizan al refrescar la pantalla
     Dado que soy un usuario con rol "<rol>"
     Y he accedido a la pantalla "Cuadro de control - Enc. asignados"
@@ -395,7 +395,7 @@ Característica: Visualización de Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @prioridadMedia @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: VIS-15 - Validar formato de fecha actual
     Dado que soy un usuario con rol "<rol>"
     Cuando accedo a la pantalla "Cuadro de control - Enc. asignados"

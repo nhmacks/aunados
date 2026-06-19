@@ -10,7 +10,7 @@ Característica: Visualización de Encuentros Devueltos
   # Cobertura: Sección 5.1 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-01 - Ejecutivo accede a Encuentros Devueltos y visualiza grilla con columnas
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y existen encuentros devueltos desde Facturación
@@ -31,7 +31,7 @@ Característica: Visualización de Encuentros Devueltos
       | Prioridad         |
       | Monto             |
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-01B - Gestor TA y Superusuario acceden a Encuentros Devueltos y visualizan grilla con todas las columnas
     Dado que soy un usuario con rol "Gestor TA"
     Y he iniciado sesión en el sistema
@@ -64,7 +64,7 @@ Característica: Visualización de Encuentros Devueltos
   # RN-ED-04
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @regresion
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @regresion
   Escenario: VIS-02 - Ejecutivo solo visualiza encuentros devueltos creados por él en su sede
     Dado que soy el ejecutivo "ejecutivo01" asignado a la sede "Auna Guardia Civil"
     Y existen los siguientes encuentros devueltos:
@@ -80,7 +80,7 @@ Característica: Visualización de Encuentros Devueltos
     Y NO debo visualizar el encuentro "34567890"
     Y NO debo visualizar el encuentro "45678901"
 
-  @superusuarioAdmision @gestorTA @encuentrosDevueltos @regresion
+  @prioridadMedia @superusuarioAdmision @gestorTA @encuentrosDevueltos @regresion
   Escenario: VIS-03 - Superusuario y Gestor TA visualizan todos los encuentros devueltos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y existen encuentros devueltos de múltiples sedes y usuarios
@@ -89,7 +89,7 @@ Característica: Visualización de Encuentros Devueltos
     Y debo visualizar encuentros de todas las sedes
     Y debo visualizar encuentros de todos los usuarios
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: VIS-04 - Ejecutivo sin encuentros devueltos visualiza lista vacía
     Dado que soy el ejecutivo "ejecutivo01"
     Y he iniciado sesión en el sistema
@@ -99,7 +99,7 @@ Característica: Visualización de Encuentros Devueltos
     Y debe mostrarse la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro."
     Y NO debe visualizarse ningún encuentro en la grilla
 
-  @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: VIS-04B - Validar visibilidad de botones cuando hay encuentros devueltos
     Dado que soy un usuario con rol "<rol>"
     Y he iniciado sesión en el sistema
@@ -122,7 +122,7 @@ Característica: Visualización de Encuentros Devueltos
   # Cobertura: Sección 8 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-05 - Acceder al detalle del encuentro devuelto (RN-ED-025)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y tengo encuentros devueltos
@@ -138,7 +138,7 @@ Característica: Visualización de Encuentros Devueltos
     Y NO debe mostrar la fecha de devolución
     Y NO debe mostrar el usuario que realizó la devolución
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-06 - Visualizar columnas de devoluciones por tipo en la grilla (RN-ED-002)
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido a "Encuentros Devueltos"
@@ -153,7 +153,7 @@ Característica: Visualización de Encuentros Devueltos
     Y la columna "Devoluciones médicas" debe mostrar "Carta de Garantía por Laboratorio, Error CIE10"
     Y la columna "Devoluciones de proceso" debe mostrar "Duplicidad de Gastos"
 
-  @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @gestorTA @superusuarioAdmision @encuentrosDevueltos @happyPath
   Esquema del escenario: VIS-07 - Visualizar guion en columnas de devoluciones sin datos
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido a "Encuentros Devueltos"
@@ -171,7 +171,7 @@ Característica: Visualización de Encuentros Devueltos
       | Carta de Garantía por Laboratorio | Médica         | -                | Carta de Garantía por Laboratorio | -                    |
       | Duplicidad de Gastos              | Proceso        | -                | -                                 | Duplicidad de Gastos |
 
-  @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @unhappyPath
   Escenario: VIS-08 - Ejecutivo de Admisión NO visualiza columnas exclusivas de Gestor y Superusuario
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -188,7 +188,7 @@ Característica: Visualización de Encuentros Devueltos
   # Cobertura: Sección 11 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @ejecutivoAdmision @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @encuentrosDevueltos @happyPath
   Escenario: VIS-09 - Cargar registros adicionales mediante scroll infinito
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -204,7 +204,7 @@ Característica: Visualización de Encuentros Devueltos
   # Cobertura: Sección 14 del documento 18-Encuentros-Devueltos.md
   # ========================================================================
 
-  @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: VIS-10 - Expandir sección Datos de encuentro en el detalle
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -219,7 +219,7 @@ Característica: Visualización de Encuentros Devueltos
       | Tipo de encuentro  | CEX             |
       | Prestación         | CONSULTA MEDICA |
 
-  @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: VIS-11 - Expandir sección Datos del seguro en el detalle
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -234,7 +234,7 @@ Característica: Visualización de Encuentros Devueltos
       | Plan copago         | MAS SALUD            |
       | Beneficio           | AMBULATORIA          |
 
-  @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: VIS-12 - Colapsar sección expandida en el detalle
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -244,7 +244,7 @@ Característica: Visualización de Encuentros Devueltos
     Entonces la sección debe colapsarse
     Y la información detallada debe ocultarse
 
-  @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: VIS-13 - Expandir múltiples secciones simultáneamente
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema
@@ -254,7 +254,7 @@ Característica: Visualización de Encuentros Devueltos
     Entonces ambas secciones deben permanecer expandidas simultáneamente
     Y debo visualizar toda la información de ambas secciones
 
-  @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
+  @prioridadMedia @ejecutivoAdmision @superusuarioAdmision @gestorTA @encuentrosDevueltos @happyPath
   Escenario: VIS-14 - Estado por defecto de secciones expandibles
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he iniciado sesión en el sistema

@@ -14,7 +14,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ORDENAMIENTO DE 3 ESTADOS - TABLA PROTOCOLO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: ORD-01 - Primer clic ordena ascendente (menor a mayor)
     Dado que estoy visualizando la tabla "Protocolo"
     Y la tabla NO está ordenada
@@ -31,7 +31,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
       | PxS cant.    |
       | PxS monto    |
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: ORD-02 - Segundo clic ordena descendente (mayor a menor)
     Dado que la tabla "Protocolo" está ordenada por "<columna>" ascendente
     Y se muestra el indicador de orden ascendente (↑)
@@ -47,7 +47,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
       | PxS cant.    |
       | PxS monto    |
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: ORD-03 - Tercer clic quita el ordenamiento
     Dado que la tabla "Protocolo" está ordenada por "<columna>" descendente
     Y se muestra el indicador de orden descendente (↓)
@@ -66,7 +66,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ORDENAMIENTO - TABLA ADMISIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: ORD-04 - Ordenar tabla Admisión por columnas
     Dado que estoy visualizando la tabla "Admisión"
     Cuando hago clic en el encabezado "<columna>"
@@ -85,7 +85,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
       | CPM cant.      |
       | CPM monto      |
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-05 - Tres clics en tabla Admisión
     Dado que estoy visualizando la tabla "Admisión"
     Cuando hago 1er clic en "Total cant."
@@ -99,7 +99,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ORDENAMIENTO - TABLA FACTURACIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: ORD-06 - Ordenar tabla Facturación por columnas
     Dado que estoy visualizando la tabla "Facturación"
     Cuando hago clic en el encabezado "<columna>"
@@ -118,7 +118,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
       | CPM cant.      |
       | CPM monto      |
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-07 - Tres clics en tabla Facturación
     Dado que estoy visualizando la tabla "Facturación"
     Cuando hago 1er clic en "Total monto"
@@ -132,7 +132,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS DE TEXTO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-08 - Ordenar alfabéticamente columna Protocolo ascendente
     Dado que la tabla "Protocolo" tiene las siguientes filas:
       | Protocolo                 |
@@ -141,7 +141,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
     Cuando ordeno por "Protocolo" ascendente
     Entonces el orden debe ser alfabético A-Z
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-09 - Ordenar alfabéticamente columna Tipo en tabla Admisión
     Dado que la tabla "Admisión" tiene las siguientes filas:
       | Tipo                  |
@@ -154,21 +154,21 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS NUMÉRICAS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-10 - Ordenar por cantidades ascendente en tabla Protocolo
     Dado que la tabla "Protocolo" tiene filas con diferentes cantidades
     Cuando ordeno por "Total cant." ascendente
     Entonces los valores deben ordenarse numéricamente de menor a mayor
     Y los valores cero deben aparecer primero
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-11 - Ordenar por montos descendente en tabla Admisión
     Dado que la tabla "Admisión" tiene filas con diferentes montos
     Cuando ordeno por "Total monto" descendente
     Entonces los montos mayores deben aparecer primero
     Y los montos deben ordenarse numéricamente
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-12 - Ordenar por montos descendente en tabla Facturación
     Dado que la tabla "Facturación" tiene filas con diferentes montos:
       | Tipo            | Total monto        |
@@ -182,7 +182,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: CAMBIO DE COLUMNA DE ORDENAMIENTO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-13 - Cambiar de una columna a otra elimina orden previo
     Dado que la tabla "Protocolo" está ordenada por "Protocolo" ascendente
     Cuando hago clic en el encabezado "Total cant."
@@ -190,7 +190,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
     Y la tabla debe ordenarse por "Total cant." ascendente
     Y solo debe mostrarse un indicador de ordenamiento activo en "Total cant."
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-14 - Solo una columna puede estar ordenada a la vez
     Dado que la tabla "Admisión" está ordenada por "Total monto" descendente
     Cuando hago clic en el encabezado "PxS cant."
@@ -202,7 +202,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ORDENAMIENTO CON FILTROS ACTIVOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-15 - Ordenar después de aplicar filtros
     Dado que he aplicado el filtro "Sede" = "Auna Guardia Civil"
     Y las tablas muestran datos filtrados
@@ -210,7 +210,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
     Entonces solo los datos filtrados deben ordenarse
     Y el filtro debe mantenerse activo
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-16 - Aplicar filtros mantiene el ordenamiento activo
     Dado que he ordenado la tabla "Facturación" por "Total monto" descendente
     Cuando aplico el filtro "Garante" = "PACIFICO SEGUROS"
@@ -222,7 +222,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ORDENAMIENTO Y TOGGLE SOLO POSITIVOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-17 - Ordenar con toggle Solo positivos activo
     Dado que he activado el toggle "Solo positivos"
     Y he presionado "Filtrar"
@@ -235,7 +235,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: INDICADORES VISUALES
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-18 - Validar indicadores visuales de ordenamiento
     Dado que la tabla "Protocolo" NO está ordenada
     Cuando hago clic en "Total cant."
@@ -250,7 +250,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: FILA TOTALES SIEMPRE AL FINAL
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: ORD-19 - La fila Totales permanece fija al final
     Dado que estoy visualizando la tabla "<tabla>"
     Cuando ordeno la tabla por cualquier columna
@@ -268,14 +268,14 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: PERSISTENCIA DEL ORDENAMIENTO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-20 - El ordenamiento persiste al hacer scroll
     Dado que he ordenado la tabla "Admisión" por "Tipo" ascendente
     Cuando hago scroll hacia abajo en la página
     Entonces el ordenamiento debe mantenerse
     Y el indicador visual debe seguir siendo visible
 
-  @gestorTA @pxfAmbulatorio @unhappyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @unhappyPath
   Escenario: ORD-21 - El ordenamiento NO persiste al recargar la página
     Dado que he ordenado la tabla "Facturación" por "Total cant." descendente
     Cuando refresco la página del navegador
@@ -287,7 +287,7 @@ Característica: Ordenamiento de Columnas en PxF Ambulatorio
   # TÉCNICA: ORDENAMIENTO INDEPENDIENTE POR TABLA
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadMedia @gestorTA @pxfAmbulatorio @happyPath
   Escenario: ORD-22 - El ordenamiento es independiente por tabla
     Dado que he ordenado la tabla "Protocolo" por "Total monto" descendente
     Cuando visualizo la tabla "Admisión"

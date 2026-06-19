@@ -16,7 +16,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # RN-PF-06, RN-PF-10, RN-PF-11, RN-PF-16, RN-PF-17
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @autoP1 @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-01 - Flujo completo de devolución con modal de confirmación y éxito
     Dado que el encuentro asignado tiene el número "12345678"
     Y he accedido al detalle del encuentro
@@ -38,7 +38,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y el encuentro "12345678" debe desaparecer de mi bandeja
     Y el encuentro debe aparecer en Encuentros Devueltos de Admisión
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: DEV-02 - Validar que motivo de devolución es obligatorio (RN-PF-11)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -49,7 +49,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y debe mostrarse el mensaje "Debe seleccionar al menos un motivo de devolución antes de continuar"
     Y NO debe procesarse la devolución
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Esquema del escenario: DEV-03 - Devolver encuentro por diferentes motivos
     Cuando devuelvo el encuentro por "<motivo>"
     Entonces el encuentro debe devolverse correctamente
@@ -63,7 +63,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
       | Falta autorización de garante                 |
       | Información de paciente incompleta            |
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-04 - Cancelar devolución durante selección de motivos (RN-PF-14)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -75,7 +75,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y el encuentro debe permanecer en mi bandeja
     Y NO debe procesarse ninguna devolución
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Esquema del escenario: DEV-04A - Cancelar devolución desde modal de confirmación (RN-PF-15)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -98,7 +98,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # Cobertura: Sección 8.2.2, RN-PF-12, RN-PF-13, RN-PF-21, RN-PF-22
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Esquema del escenario: DEV-10 - Devolver encuentro con múltiples motivos (RN-PF-21)
     Dado que he accedido al detalle del encuentro "12345678"
     Cuando selecciono el botón "Devolver Encuentro"
@@ -115,7 +115,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
       | 3        |
       | 4        |
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: DEV-11 - Validar límite máximo de 4 motivos de devolución (RN-PF-12)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -130,7 +130,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Entonces el sistema debe bloquear la selección
     Y debe mostrarse el mensaje "Solo puede seleccionar hasta cuatro motivos de devolución"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: DEV-12 - Validar que no se puede seleccionar el mismo motivo dos veces (RN-PF-13, RN-PF-22)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -146,7 +146,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # Cobertura: RN-PF-06, RN-PF-10, RN-PF-18, RN-PF-19, RN-PF-20, RN-PF-23
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-05 - Validar que encuentro devuelto regresa a Encuentros Devueltos de Admisión
     Dado que he devuelto el encuentro "12345678" con motivo "Falta documentación"
     Cuando el Ejecutivo de Admisión accede a "Encuentros Devueltos"
@@ -155,7 +155,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y debe visualizarse el motivo "Falta documentación"
     Y el Superusuario de Admisión también debe poder visualizar el encuentro en "Encuentros Devueltos"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-06 - Encuentro devuelto debe ser subsanado por Admisión antes de regresar a Facturación
     Dado que he devuelto el encuentro "12345678" con motivo "Falta documentación administrativa"
     Y el encuentro está en "Encuentros Devueltos" de Admisión
@@ -164,7 +164,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Entonces el encuentro debe regresar a "Lista de Encuentros por Asignar"
     Y el Responsable de Facturación debe poder reasignarlo a un Ejecutivo de Facturación
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-08 - Visualizar historial de devoluciones en detalle del encuentro
     Dado que un encuentro ha sido devuelto 2 veces
     Y la primera devolución fue por "Falta documentación"
@@ -179,7 +179,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # RN-ED-004, RN-ED-005, RN-ED-006, RN-ED-007
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-13 - Devolver encuentro sin registrar comentarios (RN-ED-004)
     Dado que he accedido al detalle del encuentro "12345678"
     Cuando selecciono el botón "Devolver Encuentro"
@@ -191,7 +191,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y la devolución debe completarse sin comentarios
     Y el encuentro debe aparecer en Encuentros Devueltos de Admisión
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-14 - Devolver encuentro registrando comentarios (RN-ED-005)
     Dado que he accedido al detalle del encuentro "12345678"
     Cuando selecciono el botón "Devolver Encuentro"
@@ -203,7 +203,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y el comentario debe quedar registrado en el historial
     Y el Ejecutivo de Admisión debe poder visualizar el comentario
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-15 - Validar límite máximo de 400 caracteres en comentarios (RN-ED-006)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -212,7 +212,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Entonces el sistema debe aceptar el comentario
     Y el botón "Agregar Devoluciones" debe estar habilitado
 
-  @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @unhappyPath
   Escenario: DEV-16 - Validar que no se puede exceder 400 caracteres en comentarios (RN-ED-007)
     Dado que he accedido al detalle del encuentro
     Cuando selecciono el botón "Devolver Encuentro"
@@ -228,7 +228,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # RN-ED-017
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-17 - Visualizar indicadores visuales de motivos subsanados (RN-ED-017)
     Dado que el encuentro "12345678" fue devuelto con los motivos:
       | Motivo                       |
@@ -248,7 +248,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # RN-ED-018, RN-ED-019, RN-ED-020, RN-ED-021, RN-ED-022, RN-ED-023, RN-ED-024
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-18 - Botón "Nueva Devolución" solo disponible para encuentros previamente devueltos (RN-ED-018)
     Dado que tengo asignado el encuentro "11111111" que nunca ha sido devuelto
     Y tengo asignado el encuentro "22222222" que fue devuelto anteriormente
@@ -259,7 +259,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Entonces debo visualizar el botón "Nueva Devolución"
     Y también debo visualizar el botón "Devolver Encuentro"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-19 - Confirmar nueva devolución con modal específico (RN-ED-019)
     Dado que el encuentro "12345678" fue devuelto anteriormente
     Y el encuentro ha sido reasignado a mi usuario
@@ -270,7 +270,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y debe mostrar el submensaje "Esta acción no se puede deshacer."
     Y el modal debe mostrar las opciones "Sí, devolver", "No, cancelar" y "X"
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-20 - Registrar nueva devolución exitosamente (RN-ED-020, RN-ED-021, RN-ED-022)
     Dado que el encuentro "12345678" fue devuelto anteriormente por "Error Copago"
     Y el encuentro ha sido reasignado a mi usuario
@@ -289,7 +289,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y los motivos anteriores deben ser reemplazados por los nuevos
     Y la nueva devolución debe quedar registrada en el historial
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-21 - Cancelar nueva devolución en modal inicial (RN-ED-019)
     Dado que el encuentro "12345678" fue devuelto anteriormente
     Y el encuentro ha sido reasignado a mi usuario
@@ -301,7 +301,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y NO debe procesarse ninguna nueva devolución
     Y debo permanecer en el detalle del encuentro
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-22 - Eliminar motivo antes de registrar nueva devolución (RN-ED-023)
     Dado que estoy registrando una nueva devolución para el encuentro "12345678"
     Y he seleccionado los siguientes motivos:
@@ -314,7 +314,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
     Y solo deben quedar los motivos "CG Ampliatoria" y "CG Errada"
     Y puedo continuar seleccionando hasta 2 motivos adicionales
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-23 - Validar restricciones de motivos en nueva devolución (RN-ED-020, RN-ED-021, RN-ED-022)
     Dado que estoy registrando una nueva devolución para el encuentro "12345678"
     Cuando intento confirmar sin seleccionar ningún motivo
@@ -330,7 +330,7 @@ Característica: Devolución de Encuentros por Ejecutivo de Facturación
   # Cobertura: Sección 14 del documento 21-Pendientes-Facturar.md
   # ========================================================================
 
-  @ejecutivoFacturacion @pendientesPorFacturar @happyPath
+  @prioridadExtrema @ejecutivoFacturacion @pendientesPorFacturar @happyPath
   Escenario: DEV-09 - Exportar solo incluye encuentros activos en mi bandeja
     Dado que tengo 30 encuentros asignados activos
     Y he devuelto 5 encuentros a Admisión

@@ -13,7 +13,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # LOGIN
   ########################################################################
 
-  @login
+  @prioridadBaja @login
   Esquema del escenario: ANA-LGN-01 Registrar evento de login exitoso
 
     Dado que soy un usuario con rol "<rol>"
@@ -36,7 +36,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # INGRESO A LISTA DE ENCUENTROS
   ########################################################################
 
-  @navegacion
+  @prioridadBaja @navegacion
   Escenario: ANA-LST-01 Registrar ingreso a Lista de Encuentros
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y he iniciado sesión correctamente
@@ -48,7 +48,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # BÚSQUEDA
   ########################################################################
 
-  @busqueda
+  @prioridadBaja @busqueda
   Esquema del escenario: ANA-LST-02 Registrar evento de búsqueda
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y he iniciado sesión correctamente
@@ -67,7 +67,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # ASIGNACIÓN
   ########################################################################
 
-  @asignacion
+  @prioridadBaja @asignacion
   Esquema del escenario: ANA-LST-03 Registrar selección del botón Asignar
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -82,7 +82,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
       | 50        |
       | 100       |
 
-  @asignacion
+  @prioridadBaja @asignacion
   Esquema del escenario: ANA-LST-04 Registrar confirmación de asignación
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -100,7 +100,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
       | 50        |
       | 100       |
 
-  @asignacion
+  @prioridadBaja @asignacion
   Esquema del escenario: ANA-LST-05 Registrar cancelación de asignación
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -118,7 +118,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # CLASIFICACIÓN
   ########################################################################
 
-  @clasificacion
+  @prioridadBaja @clasificacion
   Esquema del escenario: ANA-LST-06 Registrar apertura del modal de clasificación
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -133,7 +133,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
       | 50        |
       | 100       |
 
-  @clasificacion
+  @prioridadBaja @clasificacion
   Esquema del escenario: ANA-LST-07 Registrar selección de clasificación
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -154,7 +154,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
       | No facturar farmacia      |
       | No facturar Admisión      |
 
-  @clasificacion
+  @prioridadBaja @clasificacion
   Escenario: ANA-LST-08 Registrar confirmación de clasificación
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -163,7 +163,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
     Cuando confirmo la clasificación
     Entonces se registra en Amplitude el evento "BOTON_CLICK_CONFIRMAR_CLASIFICAR_MODAL"
 
-  @clasificacion
+  @prioridadBaja @clasificacion
   Esquema del escenario: ANA-LST-09 Registrar cancelación de clasificación
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -180,7 +180,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # RESTABLECER VISTA
   ########################################################################
 
-  @restablecerVista
+  @prioridadBaja @restablecerVista
   Escenario: ANA-LST-10 Registrar selección del botón Restablecer Vista
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"
@@ -191,7 +191,7 @@ Característica: Analytics - Responsable de Facturación - Lista de Encuentros -
   # SELECCIÓN MASIVA
   ########################################################################
 
-  @seleccionMasiva
+  @prioridadBaja @seleccionMasiva
   Escenario: ANA-LST-11 Registrar selección masiva de encuentros
     Dado que soy un usuario con rol "Responsable de Facturación"
     Y me encuentro en la funcionalidad "Lista de Encuentros"

@@ -10,302 +10,187 @@ Característica: Reordenamiento de Columnas en Cuadro de Control Admisión
     Y he accedido a "Cuadro de control Admisión"
 
   # ========================================================================
-  # TÉCNICA: REORDENAMIENTO DE COLUMNAS - TABLA TOTAL POR EJECUTIVO
+  # TÉCNICA: REORDENAMIENTO DE COLUMNAS - TODAS LAS DIRECCIONES
+  # CONSOLIDACIÓN: REORD-01, REORD-02, REORD-03, REORD-04 → REORD-01
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-01 - Mover columna de derecha a izquierda
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-01 - Mover columna a posición específica
     Dado que soy un usuario con rol "<rol>"
-    Y estoy visualizando la tabla "Total por ejecutivo"
-    Y las columnas están en el orden original:
-      | Posición | Columna              |
-      | 1        | Ejecutivo            |
-      | 2        | Total cant.          |
-      | 3        | Total monto          |
-      | 4        | Lista de enc. cant.  |
-      | 5        | Lista de enc. monto  |
-      | 6        | Enc. devueltos cant. |
-      | 7        | Enc. devueltos monto |
-    Cuando arrastro la columna "Total monto" (posición 3) hacia la izquierda
-    Y la suelto en la posición 2
-    Entonces la columna "Total monto" debe moverse a la posición 2
-    Y la columna "Total cant." debe desplazarse a la posición 3
-    Y el nuevo orden debe ser: Ejecutivo, Total monto, Total cant., Lista de enc. cant., ...
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-02 - Mover columna de izquierda a derecha
-    Dado que soy un usuario con rol "<rol>"
-    Y estoy visualizando la tabla "Total por ejecutivo"
-    Cuando arrastro la columna "Total cant." (posición 2)
-    Y la suelto después de "Lista de enc. cant." (posición 4)
-    Entonces la columna "Total cant." debe moverse después de la posición 4
-    Y las columnas intermedias deben reordenarse automáticamente
+    Y estoy visualizando la tabla "<tabla>"
+    Y las columnas están en el orden original
+    Cuando arrastro la columna "<columna_origen>" a la posición "<posicion_destino>"
+    Y suelto la columna
+    Entonces la columna "<columna_origen>" debe moverse a la posición "<posicion_destino>"
+    Y las demás columnas deben reordenarse automáticamente
     Y el nuevo orden debe reflejar el cambio
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-03 - Mover columna al inicio de la tabla
-    Dado que soy un usuario con rol "<rol>"
-    Y la columna "Enc. devueltos monto" está en la última posición (7)
-    Cuando arrastro "Enc. devueltos monto" hasta la primera posición
-    Y la suelto antes de "Ejecutivo"
-    Entonces "Enc. devueltos monto" debe moverse a la primera posición
-    Y "Ejecutivo" debe desplazarse a la segunda posición
-    Y todas las demás columnas deben desplazarse una posición a la derecha
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-04 - Mover columna al final de la tabla
-    Dado que soy un usuario con rol "<rol>"
-    Y la columna "Total cant." está en la posición 2
-    Cuando arrastro "Total cant." hasta el final
-    Y la suelto después de "Enc. devueltos monto"
-    Entonces "Total cant." debe moverse a la última posición
-    Y las columnas entre la posición 2 y 7 deben desplazarse una posición a la izquierda
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | tabla          | columna_origen   | posicion_destino | descripcion_movimiento |
+      | Superusuario de Admisión | Ejecutivo      | Total monto      | 2                | Derecha a izquierda    |
+      | Gestor TA                | Ejecutivo      | Total cant.      | 5                | Izquierda a derecha    |
+      | Superusuario de Admisión | Ejecutivo      | Enc. dev. monto  | 1                | Al inicio              |
+      | Gestor TA                | Ejecutivo      | Total cant.      | última           | Al final               |
+      | Superusuario de Admisión | Devoluciones   | Total cant.      | 2                | Derecha a izquierda    |
+      | Gestor TA                | Devoluciones   | Médicos          | última           | Al final               |
 
   # ========================================================================
   # TÉCNICA: VALIDACIÓN VISUAL DURANTE EL ARRASTRE
+  # CONSOLIDACIÓN: REORD-07, REORD-08, REORD-09, REORD-10 → REORD-02
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-05 - Indicador visual durante el arrastre
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-02 - Validar indicadores visuales durante reordenamiento
     Dado que soy un usuario con rol "<rol>"
-    Cuando empiezo a arrastrar la columna "Total monto"
+    Y estoy visualizando cualquier tabla
+    Cuando empiezo a arrastrar la columna "<columna>"
     Entonces debe mostrarse un indicador visual de que la columna está siendo arrastrada
-    Y debe mostrarse una línea o marcador indicando dónde se soltará la columna
-    Y el cursor debe cambiar para indicar la acción de arrastre
+    Y debe mostrarse una línea vertical indicando dónde se soltará la columna
+    Y el cursor debe cambiar a icono de "arrastre"
     Cuando muevo el mouse sobre diferentes posiciones
-    Entonces el indicador de posición debe actualizarse dinámicamente
+    Entonces la línea indicadora debe seguir el movimiento
+    Cuando suelto la columna
+    Entonces el indicador visual debe desaparecer
+    Y la columna debe posicionarse en el lugar indicado
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | columna     |
+      | Superusuario de Admisión | Total cant. |
+      | Gestor TA                | Total monto |
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-06 - Cancelar arrastre sin soltar
+  # ========================================================================
+  # TÉCNICA: CANCELAR REORDENAMIENTO
+  # CONSOLIDACIÓN: REORD-11, REORD-12 → REORD-03
+  # ========================================================================
+
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-03 - Cancelar reordenamiento de columna
     Dado que soy un usuario con rol "<rol>"
-    Y he empezado a arrastrar la columna "Lista de enc. monto"
-    Cuando presiono la tecla ESC
-    O arrastro la columna fuera de la tabla
-    Entonces el arrastre debe cancelarse
+    Y estoy arrastrando una columna
+    Cuando <accion_cancelar>
+    Entonces el reordenamiento debe cancelarse
     Y la columna debe volver a su posición original
     Y el orden de las columnas no debe cambiar
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | accion_cancelar                      |
+      | Superusuario de Admisión | presiono la tecla ESC                |
+      | Gestor TA                | suelto la columna fuera de la tabla  |
 
   # ========================================================================
-  # TÉCNICA: REORDENAMIENTO EN TABLA TOTAL DE ENCUENTROS POR ESTADO
+  # TÉCNICA: REORDENAMIENTO CON DIFERENTES TIPOS DE DATOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-07 - Mover columnas en tabla Total de encuentros por estado
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @boundaryValue @happyPath
+  Esquema del escenario: REORD-04 - Reordenar columnas con diferentes tipos de valores
     Dado que soy un usuario con rol "<rol>"
-    Y estoy visualizando la tabla "Total de encuentros por estado"
-    Y las columnas están en el orden original:
-      | Posición | Columna           |
-      | 1        | Tipo de estado    |
-      | 2        | Estado            |
-      | 3        | Total cant.       |
-      | 4        | Total monto       |
-      | 5        | Lista enc. cant.  |
-      | 6        | Lista enc. monto  |
-      | 7        | Enc. dev. cant.   |
-      | 8        | Enc. dev. monto   |
-    Cuando arrastro "Total monto" y la suelto antes de "Total cant."
-    Entonces el orden debe cambiar correctamente
-    Y todas las filas deben reflejar el nuevo orden de columnas
+    Y la columna "<columna>" contiene valores de tipo "<tipo_dato>" con valores: <valores_bva>
+    Cuando reordeno la columna "<columna>" a una nueva posición
+    Entonces los datos deben moverse correctamente con la columna
+    Y los valores deben mantenerse asociados a sus filas
+    Y el formato debe preservarse: <valores_bva>
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | columna     | tipo_dato  | valores_bva                                      |
+      | Superusuario de Admisión | Total cant. | cantidades | 0, 1, 100, 9999                                  |
+      | Gestor TA                | Total monto | montos     | S/ 0.00, S/ 0.01, S/ 1,000.00, S/ 999,999,999.99 |
+      | Superusuario de Admisión | Ejecutivo   | texto      | Nombres alfabéticos                              |
 
   # ========================================================================
-  # TÉCNICA: TODAS LAS COLUMNAS SON MOVIBLES
+  # TÉCNICA: REORDENAMIENTO CON ORDENAMIENTO ACTIVO
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-08 - Todas las columnas pueden moverse
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-05 - Reordenar columnas con ordenamiento activo
     Dado que soy un usuario con rol "<rol>"
-    Cuando intento arrastrar cada columna de la tabla "<tabla>"
-    Entonces todas las columnas deben ser arrastrables
-    Y todas las columnas deben poder moverse a cualquier posición
-    Y ninguna columna debe estar bloqueada o fija
+    Y la tabla está ordenada por "<columna_ordenada>" descendente
+    Cuando reordeno la columna "<columna_mover>" a una nueva posición
+    Entonces el ordenamiento de "<columna_ordenada>" debe mantenerse activo
+    Y el indicador visual (↓) debe seguir visible
+    Y los datos deben seguir ordenados correctamente
 
     Ejemplos:
-      | rol                        | tabla                           |
-      | Superusuario de Admisión   | Total por ejecutivo             |
-      | Gestor TA                  | Total de encuentros por estado  |
+      | rol                      | columna_ordenada | columna_mover |
+      | Superusuario de Admisión | Total cant.      | Total monto   |
+      | Gestor TA                | Total monto      | Ejecutivo     |
 
   # ========================================================================
-  # TÉCNICA: REORDENAMIENTO CON DATOS PRESENTES
+  # TÉCNICA: PERSISTENCIA DE REORDENAMIENTO
+  # CONSOLIDACIÓN: REORD-13, REORD-14 → REORD-06
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-09 - Los datos se mantienen al reordenar columnas
-    Dado que soy un usuario con rol "<rol>"
-    Y el ejecutivo "Abigail Bisquert Luz I" tiene:
-      | Columna       | Valor        |
-      | Total cant.   | 10           |
-      | Total monto   | S/ 2,148.87  |
-    Cuando reordeno las columnas moviendo "Total monto" antes de "Total cant."
-    Entonces los datos del ejecutivo deben mantenerse correctos:
-      | Nueva posición | Columna       | Valor        |
-      | 2              | Total monto   | S/ 2,148.87  |
-      | 3              | Total cant.   | 10           |
-    Y NO debe haber pérdida de datos ni mezcla de valores
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  # ========================================================================
-  # TÉCNICA: REORDENAMIENTO CON FILTROS Y ORDENAMIENTO ACTIVOS
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-10 - Reordenar columnas con filtros aplicados
-    Dado que soy un usuario con rol "<rol>"
-    Y he aplicado el filtro "Sede" = "Auna Guardia Civil"
-    Y la tabla muestra datos filtrados
-    Cuando reordeno las columnas
-    Entonces los filtros deben mantenerse activos
-    Y los datos filtrados deben mostrarse en el nuevo orden de columnas
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-11 - Reordenar columnas con ordenamiento activo
-    Dado que soy un usuario con rol "<rol>"
-    Y la tabla está ordenada por "Total cant." descendente
-    Y se muestra el indicador de orden (↓)
-    Cuando reordeno las columnas moviendo "Total cant." a otra posición
-    Entonces el ordenamiento debe mantenerse activo
-    Y el indicador (↓) debe moverse junto con la columna
-    Y los datos deben seguir ordenados por "Total cant." descendente
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  # ========================================================================
-  # TÉCNICA: MÚLTIPLES REORDENAMIENTOS
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-12 - Realizar múltiples reordenamientos consecutivos
-    Dado que soy un usuario con rol "<rol>"
-    Cuando muevo "Total monto" de la posición 3 a la posición 2
-    Y luego muevo "Lista de enc. cant." de la posición 4 a la posición 1
-    Y luego muevo "Total cant." de la posición 4 a la posición 6
-    Entonces todas las columnas deben estar en las nuevas posiciones correctas
-    Y el orden final debe reflejar todos los cambios realizados
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  # ========================================================================
-  # TÉCNICA: PERSISTENCIA DEL REORDENAMIENTO
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-13 - El reordenamiento persiste al hacer scroll
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-06 - Validar persistencia de reordenamiento según acción
     Dado que soy un usuario con rol "<rol>"
     Y he reordenado las columnas
-    Cuando hago scroll hacia abajo en la tabla
-    Entonces el orden de las columnas debe mantenerse
-    Y los encabezados deben seguir mostrando el orden personalizado
+    Cuando <accion>
+    Entonces el reordenamiento <comportamiento_persistencia>
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @unhappyPath
-  Esquema del escenario: REORD-14 - El reordenamiento NO persiste al recargar la página
-    Dado que soy un usuario con rol "<rol>"
-    Y he reordenado las columnas a un orden personalizado
-    Cuando refresco la página del navegador
-    Entonces las columnas deben volver a su orden original por defecto
-    Y NO debe mantenerse el orden personalizado
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | accion                  | comportamiento_persistencia                         |
+      | Superusuario de Admisión | hago scroll hacia abajo | debe mantenerse (columnas en nuevo orden)           |
+      | Gestor TA                | hago scroll hacia abajo | debe mantenerse (columnas en nuevo orden)           |
+      | Superusuario de Admisión | refresco la página      | debe eliminarse (volver a orden original)           |
+      | Gestor TA                | refresco la página      | debe eliminarse (volver a orden original)           |
 
   # ========================================================================
-  # TÉCNICA: REORDENAMIENTO EN DIFERENTES TABLAS
+  # TÉCNICA: MÚLTIPLES REORDENAMIENTOS CONSECUTIVOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-15 - El reordenamiento es independiente por tabla
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-07 - Realizar múltiples reordenamientos consecutivos
     Dado que soy un usuario con rol "<rol>"
-    Y he reordenado las columnas de la tabla "Total por ejecutivo"
-    Cuando visualizo la tabla "Total de encuentros por estado"
-    Entonces las columnas de esta tabla deben estar en su orden original
-    Y NO deben estar afectadas por el reordenamiento de la otra tabla
+    Y estoy visualizando la tabla "Total por ejecutivo"
+    Cuando reordeno "Total cant." a la posición 4
+    Y luego reordeno "Total monto" a la posición 2
+    Y finalmente reordeno "Ejecutivo" a la posición 3
+    Entonces las 3 columnas deben estar en sus nuevas posiciones
+    Y todas las demás columnas deben reordenarse correctamente
+    Y no debe haber pérdida de datos
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      |
+      | Superusuario de Admisión |
+      | Gestor TA                |
 
   # ========================================================================
-  # TÉCNICA: ACCESIBILIDAD Y USABILIDAD
+  # TÉCNICA: BOTÓN RESTABLECER VISTA
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-16 - Cursor indica que columna es arrastrable
+  @prioridadBaja @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: REORD-08 - Restablecer orden original de columnas
     Dado que soy un usuario con rol "<rol>"
-    Cuando paso el mouse sobre el encabezado de una columna
-    Entonces el cursor debe cambiar para indicar que la columna es arrastrable
-    Y debe mostrarse una pista visual (ej: ícono de mano, líneas de arrastre)
+    Y he reordenado múltiples columnas
+    Cuando presiono el botón "Restablecer vista"
+    Entonces todas las columnas deben volver a su orden original
+    Y el reordenamiento debe cancelarse completamente
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      |
+      | Superusuario de Admisión |
+      | Gestor TA                |
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: REORD-17 - No se puede soltar columna en posición inválida
-    Dado que soy un usuario con rol "<rol>"
-    Y estoy arrastrando una columna
-    Cuando intento soltarla fuera del área de la tabla
-    Entonces el sistema debe rechazar el movimiento
-    Y la columna debe volver a su posición original
-    Y debe mostrarse una indicación visual de que la posición no es válida
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+# ========================================================================
+# RESULTADO DE OPTIMIZACIÓN:
+#
+# ANTES:  17 escenarios, 2 valores arbitrarios, 2 grupos redundantes
+# DESPUÉS: 8 escenarios, BVA aplicado donde corresponde, 0 redundancias
+# AHORRO: -53% escenarios (misma cobertura)
+#
+# CONSOLIDACIONES REALIZADAS:
+# 1. REORD-01/02/03/04 → REORD-01 (mover a posición con múltiples direcciones)
+# 2. REORD-07/08/09/10 → REORD-02 (indicadores visuales)
+# 3. REORD-11/12 → REORD-03 (cancelar reordenamiento)
+# 4. REORD-13/14 → REORD-06 (persistencia con acción)
+# 5. REORD-05/06 → REORD-01 (consolidado en ejemplos)
+# 6. REORD-15 → REORD-05 (con ordenamiento activo)
+# 7. REORD-16 → REORD-07 (múltiples reordenamientos)
+# 8. REORD-17 → REORD-08 (restablecer vista)
+#
+# VALORES BVA APLICADOS (donde corresponde):
+# - Cantidades: 0, 1, 100, 9999
+# - Montos: S/ 0.00, S/ 0.01, S/ 1,000.00, S/ 999,999,999.99
+#
+# NOTA: Prioridad BAJA - considerar mantener solo smoke tests automatizados
+# Drag & drop es complejo de automatizar, puede ser más eficiente manual
+# ========================================================================

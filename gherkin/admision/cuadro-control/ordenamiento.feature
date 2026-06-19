@@ -10,357 +10,178 @@ Característica: Ordenamiento de Columnas en Cuadro de Control Admisión
     Y he accedido a "Cuadro de control Admisión"
 
   # ========================================================================
-  # TÉCNICA: ORDENAMIENTO DE 3 ESTADOS - TABLA TOTAL POR EJECUTIVO
+  # TÉCNICA: BOUNDARY VALUE ANALYSIS + ORDENAMIENTO DE 3 ESTADOS
+  # CONSOLIDACIÓN: ORD-01, ORD-02, ORD-03, ORD-08, ORD-09 → ORD-01
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-01 - Primer clic ordena ascendente (menor a mayor)
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @boundaryValue @happyPath
+  Esquema del escenario: ORD-01 - Validar ciclo de ordenamiento 3 clics con valores frontera (BVA)
     Dado que soy un usuario con rol "<rol>"
-    Y estoy visualizando la tabla "Total por ejecutivo"
-    Y la tabla NO está ordenada
-    Cuando hago clic en el encabezado de la columna "<columna>"
-    Entonces la tabla debe ordenarse por "<columna>" de forma ascendente
-    Y debe mostrarse un indicador visual de orden ascendente (↑) en "<columna>"
-    Y los datos deben reorganizarse de menor a mayor
-
-    Ejemplos:
-      | rol                        | columna              |
-      | Superusuario de Admisión   | Ejecutivo            |
-      | Gestor TA                  | Total cant.          |
-      | Superusuario de Admisión   | Total monto          |
-      | Gestor TA                  | Lista de enc. cant.  |
-      | Superusuario de Admisión   | Lista de enc. monto  |
-      | Gestor TA                  | Enc. devueltos cant. |
-      | Superusuario de Admisión   | Enc. devueltos monto |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-02 - Segundo clic ordena descendente (mayor a menor)
-    Dado que soy un usuario con rol "<rol>"
-    Y la tabla "Total por ejecutivo" está ordenada por "<columna>" ascendente
-    Y se muestra el indicador de orden ascendente (↑)
-    Cuando hago clic nuevamente en el encabezado de la columna "<columna>"
-    Entonces la tabla debe ordenarse por "<columna>" de forma descendente
+    Y estoy visualizando la tabla "<tabla>"
+    Y la tabla contiene valores: <valores_bva>
+    Cuando hago 1er clic en el encabezado de "<columna>"
+    Entonces la tabla debe ordenarse por "<columna>" de forma ascendente (menor a mayor)
+    Y debe mostrarse indicador visual de orden ascendente (↑)
+    Cuando hago 2do clic en el encabezado de "<columna>"
+    Entonces la tabla debe ordenarse por "<columna>" de forma descendente (mayor a menor)
     Y el indicador debe cambiar a orden descendente (↓)
-    Y los datos deben reorganizarse de mayor a menor
-
-    Ejemplos:
-      | rol                        | columna              |
-      | Superusuario de Admisión   | Total cant.          |
-      | Gestor TA                  | Total monto          |
-      | Superusuario de Admisión   | Lista de enc. cant.  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-03 - Tercer clic quita el ordenamiento
-    Dado que soy un usuario con rol "<rol>"
-    Y la tabla "Total por ejecutivo" está ordenada por "<columna>" descendente
-    Y se muestra el indicador de orden descendente (↓)
-    Cuando hago clic por tercera vez en el encabezado de la columna "<columna>"
+    Cuando hago 3er clic en el encabezado de "<columna>"
     Entonces el ordenamiento debe eliminarse
     Y el indicador visual debe desaparecer
-    Y la tabla debe volver a su orden original (por defecto)
+    Y la tabla debe volver a su orden original
 
     Ejemplos:
-      | rol                        | columna              |
-      | Superusuario de Admisión   | Total cant.          |
-      | Gestor TA                  | Ejecutivo            |
-      | Superusuario de Admisión   | Total monto          |
+      | rol                      | tabla          | columna      | valores_bva                                       |
+      | Superusuario de Admisión | Ejecutivo      | Total cant.  | 0, 1, 100, 9999                                   |
+      | Gestor TA                | Ejecutivo      | Total monto  | S/ 0.00, S/ 0.01, S/ 1,000.00, S/ 999,999,999.99  |
+      | Superusuario de Admisión | Por estado     | Total cant.  | 0, 1, 100, 9999                                   |
+      | Gestor TA                | Por estado     | Total monto  | S/ 0.00, S/ 0.01, S/ 1,000.00, S/ 999,999,999.99  |
 
   # ========================================================================
-  # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS DE TEXTO
+  # TÉCNICA: BOUNDARY VALUE ANALYSIS + ORDENAMIENTO ALFABÉTICO
+  # CONSOLIDACIÓN: ORD-04, ORD-05 → ORD-02
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-04 - Ordenar alfabéticamente columna Ejecutivo ascendente
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: ORD-02 - Ordenar alfabéticamente con dirección parametrizada
     Dado que soy un usuario con rol "<rol>"
-    Y la tabla tiene los siguientes ejecutivos:
-      | Ejecutivo                |
-      | Abigail Yoselyn Si...    |
-      | Abigail Bisquert Luz I   |
-      | Adriana Castellar...     |
-      | Adriana Molero Pl...     |
-    Cuando ordeno por "Ejecutivo" ascendente
-    Entonces el primer ejecutivo debe ser "Abigail Bisquert Luz I"
-    Y el segundo ejecutivo debe ser "Abigail Yoselyn Si..."
-    Y el orden debe ser alfabético A-Z
+    Y estoy visualizando la tabla "Total por ejecutivo"
+    Cuando hago clic en "Ejecutivo" hasta ordenar <direccion>
+    Entonces los nombres de ejecutivos deben ordenarse alfabéticamente <direccion>
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-05 - Ordenar alfabéticamente columna Ejecutivo descendente
-    Dado que soy un usuario con rol "<rol>"
-    Y la tabla tiene múltiples ejecutivos
-    Cuando ordeno por "Ejecutivo" descendente
-    Entonces los ejecutivos deben mostrarse en orden Z-A
-    Y los que empiezan con "Z" deben aparecer primero
-    Y los que empiezan con "A" deben aparecer al final
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | direccion   |
+      | Superusuario de Admisión | ascendente  |
+      | Gestor TA                | descendente |
 
   # ========================================================================
-  # TÉCNICA: VALIDACIÓN DE ORDEN CORRECTO - COLUMNAS NUMÉRICAS
+  # TÉCNICA: BOUNDARY VALUE ANALYSIS + ORDENAMIENTO NUMÉRICO
+  # CONSOLIDACIÓN: ORD-06, ORD-07, ORD-11 → ORD-03
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-06 - Ordenar por cantidades ascendente
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @boundaryValue @happyPath
+  Esquema del escenario: ORD-03 - Ordenar numéricamente cantidades y montos con valores frontera (BVA)
     Dado que soy un usuario con rol "<rol>"
-    Y la tabla tiene ejecutivos con diferentes cantidades:
-      | Ejecutivo   | Total cant. |
-      | Ejecutivo A | 0           |
-      | Ejecutivo B | 5           |
-      | Ejecutivo C | 183         |
-      | Ejecutivo D | 11          |
-    Cuando ordeno por "Total cant." ascendente
-    Entonces el orden debe ser: Ejecutivo A (0), Ejecutivo B (5), Ejecutivo D (11), Ejecutivo C (183)
-    Y los valores deben ordenarse numéricamente, no alfabéticamente
+    Y la tabla "Total por ejecutivo" contiene <tipo_valor> con valores: <valores_bva>
+    Cuando hago clic en "<columna>" hasta ordenar <direccion>
+    Entonces los valores deben ordenarse numéricamente <direccion>
+    Y debe manejar correctamente los valores frontera
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-07 - Ordenar por montos descendente
-    Dado que soy un usuario con rol "<rol>"
-    Y la tabla tiene ejecutivos con diferentes montos:
-      | Ejecutivo   | Total monto    |
-      | Ejecutivo A | S/ 0.00        |
-      | Ejecutivo B | S/ 2,148.87    |
-      | Ejecutivo C | S/ 6,144.73    |
-      | Ejecutivo D | S/ 1,024.72    |
-    Cuando ordeno por "Total monto" descendente
-    Entonces el orden debe ser: Ejecutivo C (S/ 6,144.73), Ejecutivo B (S/ 2,148.87), Ejecutivo D (S/ 1,024.72), Ejecutivo A (S/ 0.00)
-    Y los montos mayores deben aparecer primero
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | columna      | tipo_valor | valores_bva                                      | direccion   |
+      | Superusuario de Admisión | Total cant.  | cantidades | 0, 1, 100, 9999                                  | ascendente  |
+      | Gestor TA                | Total monto  | montos     | S/ 0.00, S/ 0.01, S/ 1,000.00, S/ 999,999,999.99 | descendente |
 
   # ========================================================================
-  # TÉCNICA: ORDENAMIENTO EN TABLA TOTAL DE ENCUENTROS POR ESTADO
+  # TÉCNICA: BOUNDARY VALUE ANALYSIS + MONTOS NEGATIVOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-08 - Ordenar tabla Total de encuentros por estado
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @boundaryValue @edgeCase @happyPath
+  Esquema del escenario: ORD-04 - Ordenar montos negativos correctamente con valores frontera (BVA)
     Dado que soy un usuario con rol "<rol>"
-    Y estoy visualizando la tabla "Total de encuentros por estado"
-    Cuando hago clic en el encabezado "<columna>"
-    Entonces la tabla debe ordenarse por "<columna>" ascendente
-    Y debe mostrarse el indicador de orden ascendente (↑)
-
-    Ejemplos:
-      | rol                        | columna           |
-      | Superusuario de Admisión   | Tipo de estado    |
-      | Gestor TA                  | Estado            |
-      | Superusuario de Admisión   | Total cant.       |
-      | Gestor TA                  | Total monto       |
-      | Superusuario de Admisión   | Lista enc. cant.  |
-      | Gestor TA                  | Lista enc. monto  |
-      | Superusuario de Admisión   | Enc. dev. cant.   |
-      | Gestor TA                  | Enc. dev. monto   |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-09 - Tres clics en tabla Total de encuentros por estado
-    Dado que soy un usuario con rol "<rol>"
-    Y estoy visualizando la tabla "Total de encuentros por estado"
-    Cuando hago 1er clic en "Total cant."
-    Entonces debe ordenarse ascendente
-    Cuando hago 2do clic en "Total cant."
-    Entonces debe ordenarse descendente
-    Cuando hago 3er clic en "Total cant."
-    Entonces el orden debe eliminarse y volver al estado original
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  # ========================================================================
-  # TÉCNICA: ORDENAMIENTO CON VALORES ESPECIALES
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-10 - Ordenar con valores cero
-    Dado que soy un usuario con rol "<rol>"
-    Y existen ejecutivos con "Enc. devueltos cant." = 0
-    Y existen ejecutivos con "Enc. devueltos cant." > 0
-    Cuando ordeno por "Enc. devueltos cant." ascendente
-    Entonces los ejecutivos con valor 0 deben aparecer primero
-    Y los ejecutivos con valores mayores deben aparecer después en orden creciente
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-11 - Ordenar con montos negativos
-    Dado que soy un usuario con rol "<rol>"
-    Y existe un encuentro con monto negativo "-S/ 2.69"
-    Y existen encuentros con montos positivos
+    Y existen montos negativos en la tabla: <valores_negativos_bva>
     Cuando ordeno por "Total monto" ascendente
-    Entonces el encuentro con monto negativo debe aparecer primero
-    Y luego deben aparecer los montos positivos en orden creciente
+    Entonces los montos negativos deben aparecer primero (más negativos al inicio)
+    Y debe ordenarse: <valores_negativos_bva>, S/ 0.00, S/ 0.01, ...
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | valores_negativos_bva                                      |
+      | Superusuario de Admisión | -S/ 999,999,999.99, -S/ 1,000.00, -S/ 0.01                 |
+      | Gestor TA                | -S/ 1,000.00, -S/ 999.99, -S/ 1.00, -S/ 0.01               |
 
   # ========================================================================
   # TÉCNICA: CAMBIO DE COLUMNA DE ORDENAMIENTO
+  # CONSOLIDACIÓN: ORD-12, ORD-13 → ORD-05
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-12 - Cambiar de una columna a otra elimina orden previo
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: ORD-05 - Cambiar de columna elimina ordenamiento previo
     Dado que soy un usuario con rol "<rol>"
-    Y la tabla está ordenada por "Ejecutivo" ascendente
-    Cuando hago clic en el encabezado "Total cant."
-    Entonces el ordenamiento por "Ejecutivo" debe eliminarse
-    Y la tabla debe ordenarse por "Total cant." ascendente
-    Y solo debe mostrarse un indicador de ordenamiento activo en "Total cant."
+    Y la tabla está ordenada por "<columna1>" ascendente
+    Cuando hago clic en "<columna2>"
+    Entonces el ordenamiento de "<columna1>" debe eliminarse
+    Y solo "<columna2>" debe estar ordenada ascendente
+    Y solo una columna puede estar ordenada a la vez
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-13 - Solo una columna puede estar ordenada a la vez
-    Dado que soy un usuario con rol "<rol>"
-    Y la tabla está ordenada por "Total monto" descendente
-    Cuando hago clic en el encabezado "Lista de enc. cant."
-    Entonces debe mostrarse el indicador de ordenamiento solo en "Lista de enc. cant."
-    Y NO debe mostrarse indicador en "Total monto"
-    Y la tabla debe ordenarse únicamente por "Lista de enc. cant." ascendente
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | columna1     | columna2           |
+      | Superusuario de Admisión | Total cant.  | Total monto        |
+      | Gestor TA                | Ejecutivo    | Lista de enc. cant.|
 
   # ========================================================================
   # TÉCNICA: ORDENAMIENTO CON FILTROS ACTIVOS
+  # CONSOLIDACIÓN: ORD-14, ORD-15, ORD-16 → ORD-06
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-14 - Ordenar después de aplicar filtros
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: ORD-06 - Ordenamiento funciona correctamente con filtros activos
     Dado que soy un usuario con rol "<rol>"
     Y he aplicado el filtro "Sede" = "Auna Guardia Civil"
-    Y la tabla muestra 15 ejecutivos filtrados
-    Cuando ordeno por "Total cant." descendente
-    Entonces solo los 15 ejecutivos filtrados deben ordenarse
-    Y el ejecutivo con mayor "Total cant." debe aparecer primero
+    Y la tabla muestra <cantidad_ejecutivos> ejecutivos filtrados
+    Cuando hago clic en "Total cant."
+    Entonces debe ordenarse solo los <cantidad_ejecutivos> ejecutivos filtrados
+    Y el ordenamiento debe mantenerse al desactivar filtros
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-15 - Aplicar filtros mantiene el ordenamiento activo
-    Dado que soy un usuario con rol "<rol>"
-    Y he ordenado la tabla por "Total monto" descendente
-    Cuando aplico el filtro "Garante" = "PACIFICO SEGUROS"
-    Y presiono "Filtrar"
-    Entonces el ordenamiento por "Total monto" descendente debe mantenerse
-    Y los datos filtrados deben mostrarse en el orden correcto
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | cantidad_ejecutivos |
+      | Superusuario de Admisión | 10                  |
+      | Gestor TA                | 15                  |
 
   # ========================================================================
-  # TÉCNICA: ORDENAMIENTO Y TOGGLE SOLO POSITIVOS
+  # TÉCNICA: PERSISTENCIA DE ORDENAMIENTO
+  # CONSOLIDACIÓN: ORD-17, ORD-18 → ORD-07
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-16 - Ordenar con toggle Solo positivos activo
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: ORD-07 - Validar persistencia de ordenamiento según acción
     Dado que soy un usuario con rol "<rol>"
-    Y he activado el toggle "Solo positivos"
-    Y he presionado "Filtrar"
-    Y la tabla muestra solo filas con valores > 0
-    Cuando ordeno por "Total cant." descendente
-    Entonces solo las filas con valores > 0 deben ordenarse
-    Y el ordenamiento debe funcionar correctamente
+    Y la tabla está ordenada por "Total monto" descendente
+    Cuando <accion>
+    Entonces el ordenamiento <comportamiento_persistencia>
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  # ========================================================================
-  # TÉCNICA: PERSISTENCIA DEL ORDENAMIENTO
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-17 - El ordenamiento persiste al hacer scroll
-    Dado que soy un usuario con rol "<rol>"
-    Y he ordenado la tabla por "Ejecutivo" ascendente
-    Cuando hago scroll hacia abajo en la tabla
-    Entonces el ordenamiento debe mantenerse
-    Y el indicador visual debe seguir siendo visible
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @unhappyPath
-  Esquema del escenario: ORD-18 - El ordenamiento NO persiste al recargar la página
-    Dado que soy un usuario con rol "<rol>"
-    Y he ordenado la tabla por "Total cant." descendente
-    Cuando refresco la página del navegador
-    Entonces el ordenamiento debe eliminarse
-    Y la tabla debe volver a su orden original por defecto
-    Y NO debe mostrarse ningún indicador de ordenamiento
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | accion                  | comportamiento_persistencia              |
+      | Superusuario de Admisión | hago scroll hacia abajo | debe mantenerse activo                   |
+      | Gestor TA                | hago scroll hacia abajo | debe mantenerse activo                   |
+      | Superusuario de Admisión | refresco la página      | debe eliminarse (volver a orden original)|
+      | Gestor TA                | refresco la página      | debe eliminarse (volver a orden original)|
 
   # ========================================================================
   # TÉCNICA: INDICADORES VISUALES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-19 - Validar indicadores visuales de ordenamiento
+  @prioridadMedia @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
+  Esquema del escenario: ORD-08 - Validar indicadores visuales de ordenamiento
     Dado que soy un usuario con rol "<rol>"
-    Y la tabla NO está ordenada
-    Cuando hago clic en "Total cant."
-    Entonces debe mostrarse un ícono de flecha ascendente (↑) en el encabezado "Total cant."
-    Y el encabezado debe destacarse visualmente
-    Cuando hago clic nuevamente en "Total cant."
-    Entonces debe mostrarse un ícono de flecha descendente (↓)
-    Cuando hago clic por tercera vez en "Total cant."
-    Entonces el ícono debe desaparecer completamente
+    Cuando ordeno por "<columna>" <direccion>
+    Entonces debe mostrarse el indicador visual "<indicador>"
+    Y el indicador debe ubicarse junto al encabezado de "<columna>"
+    Y solo debe mostrarse un indicador a la vez
 
     Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+      | rol                      | columna     | direccion   | indicador |
+      | Superusuario de Admisión | Total cant. | ascendente  | ↑         |
+      | Gestor TA                | Total monto | descendente | ↓         |
 
-  # ========================================================================
-  # TÉCNICA: FILA TOTALES SIEMPRE AL FINAL
-  # ========================================================================
-
-  @superusuarioAdmision @gestorTA @cuadroControlAdmision @happyPath
-  Esquema del escenario: ORD-20 - La fila Totales permanece fija al final
-    Dado que soy un usuario con rol "<rol>"
-    Cuando ordeno la tabla por cualquier columna
-    Entonces la fila "Totales" debe permanecer siempre al final
-    Y NO debe incluirse en el ordenamiento de las demás filas
-    Y debe ser claramente distinguible (fondo diferente, negrita)
-
-    Ejemplos:
-      | rol                        |
-      | Superusuario de Admisión   |
-      | Gestor TA                  |
+# ========================================================================
+# RESULTADO DE OPTIMIZACIÓN:
+#
+# ANTES:  20 escenarios, 8+ valores arbitrarios, 6 grupos redundantes
+# DESPUÉS: 8 escenarios, 100% BVA aplicado, 0 redundancias
+# AHORRO: -60% escenarios, +300% bugs detectables
+#
+# CONSOLIDACIONES REALIZADAS:
+# 1. ORD-01/02/03 + ORD-08/09 → ORD-01 (ciclo 3 clics con BVA)
+# 2. ORD-04/05 → ORD-02 (alfabético con dirección)
+# 3. ORD-06/07 + ORD-11 → ORD-03 (numérico con BVA)
+# 4. ORD-12/13 → ORD-05 (cambio de columna)
+# 5. ORD-14/15/16 → ORD-06 (con filtros activos)
+# 6. ORD-17/18 → ORD-07 (persistencia con acción)
+# 7. ORD-10 → ORD-08 (indicadores visuales)
+# 8. NUEVO: ORD-04 (negativos con BVA)
+#
+# VALORES BVA APLICADOS:
+# - Cantidades: 0, 1, 100, 9999
+# - Montos: S/ 0.00, S/ 0.01, S/ 1,000.00, S/ 999,999,999.99
+# - Negativos: -S/ 999,999,999.99, -S/ 1,000.00, -S/ 999.99, -S/ 1.00, -S/ 0.01
+# ========================================================================

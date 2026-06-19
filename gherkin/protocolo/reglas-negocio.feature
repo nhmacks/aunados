@@ -13,7 +13,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: CONDICIONES PARA ESTAR EN PROTOCOLO
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-01 - Encuentro cumple todas las condiciones para estar en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -25,7 +25,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro debe clasificarse en la bandeja "Protocolo"
     Y el encuentro debe mostrarse en la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-02 - Encuentro con documentación administrativa incompleta NO está en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está INCOMPLETA
@@ -36,7 +36,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe permanecer en la bandeja correspondiente de Admisión
     Y el encuentro NO debe mostrarse en la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-03 - Encuentro con laboratorios sin resultado NO está en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -46,7 +46,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe permanecer en Admisión
     Y el encuentro NO debe mostrarse en la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-04 - Encuentro con laboratorios no finalizados NO está en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -57,7 +57,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe permanecer en Admisión
     Y el encuentro NO debe mostrarse en la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-05 - Encuentro con laboratorios no imputados NO está en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -72,7 +72,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE ESTADO IMPUTADO VS CITADO
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-05A - Encuentro con laboratorios citados NO está en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -83,7 +83,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe permanecer en Admisión
     Y el examen citado debe ser imputado antes de poder pasar a Protocolo
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-05B - Encuentro con todos los laboratorios imputados SÍ puede estar en Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -94,7 +94,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Cuando el Job de Admisión evalúa el encuentro
     Entonces el encuentro debe clasificarse en "Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Esquema del escenario: RN-05C - Validar estado de exámenes de laboratorio
     Dado que existe un encuentro con todas las demás condiciones cumplidas
     Y el encuentro tiene "<total>" exámenes de laboratorio
@@ -116,7 +116,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: TABLA DE DECISIÓN - COMBINACIONES DE CONDICIONES
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Esquema del escenario: RN-06 - Evaluación de condiciones para clasificar en Protocolo
     Dado que existe un encuentro con las siguientes características:
       | Condición                        | Estado                        |
@@ -142,7 +142,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: REGLAS DE RECLASIFICACIÓN - PASO A FACTURACIÓN
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-07 - Encuentro en Protocolo pasa a Facturación al superar período máximo
     Dado que un encuentro está clasificado en "Protocolo"
     Y mantiene documentación administrativa completa
@@ -155,7 +155,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe pasar a la bandeja "Facturación"
     Y el encuentro debe desaparecer de la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-08 - Encuentro permanece en Protocolo si no supera el período
     Dado que un encuentro está en "Protocolo"
     Y mantiene todas las condiciones requeridas
@@ -168,7 +168,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: REGLAS DE RETORNO - REGRESO A ADMISIÓN
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-09 - Encuentro regresa a Admisión por documentación administrativa pendiente
     Dado que un encuentro está clasificado en "Protocolo"
     Y durante una nueva evaluación la documentación administrativa queda INCOMPLETA
@@ -177,7 +177,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe regresar a la bandeja de "Admisión"
     Y el encuentro debe desaparecer de la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-10 - Encuentro regresa a Admisión por laboratorios pendientes
     Dado que un encuentro está en "Protocolo"
     Y durante una nueva evaluación un laboratorio queda sin resultado
@@ -186,7 +186,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe regresar a "Admisión"
     Y el encuentro debe desaparecer de la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-11 - Encuentro regresa a Admisión por laboratorios no imputados
     Dado que un encuentro está en "Protocolo"
     Y durante una nueva evaluación un laboratorio queda NO imputado
@@ -195,7 +195,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe regresar a "Admisión"
     Y el encuentro debe desaparecer de la pantalla "Encuentros en Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Esquema del escenario: RN-12 - Evaluación continua de encuentros en Protocolo
     Dado que un encuentro está en "Protocolo"
     Y durante una nueva evaluación se detecta que "<condicion_faltante>" deja de cumplirse
@@ -214,7 +214,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: RESPONSABILIDAD DEL JOB DE ADMISIÓN
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-13 - La clasificación es responsabilidad exclusiva del Job de Admisión
     Dado que existe un encuentro en el sistema
     Cuando se determina la bandeja correspondiente
@@ -222,7 +222,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y la pantalla "Encuentros en Protocolo" NO debe realizar clasificaciones
     Y el usuario NO debe poder modificar manualmente la clasificación
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-14 - El Job obtiene información desde sistemas origen
     Dado que el Job de Admisión necesita clasificar un encuentro
     Cuando el Job evalúa las condiciones
@@ -230,7 +230,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y NO debe depender de información ingresada manualmente en AUNADOS
     Y la fuente de verdad es el sistema origen
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-15 - El Job evalúa continuamente los encuentros
     Dado que existen encuentros en diferentes bandejas
     Cuando el Job de Admisión se ejecuta periódicamente
@@ -242,7 +242,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: FUENTE DE VERDAD
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-16 - La clasificación NO depende de acciones del usuario
     Dado que un Gestor TA visualiza la pantalla "Encuentros en Protocolo"
     Y el usuario aplica filtros o búsquedas
@@ -251,7 +251,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y la ubicación de los encuentros en bandejas NO debe cambiar
     Y solo el Job de Admisión tiene autoridad para reclasificar
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-17 - La pantalla refleja la clasificación del Job, no la determina
     Dado que el Job de Admisión ha clasificado encuentros en "Protocolo"
     Cuando un Gestor TA accede a la pantalla "Encuentros en Protocolo"
@@ -263,7 +263,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE REGLAS DE PERMANENCIA
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-18 - Validar que las reglas de permanencia están correctamente configuradas
     Dado que existen reglas de permanencia definidas para Protocolo
     Cuando el Job de Admisión evalúa un encuentro
@@ -271,7 +271,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y debe calcular correctamente el tiempo de permanencia
     Y debe determinar si el encuentro aún puede permanecer en Protocolo
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-19 - Encuentro cumple todas las condiciones pero no las reglas de permanencia
     Dado que un encuentro tiene:
       - Documentación administrativa completa
@@ -285,7 +285,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: CONSISTENCIA DE DATOS
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-20 - Validar consistencia entre sistemas origen y AUNADOS
     Dado que el Job de Admisión obtiene datos de sistemas origen
     Cuando se detecta una inconsistencia entre sistema origen y AUNADOS
@@ -293,7 +293,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y debe actualizar AUNADOS con la información correcta
     Y debe reclasificar el encuentro si es necesario
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-21 - Actualización en tiempo real desde sistemas origen
     Dado que un laboratorio cambia de estado en el sistema origen
     Y el cambio afecta la clasificación de un encuentro en "Protocolo"
@@ -306,7 +306,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: REGLAS DE ANTIGÜEDAD POR TIPO DE ENCUENTRO
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-22 - Consulta Externa No Oncosalud con menos de 7 días ingresa a Protocolo
     Dado que existe un encuentro tipo "Consulta Externa No Oncosalud"
     Y la documentación administrativa está completa
@@ -316,7 +316,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro debe clasificarse en "Protocolo"
     Y debe permanecer en "Protocolo" hasta superar los 7 días
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-23 - Consulta Externa No Oncosalud con más de 7 días pasa a Facturación
     Dado que existe un encuentro tipo "Consulta Externa No Oncosalud"
     Y la documentación administrativa está completa
@@ -326,7 +326,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro NO debe clasificarse en "Protocolo"
     Y el encuentro debe clasificarse en "Facturación"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Esquema del escenario: RN-24 - Valores límite de antigüedad para Consulta Externa No Oncosalud
     Dado que existe un encuentro tipo "Consulta Externa No Oncosalud"
     Y cumple todas las condiciones de documentación y laboratorios
@@ -343,7 +343,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
       | 8    | Facturación     |
       | 10   | Facturación     |
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-25 - Consulta Externa Oncosalud con 31 días o menos ingresa a Protocolo
     Dado que existe un encuentro tipo "Consulta Externa Oncosalud"
     Y la documentación administrativa está completa
@@ -353,7 +353,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro debe clasificarse en "Protocolo"
     Y debe permanecer en "Protocolo" hasta superar los 31 días
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-26 - Consulta Externa Oncosalud con más de 31 días pasa a Facturación
     Dado que existe un encuentro tipo "Consulta Externa Oncosalud"
     Y la documentación administrativa está completa
@@ -363,7 +363,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro NO debe clasificarse en "Protocolo"
     Y el encuentro debe clasificarse en "Facturación"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Esquema del escenario: RN-27 - Valores límite de antigüedad para Consulta Externa Oncosalud
     Dado que existe un encuentro tipo "Consulta Externa Oncosalud"
     Y cumple todas las condiciones de documentación y laboratorios
@@ -380,7 +380,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
       | 32   | Facturación     |
       | 45   | Facturación     |
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-28 - Emergencia con 2 días o menos ingresa a Protocolo
     Dado que existe un encuentro tipo "Emergencia"
     Y la documentación administrativa está completa
@@ -390,7 +390,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro debe clasificarse en "Protocolo"
     Y debe permanecer en "Protocolo" hasta superar los 2 días
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-29 - Emergencia con más de 2 días pasa a Facturación
     Dado que existe un encuentro tipo "Emergencia"
     Y la documentación administrativa está completa
@@ -400,7 +400,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro NO debe clasificarse en "Protocolo"
     Y el encuentro debe clasificarse en "Facturación"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Esquema del escenario: RN-30 - Valores límite de antigüedad para Emergencia
     Dado que existe un encuentro tipo "Emergencia"
     Y cumple todas las condiciones de documentación y laboratorios
@@ -419,7 +419,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: VALIDACIÓN DE SUSTENTOS ADMINISTRATIVOS
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-31 - Encuentro con sustentos administrativos pendientes NO ingresa a Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está incompleta
@@ -430,7 +430,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro NO debe clasificarse en "Protocolo"
     Y el encuentro debe permanecer en "Admisión"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-32 - Encuentro con sustentos médicos pendientes NO ingresa a Protocolo
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -441,7 +441,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro NO debe clasificarse en "Protocolo"
     Y el encuentro debe permanecer en "Admisión"
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-33 - Encuentro sin laboratorios pendientes cumple requisito de sustentos médicos
     Dado que existe un encuentro "12345678"
     Y la documentación administrativa está completa
@@ -456,7 +456,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: PRINCIPIOS FUNCIONALES
   # ========================================================================
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-34 - PF-PRO-01 - Protocolo NO corrige documentación administrativa
     Dado que un encuentro está clasificado en "Protocolo"
     Y durante la reevaluación se detecta que falta documentación administrativa
@@ -465,7 +465,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y Protocolo NO debe intentar corregir la documentación administrativa
     Y la corrección debe realizarse en Admisión
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-35 - PF-PRO-02 - Protocolo NO corrige sustentos médicos
     Dado que un encuentro está clasificado en "Protocolo"
     Y durante la reevaluación se detecta que faltan sustentos médicos
@@ -474,7 +474,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y Protocolo NO debe intentar corregir los sustentos médicos
     Y la corrección debe realizarse en Admisión
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-36 - PF-PRO-03 - Protocolo NO corrige laboratorios no imputados
     Dado que un encuentro está clasificado en "Protocolo"
     Y durante la reevaluación se detecta que hay laboratorios citados (no imputados)
@@ -483,7 +483,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y Protocolo NO debe intentar imputar los laboratorios
     Y los laboratorios citados deben ser imputados en Admisión
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-37 - PF-PRO-04 - Todo encuentro en Protocolo superó validaciones de Admisión
     Dado que un encuentro está clasificado en "Protocolo"
     Cuando se valida el historial del encuentro
@@ -493,7 +493,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y debe tener todos los laboratorios imputados
     Y NO debe haber ingresado a Protocolo sin cumplir estas condiciones
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-38 - PF-PRO-05 - Permanencia en Protocolo depende exclusivamente de antigüedad
     Dado que un encuentro está clasificado en "Protocolo"
     Y mantiene todas las condiciones requeridas (documentación, laboratorios, exámenes imputados)
@@ -506,7 +506,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: INDEPENDENCIA ENTRE ESTADOS Y CLASIFICACIÓN
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-39 - Encuentro en Protocolo con estado "Tramitado" permanece hasta cumplir antigüedad
     Dado que un encuentro está clasificado en "Protocolo"
     Y el encuentro tiene estado operativo "Tramitado"
@@ -517,7 +517,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el estado "Tramitado" NO debe afectar la clasificación de bandeja
     Y la salida de Protocolo debe determinarse únicamente por antigüedad
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Esquema del escenario: RN-40 - Estados operativos son independientes de la clasificación
     Dado que un encuentro está clasificado en "Protocolo"
     Y el encuentro tiene estado operativo "<estado_operativo>"
@@ -533,7 +533,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
       | Pendiente            |
       | Observado            |
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-41 - Cambio de estado operativo NO provoca salida de Protocolo
     Dado que un encuentro está clasificado en "Protocolo"
     Y el encuentro tiene estado operativo "Tramitado"
@@ -547,7 +547,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
   # TÉCNICA: ESCENARIOS CONCRETOS DE EJEMPLO
   # ========================================================================
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-42 - Ejemplo Concreto: Consulta Externa No Oncosalud - 3 días
     Dado que existe un encuentro tipo "Consulta Externa No Oncosalud"
     Y el encuentro tiene 3 días de antigüedad
@@ -557,7 +557,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Cuando el Job de Admisión evalúa el encuentro
     Entonces el encuentro debe clasificarse en "Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-43 - Ejemplo Concreto: Consulta Externa No Oncosalud - 9 días
     Dado que existe un encuentro tipo "Consulta Externa No Oncosalud"
     Y el encuentro tiene 9 días de antigüedad
@@ -568,7 +568,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro debe clasificarse en "Facturación"
     Y NO debe clasificarse en "Protocolo"
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-44 - Ejemplo Concreto: Emergencia - 1 día
     Dado que existe un encuentro tipo "Emergencia"
     Y el encuentro tiene 1 día de antigüedad
@@ -578,7 +578,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Cuando el Job de Admisión evalúa el encuentro
     Entonces el encuentro debe clasificarse en "Protocolo"
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-45 - Ejemplo Concreto: Emergencia - 4 días
     Dado que existe un encuentro tipo "Emergencia"
     Y el encuentro tiene 4 días de antigüedad
@@ -589,7 +589,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Entonces el encuentro debe clasificarse en "Facturación"
     Y NO debe clasificarse en "Protocolo"
 
-  @jobAdmision @happyPath
+  @prioridadExtrema @jobAdmision @happyPath
   Escenario: RN-46 - Validar que Protocolo NO es aprobación manual
     Dado que un encuentro está clasificado en "Protocolo"
     Cuando se valida el proceso de clasificación
@@ -598,7 +598,7 @@ Característica: Reglas de Negocio de Encuentros en Protocolo
     Y el encuentro debe haber cumplido todas las validaciones requeridas
     Y el encuentro debe estar esperando alcanzar la antigüedad necesaria para Facturación
 
-  @jobAdmision @unhappyPath
+  @prioridadExtrema @jobAdmision @unhappyPath
   Escenario: RN-47 - Ningún usuario puede mover manualmente encuentros hacia Protocolo
     Dado que existe un encuentro en "Admisión"
     Y el encuentro cumple todas las condiciones para Protocolo

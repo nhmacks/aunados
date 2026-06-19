@@ -10,7 +10,7 @@ Característica: Gestión de Estados del Encuentro
   # Cobertura: RN-LE-001, Sección 5 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadExtrema @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: EST-01 - Validar estado inicial "Pendiente" al ingresar por primera vez (RN-LE-001)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y existe un nuevo encuentro "12345678" que ingresa por primera vez a Admisión
@@ -27,7 +27,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 3, 4 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @happyPath
+  @prioridadAlta @superusuarioAdmision @happyPath
   Escenario: EST-02 - Superusuario cambia estado de encuentro desde detalle
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -40,7 +40,7 @@ Característica: Gestión de Estados del Encuentro
     Y el modal debe mostrar el botón "No, cancelar"
     Y el modal debe mostrar el botón cerrar "X"
 
-  @superusuarioAdmision @happyPath
+  @prioridadAlta @superusuarioAdmision @happyPath
   Escenario: EST-03 - Superusuario confirma cambio de estado
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -54,7 +54,7 @@ Característica: Gestión de Estados del Encuentro
     Y el sistema debe actualizar la grilla
     Y el encuentro debe mostrarse con estado "Tramitado" en la grilla
 
-  @superusuarioAdmision @happyPath
+  @prioridadAlta @superusuarioAdmision @happyPath
   Escenario: EST-04 - Superusuario cancela cambio de estado
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -66,7 +66,7 @@ Característica: Gestión de Estados del Encuentro
     Y el estado del encuentro debe permanecer como "Pendiente"
     Y el sistema debe permanecer en la pantalla "Detalle del Encuentro"
 
-  @superusuarioAdmision @happyPath
+  @prioridadExtrema @superusuarioAdmision @happyPath
   Esquema del escenario: EST-05 - Superusuario puede asignar todos los estados permitidos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -94,7 +94,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 7, 14 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: EST-06 - Estado "No Facturable" provoca salida inmediata de bandeja (RN-LE-013)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -106,7 +106,7 @@ Característica: Gestión de Estados del Encuentro
     Y el encuentro NO debe ser visible en la grilla de Admisión
     Y el encuentro debe esperar la evaluación del Job de Admisión
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: EST-07 - Estado "Error de Facturación" provoca salida inmediata de bandeja (RN-LE-013)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -118,7 +118,7 @@ Característica: Gestión de Estados del Encuentro
     Y el encuentro NO debe ser visible en la grilla de Admisión
     Y el encuentro debe esperar la evaluación del Job de Admisión
 
-  @superusuarioAdmision @happyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @happyPath
   Escenario: EST-08 - Llegada a Facturación depende del Job de Admisión (RN-LE-014, RN-LE-015)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he cambiado el estado del encuentro "12345678" a "No Facturable"
@@ -134,7 +134,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 4, 9 del documento 08-Estados.md
   # ========================================================================
 
-  @ejecutivoAdmision @happyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @happyPath
   Esquema del escenario: EST-09 - Ejecutivo puede cambiar solo estados permitidos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -154,7 +154,7 @@ Característica: Gestión de Estados del Encuentro
       | Terapia en Proceso              |
       | Tramitado                       |
 
-  @ejecutivoAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @unhappyPath
   Esquema del escenario: EST-10 - Ejecutivo NO puede asignar estados restringidos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -177,7 +177,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 3 del documento 08-Estados.md
   # ========================================================================
 
-  @gestorTA @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @unhappyPath
   Escenario: EST-11 - Gestor TA NO puede cambiar estados (RN-DE-03)
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -188,7 +188,7 @@ Característica: Gestión de Estados del Encuentro
     Y NO debe mostrarse ningún botón para modificar el estado
     Y el estado debe mostrarse únicamente como información de solo lectura
 
-  @gestorTA @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @unhappyPath
   Escenario: EST-12 - Gestor TA visualiza estado pero no puede modificarlo
     Dado que soy un usuario con rol "Gestor TA"
     Y he accedido al detalle del encuentro "12345678"
@@ -204,7 +204,7 @@ Característica: Gestión de Estados del Encuentro
   # Cobertura: Sección 23 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-13 - Estado actual NO debe mostrarse en el listado de opciones
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -214,7 +214,7 @@ Característica: Gestión de Estados del Encuentro
     Y NO debe incluirse el estado "Tramitado" en las opciones
     Y solo deben mostrarse los estados diferentes al actual
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-14 - Validar que solo se muestran estados diferentes al actual
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -229,7 +229,7 @@ Característica: Gestión de Estados del Encuentro
   # Cobertura: Sección 23 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-15 - Cambios concurrentes: prevalece el último registrado exitosamente
     Dado que el encuentro "12345678" tiene estado "Pendiente"
     Y el usuario "Superusuario A" accede al detalle del encuentro
@@ -247,7 +247,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 8, 9 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-16 - Estado "Derivado a Dirección Médica" es informativo
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -259,7 +259,7 @@ Característica: Gestión de Estados del Encuentro
     Y el estado debe tener carácter informativo
     Y NO debe provocar cambio de bandeja
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-17 - Estado "Derivado a Supervisor" es informativo
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -271,7 +271,7 @@ Característica: Gestión de Estados del Encuentro
     Y el estado debe tener carácter informativo
     Y NO debe provocar cambio de bandeja
 
-  @ejecutivoAdmision @happyPath
+  @prioridadMedia @ejecutivoAdmision @happyPath
   Escenario: EST-18 - Estado "Terapia en Proceso" es informativo y puede ser modificado
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -288,7 +288,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 18 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-19 - Registro en historial al cambiar estado (RN-LE-021)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -304,7 +304,7 @@ Característica: Gestión de Estados del Encuentro
     Y el registro debe contener la hora actual
     Y el registro debe contener el rol del usuario
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-20 - Registro por cada servicio asociado al encuentro (RN-LE-022)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -318,7 +318,7 @@ Característica: Gestión de Estados del Encuentro
     Y cada registro debe tener el mismo estado nuevo "Tramitado"
     Y cada registro debe tener la misma fecha y hora de cambio
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-21 - Visualizar historial completo de cambios de estado
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y el encuentro "12345678" ha tenido los siguientes cambios de estado:
@@ -337,7 +337,7 @@ Característica: Gestión de Estados del Encuentro
   # Cobertura: Sección 18 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-22 - Auditoría completa de cambio de estado
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y mi nombre de usuario es "ejecutivo.admision01"
@@ -361,7 +361,7 @@ Característica: Gestión de Estados del Encuentro
   # Cobertura: Sección 23 del documento 05-Lista-Encuentros.md
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: EST-23 - Estados exportados deben mostrarse exactamente como son visualizados
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y visualizo encuentros en la grilla con los siguientes estados:
@@ -384,7 +384,7 @@ Característica: Gestión de Estados del Encuentro
   # Sección 12 del documento 07-Detalle-Encuentro.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-24 - Modal de confirmación se cierra con botón X
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -396,7 +396,7 @@ Característica: Gestión de Estados del Encuentro
     Y el estado del encuentro debe permanecer como "Pendiente"
     Y el sistema debe permanecer en la pantalla "Detalle del Encuentro"
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Esquema del escenario: EST-25 - Validar mensaje dinámico en modal de confirmación
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y he accedido al detalle del encuentro "12345678"
@@ -417,7 +417,7 @@ Característica: Gestión de Estados del Encuentro
   # Cobertura: Sección 17 del documento 08-Estados.md
   # ========================================================================
 
-  @superusuarioAdmision @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @ejecutivoAdmision @happyPath
   Escenario: EST-26 - Flujo completo de cambio de estado exitoso
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"

@@ -14,7 +14,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE TOTALES EN TABLA PROTOCOLO
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-01 - Validar que fila Totales suma correctamente en tabla Protocolo
     Dado que la tabla "Protocolo" tiene las siguientes filas:
       | Fila                      | Total cant. | Total monto       |
@@ -26,7 +26,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
       | Total cant.  | 25647             | 25647 + 0                |
       | Total monto  | S/ 13,263,575.08  | 13,263,575.08 + 0.00     |
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-02 - Validar columnas PxS en fila Totales de tabla Protocolo
     Dado que la tabla "Protocolo" tiene datos PxS
     Cuando visualizo la fila "Totales"
@@ -38,7 +38,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE TOTALES EN TABLA ADMISIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-03 - Validar que fila Totales suma correctamente en tabla Admisión
     Dado que la tabla "Admisión" tiene las siguientes filas:
       | Fila                  | Total cant. | Total monto       |
@@ -50,7 +50,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
       | Total cant.  | 27744             | 27385 + 359                      |
       | Total monto  | S/ 10,279,241.64  | 10,082,314.52 + 196,927.12       |
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-04 - Validar suma de columnas PxS, Cápita y CPM en tabla Admisión
     Dado que la tabla "Admisión" fila "Totales" tiene:
       | Tipo       | Cantidad | Monto             |
@@ -69,7 +69,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE TOTALES EN TABLA FACTURACIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-05 - Validar que fila Totales suma correctamente en tabla Facturación
     Dado que la tabla "Facturación" tiene las siguientes filas:
       | Fila            | Total cant. | Total monto       |
@@ -86,7 +86,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: COHERENCIA ENTRE TARJETAS Y TABLAS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-06 - Validar que tarjetas coinciden con totales de las tablas
     Dado que las tarjetas muestran:
       | Tarjeta       | Monto             | Cantidad |
@@ -97,7 +97,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
     Entonces el resultado debe ser S/ 35,367,627.62
     Y este monto debe ser igual o cercano a la suma total de todas las tablas
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-07 - Tarjeta Total PxS debe coincidir con columnas PxS de las tablas
     Dado que la tarjeta "Total PxS" muestra S/ 32,624,330.16
     Cuando sumo la columna "PxS monto" de las tres tablas:
@@ -108,14 +108,14 @@ Característica: Cálculos y Totales en PxF Ambulatorio
     Entonces la suma debe ser S/ 32,624,330.16
     Y debe coincidir exactamente con la tarjeta "Total PxS"
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-08 - Tarjeta Total Cápita debe coincidir con columnas Cápita de las tablas
     Dado que la tarjeta "Total Cápita" muestra S/ 1,854,007.83
     Cuando reviso la columna "Cápita monto" en tabla Admisión
     Entonces debe mostrar S/ 1,854,007.83
     Y debe coincidir exactamente con la tarjeta "Total Cápita"
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-09 - Tarjeta Total CPM debe coincidir con columnas CPM de las tablas
     Dado que la tarjeta "Total CPM" muestra S/ 889,289.63
     Cuando reviso la columna "CPM monto" en tabla Admisión
@@ -126,7 +126,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE CÁLCULOS CON FILTROS APLICADOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-10 - Totales se recalculan correctamente al aplicar filtros
     Dado que he aplicado el filtro "Sede" = "Auna Guardia Civil"
     Y he presionado "Filtrar"
@@ -135,7 +135,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
     Y los totales deben ser menores o iguales a los totales sin filtrar
     Y las tarjetas deben coincidir con los nuevos totales
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-11 - Totales con toggle "Solo positivos" excluyen filas con valor 0
     Dado que he activado el toggle "Solo positivos"
     Y he presionado "Filtrar"
@@ -147,7 +147,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: BOUNDARY VALUE ANALYSIS - VALORES MÍNIMOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: CALC-12 - Validar formato de montos mínimos
     Dado que existe una fila con monto "<monto_minimo>"
     Cuando visualizo la tabla
@@ -166,7 +166,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: BOUNDARY VALUE ANALYSIS - VALORES MÁXIMOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: CALC-13 - Validar formato de montos grandes
     Dado que existe una fila con monto "<monto_grande>"
     Cuando visualizo la tabla
@@ -188,7 +188,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE CANTIDADES
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: CALC-14 - Validar formato de cantidades
     Dado que existe una fila con cantidad "<cantidad>"
     Cuando visualizo la tabla
@@ -210,7 +210,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE REDONDEOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-15 - Validar redondeo correcto de decimales
     Dado que existen montos con más de 2 decimales
     Cuando el sistema calcula los totales
@@ -218,7 +218,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
     Y la suma de montos redondeados debe coincidir con el total mostrado
     Y NO debe haber diferencias mayores a S/ 0.01
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-16 - Validar que no hay desbordamiento numérico en totales
     Dado que existen montos muy grandes en las tablas
     Cuando visualizo los totales
@@ -231,7 +231,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: CONSISTENCIA ENTRE SESIONES
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-17 - Los totales son consistentes al recargar la página
     Dado que visualizo las tarjetas con los siguientes valores:
       | Tarjeta       | Monto             |
@@ -247,7 +247,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE INTEGRIDAD DE DATOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-18 - Suma de tipos (PxS + Cápita + CPM) coincide con Total
     Dado que visualizo la tabla "Admisión" fila "Lista de encuentros"
     Cuando sumo las cantidades: PxS cant. + Cápita cant + CPM cant.
@@ -256,7 +256,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
     Cuando sumo los montos: PxS monto + Cápita monto + CPM monto
     Entonces debe ser menor o igual a "Total monto"
 
-  @gestorTA @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @unhappyPath
   Escenario: CALC-19 - Detectar inconsistencias en totales
     Dado que existe una inconsistencia en los datos
     Cuando la suma de las filas NO coincide con el total mostrado
@@ -268,7 +268,7 @@ Característica: Cálculos y Totales en PxF Ambulatorio
   # TÉCNICA: PERFORMANCE EN CÁLCULOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: CALC-20 - Los cálculos se realizan rápidamente al filtrar
     Dado que he seleccionado múltiples filtros
     Cuando presiono el botón "Filtrar"

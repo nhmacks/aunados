@@ -9,7 +9,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ACCESO AUTORIZADO - RESPONSABLE DE FACTURACIÓN Y GESTOR TA
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: PERM-01 - Responsable de Facturación y Gestor TA pueden acceder al Cuadro de Control
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "<rol>"
@@ -24,7 +24,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @responsableFacturacion @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: PERM-02 - Responsable de Facturación y Gestor TA pueden utilizar todas las funcionalidades
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "<rol>"
@@ -45,7 +45,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ACCESO DENEGADO - EJECUTIVO DE FACTURACIÓN
   # ========================================================================
 
-  @ejecutivoFacturacion @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @unhappyPath
   Escenario: PERM-03 - Ejecutivo de Facturación NO puede acceder al Cuadro de Control
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -54,7 +54,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
     Y NO debe aparecer ningún enlace a la funcionalidad
     Y NO debe ser posible acceder mediante navegación normal
 
-  @ejecutivoFacturacion @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @unhappyPath
   Escenario: PERM-04 - Ejecutivo NO puede acceder mediante URL directa
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -68,7 +68,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ACCESO DENEGADO - ROLES DE ADMISIÓN
   # ========================================================================
 
-  @superusuarioAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @unhappyPath
   Escenario: PERM-05 - Superusuario de Admisión NO puede acceder al Cuadro de Control
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -77,7 +77,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
     Y NO debo poder acceder a la funcionalidad
     Y si intento acceder por URL directa, debe denegarse el acceso
 
-  @ejecutivoAdmision @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @unhappyPath
   Escenario: PERM-06 - Ejecutivo de Admisión NO puede acceder al Cuadro de Control
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Admisión"
@@ -90,7 +90,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: ACCESO DENEGADO - USUARIOS NO AUTENTICADOS
   # ========================================================================
 
-  @sinAutenticacion @unhappyPath
+  @prioridadExtrema @sinAutenticacion @unhappyPath
   Escenario: PERM-07 - Usuario no autenticado NO puede acceder
     Dado que NO he iniciado sesión en el sistema
     Cuando intento acceder a la URL "/facturacion/cuadro-control"
@@ -103,7 +103,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE PERMISOS EN BACKEND
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @backend @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @backend @happyPath
   Esquema del escenario: PERM-08 - Validar permisos en el backend para roles autorizados
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "<rol>"
@@ -117,7 +117,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @ejecutivoFacturacion @backend @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @backend @unhappyPath
   Escenario: PERM-09 - Backend bloquea peticiones de Ejecutivo de Facturación
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -127,7 +127,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
     Y debe retornar un mensaje "Acceso denegado"
     Y NO debe retornar ningún dato del cuadro de control
 
-  @superusuarioAdmision @backend @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @backend @unhappyPath
   Escenario: PERM-10 - Backend bloquea peticiones de roles de Admisión
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -140,7 +140,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE PERMISOS DE EXPORTACIÓN
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: PERM-11 - Roles autorizados pueden descargar información
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "<rol>"
@@ -155,7 +155,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
       | Responsable de Facturación |
       | Gestor TA                  |
 
-  @ejecutivoFacturacion @backend @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @backend @unhappyPath
   Escenario: PERM-12 - Backend bloquea exportación de otros roles
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -168,7 +168,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: MENSAJES DE ERROR ESPECÍFICOS
   # ========================================================================
 
-  @ejecutivoFacturacion @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @unhappyPath
   Escenario: PERM-13 - Validar mensaje de error específico para acceso denegado
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -186,7 +186,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE SEGURIDAD
   # ========================================================================
 
-  @seguridad @unhappyPath
+  @prioridadExtrema @seguridad @unhappyPath
   Escenario: PERM-14 - Validar que NO se exponen datos mediante URL manipulation
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -200,7 +200,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
     Y NO debe exponerse ningún dato del cuadro de control
     Y debe mostrarse "Acceso denegado" en todos los casos
 
-  @seguridad @unhappyPath
+  @prioridadExtrema @seguridad @unhappyPath
   Escenario: PERM-15 - Validar que el token de sesión valida correctamente el rol
     Dado que un usuario tiene un token de sesión válido
     Y el token contiene el rol "Ejecutivo de Facturación"
@@ -213,7 +213,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: EXCLUSIVIDAD DE ROLES AUTORIZADOS
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @happyPath
   Escenario: PERM-16 - Validar roles autorizados para acceder al Cuadro de Control
     Dado que existen los siguientes roles en el sistema:
       | Rol                        |
@@ -231,7 +231,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE FILTROS POR ROL
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @happyPath
   Esquema del escenario: PERM-17 - Roles autorizados visualizan datos de todos los ejecutivos
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "<rol>"
@@ -251,7 +251,7 @@ Característica: Permisos de Acceso al Cuadro de Control - Encuentros Asignados
   # TÉCNICA: VALIDACIÓN DE DATOS SENSIBLES
   # ========================================================================
 
-  @responsableFacturacion @gestorTA @seguridad @happyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @gestorTA @seguridad @happyPath
   Esquema del escenario: PERM-18 - Roles autorizados visualizan datos de desempeño de todos los ejecutivos
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "<rol>"

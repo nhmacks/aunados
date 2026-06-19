@@ -9,7 +9,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # VALIDACIÓN DE MÍNIMO 3 CARACTERES (RN-LE-038)
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-01 - Mensaje "Mínimo 3 caracteres" aparece al ingresar el primer carácter
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -18,7 +18,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el sistema debe mostrar debajo de la caja de texto el mensaje "Mínimo 3 caracteres"
     Y el mensaje debe permanecer visible
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-02 - Mensaje "Mínimo 3 caracteres" permanece visible con 2 caracteres
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -29,7 +29,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el mensaje "Mínimo 3 caracteres" debe permanecer visible
     Y el campo debe contener "Ju"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-03 - Mensaje "Mínimo 3 caracteres" desaparece al completar el tercer carácter (RN-LE-038)
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -43,7 +43,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y el campo debe contener "Jua"
     Y NO debe mostrarse ningún mensaje de error
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-04 - Búsqueda se habilita al ingresar exactamente 3 caracteres
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -51,7 +51,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el mensaje "Mínimo 3 caracteres" NO debe mostrarse
     Y debo poder presionar la tecla Enter para ejecutar la búsqueda
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: BUS-05 - Búsqueda funciona correctamente con más de 3 caracteres
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -59,7 +59,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el mensaje "Mínimo 3 caracteres" NO debe mostrarse
     Y debo poder presionar la tecla Enter para ejecutar la búsqueda
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: BUS-06 - Borrar caracteres hasta tener menos de 3 vuelve a mostrar el mensaje
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -72,14 +72,14 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # VALIDACIÓN DE CARACTERES ESPECIALES (RN-LE-039)
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-07 - Mensaje aparece al ingresar carácter especial @ (RN-LE-039)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
     Cuando ingreso el carácter especial "@" en la caja de búsqueda
     Entonces el sistema debe mostrar debajo de la caja de texto el mensaje "No se permiten caracteres especiales en la búsqueda."
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-08 - Mensaje aparece con múltiples caracteres especiales
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -87,7 +87,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el sistema debe mostrar el mensaje "No se permiten caracteres especiales en la búsqueda."
     Y el mensaje debe permanecer visible mientras exista el carácter especial "#"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-09 - Mensaje desaparece al eliminar todos los caracteres especiales (RN-LE-039)
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -98,7 +98,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el mensaje "No se permiten caracteres especiales en la búsqueda." debe desaparecer
     Y NO debe mostrarse ningún mensaje de error
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Esquema del escenario: BUS-10 - Validar diferentes caracteres especiales no permitidos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -125,7 +125,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
       | \                 |
       | |                 |
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-11 - Búsqueda NO se ejecuta mientras existan caracteres especiales
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -140,7 +140,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # CARACTERES PERMITIDOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-12 - Letras mayúsculas y minúsculas son caracteres permitidos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -148,7 +148,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces NO debe mostrarse el mensaje de caracteres especiales
     Y debo poder ejecutar la búsqueda presionando Enter
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-13 - Números son caracteres permitidos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -156,7 +156,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces NO debe mostrarse el mensaje de caracteres especiales
     Y debo poder ejecutar la búsqueda presionando Enter
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-14 - Espacios son caracteres permitidos
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -164,7 +164,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces NO debe mostrarse el mensaje de caracteres especiales
     Y debo poder ejecutar la búsqueda presionando Enter
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-15 - Caracteres con tilde son permitidos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -172,7 +172,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces NO debe mostrarse el mensaje de caracteres especiales
     Y debo poder ejecutar la búsqueda presionando Enter
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-16 - Letra Ñ es un carácter permitido
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -184,7 +184,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # BÚSQUEDA POR NÚMERO DE ENCUENTRO (RN-LE-005, RN-LE-006)
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-17 - Buscar por número de encuentro exacto
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -198,7 +198,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y NO debe mostrar el encuentro "87654321"
     Y el contador debe mostrar "1 registro encontrado"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-18 - Buscar por número de encuentro parcial (mínimo 3 dígitos)
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -217,7 +217,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # BÚSQUEDA POR APELLIDOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-19 - Buscar por apellido completo
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -232,7 +232,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y NO debe mostrar el encuentro "87654321"
     Y el contador debe mostrar "2 registros encontrados"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-20 - Buscar por apellido parcial (mínimo 3 caracteres)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -246,7 +246,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces la grilla debe mostrar únicamente el encuentro "12345678"
     Y el contador debe mostrar "1 registro encontrado"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-21 - Búsqueda por apellido es case-insensitive
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -260,7 +260,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # BÚSQUEDA POR NOMBRES
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-22 - Buscar por nombre completo
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -275,7 +275,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y NO debe mostrar el encuentro "87654321"
     Y el contador debe mostrar "2 registros encontrados"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-23 - Buscar por nombre parcial (mínimo 3 caracteres)
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -290,7 +290,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y NO debe mostrar el encuentro "11223344"
     Y el contador debe mostrar "2 registros encontrados"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-24 - Buscar por nombres compuestos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -303,7 +303,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # BÚSQUEDA SIN RESULTADOS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-25 - Mensaje cuando búsqueda no retorna resultados
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -319,7 +319,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # INTERACCIÓN CON FILTROS
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-26 - Búsqueda se combina con filtros activos
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -331,7 +331,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y NO debe mostrar encuentros con apellido "García" y estado "Tramitado"
     Y el filtro "Estado" debe permanecer activo
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: BUS-27 - Limpiar búsqueda mantiene filtros activos
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -342,7 +342,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el filtro "Estado" debe permanecer activo
     Y la grilla debe mostrar todos los encuentros con estado "Pendiente"
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-28 - Restablecer Vista elimina búsqueda y filtros
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -357,7 +357,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # RESTRICCIONES POR ROL
   # ========================================================================
 
-  @ejecutivoAdmision @happyPath
+  @prioridadMedia @ejecutivoAdmision @happyPath
   Escenario: BUS-29 - Ejecutivo solo busca en encuentros de su sede y usuario
     Dado que soy un usuario con rol "Ejecutivo de Admisión" con usuario "ejecutivo01"
     Y estoy asignado a la sede "Auna Guardia Civil"
@@ -373,7 +373,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y NO debo visualizar el encuentro "11223344" (diferente sede)
     Y la búsqueda debe respetar las restricciones de visibilidad de mi rol
 
-  @superusuarioAdmision @gestorTA @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @happyPath
   Escenario: BUS-30 - Superusuario y Gestor buscan en todos los encuentros
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y existen los siguientes encuentros:
@@ -391,7 +391,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # ACTUALIZACIÓN DE CONTADOR
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-31 - Contador se actualiza automáticamente al realizar búsqueda (RN-LE-006)
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -408,7 +408,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # PENDIENTE: Definir mensajes de error específicos para cada caso
   # ========================================================================
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-32 - Error del servicio al ejecutar búsqueda
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -424,7 +424,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el sistema debe mostrar un mensaje de error
     # Resultado esperado: PENDIENTE POR DEFINIR
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-33 - Timeout del servicio de búsqueda
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -439,7 +439,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el sistema debe manejar el timeout adecuadamente
     # Resultado esperado: PENDIENTE POR DEFINIR
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-34 - Error de conexión durante la búsqueda
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -453,7 +453,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el sistema debe notificar el error de conexión
     # Resultado esperado: PENDIENTE POR DEFINIR
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-35 - Error al ejecutar búsqueda con caracteres válidos pero búsqueda retorna error 500
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -467,7 +467,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Entonces el sistema debe manejar el error del servidor
     # Resultado esperado: PENDIENTE POR DEFINIR
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-36 - Búsqueda falla pero filtros previos permanecen activos
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -486,7 +486,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y el filtro "Estado" debe permanecer activo
     # Resultado esperado: PENDIENTE POR DEFINIR
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-37 - Reintentar búsqueda después de error
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -502,7 +502,7 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y debe mostrar los resultados esperados
     # Resultado esperado: PENDIENTE POR DEFINIR
 
-  @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
+  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-38 - Mensaje de error no impide realizar otras acciones en la pantalla
     Dado que soy un usuario con rol "Superusuario de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"

@@ -9,7 +9,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
   # TÉCNICA: CONTROL DE ACCESO - GESTOR TA
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: PERM-01 - Gestor TA puede acceder a PxF Ambulatorio
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Gestor TA"
@@ -19,7 +19,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
     Y debo poder visualizar las métricas agregadas
     Y debo poder visualizar las tablas de Protocolo, Admisión y Facturación
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: PERM-02 - Gestor TA puede ver todas las sedes en PxF Ambulatorio
     Dado que he iniciado sesión como "Gestor TA"
     Cuando accedo a "PxF Ambulatorio"
@@ -31,7 +31,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
   # TÉCNICA: RESTRICCIÓN DE ACCESO - OTROS ROLES
   # ========================================================================
 
-  @responsableFacturacion @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @pxfAmbulatorio @unhappyPath
   Escenario: PERM-03 - Responsable de Facturación NO puede acceder a PxF Ambulatorio
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Responsable de Facturación"
@@ -40,7 +40,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
     Y debe mostrarse un mensaje "No tiene permisos para acceder a esta funcionalidad"
     Y debe redirigirme a mi pantalla principal
 
-  @ejecutivoFacturacion @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @pxfAmbulatorio @unhappyPath
   Escenario: PERM-04 - Ejecutivo de Facturación NO puede acceder a PxF Ambulatorio
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Facturación"
@@ -49,7 +49,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
     Y debe mostrarse un mensaje "No tiene permisos para acceder a esta funcionalidad"
     Y debe redirigirme a "Pendientes por Facturar"
 
-  @superusuarioAdmision @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @superusuarioAdmision @pxfAmbulatorio @unhappyPath
   Escenario: PERM-05 - Superusuario de Admisión NO puede acceder a PxF Ambulatorio
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Superusuario de Admisión"
@@ -58,7 +58,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
     Y debe mostrarse un mensaje "No tiene permisos para acceder a esta funcionalidad"
     Y debe redirigirme a mi pantalla principal
 
-  @ejecutivoAdmision @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoAdmision @pxfAmbulatorio @unhappyPath
   Escenario: PERM-06 - Ejecutivo de Admisión NO puede acceder a PxF Ambulatorio
     Dado que he iniciado sesión en el sistema
     Y soy un usuario con rol "Ejecutivo de Admisión"
@@ -71,7 +71,7 @@ Característica: Permisos de Acceso a PxF Ambulatorio
   # TÉCNICA: ACCESO SIN AUTENTICACIÓN
   # ========================================================================
 
-  @pxfAmbulatorio @unhappyPath
+  @prioridadExtrema @pxfAmbulatorio @unhappyPath
   Escenario: PERM-07 - Usuario no autenticado no puede acceder a PxF Ambulatorio
     Dado que NO he iniciado sesión en el sistema
     Cuando intento acceder a la URL "/insurances-billing/ambulatory-pxf"
@@ -82,21 +82,21 @@ Característica: Permisos de Acceso a PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE NAVEGACIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @autoP0 @prioridadExtrema @gestorTA @pxfAmbulatorio @happyPath
   Escenario: PERM-08 - PxF Ambulatorio aparece en el menú del Gestor TA
     Dado que he iniciado sesión como "Gestor TA"
     Cuando visualizo el menú de navegación
     Entonces debe mostrarse la opción "PxF Ambulatorio" en la sección Facturación
     Y debo poder hacer clic en la opción para acceder
 
-  @responsableFacturacion @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @responsableFacturacion @pxfAmbulatorio @unhappyPath
   Escenario: PERM-09 - PxF Ambulatorio NO aparece en el menú de Responsable de Facturación
     Dado que he iniciado sesión como "Responsable de Facturación"
     Cuando visualizo el menú de navegación
     Entonces NO debe mostrarse la opción "PxF Ambulatorio"
     Y solo debo ver opciones permitidas para mi rol
 
-  @ejecutivoFacturacion @pxfAmbulatorio @unhappyPath
+  @autoP0 @prioridadExtrema @ejecutivoFacturacion @pxfAmbulatorio @unhappyPath
   Escenario: PERM-10 - PxF Ambulatorio NO aparece en el menú de Ejecutivo de Facturación
     Dado que he iniciado sesión como "Ejecutivo de Facturación"
     Cuando visualizo el menú de navegación

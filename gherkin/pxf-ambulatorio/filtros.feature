@@ -14,7 +14,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: ESTADO INICIAL DE FILTROS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-01 - Visualizar estado inicial de filtros
     Cuando accedo a "PxF Ambulatorio"
     Entonces el filtro "Sede" debe mostrar "Todos"
@@ -29,14 +29,14 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: FILTRO POR SEDE
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-02 - Abrir dropdown de filtro Sede
     Cuando hago clic en el filtro "Sede"
     Entonces debe desplegarse una lista de sedes
     Y debe mostrarse la opción "Todos" seleccionada por defecto
     Y deben mostrarse todas las sedes disponibles en el sistema
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: FIL-03 - Filtrar por sede específica
     Dado que existen datos de múltiples sedes
     Cuando selecciono "<sede>" en el filtro "Sede"
@@ -59,14 +59,14 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: FILTRO POR TIPO DE ATENCIÓN
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-04 - Abrir dropdown de filtro Tipo de atención
     Cuando hago clic en el filtro "Tipo de atención"
     Entonces debe desplegarse una lista de tipos de atención
     Y debe mostrarse la opción "Todos" seleccionada por defecto
     Y deben mostrarse todos los tipos de atención disponibles
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: FIL-05 - Filtrar por tipo de atención específico
     Dado que existen datos de múltiples tipos de atención
     Cuando selecciono "<tipo_atencion>" en el filtro "Tipo de atención"
@@ -84,14 +84,14 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: FILTRO POR GARANTE
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-06 - Abrir dropdown de filtro Garante
     Cuando hago clic en el filtro "Garante"
     Entonces debe desplegarse una lista de garantes
     Y debe mostrarse la opción "Todos" seleccionada por defecto
     Y deben mostrarse todos los garantes con encuentros ambulatorios
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Esquema del escenario: FIL-07 - Filtrar por garante específico
     Dado que existen datos de múltiples garantes
     Cuando selecciono "<garante>" en el filtro "Garante"
@@ -112,7 +112,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: COMBINACIÓN DE FILTROS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-08 - Aplicar filtros combinados de Sede y Garante
     Dado que existen datos de múltiples sedes y garantes
     Cuando selecciono "Auna Guardia Civil" en el filtro "Sede"
@@ -123,7 +123,7 @@ Característica: Filtros en PxF Ambulatorio
       - Garante: "PACIFICO SEGUROS"
     Y las tablas deben mostrar solo encuentros que cumplan AMBOS filtros
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-09 - Aplicar los tres filtros simultáneamente
     Dado que existen datos con diferentes combinaciones
     Cuando selecciono "Las Flores" en el filtro "Sede"
@@ -140,7 +140,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: BOTÓN LIMPIAR
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-10 - Limpiar filtros aplicados
     Dado que he aplicado filtros en "Sede", "Tipo de atención" y "Garante"
     Y he presionado el botón "Filtrar"
@@ -153,7 +153,7 @@ Característica: Filtros en PxF Ambulatorio
     Y las tablas deben mostrar todos los datos sin filtrar
     Y el toggle "Solo positivos" debe permanecer en su estado actual
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-11 - Botón Limpiar restablece estado inicial completo
     Dado que he aplicado múltiples filtros
     Y he activado el toggle "Solo positivos"
@@ -166,7 +166,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: TOGGLE "SOLO POSITIVOS"
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-12 - Activar toggle "Solo positivos" sin filtros previos
     Dado que NO he aplicado ningún filtro
     Y visualizo todos los datos
@@ -176,7 +176,7 @@ Característica: Filtros en PxF Ambulatorio
     Y NO deben mostrarse filas con cantidades = 0
     Y NO deben mostrarse filas con montos = S/ 0.00
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-13 - Desactivar toggle "Solo positivos" vuelve a mostrar todos los datos
     Dado que he activado el toggle "Solo positivos"
     Y las tablas muestran solo valores positivos
@@ -186,7 +186,7 @@ Característica: Filtros en PxF Ambulatorio
     Y deben incluirse filas con cantidades = 0
     Y deben incluirse filas con montos = S/ 0.00
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-14 - Combinar toggle "Solo positivos" con filtros de Sede
     Dado que he seleccionado "Delgado" en el filtro "Sede"
     Y he activado el toggle "Solo positivos"
@@ -196,7 +196,7 @@ Característica: Filtros en PxF Ambulatorio
       - Solo filas con valores mayores a 0
     Y NO deben mostrarse filas vacías
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-15 - Toggle "Solo positivos" afecta todas las tablas
     Dado que he activado el toggle "Solo positivos"
     Cuando presiono el botón "Filtrar"
@@ -209,7 +209,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: ACTUALIZACIÓN DE TARJETAS AL FILTRAR
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-16 - Las tarjetas de métricas se actualizan al aplicar filtros
     Dado que las tarjetas muestran los siguientes valores iniciales:
       | Tarjeta       | Monto             | Cantidad |
@@ -222,7 +222,7 @@ Característica: Filtros en PxF Ambulatorio
     Y los nuevos valores deben ser menores o iguales a los valores iniciales
     Y la suma de las tres tarjetas debe coincidir con los totales de las tablas filtradas
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-17 - Tarjetas vuelven a valores originales al limpiar filtros
     Dado que he aplicado filtros
     Y las tarjetas muestran valores filtrados
@@ -237,7 +237,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: VALIDACIÓN DE BOTÓN FILTRAR
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-18 - Botón Filtrar aplica cambios solo al ser presionado
     Dado que he seleccionado "Bellavista" en el filtro "Sede"
     Y NO he presionado el botón "Filtrar"
@@ -247,7 +247,7 @@ Característica: Filtros en PxF Ambulatorio
     Cuando presiono el botón "Filtrar"
     Entonces las métricas y tablas deben actualizarse con datos de "Bellavista"
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-19 - Modificar filtros después de aplicar filtro previo
     Dado que he filtrado por "Sede" = "Camino Real"
     Y he presionado "Filtrar"
@@ -261,7 +261,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: FILTROS SIN RESULTADOS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @unhappyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @unhappyPath
   Escenario: FIL-20 - Aplicar filtros que no retornan resultados
     Dado que selecciono una combinación de filtros sin datos
     Cuando presiono el botón "Filtrar"
@@ -277,7 +277,7 @@ Característica: Filtros en PxF Ambulatorio
   # TÉCNICA: PERSISTENCIA DE FILTROS
   # ========================================================================
 
-  @gestorTA @pxfAmbulatorio @happyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @happyPath
   Escenario: FIL-21 - Los filtros se mantienen al hacer scroll
     Dado que he aplicado filtros por "Sede" y "Garante"
     Y he presionado "Filtrar"
@@ -285,7 +285,7 @@ Característica: Filtros en PxF Ambulatorio
     Entonces los filtros deben permanecer visibles y activos
     Y las métricas deben seguir mostrando datos filtrados
 
-  @gestorTA @pxfAmbulatorio @unhappyPath
+  @prioridadAlta @gestorTA @pxfAmbulatorio @unhappyPath
   Escenario: FIL-22 - Los filtros NO persisten al recargar la página
     Dado que he aplicado filtros múltiples
     Y he presionado "Filtrar"

@@ -17,7 +17,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: FLUJO COMPLETO DE ASIGNACIÓN MASIVA EXITOSA
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Esquema del escenario: ASIG-01 - Asignar encuentros masivos exitosamente
     Dado que he seleccionado "<cantidad_garantes>" garantes válidos de la tabla de resultados
     Y cada garante tiene encuentros disponibles en estado "Por asignar"
@@ -43,7 +43,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: VALIDACIONES DE SELECCIÓN DE GARANTES
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-02 - Validar habilitación del botón Asignar al seleccionar garantes
     Dado que estoy visualizando los resultados de búsqueda
     Y el botón "Asignar" está deshabilitado
@@ -51,7 +51,7 @@ Característica: Asignación Masiva de Encuentros
     Entonces el botón "Asignar" debe habilitarse
     Y debo poder hacer clic en el botón "Asignar"
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: ASIG-03 - Deseleccionar todos los garantes deshabilita botón Asignar
     Dado que he seleccionado 3 garantes de la tabla
     Y el botón "Asignar" está habilitado
@@ -63,7 +63,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: VALIDACIONES DEL MODAL DE ASIGNACIÓN - SEDE
   # ========================================================================
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Esquema del escenario: ASIG-04 - Garante sin sede indicada bloquea el flujo
     Dado que he seleccionado "<cantidad_garantes>" de la tabla
     Y he abierto el modal de asignación masiva
@@ -79,7 +79,7 @@ Característica: Asignación Masiva de Encuentros
       | 2 garantes        |
       | 10 garantes       |
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Esquema del escenario: ASIG-05 - Eliminar sede incompleta habilita el botón Asignar
     Dado que he seleccionado "<cantidad_garantes>" de la tabla
     Y he abierto el modal de asignación masiva
@@ -97,7 +97,7 @@ Característica: Asignación Masiva de Encuentros
       | 2 garantes        |
       | 10 garantes       |
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Esquema del escenario: ASIG-06 - Eliminar todas las sedes bloquea el flujo
     Dado que he seleccionado "<cantidad_garantes>" de la tabla
     Y he abierto el modal de asignación masiva
@@ -118,7 +118,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: VALIDACIONES DEL MODAL - CANTIDAD A ASIGNAR
   # ========================================================================
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Esquema del escenario: ASIG-07 - Garante con cantidad a asignar pendiente bloquea el flujo
     Dado que he seleccionado "<cantidad_garantes>" garantes válidos de la tabla
     Y he abierto el modal de asignación masiva
@@ -135,7 +135,7 @@ Característica: Asignación Masiva de Encuentros
       | 2 garantes        |
       | 10 garantes       |
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: ASIG-08 - Sede con cantidad en cero bloquea flujo de asignación masiva
     Dado que he seleccionado un garante de la tabla
     Y he abierto el modal de asignación masiva
@@ -146,7 +146,7 @@ Característica: Asignación Masiva de Encuentros
     Y debe mostrarse un mensaje de error "La cantidad debe ser mayor a 0"
     Y NO debe permitirse completar la asignación
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: ASIG-09 - Cantidad mayor al disponible bloquea el flujo
     Dado que he seleccionado un garante con 50 encuentros disponibles
     Y he abierto el modal de asignación masiva
@@ -158,7 +158,7 @@ Característica: Asignación Masiva de Encuentros
     Y el campo de cantidad debe marcarse con error visual
     Y NO debe permitirse completar la asignación
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-10 - Cantidad válida habilita botón Asignar
     Dado que he seleccionado un garante con 50 encuentros disponibles
     Y he abierto el modal de asignación masiva
@@ -173,7 +173,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: VALIDACIONES DE SELECCIÓN DE EJECUTIVO
   # ========================================================================
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: ASIG-11 - Abrir modal sin ejecutivo mantiene botón deshabilitado
     Dado que he seleccionado garantes de la tabla
     Y he abierto el modal de asignación masiva
@@ -182,7 +182,7 @@ Característica: Asignación Masiva de Encuentros
     Y debe mostrarse el campo "Seleccionar ejecutivo" vacío
     Y debe mostrarse un mensaje "Seleccione un ejecutivo para continuar"
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-12 - Seleccionar ejecutivo habilita configuración de sedes
     Dado que he seleccionado garantes de la tabla
     Y he abierto el modal de asignación masiva
@@ -192,7 +192,7 @@ Característica: Asignación Masiva de Encuentros
     Y debo poder agregar sedes para cada garante
     Y debe mostrarse la información del ejecutivo seleccionado
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: ASIG-13 - Cambiar ejecutivo limpia configuración de sedes
     Dado que he seleccionado un ejecutivo de facturación
     Y he configurado sedes y cantidades para los garantes
@@ -205,7 +205,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: GESTIÓN DE SEDES MÚLTIPLES POR GARANTE
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-14 - Agregar múltiples sedes para un mismo garante
     Dado que he seleccionado un garante con encuentros en 3 sedes diferentes
     Y he abierto el modal de asignación masiva
@@ -217,7 +217,7 @@ Característica: Asignación Masiva de Encuentros
     Y el total a asignar para el garante debe ser 45 encuentros
     Y el botón "Asignar" del modal debe estar habilitado
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-15 - Eliminar una sede válida mantiene botón habilitado si quedan sedes
     Dado que he configurado 3 sedes válidas para un garante
     Y el botón "Asignar" del modal está habilitado
@@ -226,7 +226,7 @@ Característica: Asignación Masiva de Encuentros
     Y el botón "Asignar" del modal debe permanecer habilitado
     Y el total a asignar debe actualizarse correctamente
 
-  @responsableFacturacion @unhappyPath
+  @prioridadExtrema @responsableFacturacion @unhappyPath
   Escenario: ASIG-16 - Eliminar última sede de un garante deshabilita botón
     Dado que he configurado 1 sede válida para un garante
     Y el botón "Asignar" del modal está habilitado
@@ -239,7 +239,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: CANCELACIÓN Y CIERRE DE MODAL
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-17 - Cancelar asignación masiva en el modal
     Dado que he seleccionado garantes de la tabla
     Y he abierto el modal de asignación masiva
@@ -251,7 +251,7 @@ Característica: Asignación Masiva de Encuentros
     Y los garantes deben permanecer seleccionados en la tabla
     Y toda la configuración del modal debe descartarse
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-18 - Cerrar modal con X pierde configuración
     Dado que he configurado ejecutivo, sedes y cantidades en el modal
     Cuando selecciono el botón "X" para cerrar el modal
@@ -263,7 +263,7 @@ Característica: Asignación Masiva de Encuentros
   # TÉCNICA: VALIDACIÓN DE TOTALES Y RESUMEN
   # ========================================================================
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-19 - Visualizar resumen de asignación antes de confirmar
     Dado que he configurado completamente la asignación masiva
     Y he seleccionado 3 garantes con un total de 100 encuentros
@@ -274,7 +274,7 @@ Característica: Asignación Masiva de Encuentros
     Y debe mostrarse el ejecutivo seleccionado
     Y debe mostrarse el desglose por garante y sede
 
-  @responsableFacturacion @happyPath
+  @prioridadExtrema @responsableFacturacion @happyPath
   Escenario: ASIG-20 - Validar que el total a asignar no excede el disponible global
     Dado que he seleccionado 2 garantes
     Y el Garante A tiene 30 encuentros disponibles

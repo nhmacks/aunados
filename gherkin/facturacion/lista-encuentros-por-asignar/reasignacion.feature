@@ -15,7 +15,7 @@ Característica: Reasignación de Encuentros Regularizados
   # RN-ED-014, RN-ED-015, RN-ED-016
   # ========================================================================
 
-  @responsableFacturacion @encuentrosRegularizados @happyPath
+  @prioridadExtrema @responsableFacturacion @encuentrosRegularizados @happyPath
   Escenario: REAS-01 - Recibir encuentro regularizado desde Admisión (RN-ED-014)
     Dado que el Ejecutivo de Admisión regularizó el encuentro "12345678"
     Y el encuentro fue reenviado a Facturación
@@ -25,7 +25,7 @@ Característica: Reasignación de Encuentros Regularizados
     Y el encuentro NO debe estar asignado a ningún ejecutivo
     Y puedo asignarlo a cualquier Ejecutivo de Facturación
 
-  @responsableFacturacion @encuentrosRegularizados @happyPath
+  @prioridadExtrema @responsableFacturacion @encuentrosRegularizados @happyPath
   Escenario: REAS-02 - Reasignar encuentro regularizado al mismo ejecutivo (RN-ED-015)
     Dado que tengo el encuentro regularizado "12345678" sin asignar
     Y el encuentro fue procesado anteriormente por "ejecutivo01"
@@ -34,7 +34,7 @@ Característica: Reasignación de Encuentros Regularizados
     Y el encuentro debe aparecer en la bandeja "Pendientes por Facturar" del "ejecutivo01"
     Y debe mostrarse el mensaje "Encuentro asignado exitosamente"
 
-  @responsableFacturacion @encuentrosRegularizados @happyPath
+  @prioridadExtrema @responsableFacturacion @encuentrosRegularizados @happyPath
   Escenario: REAS-03 - Reasignar encuentro regularizado a ejecutivo diferente (RN-ED-015)
     Dado que tengo el encuentro regularizado "12345678" sin asignar
     Y el encuentro fue procesado anteriormente por "ejecutivo01"
@@ -43,7 +43,7 @@ Característica: Reasignación de Encuentros Regularizados
     Y el encuentro debe aparecer en la bandeja "Pendientes por Facturar" del "ejecutivo02"
     Y el "ejecutivo01" NO debe visualizar el encuentro en su bandeja
 
-  @responsableFacturacion @encuentrosRegularizados @happyPath
+  @prioridadExtrema @responsableFacturacion @encuentrosRegularizados @happyPath
   Escenario: REAS-04 - Validar que estado se conserva después de reasignación (RN-ED-016)
     Dado que el encuentro "12345678" tiene estado "Regularizado"
     Cuando asigno el encuentro al "ejecutivo01"
@@ -51,7 +51,7 @@ Característica: Reasignación de Encuentros Regularizados
     Y el estado NO debe cambiar por la reasignación
     Y el ejecutivo debe poder visualizar el historial de devoluciones
 
-  @responsableFacturacion @encuentrosRegularizados @happyPath
+  @prioridadExtrema @responsableFacturacion @encuentrosRegularizados @happyPath
   Esquema del escenario: REAS-05 - Conservar diferentes estados durante reasignación (RN-ED-016)
     Dado que el encuentro "12345678" tiene estado "<estado>"
     Cuando asigno el encuentro a un Ejecutivo de Facturación
@@ -70,7 +70,7 @@ Característica: Reasignación de Encuentros Regularizados
   # RN-ED-017
   # ========================================================================
 
-  @responsableFacturacion @encuentrosRegularizados @happyPath
+  @prioridadExtrema @responsableFacturacion @encuentrosRegularizados @happyPath
   Escenario: REAS-06 - Visualizar historial de devoluciones del encuentro regularizado
     Dado que tengo el encuentro regularizado "12345678" sin asignar
     Y el encuentro fue devuelto anteriormente con los motivos:
