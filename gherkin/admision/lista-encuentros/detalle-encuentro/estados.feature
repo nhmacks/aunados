@@ -84,7 +84,6 @@ Característica: Gestión de Estados del Encuentro
       | Error de Vinculación            |
       | Pendiente de Revisión           |
       | Terapia en Proceso              |
-      | En Proceso                      |
       | Tramitado                       |
 
   # ========================================================================
