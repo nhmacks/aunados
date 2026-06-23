@@ -73,13 +73,6 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   # ========================================================================
 
   @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
-  Escenario: BUS-07 - Mensaje aparece al ingresar carácter especial @ (RN-LE-039)
-    Dado que soy un usuario con rol "Superusuario de Admisión"
-    Y estoy en la pantalla "Lista de Encuentros"
-    Cuando ingreso el carácter especial "@" en la caja de búsqueda
-    Entonces el sistema debe mostrar debajo de la caja de texto el mensaje "No se permiten caracteres especiales en la búsqueda."
-
-  @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @happyPath
   Escenario: BUS-08 - Mensaje aparece con múltiples caracteres especiales
     Dado que soy un usuario con rol "Ejecutivo de Admisión"
     Y estoy en la pantalla "Lista de Encuentros"
@@ -91,9 +84,9 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
   Escenario: BUS-09 - Mensaje desaparece al eliminar todos los caracteres especiales (RN-LE-039)
     Dado que soy un usuario con rol "Gestor TA"
     Y estoy en la pantalla "Lista de Encuentros"
-    Y he ingresado "Juan#" en la caja de búsqueda
+    Y he ingresado "Juan$" en la caja de búsqueda
     Y el sistema muestra el mensaje "No se permiten caracteres especiales en la búsqueda."
-    Cuando elimino el carácter especial "#"
+    Cuando elimino el carácter especial "$"
     Y el campo contiene solo "Juan"
     Entonces el mensaje "No se permiten caracteres especiales en la búsqueda." debe desaparecer
     Y NO debe mostrarse ningún mensaje de error
@@ -107,8 +100,6 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
 
     Ejemplos:
       | caracter_especial |
-      | @                 |
-      | #                 |
       | $                 |
       | %                 |
       | &                 |
@@ -446,12 +437,8 @@ Característica: Búsqueda en Lista de Encuentros de Admisión
     Y la conexión a internet se pierde
     Cuando ingreso "123" en la caja de búsqueda
     Y presiono la tecla Enter
-    # PENDIENTE: Definir resultado esperado
-    # ¿Se muestra mensaje de error de conexión?
-    # ¿Es diferente al mensaje de error general del servicio?
-    # ¿El sistema reintenta automáticamente?
-    Entonces el sistema debe notificar el error de conexión
-    # Resultado esperado: PENDIENTE POR DEFINIR
+    Entonces el sistema debe notificar el error "Hubo un inconveniente"
+    Y el submensaje "En estos momentos, no podemos mostrar la información que necesita. Por favor, intentalo nuevamente.
 
   @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision @errorHandling
   Escenario: BUS-35 - Error al ejecutar búsqueda con caracteres válidos pero búsqueda retorna error 500

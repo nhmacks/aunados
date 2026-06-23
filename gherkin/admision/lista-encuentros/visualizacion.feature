@@ -169,7 +169,7 @@ Característica: Visualización de Lista de Encuentros en Admisión
     Cuando accedo a la Lista de Encuentros
     Entonces debe mostrarse el mensaje de error funcional
     Y el mensaje debe mostrar el título "No encontramos resultados por atender"
-    Y el mensaje debe mostrar la descripción "En estos momentos no podemos mostrar la información que necesita. Por favor, inténtelo nuevamente"
+    Y el mensaje debe mostrar la descripción "Por favor, realiza la búsqueda verificando los datos correctos y/o ingresando el número de encuentro."
 
   @prioridadMedia @superusuarioAdmision @gestorTA @ejecutivoAdmision
   Escenario: VIS-17 - Error general al cargar la lista de encuentros
